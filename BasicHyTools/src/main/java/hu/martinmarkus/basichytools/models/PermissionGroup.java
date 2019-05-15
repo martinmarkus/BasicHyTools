@@ -1,5 +1,7 @@
 package hu.martinmarkus.basichytools.models;
 
+import hu.martinmarkus.basichytools.configmanaging.PermissionGroupConfigManager;
+
 import java.util.List;
 
 public class PermissionGroup {
@@ -23,8 +25,19 @@ public class PermissionGroup {
             return true;
         }
 
-        // TODO: check inheritance permission
-        return true;
+        // TODO: correct algorithm
+        PermissionGroupConfigManager configManager = PermissionGroupConfigManager.getInstance();
+        List<PermissionGroup> permissionGroupList = configManager.getPermissionGroups();
+
+        for (String inheritance : inheritances) {
+            for (PermissionGroup permissionGroup : permissionGroupList) {
+                if (permissionGroup.getName().equalsIgnoreCase(inheritance)) {
+                    PermissionGroup inheritanceGroup = configManager.getPermissionGroup(inheritance);
+                    return inheritanceGroup.hasPermission(permission);
+                }
+            }
+        }
+        return false;
     }
 
     public String getName() {

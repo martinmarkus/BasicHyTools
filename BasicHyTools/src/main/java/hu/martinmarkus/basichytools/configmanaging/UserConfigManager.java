@@ -1,13 +1,12 @@
-package hu.martinmarkus.basichytools.configmanagers;
+package hu.martinmarkus.basichytools.configmanaging;
 
 import hu.martinmarkus.basichytools.models.User;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserConfigManager {
-    private static UserConfigManager userConfigManager;
+    private static UserConfigManager userConfigManager = getInstance();
 
     private List<User> onlineUserList;
 
@@ -34,14 +33,7 @@ public class UserConfigManager {
     }
 
     public User getUser(String name) {
-        User user = getOnlineUser(name);
-
-        if (user == null) {
-            // TODO: search for user in files
-            throw new NotImplementedException();
-        }
-
-        return user;
+        return getOnlineUser(name);
     }
 
     public List<User> getOnlineUsers() {
@@ -49,7 +41,7 @@ public class UserConfigManager {
     }
 
     public void registerUser(User user) {
-        if (!onlineUserList.contains(user)) {
+        if (user != null && !onlineUserList.contains(user)) {
             onlineUserList.add(user);
         }
     }

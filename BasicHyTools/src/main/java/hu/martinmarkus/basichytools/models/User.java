@@ -18,7 +18,7 @@ public class User {
     private boolean isIpBanned;
 
     public boolean hasPermission(String permission) {
-        if (uniquePermissions.contains(permission)) {
+        if (isOperator || uniquePermissions.contains(permission)) {
             return true;
         }
 
