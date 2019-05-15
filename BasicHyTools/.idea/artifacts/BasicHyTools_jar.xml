@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="BasicHyTools:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/BasicHyTools_jar</output-path>
+    <root id="archive" name="BasicHyTools.jar">
+      <element id="module-output" name="BasicHyTools" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Created-By: Martin Markus
+Main-Class: hu.martinmarkus.basichytools.Main
