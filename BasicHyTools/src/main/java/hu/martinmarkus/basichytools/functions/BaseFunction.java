@@ -1,35 +1,55 @@
 package hu.martinmarkus.basichytools.functions;
 
+import hu.martinmarkus.basichytools.models.User;
+
 import java.util.List;
+import java.util.concurrent.Callable;
+
+/*
+    The superclass of all functions
+ */
 
 public abstract class BaseFunction<T> {
+    private String name;
     private String permission;
-    private List<String> aliases;
+    private String command;
     private String description;
 
-    public abstract T execute(String... params);
+    private List<String> aliases;
 
-    public String getPermission() {
-        return permission;
+    private User executorUser;
+    private Callable<T> functionCallable;
+
+    public BaseFunction(User executorUser) {
+        this.executorUser = executorUser;
     }
 
-    public void setPermission(String permission) {
-        this.permission = permission;
+    public T execute(Callable<T> callable) {
+        if (callable == null || !hasPermission()) {
+            return null;
+        }
+
+        T result = null;
+
+        try {
+            result =  callable.call();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return result;
     }
 
-    public List<String> getAliases() {
-        return aliases;
+    public void execute(Runnable runnable) {
+        if (runnable == null || !hasPermission()) {
+            return;
+        }
+
+        runnable.run();
     }
 
-    public void setAliases(List<String> aliases) {
-        this.aliases = aliases;
+    private boolean hasPermission() {
+        return executorUser.hasPermission(permission);
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 }
