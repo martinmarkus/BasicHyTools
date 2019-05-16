@@ -1,9 +1,12 @@
 package hu.martinmarkus.basichytools;
 
 import hu.martinmarkus.basichytools.configmanaging.HyToolsInitializer;
+import hu.martinmarkus.basichytools.configmanaging.PermissionGroupManager;
 import hu.martinmarkus.basichytools.configmanaging.UserManager;
 import hu.martinmarkus.basichytools.functions.BaseFunction;
+import hu.martinmarkus.basichytools.models.PermissionGroup;
 import hu.martinmarkus.basichytools.models.User;
+import hu.martinmarkus.basichytools.permissionmanagement.GroupPermissionValidator;
 import hu.martinmarkus.basichytools.permissionmanagement.PermissionValidator;
 import hu.martinmarkus.basichytools.permissionmanagement.UserPermissionValidator;
 import hu.martinmarkus.configmanagerlibrary.fileprocessing.configreaders.ConfigReader;
@@ -49,7 +52,6 @@ public class Main {
             String permission = "group.default";
             boolean hasPermission = user.hasPermission(permission);
         });
-
 
 
     }
