@@ -1,0 +1,154 @@
+package hu.martinmarkus.basichytools.models;
+
+import hu.martinmarkus.basichytools.configmanaging.PermissionGroupManager;
+
+import java.util.List;
+
+public class User {
+    private String name;
+    private String permissionGroupName;
+    private double balance;
+    private double exp;
+    private boolean isOnline;
+    private String loginIp;
+    private String loginTime;
+    private BasicHyToolsLocation location;
+    private List<String> uniquePermissions;
+    private boolean isOperator;
+    private boolean isMuted;
+    private boolean isBanned;
+    private boolean isIpBanned;
+
+    public User(String name, String permissionGroupName, double balance, double exp,
+                boolean isOnline, String loginIp, String loginTime,
+                BasicHyToolsLocation location, List<String> uniquePermissions,
+                boolean isOperator, boolean isMuted, boolean isBanned, boolean isIpBanned) {
+        this.name = name;
+        this.permissionGroupName = permissionGroupName;
+        this.balance = balance;
+        this.exp = exp;
+        this.isOnline = isOnline;
+        this.loginIp = loginIp;
+        this.loginTime = loginTime;
+        this.location = location;
+        this.uniquePermissions = uniquePermissions;
+        this.isOperator = isOperator;
+        this.isMuted = isMuted;
+        this.isBanned = isBanned;
+        this.isIpBanned = isIpBanned;
+    }
+
+    public boolean hasPermission(String permission) {
+        if (isOperator || uniquePermissions.contains(permission)) {
+            return true;
+        }
+
+        PermissionGroupManager configManager = PermissionGroupManager.getInstance();
+        PermissionGroup permissionGroup = configManager.getPermissionGroup(permissionGroupName);
+        return permissionGroup.hasPermission(permission);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPermissionGroupName() {
+        return permissionGroupName;
+    }
+
+    public void setPermissionGroupName(String permissionGroupName) {
+        this.permissionGroupName = permissionGroupName;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public double getExp() {
+        return exp;
+    }
+
+    public void setExp(double exp) {
+        this.exp = exp;
+    }
+
+    public boolean isOnline() {
+        return isOnline;
+    }
+
+    public void setOnline(boolean isOnline) {
+        this.isOnline = isOnline;
+    }
+
+    public String getLoginIp() {
+        return loginIp;
+    }
+
+    public void setLoginIp(String loginIp) {
+        this.loginIp = loginIp;
+    }
+
+    public String getLoginTime() {
+        return loginTime;
+    }
+
+    public void setLoginTime(String loginTime) {
+        this.loginTime = loginTime;
+    }
+
+    public BasicHyToolsLocation getLocation() {
+        return location;
+    }
+
+    public void setLocation(BasicHyToolsLocation location) {
+        this.location = location;
+    }
+
+    public List<String> getUniquePermissions() {
+        return uniquePermissions;
+    }
+
+    public void setUniquePermissions(List<String> uniquePermissions) {
+        this.uniquePermissions = uniquePermissions;
+    }
+
+    public boolean isOperator() {
+        return isOperator;
+    }
+
+    public void setOperator(boolean isOperator) {
+        this.isOperator = isOperator;
+    }
+
+    public boolean isMuted() {
+        return isMuted;
+    }
+
+    public void setMuted(boolean isMuted) {
+        this.isMuted = isMuted;
+    }
+
+    public boolean isBanned() {
+        return isBanned;
+    }
+
+    public void setBanned(boolean isBanned) {
+        this.isBanned = isBanned;
+    }
+
+    public boolean isIpBanned() {
+        return isIpBanned;
+    }
+
+    public void setIpBanned(boolean ipBanned) {
+        isIpBanned = ipBanned;
+    }
+}
