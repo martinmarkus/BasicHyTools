@@ -25,7 +25,6 @@ public class PermissionGroup {
             return true;
         }
 
-        // TODO: correct algorithm
         PermissionGroupConfigManager configManager = PermissionGroupConfigManager.getInstance();
         List<PermissionGroup> permissionGroupList = configManager.getPermissionGroups();
 
@@ -33,7 +32,10 @@ public class PermissionGroup {
             for (PermissionGroup permissionGroup : permissionGroupList) {
                 if (permissionGroup.getName().equalsIgnoreCase(inheritance)) {
                     PermissionGroup inheritanceGroup = configManager.getPermissionGroup(inheritance);
-                    return inheritanceGroup.hasPermission(permission);
+                    List<String> inheritancePermissions = inheritanceGroup.getPermissions();
+                    if (inheritancePermissions.contains(permission)) {
+                        return true;
+                    }
                 }
             }
         }

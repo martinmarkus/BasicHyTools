@@ -36,12 +36,5 @@ public class Main {
 
         List<Boolean> bools = new ArrayList<>();
         bools.add(admin.hasPermission("group.default"));
-        bools.add(admin.hasPermission("group.builder"));
-        bools.add(admin.hasPermission("group.moderator"));
-        bools.add(admin.hasPermission("group.helper"));
-        bools.add(admin.hasPermission("group.admin"));
-        bools.add(admin.hasPermission("group.owner"));
-        bools.add(admin.hasPermission("valamijog"));
-
     }
 }

@@ -1,0 +1,45 @@
+permissionGroups:
+- name: "default"
+  prefix: "[Default]"
+  suffix: ""
+  permissions:
+  - "group.default"
+  - "group.random"
+  inheritances: []
+- name: "builder"
+  prefix: "[Builder]"
+  suffix: ""
+  permissions:
+  - "group.builder"
+  - "worldedit.*"
+  - "vorldedit.*"
+  inheritances: []
+- name: "moderator"
+  prefix: "[Moderator]"
+  suffix: ""
+  permissions:
+  - "group.moderator"
+  inheritances: []
+- name: "helper"
+  prefix: "[Helper]"
+  suffix: ""
+  permissions:
+  - "group.helper"
+  inheritances: []
+- name: "admin"
+  prefix: "[Admin]"
+  suffix: ""
+  permissions:
+  - "group.admin"
+  inheritances:
+    - "default"
+    - "owner"
+    - "builder"
+- name: "owner"
+  prefix: "[Owner]"
+  suffix: ""
+  permissions:
+  - "group.owner"
+  inheritances:
+    - "admin"
+    - "default"
