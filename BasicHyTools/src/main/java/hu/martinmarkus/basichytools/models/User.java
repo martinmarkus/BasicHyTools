@@ -1,7 +1,7 @@
 package hu.martinmarkus.basichytools.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import hu.martinmarkus.basichytools.configmanaging.PermissionGroupManager;
+import hu.martinmarkus.basichytools.configmanaging.GroupManager;
 import hu.martinmarkus.basichytools.permissionmanagement.PermissionValidator;
 import hu.martinmarkus.basichytools.permissionmanagement.UserPermissionValidator;
 
@@ -55,10 +55,10 @@ public class User {
     @JsonIgnore
     public List<String> getAllPermissions() {
         List<String> allPermissions = new ArrayList<>(uniquePermissions);
-        PermissionGroupManager configManager = PermissionGroupManager.getInstance();
-        PermissionGroup permissionGroup = configManager.getPermissionGroup(permissionGroupName);
+        GroupManager configManager = GroupManager.getInstance();
+        Group group = configManager.getPermissionGroup(permissionGroupName);
 
-        allPermissions.addAll(permissionGroup.getAllPermissions());
+        allPermissions.addAll(group.getAllPermissions());
 
         return allPermissions;
     }

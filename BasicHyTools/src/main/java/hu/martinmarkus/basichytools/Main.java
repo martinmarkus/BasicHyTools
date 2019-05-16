@@ -1,19 +1,9 @@
 package hu.martinmarkus.basichytools;
 
 import hu.martinmarkus.basichytools.configmanaging.HyToolsInitializer;
-import hu.martinmarkus.basichytools.configmanaging.PermissionGroupManager;
-import hu.martinmarkus.basichytools.configmanaging.UserManager;
-import hu.martinmarkus.basichytools.functions.BaseFunction;
-import hu.martinmarkus.basichytools.models.PermissionGroup;
 import hu.martinmarkus.basichytools.models.User;
-import hu.martinmarkus.basichytools.permissionmanagement.GroupPermissionValidator;
-import hu.martinmarkus.basichytools.permissionmanagement.PermissionValidator;
-import hu.martinmarkus.basichytools.permissionmanagement.UserPermissionValidator;
 import hu.martinmarkus.configmanagerlibrary.fileprocessing.configreaders.ConfigReader;
 import hu.martinmarkus.configmanagerlibrary.fileprocessing.configreaders.YamlConfigReader;
-import hu.martinmarkus.configmanagerlibrary.fileprocessing.configwriters.ConfigWriter;
-import hu.martinmarkus.configmanagerlibrary.fileprocessing.configwriters.YamlConfigWriter;
-import hu.martinmarkus.configmanagerlibrary.threading.ResultListener;
 
 import java.io.IOException;
 import java.util.Properties;

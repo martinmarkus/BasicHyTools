@@ -1,20 +1,20 @@
 package hu.martinmarkus.basichytools.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import hu.martinmarkus.basichytools.configmanaging.PermissionGroupManager;
+import hu.martinmarkus.basichytools.configmanaging.GroupManager;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PermissionGroup {
+public class Group {
     private String name;
     private String prefix;
     private String suffix;
     private List<String> permissions;
     private List<String> inheritances;
 
-    public PermissionGroup(String name, String prefix, String suffix,
-                           List<String> permissions, List<String> inheritances) {
+    public Group(String name, String prefix, String suffix,
+                 List<String> permissions, List<String> inheritances) {
         this.name = name;
         this.prefix = prefix;
         this.suffix = suffix;
@@ -28,13 +28,13 @@ public class PermissionGroup {
             return true;
         }
 
-        PermissionGroupManager configManager = PermissionGroupManager.getInstance();
-        List<PermissionGroup> permissionGroupList = configManager.getPermissionGroups();
+        GroupManager configManager = GroupManager.getInstance();
+        List<Group> groupList = configManager.getPermissionGroups();
 
         for (String inheritance : inheritances) {
-            for (PermissionGroup permissionGroup : permissionGroupList) {
-                if (permissionGroup.getName().equalsIgnoreCase(inheritance)) {
-                    PermissionGroup inheritanceGroup = configManager.getPermissionGroup(inheritance);
+            for (Group group : groupList) {
+                if (group.getName().equalsIgnoreCase(inheritance)) {
+                    Group inheritanceGroup = configManager.getPermissionGroup(inheritance);
                     List<String> inheritancePermissions = inheritanceGroup.getPermissions();
                     if (inheritancePermissions.contains(permission)) {
                         return true;
@@ -49,13 +49,13 @@ public class PermissionGroup {
     public List<String> getAllPermissions() {
         List<String> allPermissions = new ArrayList<>(permissions);
 
-        PermissionGroupManager configManager = PermissionGroupManager.getInstance();
-        List<PermissionGroup> permissionGroupList = configManager.getPermissionGroups();
+        GroupManager configManager = GroupManager.getInstance();
+        List<Group> groupList = configManager.getPermissionGroups();
 
         for (String inheritance : inheritances) {
-            for (PermissionGroup permissionGroup : permissionGroupList) {
-                if (permissionGroup.getName().equalsIgnoreCase(inheritance)) {
-                    allPermissions.addAll(permissionGroup.getPermissions());
+            for (Group group : groupList) {
+                if (group.getName().equalsIgnoreCase(inheritance)) {
+                    allPermissions.addAll(group.getPermissions());
                 }
             }
         }

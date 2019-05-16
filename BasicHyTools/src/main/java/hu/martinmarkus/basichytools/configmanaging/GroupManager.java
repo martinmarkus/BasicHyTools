@@ -1,6 +1,6 @@
 package hu.martinmarkus.basichytools.configmanaging;
 
-import hu.martinmarkus.basichytools.models.PermissionGroup;
+import hu.martinmarkus.basichytools.models.Group;
 import hu.martinmarkus.basichytools.containers.PermissionGroupContainer;
 import hu.martinmarkus.basichytools.synchronization.Synchronizer;
 import hu.martinmarkus.configmanagerlibrary.fileprocessing.configreaders.ConfigReader;
@@ -11,36 +11,36 @@ import hu.martinmarkus.configmanagerlibrary.fileprocessing.configwriters.YamlCon
 import java.util.ArrayList;
 import java.util.List;
 
-public class PermissionGroupManager {
-    private static PermissionGroupManager permissionGroupManager = getInstance();
+public class GroupManager {
+    private static GroupManager groupManager = getInstance();
 
-    private List<PermissionGroup> permissionGroupList;
+    private List<Group> groupList;
 
     // Singleton
-    public static PermissionGroupManager getInstance() {
-        if (permissionGroupManager == null) {
-            permissionGroupManager = new PermissionGroupManager();
+    public static GroupManager getInstance() {
+        if (groupManager == null) {
+            groupManager = new GroupManager();
         }
 
-        return permissionGroupManager;
+        return groupManager;
     }
 
-    private PermissionGroupManager() {
-        permissionGroupList = new ArrayList<>();
+    private GroupManager() {
+        groupList = new ArrayList<>();
         initPermissionGroupsFromFile();
     }
 
-    public PermissionGroup getPermissionGroup(String name) {
-        for (PermissionGroup permissionGroup : permissionGroupList) {
-            if (permissionGroup.getName().equalsIgnoreCase(name)) {
-                return permissionGroup;
+    public Group getPermissionGroup(String name) {
+        for (Group group : groupList) {
+            if (group.getName().equalsIgnoreCase(name)) {
+                return group;
             }
         }
         return null;
     }
 
-    public List<PermissionGroup> getPermissionGroups() {
-        return permissionGroupList;
+    public List<Group> getPermissionGroups() {
+        return groupList;
     }
 
     private void initPermissionGroupsFromFile() {
@@ -57,7 +57,7 @@ public class PermissionGroupManager {
                 return;
             }
 
-            permissionGroupList = permissionGroupContainer.getPermissionGroups();
+            groupList = permissionGroupContainer.getGroups();
             synchronizer.continueRun();
         });
 
@@ -65,13 +65,13 @@ public class PermissionGroupManager {
     }
 
     private void generateDefaultPermissionGroups() {
-        if (permissionGroupList != null && !permissionGroupList.isEmpty()) {
+        if (groupList != null && !groupList.isEmpty()) {
             return;
         }
 
-        PermissionGroupContainerGenerator generator = new PermissionGroupContainerGenerator();
+        GroupContainerGenerator generator = new GroupContainerGenerator();
         PermissionGroupContainer groupContainer = generator.generateDefaultContainer();
-        permissionGroupList = groupContainer.getPermissionGroups();
+        groupList = groupContainer.getGroups();
 
         String path = HyToolsInitializer.getRootPath();
         ConfigWriter<PermissionGroupContainer> configWriter = new YamlConfigWriter<>(

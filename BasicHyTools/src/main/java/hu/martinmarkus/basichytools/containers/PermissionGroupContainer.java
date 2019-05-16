@@ -1,21 +1,21 @@
 package hu.martinmarkus.basichytools.containers;
 
-import hu.martinmarkus.basichytools.models.PermissionGroup;
+import hu.martinmarkus.basichytools.models.Group;
 
 import java.util.List;
 
 public class PermissionGroupContainer {
-    private List<PermissionGroup> permissionGroups;
+    private List<Group> groups;
 
-    public PermissionGroupContainer(List<PermissionGroup> permissionGroups) {
-        this.permissionGroups = permissionGroups;
+    public PermissionGroupContainer(List<Group> groups) {
+        this.groups = groups;
     }
 
-    public List<PermissionGroup> getPermissionGroups() {
-        return permissionGroups;
+    public List<Group> getGroups() {
+        return groups;
     }
 
-    public void setPermissionGroups(List<PermissionGroup> permissionGroups) {
-        this.permissionGroups = permissionGroups;
+    public void setGroups(List<Group> groups) {
+        this.groups = groups;
     }
 }
