@@ -1,6 +1,11 @@
 package hu.martinmarkus.basichytools;
 
+import hu.martinmarkus.basichytools.configmanaging.HyToolsInitializer;
+import hu.martinmarkus.basichytools.configmanaging.UserManager;
 import hu.martinmarkus.basichytools.eventmanagement.UserConnectionEventHandler;
+import hu.martinmarkus.basichytools.models.User;
+import hu.martinmarkus.configmanagerlibrary.fileprocessing.configwriters.ConfigWriter;
+import hu.martinmarkus.configmanagerlibrary.fileprocessing.configwriters.YamlConfigWriter;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -24,19 +29,13 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        //HyToolsInitializer.initialize();
+        HyToolsInitializer.initialize();
 
-        /*
-        UserConfigManager userConfigManager = UserConfigManager.getInstance();
+        UserManager userConfigManager = UserManager.getInstance();
         User birdemic = userConfigManager.generateMockUser();
 
         ConfigWriter<User> configWriter = new YamlConfigWriter<>(User.class, HyToolsInitializer.getUsersPath());
         configWriter.write("mockUser12345", birdemic);
-        */
-
-        UserConnectionEventHandler handler = new UserConnectionEventHandler();
-        handler.onUserJoin();
-        handler.onUserQuit();
 
     }
 }

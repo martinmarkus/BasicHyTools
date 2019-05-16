@@ -11,21 +11,21 @@ import hu.martinmarkus.configmanagerlibrary.fileprocessing.configwriters.YamlCon
 import java.util.ArrayList;
 import java.util.List;
 
-public class PermissionGroupConfigManager {
-    private static PermissionGroupConfigManager permissionGroupConfigManager = getInstance();
+public class PermissionGroupManager {
+    private static PermissionGroupManager permissionGroupManager = getInstance();
 
     private List<PermissionGroup> permissionGroupList;
 
     // Singleton
-    public static PermissionGroupConfigManager getInstance() {
-        if (permissionGroupConfigManager == null) {
-            permissionGroupConfigManager = new PermissionGroupConfigManager();
+    public static PermissionGroupManager getInstance() {
+        if (permissionGroupManager == null) {
+            permissionGroupManager = new PermissionGroupManager();
         }
 
-        return permissionGroupConfigManager;
+        return permissionGroupManager;
     }
 
-    private PermissionGroupConfigManager() {
+    private PermissionGroupManager() {
         permissionGroupList = new ArrayList<>();
         initPermissionGroupsFromFile();
     }

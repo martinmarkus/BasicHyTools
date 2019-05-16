@@ -9,8 +9,8 @@ import hu.martinmarkus.configmanagerlibrary.threading.ResultListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserConfigManager {
-    private static UserConfigManager userConfigManager = getInstance();
+public class UserManager {
+    private static UserManager userManager = getInstance();
 
     private List<User> onlineUserList;
 
@@ -22,15 +22,15 @@ public class UserConfigManager {
     }
 
     // Singleton
-    public static UserConfigManager getInstance() {
-        if (userConfigManager == null) {
-            userConfigManager = new UserConfigManager();
+    public static UserManager getInstance() {
+        if (userManager == null) {
+            userManager = new UserManager();
         }
 
-        return userConfigManager;
+        return userManager;
     }
 
-    private UserConfigManager() {
+    private UserManager() {
         onlineUserList = new ArrayList<>();
     }
 

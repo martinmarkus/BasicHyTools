@@ -1,6 +1,6 @@
 package hu.martinmarkus.basichytools.eventmanagement;
 
-import hu.martinmarkus.basichytools.configmanaging.UserConfigManager;
+import hu.martinmarkus.basichytools.configmanaging.UserManager;
 import hu.martinmarkus.basichytools.models.User;
 
 import java.util.ArrayList;
@@ -23,7 +23,7 @@ public class UserConnectionEventHandler {
         String joinedUserName = "mockUser12345";
         this.preJoinedUserNames.add(joinedUserName);
 
-        UserConfigManager configManager = UserConfigManager.getInstance();
+        UserManager configManager = UserManager.getInstance();
 
         configManager.getUser(joinedUserName, user -> {
             if (user != null && preJoinedUserNames.contains(joinedUserName)) {
@@ -37,7 +37,7 @@ public class UserConnectionEventHandler {
         // TODO: get quited user's name
 
         String quitedUserName = "mockUser12345";
-        UserConfigManager configManager = UserConfigManager.getInstance();
+        UserManager configManager = UserManager.getInstance();
 
         User quitedUser = configManager.getOnlineUser(quitedUserName);
         boolean isPreJoined = preJoinedUserNames.contains(quitedUserName);

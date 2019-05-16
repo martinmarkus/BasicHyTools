@@ -1,6 +1,6 @@
 package hu.martinmarkus.basichytools.models;
 
-import hu.martinmarkus.basichytools.configmanaging.PermissionGroupConfigManager;
+import hu.martinmarkus.basichytools.configmanaging.PermissionGroupManager;
 
 import java.util.List;
 
@@ -25,7 +25,7 @@ public class PermissionGroup {
             return true;
         }
 
-        PermissionGroupConfigManager configManager = PermissionGroupConfigManager.getInstance();
+        PermissionGroupManager configManager = PermissionGroupManager.getInstance();
         List<PermissionGroup> permissionGroupList = configManager.getPermissionGroups();
 
         for (String inheritance : inheritances) {

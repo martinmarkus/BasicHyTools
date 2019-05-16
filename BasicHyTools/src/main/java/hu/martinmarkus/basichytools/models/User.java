@@ -1,6 +1,6 @@
 package hu.martinmarkus.basichytools.models;
 
-import hu.martinmarkus.basichytools.configmanaging.PermissionGroupConfigManager;
+import hu.martinmarkus.basichytools.configmanaging.PermissionGroupManager;
 
 import java.util.List;
 
@@ -43,7 +43,7 @@ public class User {
             return true;
         }
 
-        PermissionGroupConfigManager configManager = PermissionGroupConfigManager.getInstance();
+        PermissionGroupManager configManager = PermissionGroupManager.getInstance();
         PermissionGroup permissionGroup = configManager.getPermissionGroup(permissionGroupName);
         return permissionGroup.hasPermission(permission);
     }

@@ -5,8 +5,8 @@ public class HyToolsInitializer {
     private static final String USERS = ROOT.concat("\\Users");
 
     public static void initialize() {
-        PermissionGroupConfigManager.getInstance();
-        UserConfigManager.getInstance();
+        PermissionGroupManager.getInstance();
+        UserManager.getInstance();
     }
 
     public static String getRootPath() {
