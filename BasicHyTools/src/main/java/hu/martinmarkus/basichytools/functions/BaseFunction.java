@@ -12,6 +12,7 @@ import java.util.concurrent.Callable;
 public abstract class BaseFunction<T> {
     private String name;
     private String permission;
+    private double usagePrice;
     private String command;
     private String description;
 
@@ -22,6 +23,11 @@ public abstract class BaseFunction<T> {
 
     public BaseFunction(User executorUser) {
         this.executorUser = executorUser;
+        initializeBaseFunction();
+    }
+
+    private void initializeBaseFunction() {
+        // TODO: init fields
     }
 
     public T execute(Callable<T> callable) {
@@ -41,11 +47,9 @@ public abstract class BaseFunction<T> {
     }
 
     public void execute(Runnable runnable) {
-        if (runnable == null || !hasPermission()) {
-            return;
+        if (runnable != null && hasPermission()) {
+            runnable.run();
         }
-
-        runnable.run();
     }
 
     private boolean hasPermission() {

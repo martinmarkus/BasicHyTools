@@ -2,7 +2,7 @@ package hu.martinmarkus.basichytools;
 
 import hu.martinmarkus.basichytools.configmanaging.HyToolsInitializer;
 import hu.martinmarkus.basichytools.configmanaging.UserManager;
-import hu.martinmarkus.basichytools.eventmanagement.UserConnectionEventHandler;
+import hu.martinmarkus.basichytools.functions.BaseFunction;
 import hu.martinmarkus.basichytools.models.User;
 import hu.martinmarkus.configmanagerlibrary.fileprocessing.configwriters.ConfigWriter;
 import hu.martinmarkus.configmanagerlibrary.fileprocessing.configwriters.YamlConfigWriter;
