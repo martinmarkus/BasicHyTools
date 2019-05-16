@@ -2,6 +2,7 @@ package hu.martinmarkus.basichytools.configmanaging;
 
 import hu.martinmarkus.basichytools.models.PermissionGroup;
 import hu.martinmarkus.basichytools.containers.PermissionGroupContainer;
+import hu.martinmarkus.basichytools.synchronization.Synchronizer;
 import hu.martinmarkus.configmanagerlibrary.fileprocessing.configreaders.ConfigReader;
 import hu.martinmarkus.configmanagerlibrary.fileprocessing.configreaders.YamlConfigReader;
 import hu.martinmarkus.configmanagerlibrary.fileprocessing.configwriters.ConfigWriter;
@@ -43,28 +44,22 @@ public class PermissionGroupConfigManager {
     }
 
     private void initPermissionGroupsFromFile() {
-        Integer notifier = 0;
+        Synchronizer synchronizer = new Synchronizer();
         ConfigReader<PermissionGroupContainer> configReader =
                 new YamlConfigReader<>(PermissionGroupContainer.class);
 
         configReader.read("permissionGroups", permissionGroupContainer -> {
             if (permissionGroupContainer == null) {
                 generateDefaultPermissionGroups();
+                synchronizer.continueRun();
                 return;
             }
 
             permissionGroupList = permissionGroupContainer.getPermissionGroups();
-            synchronized(notifier) {
-                notifier.notify();
-            }
+            synchronizer.continueRun();
         });
 
-        synchronized(notifier) {
-            try {
-                notifier.wait();
-            } catch (InterruptedException ignored) {
-            }
-        }
+        synchronizer.waitRun();
     }
 
     private void generateDefaultPermissionGroups() {
@@ -74,6 +69,7 @@ public class PermissionGroupConfigManager {
 
         PermissionGroupContainerGenerator generator = new PermissionGroupContainerGenerator();
         PermissionGroupContainer groupContainer = generator.generateDefaultContainer();
+        permissionGroupList = groupContainer.getPermissionGroups();
 
         ConfigWriter<PermissionGroupContainer> configWriter = new YamlConfigWriter<>(PermissionGroupContainer.class);
         configWriter.write("permissionGroups", groupContainer);

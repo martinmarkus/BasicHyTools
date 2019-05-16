@@ -1,18 +1,16 @@
 permissionGroups:
 - name: "default"
-  prefix: "[Default]"
+  prefix: "[Tag]"
   suffix: ""
   permissions:
   - "group.default"
-  - "valamijog"
   inheritances: []
 - name: "builder"
-  prefix: "[Builder]"
+  prefix: "[Építész]"
   suffix: ""
   permissions:
   - "group.builder"
-  inheritances:
-    - "default"
+  inheritances: []
 - name: "moderator"
   prefix: "[Moderator]"
   suffix: ""
@@ -20,24 +18,20 @@ permissionGroups:
   - "group.moderator"
   inheritances: []
 - name: "helper"
-  prefix: "[Helper]"
+  prefix: "[Segítő]"
   suffix: ""
   permissions:
   - "group.helper"
-  inheritances:
-    - "moderator"
-    - "builder"
+  inheritances: []
 - name: "admin"
   prefix: "[Admin]"
   suffix: ""
   permissions:
   - "group.admin"
-  inheritances:
-    - "helper"
+  inheritances: []
 - name: "owner"
-  prefix: "[Owner]"
+  prefix: "[Tulaj]"
   suffix: ""
   permissions:
   - "group.owner"
-  inheritances:
-    - "admin"
+  inheritances: []
