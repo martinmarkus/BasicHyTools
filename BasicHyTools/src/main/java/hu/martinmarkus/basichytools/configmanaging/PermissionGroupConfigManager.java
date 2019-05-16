@@ -45,8 +45,10 @@ public class PermissionGroupConfigManager {
 
     private void initPermissionGroupsFromFile() {
         Synchronizer synchronizer = new Synchronizer();
+
+        String path = HyToolsInitializer.getRootPath();
         ConfigReader<PermissionGroupContainer> configReader =
-                new YamlConfigReader<>(PermissionGroupContainer.class);
+                new YamlConfigReader<>(PermissionGroupContainer.class, path);
 
         configReader.read("permissionGroups", permissionGroupContainer -> {
             if (permissionGroupContainer == null) {
@@ -71,7 +73,10 @@ public class PermissionGroupConfigManager {
         PermissionGroupContainer groupContainer = generator.generateDefaultContainer();
         permissionGroupList = groupContainer.getPermissionGroups();
 
-        ConfigWriter<PermissionGroupContainer> configWriter = new YamlConfigWriter<>(PermissionGroupContainer.class);
+        String path = HyToolsInitializer.getRootPath();
+        ConfigWriter<PermissionGroupContainer> configWriter = new YamlConfigWriter<>(
+                PermissionGroupContainer.class, path);
+
         configWriter.write("permissionGroups", groupContainer);
     }
 }

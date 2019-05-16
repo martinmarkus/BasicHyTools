@@ -1,10 +1,12 @@
 package hu.martinmarkus.basichytools.models;
 
+import hu.martinmarkus.basichytools.configmanaging.PermissionGroupConfigManager;
+
 import java.util.List;
 
 public class User {
     private String name;
-    private PermissionGroup rank;
+    private String permissionGroupName;
     private double balance;
     private double exp;
     private boolean isOnline;
@@ -17,12 +19,33 @@ public class User {
     private boolean isBanned;
     private boolean isIpBanned;
 
+    public User(String name, String permissionGroupName, double balance, double exp,
+                boolean isOnline, String loginIp, String loginTime,
+                BasicHyToolsLocation location, List<String> uniquePermissions,
+                boolean isOperator, boolean isMuted, boolean isBanned, boolean isIpBanned) {
+        this.name = name;
+        this.permissionGroupName = permissionGroupName;
+        this.balance = balance;
+        this.exp = exp;
+        this.isOnline = isOnline;
+        this.loginIp = loginIp;
+        this.loginTime = loginTime;
+        this.location = location;
+        this.uniquePermissions = uniquePermissions;
+        this.isOperator = isOperator;
+        this.isMuted = isMuted;
+        this.isBanned = isBanned;
+        this.isIpBanned = isIpBanned;
+    }
+
     public boolean hasPermission(String permission) {
         if (isOperator || uniquePermissions.contains(permission)) {
             return true;
         }
 
-        return rank.hasPermission(permission);
+        PermissionGroupConfigManager configManager = PermissionGroupConfigManager.getInstance();
+        PermissionGroup permissionGroup = configManager.getPermissionGroup(permissionGroupName);
+        return permissionGroup.hasPermission(permission);
     }
 
     public String getName() {
@@ -33,12 +56,12 @@ public class User {
         this.name = name;
     }
 
-    public PermissionGroup getRank() {
-        return rank;
+    public String getPermissionGroupName() {
+        return permissionGroupName;
     }
 
-    public void setRank(PermissionGroup rank) {
-        this.rank = rank;
+    public void setPermissionGroupName(String permissionGroupName) {
+        this.permissionGroupName = permissionGroupName;
     }
 
     public double getBalance() {
@@ -61,8 +84,8 @@ public class User {
         return isOnline;
     }
 
-    public void setOnline(boolean online) {
-        isOnline = online;
+    public void setOnline(boolean isOnline) {
+        this.isOnline = isOnline;
     }
 
     public String getLoginIp() {
@@ -101,24 +124,24 @@ public class User {
         return isOperator;
     }
 
-    public void setOperator(boolean operator) {
-        isOperator = operator;
+    public void setOperator(boolean isOperator) {
+        this.isOperator = isOperator;
     }
 
     public boolean isMuted() {
         return isMuted;
     }
 
-    public void setMuted(boolean muted) {
-        isMuted = muted;
+    public void setMuted(boolean isMuted) {
+        this.isMuted = isMuted;
     }
 
     public boolean isBanned() {
         return isBanned;
     }
 
-    public void setBanned(boolean banned) {
-        isBanned = banned;
+    public void setBanned(boolean isBanned) {
+        this.isBanned = isBanned;
     }
 
     public boolean isIpBanned() {
