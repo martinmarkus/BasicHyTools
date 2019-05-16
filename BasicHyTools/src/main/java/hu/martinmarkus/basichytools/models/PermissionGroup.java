@@ -1,7 +1,9 @@
 package hu.martinmarkus.basichytools.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import hu.martinmarkus.basichytools.configmanaging.PermissionGroupManager;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PermissionGroup {
@@ -20,6 +22,7 @@ public class PermissionGroup {
         this.inheritances = inheritances;
     }
 
+    @JsonIgnore
     public boolean hasPermission(String permission) {
         if (permissions.contains(permission)) {
             return true;
@@ -40,6 +43,24 @@ public class PermissionGroup {
             }
         }
         return false;
+    }
+
+    @JsonIgnore
+    public List<String> getAllPermissions() {
+        List<String> allPermissions = new ArrayList<>(permissions);
+
+        PermissionGroupManager configManager = PermissionGroupManager.getInstance();
+        List<PermissionGroup> permissionGroupList = configManager.getPermissionGroups();
+
+        for (String inheritance : inheritances) {
+            for (PermissionGroup permissionGroup : permissionGroupList) {
+                if (permissionGroup.getName().equalsIgnoreCase(inheritance)) {
+                    allPermissions.addAll(permissionGroup.getPermissions());
+                }
+            }
+        }
+
+        return allPermissions;
     }
 
     public String getName() {

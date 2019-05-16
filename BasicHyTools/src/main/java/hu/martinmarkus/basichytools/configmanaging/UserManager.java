@@ -16,7 +16,7 @@ public class UserManager {
 
     public User generateMockUser() {
         BasicHyToolsLocation location = new BasicHyToolsLocation("spawnWorld",10.0f, 10.0f, 10.0f);
-        return new User("mockUser12345", "default", 1000.0, 100.0,
+        return new User("mockUser12345", "owner", 1000.0, 100.0,
                 true, "123.123.123.123", "2019-05-16 13:15", location, new ArrayList<>(),
                 true, false, false, false);
     }

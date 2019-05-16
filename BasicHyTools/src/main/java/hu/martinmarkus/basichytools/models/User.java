@@ -1,7 +1,11 @@
 package hu.martinmarkus.basichytools.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import hu.martinmarkus.basichytools.configmanaging.PermissionGroupManager;
+import hu.martinmarkus.basichytools.permissionmanagement.PermissionValidator;
+import hu.martinmarkus.basichytools.permissionmanagement.UserPermissionValidator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class User {
@@ -38,14 +42,25 @@ public class User {
         this.isIpBanned = isIpBanned;
     }
 
+    @JsonIgnore
     public boolean hasPermission(String permission) {
         if (isOperator || uniquePermissions.contains(permission)) {
             return true;
         }
 
+        PermissionValidator validator = new UserPermissionValidator();
+        return validator.validate(this, permission);
+    }
+
+    @JsonIgnore
+    public List<String> getAllPermissions() {
+        List<String> allPermissions = new ArrayList<>(uniquePermissions);
         PermissionGroupManager configManager = PermissionGroupManager.getInstance();
         PermissionGroup permissionGroup = configManager.getPermissionGroup(permissionGroupName);
-        return permissionGroup.hasPermission(permission);
+
+        allPermissions.addAll(permissionGroup.getAllPermissions());
+
+        return allPermissions;
     }
 
     public String getName() {
