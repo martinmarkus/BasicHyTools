@@ -54,16 +54,12 @@ public class UserConfigManager {
         configReader.read(name, resultListener);
     }
 
-    public User getUser(String name) {
-        return getOnlineUser(name);
-    }
-
     public List<User> getOnlineUsers() {
         return onlineUserList;
     }
 
     public void registerUser(User user) {
-        if (user != null && !onlineUserList.contains(user)) {
+        if (user != null && user.isOnline() && !onlineUserList.contains(user)) {
             onlineUserList.add(user);
         }
     }
