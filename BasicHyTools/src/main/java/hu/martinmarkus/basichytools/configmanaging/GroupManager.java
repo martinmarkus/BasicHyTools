@@ -1,13 +1,10 @@
 package hu.martinmarkus.basichytools.configmanaging;
 
 import hu.martinmarkus.basichytools.models.Group;
-import hu.martinmarkus.basichytools.containers.PermissionGroupContainer;
+import hu.martinmarkus.basichytools.containers.GroupContainer;
+import hu.martinmarkus.basichytools.persistence.repositories.GroupContainerRepository;
+import hu.martinmarkus.basichytools.persistence.repositories.IGroupContainerRepository;
 import hu.martinmarkus.basichytools.synchronization.Synchronizer;
-import hu.martinmarkus.configmanagerlibrary.fileprocessing.configreaders.ConfigReader;
-import hu.martinmarkus.configmanagerlibrary.fileprocessing.configreaders.YamlConfigReader;
-import hu.martinmarkus.configmanagerlibrary.fileprocessing.configwriters.ConfigWriter;
-import hu.martinmarkus.configmanagerlibrary.fileprocessing.configwriters.YamlConfigWriter;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +12,8 @@ public class GroupManager {
     private static GroupManager groupManager = getInstance();
 
     private List<Group> groupList;
+
+    private IGroupContainerRepository groupContainerRepository;
 
     // Singleton
     public static GroupManager getInstance() {
@@ -47,17 +46,16 @@ public class GroupManager {
         Synchronizer synchronizer = new Synchronizer();
 
         String path = HyToolsInitializer.getRootPath();
-        ConfigReader<PermissionGroupContainer> configReader =
-                new YamlConfigReader<>(PermissionGroupContainer.class, path);
+        groupContainerRepository = new GroupContainerRepository(path);
 
-        configReader.read("permissionGroups", permissionGroupContainer -> {
-            if (permissionGroupContainer == null) {
+        groupContainerRepository.get(GroupContainer.NAME, groupContainer -> {
+            if (groupContainer == null) {
                 generateDefaultPermissionGroups();
                 synchronizer.continueRun();
                 return;
             }
 
-            groupList = permissionGroupContainer.getGroups();
+            groupList = groupContainer.getGroups();
             synchronizer.continueRun();
         });
 
@@ -70,13 +68,11 @@ public class GroupManager {
         }
 
         GroupContainerGenerator generator = new GroupContainerGenerator();
-        PermissionGroupContainer groupContainer = generator.generateDefaultContainer();
+        GroupContainer groupContainer = generator.generateDefaultContainer();
         groupList = groupContainer.getGroups();
 
         String path = HyToolsInitializer.getRootPath();
-        ConfigWriter<PermissionGroupContainer> configWriter = new YamlConfigWriter<>(
-                PermissionGroupContainer.class, path);
-
-        configWriter.write("permissionGroups", groupContainer);
+        groupContainerRepository = new GroupContainerRepository(path);
+        groupContainerRepository.add(GroupContainer.NAME, groupContainer);
     }
 }

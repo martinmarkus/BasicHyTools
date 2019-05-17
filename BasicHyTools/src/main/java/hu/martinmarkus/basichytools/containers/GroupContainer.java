@@ -4,10 +4,12 @@ import hu.martinmarkus.basichytools.models.Group;
 
 import java.util.List;
 
-public class PermissionGroupContainer {
+public class GroupContainer {
+    public static final String NAME ="permissionGroups";
+
     private List<Group> groups;
 
-    public PermissionGroupContainer(List<Group> groups) {
+    public GroupContainer(List<Group> groups) {
         this.groups = groups;
     }
 

@@ -1,9 +1,12 @@
 package hu.martinmarkus.basichytools;
 
 import hu.martinmarkus.basichytools.configmanaging.HyToolsInitializer;
+import hu.martinmarkus.basichytools.configmanaging.UserManager;
 import hu.martinmarkus.basichytools.models.User;
 import hu.martinmarkus.configmanagerlibrary.fileprocessing.configreaders.ConfigReader;
 import hu.martinmarkus.configmanagerlibrary.fileprocessing.configreaders.YamlConfigReader;
+import hu.martinmarkus.configmanagerlibrary.fileprocessing.configwriters.ConfigWriter;
+import hu.martinmarkus.configmanagerlibrary.fileprocessing.configwriters.YamlConfigWriter;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -29,12 +32,10 @@ public class Main {
     public static void main(String[] args) {
         HyToolsInitializer.initialize();
 
-        /*
         UserManager userConfigManager = UserManager.getInstance();
         User birdemic = userConfigManager.generateMockUser();
         ConfigWriter<User> configWriter = new YamlConfigWriter<>(User.class, HyToolsInitializer.getUsersPath());
         configWriter.write("mockUser12345", birdemic);
-        */
 
         ConfigReader<User> reader = new YamlConfigReader<>(User.class, HyToolsInitializer.getUsersPath());
         reader.read("mockUser12345", user -> {
@@ -42,7 +43,6 @@ public class Main {
             String permission = "group.default";
             boolean hasPermission = user.hasPermission(permission);
         });
-
 
     }
 }

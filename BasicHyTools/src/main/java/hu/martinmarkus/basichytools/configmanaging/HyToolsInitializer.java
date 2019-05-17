@@ -5,6 +5,7 @@ public class HyToolsInitializer {
     private static final String USERS = ROOT.concat("\\Users");
 
     public static void initialize() {
+        DefaultConfigManager.getInstance();
         GroupManager.getInstance();
         UserManager.getInstance();
     }

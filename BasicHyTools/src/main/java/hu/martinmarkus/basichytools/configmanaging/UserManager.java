@@ -2,8 +2,8 @@ package hu.martinmarkus.basichytools.configmanaging;
 
 import hu.martinmarkus.basichytools.models.BasicHyToolsLocation;
 import hu.martinmarkus.basichytools.models.User;
-import hu.martinmarkus.configmanagerlibrary.fileprocessing.configreaders.ConfigReader;
-import hu.martinmarkus.configmanagerlibrary.fileprocessing.configreaders.YamlConfigReader;
+import hu.martinmarkus.basichytools.persistence.repositories.IUserRepository;
+import hu.martinmarkus.basichytools.persistence.repositories.UserRepository;
 import hu.martinmarkus.configmanagerlibrary.threading.ResultListener;
 
 import java.util.ArrayList;
@@ -13,6 +13,7 @@ public class UserManager {
     private static UserManager userManager = getInstance();
 
     private List<User> onlineUserList;
+    private IUserRepository userRepository;
 
     public User generateMockUser() {
         BasicHyToolsLocation location = new BasicHyToolsLocation("spawnWorld",10.0f, 10.0f, 10.0f);
@@ -50,8 +51,8 @@ public class UserManager {
 
     public void getUser(String name, ResultListener<User> resultListener) {
         String path = HyToolsInitializer.getUsersPath();
-        ConfigReader<User> configReader = new YamlConfigReader<>(User.class, path);
-        configReader.read(name, resultListener);
+        userRepository = new UserRepository(path);
+        userRepository.get(name, resultListener);
     }
 
     public List<User> getOnlineUsers() {
