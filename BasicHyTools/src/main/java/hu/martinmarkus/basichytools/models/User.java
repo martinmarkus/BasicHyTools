@@ -10,6 +10,10 @@ import java.util.List;
 
 public class User {
 
+    /*
+        Signs the validation state of the User.
+        Required for JoinEvent validation
+     */
     @JsonIgnore
     private boolean isValidated;
 
@@ -173,10 +177,12 @@ public class User {
         isIpBanned = ipBanned;
     }
 
+    @JsonIgnore
     public boolean isValidated() {
         return isValidated;
     }
 
+    @JsonIgnore
     public void setValidated(boolean isValidated) {
         this.isValidated = isValidated;
     }

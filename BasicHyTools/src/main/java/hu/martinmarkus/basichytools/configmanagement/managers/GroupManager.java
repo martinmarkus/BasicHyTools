@@ -70,8 +70,7 @@ public class GroupManager {
             return;
         }
 
-        GroupManager groupManager = new GroupManager();
-        GroupContainer groupContainer = groupManager.generateDefaultGroupContainer();
+        GroupContainer groupContainer = generateDefaultGroupContainer();
         groupList = groupContainer.getGroups();
 
         String path = HyToolsInitializer.getRootPath();

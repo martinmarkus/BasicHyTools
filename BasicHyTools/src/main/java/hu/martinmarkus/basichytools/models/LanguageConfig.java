@@ -37,5 +37,4 @@ public class LanguageConfig {
         // TODO: add this method call to all getters
         return placeholderReplacer.replace(message, placeholderValues);
     }
-
 }

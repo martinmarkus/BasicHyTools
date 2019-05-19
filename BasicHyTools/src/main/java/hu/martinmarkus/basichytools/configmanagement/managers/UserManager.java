@@ -65,11 +65,11 @@ public class UserManager {
             if (user != null) {
                 onlineUserList.add(user);
             } else {
-                User newUser = generateDefaultUser(name);
-                onlineUserList.add(newUser);
-                userRepository.add(name, newUser);
-                registerListener.getResultOnFinish(newUser);
+                user = generateDefaultUser(name);
+                onlineUserList.add(user);
+                userRepository.add(name, user);
             }
+            registerListener.getResultOnFinish(user);
         });
     }
 

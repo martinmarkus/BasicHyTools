@@ -17,8 +17,7 @@ public class UserConnectionEventHandler {
 
         String joinedUserName = "mockUser12345";
         userManager.registerUser(joinedUserName, validUser -> {
-            // TODO: validate the user
-
+            validUser.setValidated(true);
         });
     }
 
