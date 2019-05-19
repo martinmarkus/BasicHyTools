@@ -5,7 +5,6 @@ import hu.martinmarkus.basichytools.models.Group;
 import java.util.List;
 
 public class GroupContainer {
-    public static final String NAME ="permissionGroups";
 
     private List<Group> groups;
 

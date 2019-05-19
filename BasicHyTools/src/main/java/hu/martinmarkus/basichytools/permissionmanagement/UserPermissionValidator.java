@@ -5,7 +5,7 @@ import hu.martinmarkus.basichytools.models.User;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserPermissionValidator<T extends User> extends PermissionValidator<T> {
+public class UserPermissionValidator<T extends User> extends IPermissionValidator<T> {
 
     public UserPermissionValidator() {
         super.permissionParts = new ArrayList<>();

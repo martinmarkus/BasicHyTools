@@ -32,11 +32,10 @@ public class Main {
     public static void main(String[] args) {
         HyToolsInitializer.initialize();
 
-        UserManager userConfigManager = UserManager.getInstance();
-        User birdemic = userConfigManager.generateMockUser();
-        ConfigWriter<User> configWriter = new YamlConfigWriter<>(User.class, HyToolsInitializer.getUsersPath());
-        configWriter.write("mockUser12345", birdemic);
+        UserManager userManager = UserManager.getInstance();
+        String birdemic = "birdemic";
 
+        userManager.registerUser(birdemic);
         ConfigReader<User> reader = new YamlConfigReader<>(User.class, HyToolsInitializer.getUsersPath());
         reader.read("mockUser12345", user -> {
 

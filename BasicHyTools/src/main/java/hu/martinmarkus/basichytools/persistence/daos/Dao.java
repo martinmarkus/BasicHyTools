@@ -1,6 +1,5 @@
 package hu.martinmarkus.basichytools.persistence.daos;
 
-import hu.martinmarkus.basichytools.models.User;
 import hu.martinmarkus.basichytools.persistence.PersistenceMode;
 import hu.martinmarkus.configmanagerlibrary.fileprocessing.configreaders.ConfigReader;
 import hu.martinmarkus.configmanagerlibrary.fileprocessing.configreaders.JsonConfigReader;
@@ -29,8 +28,6 @@ public class Dao<T> {
                 initForYaml(cls, path);
                 break;
         }
-        configReader = new YamlConfigReader<>(cls, path);
-        configWriter = new YamlConfigWriter<>(cls, path);
     }
 
     private void initForYaml(Class<T> cls, String path) {

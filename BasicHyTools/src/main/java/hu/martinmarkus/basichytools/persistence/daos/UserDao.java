@@ -53,7 +53,7 @@ public class UserDao extends Dao<User> implements IUserDao {
         this.insertAll(valueIds, values);
     }
 
-    // The following method makes no sense to implement for this project version
+    // The following method are not required to implement for this project version
 
     @Override
     public void selectAll(ResultListener<List<User>> resultListener) {

@@ -6,6 +6,7 @@ public class HyToolsInitializer {
 
     public static void initialize() {
         DefaultConfigManager.getInstance();
+        LanguageConfigManager.getInstance();
         GroupManager.getInstance();
         UserManager.getInstance();
     }

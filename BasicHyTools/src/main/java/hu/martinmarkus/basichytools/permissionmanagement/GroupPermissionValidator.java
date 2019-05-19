@@ -5,7 +5,7 @@ import hu.martinmarkus.basichytools.models.Group;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GroupPermissionValidator<T extends Group> extends PermissionValidator<T> {
+public class GroupPermissionValidator<T extends Group> extends IPermissionValidator<T> {
 
     public GroupPermissionValidator() {
         super.permissionParts = new ArrayList<>();

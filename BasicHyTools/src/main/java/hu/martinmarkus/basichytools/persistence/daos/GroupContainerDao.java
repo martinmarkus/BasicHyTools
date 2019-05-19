@@ -1,5 +1,6 @@
 package hu.martinmarkus.basichytools.persistence.daos;
 
+import hu.martinmarkus.basichytools.configmanaging.GroupManager;
 import hu.martinmarkus.basichytools.containers.GroupContainer;
 import hu.martinmarkus.basichytools.persistence.PersistenceMode;
 import hu.martinmarkus.configmanagerlibrary.threading.ResultListener;
@@ -29,16 +30,17 @@ public class GroupContainerDao extends Dao<GroupContainer> implements IGroupCont
 
     @Override
     public void contains(GroupContainer value, ResultListener<Boolean> resultListener) {
-        configReader.read(GroupContainer.NAME, groupContainer -> {
+        configReader.read(GroupManager.GROUPS_CONFIG, groupContainer -> {
             if (groupContainer != null) {
-                resultListener.getResultOnFinish(true);
-            } else {
-                resultListener.getResultOnFinish(false);
+                if (groupContainer == value) {
+                    resultListener.getResultOnFinish(true);
+                }
             }
+            resultListener.getResultOnFinish(false);
         });
     }
 
-    // The following methods make no sense to implement for this project version
+    // The following methods are not required to implement for this project version
 
     @Override
     public void selectAll(ResultListener<List<GroupContainer>> resultListener) {

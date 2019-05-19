@@ -1,17 +1,16 @@
 package hu.martinmarkus.basichytools.configmanaging;
 
 import hu.martinmarkus.basichytools.models.DefaultConfig;
+import hu.martinmarkus.basichytools.persistence.repositories.DefaultConfigRepository;
+import hu.martinmarkus.basichytools.persistence.repositories.IDefaultConfigRepository;
 import hu.martinmarkus.basichytools.synchronization.Synchronizer;
-import hu.martinmarkus.configmanagerlibrary.fileprocessing.configreaders.ConfigReader;
-import hu.martinmarkus.configmanagerlibrary.fileprocessing.configreaders.YamlConfigReader;
-import hu.martinmarkus.configmanagerlibrary.fileprocessing.configwriters.ConfigWriter;
-import hu.martinmarkus.configmanagerlibrary.fileprocessing.configwriters.YamlConfigWriter;
 
 public class DefaultConfigManager {
     public static final String DEFAULT_CONFIG = "config";
 
     private static DefaultConfigManager defaultConfigManager;
 
+    private IDefaultConfigRepository defaultConfigRepository;
     private DefaultConfig defaultConfig;
 
     public static DefaultConfigManager getInstance() {
@@ -23,15 +22,15 @@ public class DefaultConfigManager {
     }
 
     private DefaultConfigManager() {
+        String path = HyToolsInitializer.getRootPath();
+        defaultConfigRepository = new DefaultConfigRepository(path);
         initDefaultConfigFromFile();
     }
 
     private void initDefaultConfigFromFile() {
         Synchronizer synchronizer = new Synchronizer();
-        String path = HyToolsInitializer.getRootPath();
-        ConfigReader<DefaultConfig> configConfigReader = new YamlConfigReader<>(DefaultConfig.class, path);
 
-        configConfigReader.read(DEFAULT_CONFIG, defaultConfig -> {
+        defaultConfigRepository.get(DEFAULT_CONFIG, defaultConfig -> {
             if (defaultConfig == null) {
                 writeNewDefaultConfig();
                 synchronizer.continueRun();
@@ -51,10 +50,8 @@ public class DefaultConfigManager {
     }
 
     private void writeNewDefaultConfig() {
-        String path = HyToolsInitializer.getRootPath();
         defaultConfig = generateDefaultConfig();
-        ConfigWriter<DefaultConfig> configConfigWriter = new YamlConfigWriter<>(DefaultConfig.class, path);
-        configConfigWriter.write(DefaultConfigManager.DEFAULT_CONFIG, defaultConfig);
+        defaultConfigRepository.add(DEFAULT_CONFIG, defaultConfig);
     }
 
     public DefaultConfig getDefaultConfig() {

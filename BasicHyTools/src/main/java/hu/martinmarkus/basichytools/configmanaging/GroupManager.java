@@ -9,7 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GroupManager {
-    private static GroupManager groupManager = getInstance();
+    private static GroupManager groupContainerManager;
+    public static final String GROUPS_CONFIG ="permissionGroups";
 
     private List<Group> groupList;
 
@@ -17,11 +18,11 @@ public class GroupManager {
 
     // Singleton
     public static GroupManager getInstance() {
-        if (groupManager == null) {
-            groupManager = new GroupManager();
+        if (groupContainerManager == null) {
+            groupContainerManager = new GroupManager();
         }
 
-        return groupManager;
+        return groupContainerManager;
     }
 
     private GroupManager() {
@@ -48,7 +49,7 @@ public class GroupManager {
         String path = HyToolsInitializer.getRootPath();
         groupContainerRepository = new GroupContainerRepository(path);
 
-        groupContainerRepository.get(GroupContainer.NAME, groupContainer -> {
+        groupContainerRepository.get(GROUPS_CONFIG, groupContainer -> {
             if (groupContainer == null) {
                 generateDefaultPermissionGroups();
                 synchronizer.continueRun();
@@ -73,6 +74,6 @@ public class GroupManager {
 
         String path = HyToolsInitializer.getRootPath();
         groupContainerRepository = new GroupContainerRepository(path);
-        groupContainerRepository.add(GroupContainer.NAME, groupContainer);
+        groupContainerRepository.add(GROUPS_CONFIG, groupContainer);
     }
 }
