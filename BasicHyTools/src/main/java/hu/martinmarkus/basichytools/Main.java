@@ -2,6 +2,7 @@ package hu.martinmarkus.basichytools;
 
 import hu.martinmarkus.basichytools.configmanaging.HyToolsInitializer;
 import hu.martinmarkus.basichytools.configmanaging.UserManager;
+import hu.martinmarkus.basichytools.eventmanagement.UserConnectionEventHandler;
 import hu.martinmarkus.basichytools.models.User;
 import hu.martinmarkus.configmanagerlibrary.fileprocessing.configreaders.ConfigReader;
 import hu.martinmarkus.configmanagerlibrary.fileprocessing.configreaders.YamlConfigReader;
@@ -35,13 +36,18 @@ public class Main {
         UserManager userManager = UserManager.getInstance();
         String birdemic = "birdemic";
 
+        UserConnectionEventHandler handler = new UserConnectionEventHandler();
+        //handler.onUserJoin();
+        handler.onUserQuit();
+        /*
+
         userManager.registerUser(birdemic);
         ConfigReader<User> reader = new YamlConfigReader<>(User.class, HyToolsInitializer.getUsersPath());
         reader.read("mockUser12345", user -> {
 
             String permission = "group.default";
             boolean hasPermission = user.hasPermission(permission);
-        });
+        });*/
 
     }
 }

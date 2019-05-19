@@ -1,0 +1,17 @@
+name: "mockUser12345"
+permissionGroupName: "owner"
+balance: 1000.0
+exp: 100.0
+loginIp: "123.123.123.666"
+loginTime: "2019-05-16 13:15"
+location:
+  worldName: "spawnWorld"
+  x: 10.0
+  y: 10.0
+  z: 10.0
+uniquePermissions: []
+muted: false
+banned: false
+operator: false
+ipBanned: false
+online: false

@@ -12,7 +12,7 @@ import java.util.List;
 public class UserManager {
     private static UserManager userManager;
 
-    private List<User> onlineUserList;
+    private UserList onlineUserList;
     private IUserRepository userRepository;
 
     public User generateMockUser(String name) {
@@ -34,7 +34,9 @@ public class UserManager {
     private UserManager() {
         String path = HyToolsInitializer.getUsersPath();
         userRepository = new UserRepository(path);
-        onlineUserList = new ArrayList<>();
+        onlineUserList = new UserList();
+
+        onlineUserList.add(generateMockUser("mockUser12345"));
     }
 
     public User getOnlineUser(String name) {
@@ -42,21 +44,13 @@ public class UserManager {
             return null;
         }
 
-        for(User user : onlineUserList) {
+        for(User user : onlineUserList.getList()) {
             if (user.getName().equals(name)) {
                 return user;
             }
         }
 
         return null;
-    }
-
-    public void getUser(String name, ResultListener<User> resultListener) {
-        userRepository.get(name, resultListener);
-    }
-
-    public List<User> getOnlineUsers() {
-        return onlineUserList;
     }
 
     public void registerUser(String name) {
@@ -69,8 +63,8 @@ public class UserManager {
                 onlineUserList.add(user);
             } else {
                 User newUser = generateMockUser(name);
-                userRepository.add(name, newUser);
                 onlineUserList.add(newUser);
+                userRepository.add(name, newUser);
             }
         });
     }
@@ -80,18 +74,21 @@ public class UserManager {
             return;
         }
 
-        userRepository.get(name, user -> {
-            boolean isOnline = onlineUserList.remove(user);
-            if (user != null && isOnline) {
-                onlineUserList.remove(user);
-                userRepository.set(name, user);
+        User user = onlineUserList.getUserByName(name);
+        if (user != null) {
+            onlineUserList.remove(user);
+            userRepository.set(name, user);
 
-            } if (user == null && !isOnline) {
-                userRepository.add(name, generateMockUser(name));
+        } else {
+            userRepository.add(name, generateMockUser(name));
+        }
+    }
 
-            } else if (user == null) {
-                userRepository.add(name, getOnlineUser(name));
-            }
-        });
+    public void getUser(String name, ResultListener<User> resultListener) {
+        userRepository.get(name, resultListener);
+    }
+
+    public List<User> getOnlineUsers() {
+        return onlineUserList.getList();
     }
 }
