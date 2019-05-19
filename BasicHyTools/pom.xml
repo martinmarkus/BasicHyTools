@@ -39,9 +39,9 @@
         <dependency>
             <groupId>martinmarkus.configmanagerlibrary</groupId>
             <artifactId>config-manager-library</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.2</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/src/main/resources/ConfigManagerLibrary-1.0.1.jar</systemPath>
+            <systemPath>${project.basedir}/src/main/resources/ConfigManagerLibrary-1.0.2.jar</systemPath>
         </dependency>
 
     </dependencies>

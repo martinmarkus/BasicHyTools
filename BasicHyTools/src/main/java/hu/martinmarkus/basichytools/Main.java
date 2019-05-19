@@ -32,6 +32,8 @@ public class Main {
     }
 
     public static void main(String[] args) {
+
+        // TODO: refactor repo/dao for file write response
         HyToolsInitializer.initialize();
 
         UserValidationEventHandler validationEventHandler = new UserValidationEventHandler();
