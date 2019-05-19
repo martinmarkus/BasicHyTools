@@ -1,10 +1,12 @@
 package hu.martinmarkus.basichytools.functions;
 
+import hu.martinmarkus.basichytools.configmanagement.managers.FunctionParameterManager;
 import hu.martinmarkus.basichytools.configmanagement.managers.LanguageConfigManager;
 import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.Informer;
 import hu.martinmarkus.basichytools.models.LanguageConfig;
 import hu.martinmarkus.basichytools.models.User;
 
+import java.util.List;
 import java.util.concurrent.Callable;
 
 public abstract class BaseFunction<T> {
@@ -74,12 +76,25 @@ public abstract class BaseFunction<T> {
     }
 
     private void initFunctionParameter(String functionName) {
-        // TODO: implement FunctionParameter init
+        if (functionName == null || functionName.isEmpty()) {
+            return;
+        }
+
+        List<FunctionParameter> functionParameters =
+                FunctionParameterManager.getInstance().getAlLFunctionParameters();
+
+        for (FunctionParameter aFunctionParameter : functionParameters) {
+            String checkName = aFunctionParameter.getName();
+            if (functionName.equalsIgnoreCase(checkName)) {
+                this.functionParameter = aFunctionParameter;
+            }
+        }
     }
 
     private void doLogging() {
         if (functionParameter.isDoLogging()) {
-            Informer.log("BasicHyTools: " + executorUser.getName() + " has executed: " + functionParameter.getCommand());
+            Informer.log("BasicHyTools: " + executorUser.getName()
+                    + " has executed: " + functionParameter.getCommand());
         }
     }
 

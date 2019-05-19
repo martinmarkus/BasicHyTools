@@ -29,6 +29,8 @@ public class GroupManager {
     }
 
     private GroupManager() {
+        String path = HyToolsInitializer.getRootPath();
+        groupContainerRepository = new GroupContainerRepository(path);
         groupList = new ArrayList<>();
         initPermissionGroupsFromFile();
     }
@@ -48,9 +50,6 @@ public class GroupManager {
 
     private void initPermissionGroupsFromFile() {
         ISynchronizer synchronizer = new Synchronizer();
-
-        String path = HyToolsInitializer.getRootPath();
-        groupContainerRepository = new GroupContainerRepository(path);
 
         groupContainerRepository.get(GROUPS_CONFIG, groupContainer -> {
             if (groupContainer == null) {
@@ -73,9 +72,6 @@ public class GroupManager {
 
         GroupContainer groupContainer = generateDefaultGroupContainer();
         groupList = groupContainer.getGroups();
-
-        String path = HyToolsInitializer.getRootPath();
-        groupContainerRepository = new GroupContainerRepository(path);
         groupContainerRepository.add(GROUPS_CONFIG, groupContainer);
     }
 
