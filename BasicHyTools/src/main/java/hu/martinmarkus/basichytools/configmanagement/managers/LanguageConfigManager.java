@@ -37,6 +37,7 @@ public class LanguageConfigManager {
             if (languageConfig == null) {
                 writeNewLanguageConfig();
                 synchronizer.continueRun();
+                return;
             } else {
                 this.languageConfig = languageConfig;
             }
@@ -56,8 +57,13 @@ public class LanguageConfigManager {
     }
 
     private LanguageConfig generateDefaultLanguageConfig() {
-        LanguageConfig languageConfig = null;
+        LanguageConfig languageConfig = new LanguageConfig();
         // TODO: use mock lang generator
+        languageConfig.setNotEnoughPermission("asd");
+        languageConfig.setNotEnoughMoney("asd");
+        languageConfig.setNotEnoughXp("asd");
+        languageConfig.setErrorHasOccurred("error");
+        languageConfig.setCommandExecuted("exec");
         return languageConfig;
     }
 }

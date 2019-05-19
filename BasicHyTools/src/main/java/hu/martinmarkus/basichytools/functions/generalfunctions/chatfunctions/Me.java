@@ -2,12 +2,11 @@ package hu.martinmarkus.basichytools.functions.generalfunctions.chatfunctions;
 
 import hu.martinmarkus.basichytools.functions.BaseFunction;
 import hu.martinmarkus.basichytools.models.User;
-import hu.martinmarkus.basichytools.synchronization.Synchronizer;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class Me<T> extends BaseFunction<T> {
     public Me(User executor /*add other function params*/) {
-        super(executor, "");
+        super(executor, "me");
     }
 
     @Override

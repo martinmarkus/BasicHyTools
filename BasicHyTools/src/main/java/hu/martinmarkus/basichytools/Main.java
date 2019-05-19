@@ -7,6 +7,7 @@ import hu.martinmarkus.basichytools.eventmanagement.UserValidationEventHandler;
 import hu.martinmarkus.basichytools.functions.BaseFunction;
 import hu.martinmarkus.basichytools.functions.generalfunctions.chatfunctions.Me;
 import hu.martinmarkus.basichytools.models.User;
+import hu.martinmarkus.basichytools.synchronization.Synchronizer;
 import hu.martinmarkus.configmanagerlibrary.threading.ResultListener;
 
 import java.io.IOException;
@@ -33,17 +34,12 @@ public class Main {
     public static void main(String[] args) {
         HyToolsInitializer.initialize();
 
-        UserManager userManager = UserManager.getInstance();
-        String birdemic = "birdemic";
-
         UserValidationEventHandler validationEventHandler = new UserValidationEventHandler();
-
         validationEventHandler.OnInvalidUserInteraction();
-
 
         UserConnectionEventHandler handler = new UserConnectionEventHandler();
         handler.onUserJoin();
-        //handler.onUserJoin();
+        handler.onUserJoin();
 
         UserManager.getInstance().getUser("mockUser12345", user -> {
             Me me = new Me(user);

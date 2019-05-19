@@ -36,6 +36,7 @@ public class DefaultConfigManager {
             if (defaultConfig == null) {
                 writeNewDefaultConfig();
                 synchronizer.continueRun();
+                return;
             } else {
                 this.defaultConfig = defaultConfig;
             }

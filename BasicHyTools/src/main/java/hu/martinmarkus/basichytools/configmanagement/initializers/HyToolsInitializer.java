@@ -1,9 +1,6 @@
 package hu.martinmarkus.basichytools.configmanagement.initializers;
 
-import hu.martinmarkus.basichytools.configmanagement.managers.DefaultConfigManager;
-import hu.martinmarkus.basichytools.configmanagement.managers.GroupManager;
-import hu.martinmarkus.basichytools.configmanagement.managers.LanguageConfigManager;
-import hu.martinmarkus.basichytools.configmanagement.managers.UserManager;
+import hu.martinmarkus.basichytools.configmanagement.managers.*;
 
 public class HyToolsInitializer {
     private static final String ROOT = "BasicHyTools";
@@ -11,6 +8,7 @@ public class HyToolsInitializer {
 
     public static void initialize() {
         DefaultConfigManager.getInstance();
+        FunctionParameterManager.getInstance();
         LanguageConfigManager.getInstance();
         GroupManager.getInstance();
         UserManager.getInstance();

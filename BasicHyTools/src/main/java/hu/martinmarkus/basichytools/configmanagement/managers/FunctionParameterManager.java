@@ -67,6 +67,10 @@ public class FunctionParameterManager {
     private FunctionParameterContainer generateDefaultFunctionParameterContainer() {
         List<FunctionParameter> functionParameters = new ArrayList<>();
         // TODO: implement default function parameters
+        FunctionParameter functionParameter = new FunctionParameter("me", 0, "me",
+                null, "hytools.me",
+                "This is a description", true);
+        functionParameters.add(functionParameter);
 
 
         return new FunctionParameterContainer(functionParameters);
