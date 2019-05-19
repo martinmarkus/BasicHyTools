@@ -4,6 +4,10 @@ import hu.martinmarkus.basichytools.configmanagement.initializers.HyToolsInitial
 import hu.martinmarkus.basichytools.configmanagement.managers.UserManager;
 import hu.martinmarkus.basichytools.eventmanagement.UserConnectionEventHandler;
 import hu.martinmarkus.basichytools.eventmanagement.UserValidationEventHandler;
+import hu.martinmarkus.basichytools.functions.BaseFunction;
+import hu.martinmarkus.basichytools.functions.generalfunctions.chatfunctions.Me;
+import hu.martinmarkus.basichytools.models.User;
+import hu.martinmarkus.configmanagerlibrary.threading.ResultListener;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -41,6 +45,10 @@ public class Main {
         handler.onUserJoin();
         //handler.onUserJoin();
 
+        UserManager.getInstance().getUser("mockUser12345", user -> {
+            Me me = new Me(user);
+            me.execute();
+        });
 
         /*
         userManager.registerUser(birdemic);
@@ -50,6 +58,5 @@ public class Main {
             String permission = "group.default";
             boolean hasPermission = user.hasPermission(permission);
         });*/
-
     }
 }

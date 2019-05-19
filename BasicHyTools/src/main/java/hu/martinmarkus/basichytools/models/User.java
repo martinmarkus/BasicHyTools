@@ -1,6 +1,7 @@
 package hu.martinmarkus.basichytools.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import hu.martinmarkus.basichytools.configmanagement.managers.DefaultConfigManager;
 import hu.martinmarkus.basichytools.configmanagement.managers.GroupManager;
 import hu.martinmarkus.basichytools.permissionmanagement.IPermissionValidator;
 import hu.martinmarkus.basichytools.permissionmanagement.UserPermissionValidator;
@@ -9,13 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class User {
-
     /*
         Signs the validation state of the User.
         Required for JoinEvent validation
      */
     @JsonIgnore
-    private boolean isValidated;
+    private boolean isValidated = false;
 
     private String name;
     private String permissionGroupName;
@@ -48,8 +48,6 @@ public class User {
         this.isMuted = isMuted;
         this.isBanned = isBanned;
         this.isIpBanned = isIpBanned;
-
-        this.isValidated = false;
     }
 
     @JsonIgnore
@@ -71,6 +69,29 @@ public class User {
         allPermissions.addAll(group.getAllPermissions());
 
         return allPermissions;
+    }
+
+    public void decreaseBalance(double value) {
+        balance -= value;
+        DefaultConfig config = DefaultConfigManager.getInstance().getDefaultConfig();
+        double minMoney = config.getMinMoney();
+        if (balance < minMoney) {
+            balance = minMoney;
+        }
+    }
+
+    public void increaseBalance(double value) {
+        balance += value;
+        DefaultConfig config = DefaultConfigManager.getInstance().getDefaultConfig();
+        double maxMoney = config.getMaxMoney();
+        if (balance > maxMoney) {
+            balance = maxMoney;
+        }
+    }
+
+    public void resetBalance() {
+        DefaultConfig config = DefaultConfigManager.getInstance().getDefaultConfig();
+        balance = config.getStartingBalance();
     }
 
     public String getName() {

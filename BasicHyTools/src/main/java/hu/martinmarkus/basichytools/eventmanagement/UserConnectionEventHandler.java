@@ -1,6 +1,7 @@
 package hu.martinmarkus.basichytools.eventmanagement;
 
 import hu.martinmarkus.basichytools.configmanagement.managers.UserManager;
+import hu.martinmarkus.basichytools.models.User;
 
 public class UserConnectionEventHandler {
 
@@ -8,7 +9,7 @@ public class UserConnectionEventHandler {
 
     // TODO: implement game event handling
 
-    public  UserConnectionEventHandler() {
+    public UserConnectionEventHandler() {
         this.userManager = UserManager.getInstance();
     }
 
@@ -16,8 +17,15 @@ public class UserConnectionEventHandler {
         // TODO: get joined user's name
 
         String joinedUserName = "mockUser12345";
+
+        User checkUser = userManager.getOnlineUser(joinedUserName);
+        if (checkUser != null) {
+            // TODO: kick, because user is already online
+            return;
+        }
+
         userManager.registerUser(joinedUserName, validUser -> {
-            validUser.setValidated(true);
+            // TODO: successful validation, handle it
         });
     }
 

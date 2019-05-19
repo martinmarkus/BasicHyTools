@@ -7,13 +7,14 @@ import hu.martinmarkus.basichytools.persistence.repositories.GroupContainerRepos
 import hu.martinmarkus.basichytools.persistence.repositories.IGroupContainerRepository;
 import hu.martinmarkus.basichytools.synchronization.ISynchronizer;
 import hu.martinmarkus.basichytools.synchronization.Synchronizer;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class GroupManager {
     private static GroupManager groupManager;
-    public static final String GROUPS_CONFIG ="permissionGroups";
+    public static final String GROUPS_CONFIG = "permissionGroups";
 
     private List<Group> groupList;
     private IGroupContainerRepository groupContainerRepository;

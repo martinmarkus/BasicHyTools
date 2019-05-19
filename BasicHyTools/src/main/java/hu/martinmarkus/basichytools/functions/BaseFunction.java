@@ -1,59 +1,108 @@
 package hu.martinmarkus.basichytools.functions;
 
+import hu.martinmarkus.basichytools.configmanagement.managers.LanguageConfigManager;
+import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.Informer;
+import hu.martinmarkus.basichytools.models.LanguageConfig;
 import hu.martinmarkus.basichytools.models.User;
 
-import java.util.List;
 import java.util.concurrent.Callable;
 
-/*
-    The superclass of all functions
- */
-
 public abstract class BaseFunction<T> {
-    private String name;
-    private String permission;
-    private double usagePrice;
-    private String command;
-    private String description;
+    protected LanguageConfig languageConfig;
+    protected FunctionParameter functionParameter;
+    protected User executorUser;
 
-    private List<String> aliases;
+    public abstract void execute();
+    public abstract T executeWithReturnValue();
 
-    private User executorUser;
-    private Callable<T> functionCallable;
-
-    public BaseFunction(User executorUser) {
-        this.executorUser = executorUser;
-        initializeBaseFunction();
+    public BaseFunction(User executor, String functionName) {
+        languageConfig = LanguageConfigManager.getInstance().getLanguageConfig();
+        this.executorUser = executor;
+        initFunctionParameter(functionName);
     }
 
-    private void initializeBaseFunction() {
-        // TODO: init fields
+    protected void runFunction(Runnable runnable) {
+        if (!hasPermission()) {
+            return;
+        }
+
+        boolean isOperator = executorUser.isOperator();
+        if (!isOperator && !hasMoney()) {
+            return;
+        }
+
+
+        if (runnable != null) {
+            runnable.run();
+        }
+
+        if (!isOperator) {
+            double usagePrice = functionParameter.getUsagePrice();
+            executorUser.decreaseBalance(usagePrice);
+        }
+
+        doLogging();
     }
 
-    public T execute(Callable<T> callable) {
-        if (callable == null || !hasPermission()) {
+    protected T callFunction(Callable<T> callable) {
+        if (!hasPermission()) {
+            return null;
+        }
+
+        boolean isOperator = executorUser.isOperator();
+        if (!isOperator && !hasMoney()) {
             return null;
         }
 
         T result = null;
-
-        try {
-            result =  callable.call();
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (callable != null) {
+            try {
+                result = callable.call();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
+        if (!isOperator) {
+            double usagePrice = functionParameter.getUsagePrice();
+            executorUser.decreaseBalance(usagePrice);
+            Informer.send(executorUser, languageConfig.getCommandExecuted());
+        }
+
+        doLogging();
         return result;
     }
 
-    public void execute(Runnable runnable) {
-        if (runnable != null && hasPermission()) {
-            runnable.run();
+    private void initFunctionParameter(String functionName) {
+        // TODO: implement FunctionParameter init
+    }
+
+    private void doLogging() {
+        if (functionParameter.isDoLogging()) {
+            Informer.log("BasicHyTools: " + executorUser.getName() + " has executed: " + functionParameter.getCommand());
         }
     }
 
-    private boolean hasPermission() {
-        return executorUser.hasPermission(permission);
+    private boolean hasMoney() {
+        Double usagePrice = functionParameter.getUsagePrice();
+        Double balance = executorUser.getBalance();
+        boolean hasMoney = balance < usagePrice;
+
+        if (!hasMoney) {
+            Informer.send(executorUser, languageConfig.getNotEnoughMoney());
+        }
+
+        return hasMoney;
     }
 
+    private boolean hasPermission() {
+        String permission = functionParameter.getPermission();
+        boolean hasPermission = executorUser.hasPermission(permission);
+
+        if (!hasPermission) {
+            Informer.send(executorUser, languageConfig.getNotEnoughPermission());
+        }
+
+        return hasPermission;
+    }
 }

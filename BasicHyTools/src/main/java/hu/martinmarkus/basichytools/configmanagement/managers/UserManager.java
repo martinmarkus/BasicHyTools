@@ -39,7 +39,7 @@ public class UserManager {
             return null;
         }
 
-        for(User user : onlineUserList.getList()) {
+        for (User user : onlineUserList.getList()) {
             if (user.getName().equals(name)) {
                 return user;
             }
@@ -62,13 +62,12 @@ public class UserManager {
         }
 
         userRepository.get(name, user -> {
-            if (user != null) {
-                onlineUserList.add(user);
-            } else {
+            if (user == null) {
                 user = generateDefaultUser(name);
-                onlineUserList.add(user);
                 userRepository.add(name, user);
             }
+            user.setValidated(true);
+            onlineUserList.add(user);
             registerListener.getResultOnFinish(user);
         });
     }

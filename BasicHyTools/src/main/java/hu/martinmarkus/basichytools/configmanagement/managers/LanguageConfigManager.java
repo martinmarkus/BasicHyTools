@@ -8,7 +8,7 @@ import hu.martinmarkus.basichytools.synchronization.ISynchronizer;
 import hu.martinmarkus.basichytools.synchronization.Synchronizer;
 
 public class LanguageConfigManager {
-    public static final String LANGUAGE_CONFIG ="language";
+    public static final String LANGUAGE_CONFIG = "language";
 
     private static LanguageConfigManager languageConfigManager;
 

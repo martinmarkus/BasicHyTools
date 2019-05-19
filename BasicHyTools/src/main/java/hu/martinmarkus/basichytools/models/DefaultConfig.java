@@ -10,16 +10,16 @@ public class DefaultConfig {
     private int autoAfkKick;
     private int autoSaveInterval;
     private int tpAcceptCancellation;
-    private int startingBalance;
-    private int minMoney;
-    private int maxMoney;
-    private int minPayAmount;
+    private double startingBalance;
+    private double minMoney;
+    private double maxMoney;
+    private double minPayAmount;
     private int payCooldown;
 
     public DefaultConfig(int teleportCooldown, int teleportDelay, int teleportInvulnerability,
-                         int healCooldown, boolean allowAfk, int autoAfk, int autoAfkKick,
-                         int autoSaveInterval, int tpAcceptCancellation, int startingBalance,
-                         int minMoney, int maxMoney, int minPayAmount, int payCooldown) {
+                         int healCooldown, boolean allowAfk, int autoAfk, int autoAfkKick, int autoSaveInterval,
+                         int tpAcceptCancellation, double startingBalance, double minMoney, double maxMoney,
+                         double minPayAmount, int payCooldown) {
         this.teleportCooldown = teleportCooldown;
         this.teleportDelay = teleportDelay;
         this.teleportInvulnerability = teleportInvulnerability;
@@ -108,35 +108,35 @@ public class DefaultConfig {
         this.tpAcceptCancellation = tpAcceptCancellation;
     }
 
-    public int getStartingBalance() {
+    public double getStartingBalance() {
         return startingBalance;
     }
 
-    public void setStartingBalance(int startingBalance) {
+    public void setStartingBalance(double startingBalance) {
         this.startingBalance = startingBalance;
     }
 
-    public int getMinMoney() {
+    public double getMinMoney() {
         return minMoney;
     }
 
-    public void setMinMoney(int minMoney) {
+    public void setMinMoney(double minMoney) {
         this.minMoney = minMoney;
     }
 
-    public int getMaxMoney() {
+    public double getMaxMoney() {
         return maxMoney;
     }
 
-    public void setMaxMoney(int maxMoney) {
+    public void setMaxMoney(double maxMoney) {
         this.maxMoney = maxMoney;
     }
 
-    public int getMinPayAmount() {
+    public double getMinPayAmount() {
         return minPayAmount;
     }
 
-    public void setMinPayAmount(int minPayAmount) {
+    public void setMinPayAmount(double minPayAmount) {
         this.minPayAmount = minPayAmount;
     }
 
