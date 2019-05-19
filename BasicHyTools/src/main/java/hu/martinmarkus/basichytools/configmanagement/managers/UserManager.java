@@ -1,5 +1,7 @@
-package hu.martinmarkus.basichytools.configmanaging;
+package hu.martinmarkus.basichytools.configmanagement.managers;
 
+import hu.martinmarkus.basichytools.models.containers.UserList;
+import hu.martinmarkus.basichytools.configmanagement.initializers.HyToolsInitializer;
 import hu.martinmarkus.basichytools.models.BasicHyToolsLocation;
 import hu.martinmarkus.basichytools.models.User;
 import hu.martinmarkus.basichytools.persistence.repositories.IUserRepository;
@@ -15,13 +17,6 @@ public class UserManager {
     private UserList onlineUserList;
     private IUserRepository userRepository;
 
-    public User generateMockUser(String name) {
-        BasicHyToolsLocation location = new BasicHyToolsLocation("spawnWorld",10.0f, 10.0f, 10.0f);
-        return new User(name, "owner", 1000.0, 100.0,
-                true, "123.123.123.123", "2019-05-16 13:15", location, new ArrayList<>(),
-                true, false, false, false);
-    }
-
     // Singleton
     public static UserManager getInstance() {
         if (userManager == null) {
@@ -36,7 +31,7 @@ public class UserManager {
         userRepository = new UserRepository(path);
         onlineUserList = new UserList();
 
-        onlineUserList.add(generateMockUser("mockUser12345"));
+        //onlineUserList.add(generateDefaultUser("mockUser12345"));
     }
 
     public User getOnlineUser(String name) {
@@ -53,7 +48,15 @@ public class UserManager {
         return null;
     }
 
-    public void registerUser(String name) {
+    public void getUser(String name, ResultListener<User> resultListener) {
+        userRepository.get(name, resultListener);
+    }
+
+    public List<User> getAllOnlineUsers() {
+        return onlineUserList.getList();
+    }
+
+    public void registerUser(String name, ResultListener<User> registerListener) {
         if (name == null || name.isEmpty()) {
             return;
         }
@@ -62,9 +65,10 @@ public class UserManager {
             if (user != null) {
                 onlineUserList.add(user);
             } else {
-                User newUser = generateMockUser(name);
+                User newUser = generateDefaultUser(name);
                 onlineUserList.add(newUser);
                 userRepository.add(name, newUser);
+                registerListener.getResultOnFinish(newUser);
             }
         });
     }
@@ -80,15 +84,14 @@ public class UserManager {
             userRepository.set(name, user);
 
         } else {
-            userRepository.add(name, generateMockUser(name));
+            userRepository.add(name, generateDefaultUser(name));
         }
     }
 
-    public void getUser(String name, ResultListener<User> resultListener) {
-        userRepository.get(name, resultListener);
-    }
-
-    public List<User> getOnlineUsers() {
-        return onlineUserList.getList();
+    public User generateDefaultUser(String name) {
+        BasicHyToolsLocation location = new BasicHyToolsLocation("spawnWorld",10.0f, 10.0f, 10.0f);
+        return new User(name, "owner", 1000.0, 100.0,
+                true, "123.123.123.123", "2019-05-16 13:15", location, new ArrayList<>(),
+                true, false, false, false);
     }
 }

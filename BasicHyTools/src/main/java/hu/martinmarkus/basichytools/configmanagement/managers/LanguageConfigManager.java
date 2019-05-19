@@ -1,8 +1,10 @@
-package hu.martinmarkus.basichytools.configmanaging;
+package hu.martinmarkus.basichytools.configmanagement.managers;
 
+import hu.martinmarkus.basichytools.configmanagement.initializers.HyToolsInitializer;
 import hu.martinmarkus.basichytools.models.LanguageConfig;
 import hu.martinmarkus.basichytools.persistence.repositories.ILanguageConfigRepository;
 import hu.martinmarkus.basichytools.persistence.repositories.LanguageConfigRepository;
+import hu.martinmarkus.basichytools.synchronization.ISynchronizer;
 import hu.martinmarkus.basichytools.synchronization.Synchronizer;
 
 public class LanguageConfigManager {
@@ -29,7 +31,7 @@ public class LanguageConfigManager {
 
     // config initialization:
     private void initLanguageConfigFromFile() {
-        Synchronizer synchronizer = new Synchronizer();
+        ISynchronizer synchronizer = new Synchronizer();
 
         languageConfigRepository.get(LANGUAGE_CONFIG, languageConfig -> {
             if (languageConfig == null) {
@@ -49,13 +51,13 @@ public class LanguageConfigManager {
         languageConfigRepository.add(LANGUAGE_CONFIG, languageConfig);
     }
 
-    private LanguageConfig generateDefaultLanguageConfig() {
-        LanguageConfig languageConfig = null;
-        // TODO: use mock lang generator
+    public LanguageConfig getLanguageConfig() {
         return languageConfig;
     }
 
-    public LanguageConfig getLanguageConfig() {
+    private LanguageConfig generateDefaultLanguageConfig() {
+        LanguageConfig languageConfig = null;
+        // TODO: use mock lang generator
         return languageConfig;
     }
 }

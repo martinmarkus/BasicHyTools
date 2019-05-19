@@ -1,8 +1,10 @@
-package hu.martinmarkus.basichytools.configmanaging;
+package hu.martinmarkus.basichytools.configmanagement.managers;
 
+import hu.martinmarkus.basichytools.configmanagement.initializers.HyToolsInitializer;
 import hu.martinmarkus.basichytools.models.DefaultConfig;
 import hu.martinmarkus.basichytools.persistence.repositories.DefaultConfigRepository;
 import hu.martinmarkus.basichytools.persistence.repositories.IDefaultConfigRepository;
+import hu.martinmarkus.basichytools.synchronization.ISynchronizer;
 import hu.martinmarkus.basichytools.synchronization.Synchronizer;
 
 public class DefaultConfigManager {
@@ -28,7 +30,7 @@ public class DefaultConfigManager {
     }
 
     private void initDefaultConfigFromFile() {
-        Synchronizer synchronizer = new Synchronizer();
+        ISynchronizer synchronizer = new Synchronizer();
 
         defaultConfigRepository.get(DEFAULT_CONFIG, defaultConfig -> {
             if (defaultConfig == null) {
@@ -43,12 +45,6 @@ public class DefaultConfigManager {
         synchronizer.waitRun();
     }
 
-    public DefaultConfig generateDefaultConfig() {
-        return new DefaultConfig(60, 5, 5, 60,
-                true, 300, 2800, 300, 30, 1000,
-                0, 999999999, 1, 15);
-    }
-
     private void writeNewDefaultConfig() {
         defaultConfig = generateDefaultConfig();
         defaultConfigRepository.add(DEFAULT_CONFIG, defaultConfig);
@@ -56,5 +52,11 @@ public class DefaultConfigManager {
 
     public DefaultConfig getDefaultConfig() {
         return defaultConfig;
+    }
+
+    public DefaultConfig generateDefaultConfig() {
+        return new DefaultConfig(60, 5, 5, 60,
+                true, 300, 2800, 300, 30, 1000,
+                0, 999999999, 1, 15);
     }
 }

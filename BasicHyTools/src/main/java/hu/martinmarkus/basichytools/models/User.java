@@ -1,7 +1,7 @@
 package hu.martinmarkus.basichytools.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import hu.martinmarkus.basichytools.configmanaging.GroupManager;
+import hu.martinmarkus.basichytools.configmanagement.managers.GroupManager;
 import hu.martinmarkus.basichytools.permissionmanagement.IPermissionValidator;
 import hu.martinmarkus.basichytools.permissionmanagement.UserPermissionValidator;
 
@@ -9,6 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class User {
+
+    @JsonIgnore
+    private boolean isValidated;
+
     private String name;
     private String permissionGroupName;
     private double balance;
@@ -40,6 +44,8 @@ public class User {
         this.isMuted = isMuted;
         this.isBanned = isBanned;
         this.isIpBanned = isIpBanned;
+
+        this.isValidated = false;
     }
 
     @JsonIgnore
@@ -165,5 +171,13 @@ public class User {
 
     public void setIpBanned(boolean ipBanned) {
         isIpBanned = ipBanned;
+    }
+
+    public boolean isValidated() {
+        return isValidated;
+    }
+
+    public void setValidated(boolean isValidated) {
+        this.isValidated = isValidated;
     }
 }

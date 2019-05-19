@@ -1,4 +1,4 @@
-package hu.martinmarkus.basichytools.configmanaging;
+package hu.martinmarkus.basichytools.models.containers;
 
 import hu.martinmarkus.basichytools.models.User;
 
@@ -87,4 +87,6 @@ public class UserList {
     public void addAll(List<User> userList) {
         users.addAll(userList);
     }
+
+
 }

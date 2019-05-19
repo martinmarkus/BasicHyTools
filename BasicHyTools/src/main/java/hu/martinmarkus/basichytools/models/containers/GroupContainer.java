@@ -1,4 +1,4 @@
-package hu.martinmarkus.basichytools.containers;
+package hu.martinmarkus.basichytools.models.containers;
 
 import hu.martinmarkus.basichytools.models.Group;
 

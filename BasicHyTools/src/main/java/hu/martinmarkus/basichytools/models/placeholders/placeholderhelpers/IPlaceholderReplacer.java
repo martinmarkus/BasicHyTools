@@ -1,4 +1,4 @@
-package hu.martinmarkus.basichytools.configmanaging.placeholders;
+package hu.martinmarkus.basichytools.models.placeholders.placeholderhelpers;
 
 public interface IPlaceholderReplacer {
     String replace(String message, String... placeholderValues);

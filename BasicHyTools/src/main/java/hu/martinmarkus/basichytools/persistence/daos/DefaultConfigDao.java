@@ -1,6 +1,6 @@
 package hu.martinmarkus.basichytools.persistence.daos;
 
-import hu.martinmarkus.basichytools.configmanaging.DefaultConfigManager;
+import hu.martinmarkus.basichytools.configmanagement.managers.DefaultConfigManager;
 import hu.martinmarkus.basichytools.models.DefaultConfig;
 import hu.martinmarkus.basichytools.persistence.PersistenceMode;
 import hu.martinmarkus.configmanagerlibrary.threading.ResultListener;

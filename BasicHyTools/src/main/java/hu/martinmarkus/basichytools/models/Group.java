@@ -1,7 +1,7 @@
 package hu.martinmarkus.basichytools.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import hu.martinmarkus.basichytools.configmanaging.GroupManager;
+import hu.martinmarkus.basichytools.configmanagement.managers.GroupManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +29,7 @@ public class Group {
         }
 
         GroupManager configManager = GroupManager.getInstance();
-        List<Group> groupList = configManager.getPermissionGroups();
+        List<Group> groupList = configManager.getAllPermissionGroups();
 
         for (String inheritance : inheritances) {
             for (Group group : groupList) {
@@ -50,7 +50,7 @@ public class Group {
         List<String> allPermissions = new ArrayList<>(permissions);
 
         GroupManager configManager = GroupManager.getInstance();
-        List<Group> groupList = configManager.getPermissionGroups();
+        List<Group> groupList = configManager.getAllPermissionGroups();
 
         for (String inheritance : inheritances) {
             for (Group group : groupList) {

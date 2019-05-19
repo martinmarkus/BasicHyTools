@@ -1,4 +1,4 @@
-package hu.martinmarkus.basichytools.configmanaging.placeholders;
+package hu.martinmarkus.basichytools.models.placeholders;
 
 public class Placeholder implements IPlaceholder {
 

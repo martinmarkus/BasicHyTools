@@ -1,13 +1,8 @@
 package hu.martinmarkus.basichytools;
 
-import hu.martinmarkus.basichytools.configmanaging.HyToolsInitializer;
-import hu.martinmarkus.basichytools.configmanaging.UserManager;
+import hu.martinmarkus.basichytools.configmanagement.initializers.HyToolsInitializer;
+import hu.martinmarkus.basichytools.configmanagement.managers.UserManager;
 import hu.martinmarkus.basichytools.eventmanagement.UserConnectionEventHandler;
-import hu.martinmarkus.basichytools.models.User;
-import hu.martinmarkus.configmanagerlibrary.fileprocessing.configreaders.ConfigReader;
-import hu.martinmarkus.configmanagerlibrary.fileprocessing.configreaders.YamlConfigReader;
-import hu.martinmarkus.configmanagerlibrary.fileprocessing.configwriters.ConfigWriter;
-import hu.martinmarkus.configmanagerlibrary.fileprocessing.configwriters.YamlConfigWriter;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -38,7 +33,7 @@ public class Main {
 
         UserConnectionEventHandler handler = new UserConnectionEventHandler();
         //handler.onUserJoin();
-        handler.onUserQuit();
+        handler.onUserJoin();
         /*
 
         userManager.registerUser(birdemic);

@@ -1,8 +1,8 @@
 package hu.martinmarkus.basichytools.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import hu.martinmarkus.basichytools.configmanaging.placeholders.IPlaceholderReplacer;
-import hu.martinmarkus.basichytools.configmanaging.placeholders.PlaceholderReplacer;
+import hu.martinmarkus.basichytools.models.placeholders.placeholderhelpers.IPlaceholderReplacer;
+import hu.martinmarkus.basichytools.models.placeholders.placeholderhelpers.PlaceholderReplacer;
 
 public class LanguageConfig {
 
@@ -32,9 +32,10 @@ public class LanguageConfig {
         placeholderReplacer = new PlaceholderReplacer();
     }
 
-    public String getPlaceholderCorrected(String mesasge, String ... placeholderValues) {
+    @JsonIgnore
+    private String getPlaceholderCorrected(String message, String ... placeholderValues) {
         // TODO: add this method call to all getters
-        return placeholderReplacer.replace(mesasge, placeholderValues);
+        return placeholderReplacer.replace(message, placeholderValues);
     }
 
 }

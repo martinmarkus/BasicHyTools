@@ -1,6 +1,6 @@
 package hu.martinmarkus.basichytools.persistence.repositories;
 
-import hu.martinmarkus.basichytools.containers.GroupContainer;
+import hu.martinmarkus.basichytools.models.containers.GroupContainer;
 import hu.martinmarkus.basichytools.persistence.daos.GroupContainerDao;
 import hu.martinmarkus.basichytools.persistence.daos.IGroupContainerDao;
 import hu.martinmarkus.configmanagerlibrary.threading.ResultListener;

@@ -1,4 +1,9 @@
-package hu.martinmarkus.basichytools.configmanaging;
+package hu.martinmarkus.basichytools.configmanagement.initializers;
+
+import hu.martinmarkus.basichytools.configmanagement.managers.DefaultConfigManager;
+import hu.martinmarkus.basichytools.configmanagement.managers.GroupManager;
+import hu.martinmarkus.basichytools.configmanagement.managers.LanguageConfigManager;
+import hu.martinmarkus.basichytools.configmanagement.managers.UserManager;
 
 public class HyToolsInitializer {
     private static final String ROOT = "BasicHyTools";
