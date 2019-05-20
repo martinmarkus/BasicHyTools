@@ -13,10 +13,15 @@ import java.util.concurrent.Callable;
 public abstract class BaseFunction<T> {
     protected LanguageConfig languageConfig;
     protected FunctionParameter functionParameter;
+
     protected User executorUser;
+    protected String rawCommand;
 
     public abstract void execute();
+
     public abstract T executeWithReturnValue();
+
+    public abstract void initRawCommand();
 
     public BaseFunction(User executor, String functionName) {
         languageConfig = LanguageConfigManager.getInstance().getLanguageConfig();
@@ -103,13 +108,17 @@ public abstract class BaseFunction<T> {
             String userName = executorUser.getName();
 
             PlaceholderReplacer replacer = new PlaceholderReplacer();
-            message = replacer.replace(message, userName, functionParameter.getName());
+            message = replacer.replace(message, userName, rawCommand);
 
             Informer.logInfo(message);
         }
     }
 
     private boolean hasMoney() {
+        if (functionParameter == null) {
+            return false;
+        }
+
         double usagePrice = functionParameter.getUsagePrice();
         double balance = executorUser.getBalance();
         boolean hasMoney = balance >= usagePrice;
@@ -123,6 +132,10 @@ public abstract class BaseFunction<T> {
     }
 
     private boolean hasPermission() {
+        if (functionParameter == null) {
+            return false;
+        }
+
         String permission = functionParameter.getPermission();
         boolean hasPermission = executorUser.hasPermission(permission);
 

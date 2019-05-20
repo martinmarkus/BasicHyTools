@@ -45,7 +45,7 @@ public class Main {
         UserManager.getInstance().getUser("mockUser12345", new ResultListener<User>() {
             @Override
             public void getResultOnFinish(User user) {
-                Me me = new Me(user);
+                Me me = new Me(user, "megcsinálta a seggtörlést");
                 me.execute();
             }
         });

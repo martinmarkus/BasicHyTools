@@ -2,26 +2,35 @@ package hu.martinmarkus.basichytools.functions.generalfunctions.chatfunctions;
 
 import hu.martinmarkus.basichytools.functions.BaseFunction;
 import hu.martinmarkus.basichytools.models.User;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class Me<T> extends BaseFunction<T> {
-    public Me(User executor /*add other function params*/) {
+
+    private String meMessage;
+
+    public Me(User executor, String meMessage /*add other function params*/) {
         super(executor, "me");
+        this.meMessage = meMessage;
+
+        initRawCommand();   // must be called for correct logging
     }
 
     @Override
     public void execute() {
-        super.runFunction(new Runnable() {
-            @Override
-            public void run() {
-                // TODO: implement function
-                System.out.println("hello world");
-            }
+        super.runFunction(() -> {
+            // TODO: implement function
+            System.out.println(this.getClass().getName() + " function is not implemented");
         });
     }
 
     @Override
     public T executeWithReturnValue() {
-        throw new NotImplementedException();
+        execute();
+        return null;
+    }
+
+    @Override
+    public void initRawCommand() {
+        super.rawCommand = "/me " + meMessage;
+        // required for raw command logging
     }
 }

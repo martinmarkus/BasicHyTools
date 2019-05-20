@@ -2,26 +2,32 @@ package hu.martinmarkus.basichytools.functions.executorfunctions;
 
 import hu.martinmarkus.basichytools.functions.BaseFunction;
 import hu.martinmarkus.basichytools.models.User;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class CommandRunner<T> extends BaseFunction<T> {
 
     public CommandRunner(User executor /*add other function params*/) {
-        super(executor, "");
+        super(executor,  "");
+
+        initRawCommand();   // must be called for correct logging
     }
 
     @Override
     public void execute() {
-        super.runFunction(new Runnable() {
-            @Override
-            public void run() {
-                // TODO: implement function
-            }
+        super.runFunction(() -> {
+            // TODO: implement function
+            System.out.println(this.getClass().getName() + " function is not implemented");
         });
     }
 
     @Override
     public T executeWithReturnValue() {
-        throw new NotImplementedException();
+        execute();
+        return null;
+    }
+
+    @Override
+    public void initRawCommand() {
+        super.rawCommand = "empty default raw command";
+        // required for raw command logging
     }
 }
