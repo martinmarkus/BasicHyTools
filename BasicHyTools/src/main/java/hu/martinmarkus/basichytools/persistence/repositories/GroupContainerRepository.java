@@ -25,6 +25,11 @@ public class GroupContainerRepository implements IGroupContainerRepository {
     }
 
     @Override
+    public void add(String valueId, GroupContainer value, ResultListener<Boolean> resultListener) {
+        groupContainerDao.insert(valueId, value, resultListener);
+    }
+
+    @Override
     public void set(String valueId, GroupContainer newValue) {
         groupContainerDao.update(valueId, newValue);
     }

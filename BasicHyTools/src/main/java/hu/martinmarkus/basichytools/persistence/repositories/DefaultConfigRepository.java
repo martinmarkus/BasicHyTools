@@ -26,6 +26,11 @@ public class DefaultConfigRepository implements IDefaultConfigRepository {
     }
 
     @Override
+    public void add(String valueId, DefaultConfig value, ResultListener<Boolean> resultListener) {
+        defaultConfigDao.insert(valueId, value, resultListener);
+    }
+
+    @Override
     public void set(String valueId, DefaultConfig newValue) {
         defaultConfigDao.update(valueId, newValue);
     }

@@ -25,6 +25,11 @@ public class DefaultConfigDao extends Dao<DefaultConfig> implements IDefaultConf
     }
 
     @Override
+    public void insert(String valueId, DefaultConfig value, ResultListener<Boolean> resultListener) {
+        configWriter.write(valueId, value, resultListener);
+    }
+
+    @Override
     public void update(String valueId, DefaultConfig value) {
         configWriter.write(valueId, value);
     }

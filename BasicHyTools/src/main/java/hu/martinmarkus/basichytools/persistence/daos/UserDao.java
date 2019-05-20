@@ -23,6 +23,11 @@ public class UserDao extends Dao<User> implements IUserDao {
     }
 
     @Override
+    public void insert(String valueId, User value, ResultListener<Boolean> resultListener) {
+        configWriter.write(valueId, value, resultListener);
+    }
+
+    @Override
     public void update(String valueId, User value) {
         configWriter.write(valueId, value);
     }

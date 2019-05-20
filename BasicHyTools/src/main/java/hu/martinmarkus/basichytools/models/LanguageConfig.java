@@ -25,6 +25,7 @@ public class LanguageConfig {
     private String notEnoughXp;
     private String errorHasOccurred;
     private String commandExecuted;
+    private String userIsStillConnecting;
 
     //End of fieldlist
 
@@ -46,7 +47,7 @@ public class LanguageConfig {
                           String quitMessage, String cooldown, String afkOn, String afkOff, String banned,
                           String ipBanned, String unbanned, String kicked, String allKicked, String muted,
                           String unmuted, String notEnoughPermission, String notEnoughMoney, String notEnoughXp,
-                          String errorHasOccurred, String commandExecuted) {
+                          String errorHasOccurred, String commandExecuted, String userIsStillConnecting) {
         this.placeholderReplacer = placeholderReplacer;
         this.motd = motd;
         this.joinMessage = joinMessage;
@@ -66,6 +67,7 @@ public class LanguageConfig {
         this.notEnoughXp = notEnoughXp;
         this.errorHasOccurred = errorHasOccurred;
         this.commandExecuted = commandExecuted;
+        this.userIsStillConnecting = userIsStillConnecting;
     }
 
     public IPlaceholderReplacer getPlaceholderReplacer() {
@@ -218,5 +220,13 @@ public class LanguageConfig {
 
     public void setCommandExecuted(String commandExecuted) {
         this.commandExecuted = commandExecuted;
+    }
+
+    public String getUserIsStillConnecting() {
+        return userIsStillConnecting;
+    }
+
+    public void setUserIsStillConnecting(String userIsStillConnecting) {
+        this.userIsStillConnecting = userIsStillConnecting;
     }
 }

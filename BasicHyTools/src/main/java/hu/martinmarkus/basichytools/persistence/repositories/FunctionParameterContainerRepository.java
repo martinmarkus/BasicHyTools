@@ -26,6 +26,10 @@ public class FunctionParameterContainerRepository implements IFunctionParameterC
     }
 
     @Override
+    public void add(String valueId, FunctionParameterContainer value, ResultListener<Boolean> resultListener) {
+        functionParameterContainerDao.insert(valueId, value, resultListener);
+    }
+    @Override
     public void set(String valueId, FunctionParameterContainer newValue) {
         functionParameterContainerDao.insert(valueId, newValue);
     }

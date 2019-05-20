@@ -54,11 +54,9 @@ public class GroupManager {
         groupContainerRepository.get(GROUPS_CONFIG, groupContainer -> {
             if (groupContainer == null) {
                 initGroupContainer();
-                synchronizer.continueRun();
-                return;
+            } else {
+                groupList = groupContainer.getGroups();
             }
-
-            groupList = groupContainer.getGroups();
             synchronizer.continueRun();
         });
 

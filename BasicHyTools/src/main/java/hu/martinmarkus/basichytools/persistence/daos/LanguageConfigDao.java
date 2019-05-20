@@ -25,6 +25,11 @@ public class LanguageConfigDao extends Dao<LanguageConfig> implements ILanguageC
     }
 
     @Override
+    public void insert(String valueId, LanguageConfig value, ResultListener<Boolean> resultListener) {
+        configWriter.write(valueId, value, resultListener);
+    }
+
+    @Override
     public void update(String valueId, LanguageConfig value) {
         configWriter.write(valueId, value);
     }

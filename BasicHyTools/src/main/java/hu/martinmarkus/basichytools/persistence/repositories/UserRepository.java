@@ -25,6 +25,11 @@ public class UserRepository implements IUserRepository {
     }
 
     @Override
+    public void add(String valueId, User value, ResultListener<Boolean> resultListener) {
+        userDao.insert(valueId, value, resultListener);
+    }
+
+    @Override
     public void set(String valueId, User newValue) {
         userDao.update(valueId, newValue);
     }

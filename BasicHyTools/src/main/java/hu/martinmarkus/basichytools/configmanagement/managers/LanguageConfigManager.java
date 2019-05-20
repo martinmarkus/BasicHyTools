@@ -36,8 +36,6 @@ public class LanguageConfigManager {
         languageConfigRepository.get(LANGUAGE_CONFIG, languageConfig -> {
             if (languageConfig == null) {
                 writeNewLanguageConfig();
-                synchronizer.continueRun();
-                return;
             } else {
                 this.languageConfig = languageConfig;
             }
@@ -64,6 +62,7 @@ public class LanguageConfigManager {
         languageConfig.setNotEnoughXp("asd");
         languageConfig.setErrorHasOccurred("error");
         languageConfig.setCommandExecuted("exec");
+        languageConfig.setUserIsStillConnecting("still connecting");
         return languageConfig;
     }
 }

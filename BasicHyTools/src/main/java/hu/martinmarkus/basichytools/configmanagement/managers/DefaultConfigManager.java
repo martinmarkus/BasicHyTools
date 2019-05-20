@@ -6,6 +6,7 @@ import hu.martinmarkus.basichytools.persistence.repositories.DefaultConfigReposi
 import hu.martinmarkus.basichytools.persistence.repositories.IDefaultConfigRepository;
 import hu.martinmarkus.basichytools.synchronization.ISynchronizer;
 import hu.martinmarkus.basichytools.synchronization.Synchronizer;
+import hu.martinmarkus.configmanagerlibrary.threading.ResultListener;
 
 public class DefaultConfigManager {
     public static final String DEFAULT_CONFIG = "config";
@@ -47,8 +48,14 @@ public class DefaultConfigManager {
     }
 
     private void writeNewDefaultConfig() {
+        ISynchronizer synchronizer = new Synchronizer();
+
         defaultConfig = generateDefaultConfig();
-        defaultConfigRepository.add(DEFAULT_CONFIG, defaultConfig);
+        defaultConfigRepository.add(DEFAULT_CONFIG, defaultConfig, aBoolean -> {
+            synchronizer.continueRun();
+        });
+
+        synchronizer.waitRun();
     }
 
     public DefaultConfig getDefaultConfig() {

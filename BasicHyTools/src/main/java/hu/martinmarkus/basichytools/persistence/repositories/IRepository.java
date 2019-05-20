@@ -7,6 +7,7 @@ import java.util.List;
 public interface IRepository<T> {
     void get(String valueId, ResultListener<T> resultListener);
     void add(String valueId, T value);
+    void add(String valueId, T value, ResultListener<Boolean> resultListener);
     void set(String valueId, T newValue);
     void contains(T value, ResultListener<Boolean> resultListener);
 

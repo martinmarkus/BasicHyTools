@@ -1,6 +1,5 @@
 package hu.martinmarkus.basichytools.persistence.daos;
 
-import hu.martinmarkus.basichytools.configmanagement.managers.DefaultConfigManager;
 import hu.martinmarkus.basichytools.configmanagement.managers.FunctionParameterManager;
 import hu.martinmarkus.basichytools.models.containers.FunctionParameterContainer;
 import hu.martinmarkus.basichytools.persistence.PersistenceMode;
@@ -18,6 +17,11 @@ public class FunctionParameterContainerDao extends Dao<FunctionParameterContaine
     @Override
     public void select(String valueId, ResultListener<FunctionParameterContainer> resultListener) {
         configReader.read(valueId, resultListener);
+    }
+
+    @Override
+    public void insert(String valueId, FunctionParameterContainer value, ResultListener<Boolean> resultListener) {
+        configWriter.write(valueId, value, resultListener);
     }
 
     @Override

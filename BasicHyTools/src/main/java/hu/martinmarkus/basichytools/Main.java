@@ -11,6 +11,8 @@ import hu.martinmarkus.basichytools.synchronization.Synchronizer;
 import hu.martinmarkus.configmanagerlibrary.threading.ResultListener;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Properties;
 
 import static com.sun.org.apache.xalan.internal.utils.SecuritySupport.getResourceAsStream;
@@ -32,8 +34,6 @@ public class Main {
     }
 
     public static void main(String[] args) {
-
-        // TODO: refactor repo/dao for file write response
         HyToolsInitializer.initialize();
 
         UserValidationEventHandler validationEventHandler = new UserValidationEventHandler();
@@ -41,13 +41,10 @@ public class Main {
 
         UserConnectionEventHandler handler = new UserConnectionEventHandler();
         handler.onUserJoin();
-        handler.onUserJoin();
 
-        UserManager.getInstance().getUser("mockUser12345", user -> {
-            Me me = new Me(user);
-            me.execute();
-        });
-
+        User user = UserManager.getInstance().getOnlineUser("mockUser12345");
+        Me me = new Me(user);
+        me.execute();
         /*
         userManager.registerUser(birdemic);
         ConfigReader<User> reader = new YamlConfigReader<>(User.class, HyToolsInitializer.getUsersPath());

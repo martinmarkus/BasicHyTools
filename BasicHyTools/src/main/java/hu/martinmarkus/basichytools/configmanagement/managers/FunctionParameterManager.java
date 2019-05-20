@@ -7,6 +7,7 @@ import hu.martinmarkus.basichytools.models.containers.GroupContainer;
 import hu.martinmarkus.basichytools.persistence.repositories.FunctionParameterContainerRepository;
 import hu.martinmarkus.basichytools.synchronization.ISynchronizer;
 import hu.martinmarkus.basichytools.synchronization.Synchronizer;
+import hu.martinmarkus.configmanagerlibrary.threading.ResultListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,9 +55,14 @@ public class FunctionParameterManager {
             return;
         }
 
+        ISynchronizer synchronizer = new Synchronizer();
         FunctionParameterContainer container = generateDefaultFunctionParameterContainer();
         functionParameterList = container.getFunctionParameters();
-        functionParameterContainerRepository.add(FUNCTION_PARAMETERS, container);
+
+        functionParameterContainerRepository.add(FUNCTION_PARAMETERS,
+                container, aBoolean -> synchronizer.continueRun());
+
+        synchronizer.waitRun();
     }
 
     public List<FunctionParameter> getAlLFunctionParameters() {

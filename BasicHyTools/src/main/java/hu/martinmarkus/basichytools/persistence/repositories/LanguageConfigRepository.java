@@ -26,6 +26,11 @@ public class LanguageConfigRepository implements ILanguageConfigRepository {
     }
 
     @Override
+    public void add(String valueId, LanguageConfig value, ResultListener<Boolean> resultListener) {
+        languageConfigDao.insert(valueId, value, resultListener);
+    }
+
+    @Override
     public void set(String valueId, LanguageConfig newValue) {
         languageConfigDao.update(valueId, newValue);
     }

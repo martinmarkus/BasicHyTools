@@ -13,4 +13,6 @@ public interface IDao<T> {
     void selectAll(ResultListener<List<T>> resultListener);
     void insertAll(List<String> valueIds, List<T> values);
     void updateAll(List<String> valueIds, List<T> values);
+
+    void insert(String valueId, T value, ResultListener<Boolean> resultListener);
 }

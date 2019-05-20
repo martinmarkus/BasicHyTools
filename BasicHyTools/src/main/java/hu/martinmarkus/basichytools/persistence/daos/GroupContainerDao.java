@@ -24,6 +24,11 @@ public class GroupContainerDao extends Dao<GroupContainer> implements IGroupCont
     }
 
     @Override
+    public void insert(String valueId, GroupContainer value, ResultListener<Boolean> resultListener) {
+        configWriter.write(valueId, value, resultListener);
+    }
+
+    @Override
     public void update(String valueId, GroupContainer value) {
         configWriter.write(valueId, value);
     }
@@ -56,4 +61,5 @@ public class GroupContainerDao extends Dao<GroupContainer> implements IGroupCont
     public void updateAll(List<String> valueIds, List<GroupContainer> values) {
         throw new NotImplementedException();
     }
+
 }

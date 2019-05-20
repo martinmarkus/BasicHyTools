@@ -2,7 +2,7 @@ package hu.martinmarkus.basichytools.functions;
 
 import hu.martinmarkus.basichytools.configmanagement.managers.FunctionParameterManager;
 import hu.martinmarkus.basichytools.configmanagement.managers.LanguageConfigManager;
-import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.Informer;
+import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.HyLogger;
 import hu.martinmarkus.basichytools.models.LanguageConfig;
 import hu.martinmarkus.basichytools.models.User;
 
@@ -24,7 +24,10 @@ public abstract class BaseFunction<T> {
     }
 
     protected void runFunction(Runnable runnable) {
-        if (!hasPermission()) {
+        if (executorUser == null) {
+            HyLogger.log(HyLogger.INFO, languageConfig.getUserIsStillConnecting());
+            return;
+        } else if (!hasPermission()) {
             return;
         }
 
@@ -32,7 +35,6 @@ public abstract class BaseFunction<T> {
         if (!isOperator && !hasMoney()) {
             return;
         }
-
 
         if (runnable != null) {
             runnable.run();
@@ -47,7 +49,10 @@ public abstract class BaseFunction<T> {
     }
 
     protected T callFunction(Callable<T> callable) {
-        if (!hasPermission()) {
+        if (executorUser == null) {
+            HyLogger.log(HyLogger.INFO, languageConfig.getUserIsStillConnecting());
+            return null;
+        } else if (!hasPermission()) {
             return null;
         }
 
@@ -68,7 +73,7 @@ public abstract class BaseFunction<T> {
         if (!isOperator) {
             double usagePrice = functionParameter.getUsagePrice();
             executorUser.decreaseBalance(usagePrice);
-            Informer.send(executorUser, languageConfig.getCommandExecuted());
+            HyLogger.send(executorUser, languageConfig.getCommandExecuted());
         }
 
         doLogging();
@@ -93,7 +98,7 @@ public abstract class BaseFunction<T> {
 
     private void doLogging() {
         if (functionParameter.isDoLogging()) {
-            Informer.log("BasicHyTools: " + executorUser.getName()
+            HyLogger.log(HyLogger.INFO, executorUser.getName()
                     + " has executed: " + functionParameter.getCommand());
         }
     }
@@ -104,7 +109,7 @@ public abstract class BaseFunction<T> {
         boolean hasMoney = balance < usagePrice;
 
         if (!hasMoney) {
-            Informer.send(executorUser, languageConfig.getNotEnoughMoney());
+            HyLogger.send(executorUser, languageConfig.getNotEnoughMoney());
         }
 
         return hasMoney;
@@ -115,7 +120,7 @@ public abstract class BaseFunction<T> {
         boolean hasPermission = executorUser.hasPermission(permission);
 
         if (!hasPermission) {
-            Informer.send(executorUser, languageConfig.getNotEnoughPermission());
+            HyLogger.send(executorUser, languageConfig.getNotEnoughPermission());
         }
 
         return hasPermission;

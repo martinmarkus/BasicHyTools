@@ -30,8 +30,6 @@ public class UserManager {
         String path = HyToolsInitializer.getUsersPath();
         userRepository = new UserRepository(path);
         onlineUserList = new UserList();
-
-        //onlineUserList.add(generateDefaultUser("mockUser12345"));
     }
 
     public User getOnlineUser(String name) {
@@ -63,13 +61,22 @@ public class UserManager {
 
         userRepository.get(name, user -> {
             if (user == null) {
-                user = generateDefaultUser(name);
-                userRepository.add(name, user);
+                final User newUser = generateDefaultUser(name);
+                userRepository.add(name, newUser, aBoolean -> {
+                    if (aBoolean) {     // successful save
+                        addUser(newUser, registerListener);
+                    }
+                });
+            } else {
+                addUser(user, registerListener);
             }
-            user.setValidated(true);
-            onlineUserList.add(user);
-            registerListener.getResultOnFinish(user);
         });
+    }
+
+    private void addUser(User user, ResultListener<User> registerListener) {
+        user.setValidated(true);
+        onlineUserList.add(user);
+        registerListener.getResultOnFinish(user);
     }
 
     public void unregisterUser(String name) {
