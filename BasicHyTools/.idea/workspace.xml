@@ -17,11 +17,45 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
-              <caret line="35" column="44" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
+            <state relative-caret-position="-138">
+              <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/eventmanagement/UserValidationEventHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="21" column="61" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/FunctionParameter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="276">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+              <folding>
+                <element signature="e#920#921#0" expanded="true" />
+                <element signature="e#953#954#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/executorfunctions/CommandRunner.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="241">
+              <caret line="17" column="43" lean-forward="true" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -32,7 +66,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/BaseFunction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
+            <state relative-caret-position="621">
               <caret line="27" selection-start-line="27" selection-end-line="27" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -70,18 +104,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="299">
               <caret line="91" column="17" lean-forward="true" selection-start-line="91" selection-start-column="17" selection-end-line="91" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagement/managers/LanguageConfigManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="39" column="20" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -245,35 +267,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="basichytools" type="462c0819:PsiDirectoryNode" />
-              <item name="configmanagement" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BasicHyTools" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BasicHyTools" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="basichytools" type="462c0819:PsiDirectoryNode" />
-              <item name="configmanagement" type="462c0819:PsiDirectoryNode" />
-              <item name="initializers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BasicHyTools" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BasicHyTools" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="basichytools" type="462c0819:PsiDirectoryNode" />
-              <item name="configmanagement" type="462c0819:PsiDirectoryNode" />
-              <item name="managers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BasicHyTools" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BasicHyTools" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="basichytools" type="462c0819:PsiDirectoryNode" />
               <item name="functions" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -283,25 +276,8 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="basichytools" type="462c0819:PsiDirectoryNode" />
-              <item name="globalmechanisms" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BasicHyTools" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BasicHyTools" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="basichytools" type="462c0819:PsiDirectoryNode" />
-              <item name="globalmechanisms" type="462c0819:PsiDirectoryNode" />
-              <item name="chatmechanisms" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BasicHyTools" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BasicHyTools" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="functions" type="462c0819:PsiDirectoryNode" />
+              <item name="executorfunctions" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BasicHyTools" type="b2602c69:ProjectViewProjectNode" />
@@ -323,7 +299,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558355081810" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558355556098" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -402,7 +378,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32991454" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.18119659" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.09059829" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49924356" weight="0.43247864" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -468,26 +444,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/executorfunctions/CommandRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/generalfunctions/chatfunctions/BalanceTopList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/generalfunctions/chatfunctions/Broadcast.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="317">
@@ -544,17 +500,6 @@
           <caret line="22" column="10" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/FunctionParameter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="23" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="23" />
-          <folding>
-            <element signature="e#920#921#0" expanded="true" />
-            <element signature="e#953#954#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -833,16 +778,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/BaseFunction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/src/main/resources/ConfigManagerLibrary-1.0.2.jar!/hu/martinmarkus/configmanagerlibrary/fileprocessing/configwriters/ConfigWriter.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -915,8 +850,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="35" column="44" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
+        <state relative-caret-position="-138">
+          <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/eventmanagement/UserValidationEventHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="21" column="61" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/BaseFunction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/FunctionParameter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="e#920#921#0" expanded="true" />
+            <element signature="e#953#954#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/executorfunctions/CommandRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="17" column="43" lean-forward="true" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
