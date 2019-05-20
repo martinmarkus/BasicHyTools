@@ -4,8 +4,8 @@ import hu.martinmarkus.basichytools.configmanagement.initializers.ModuleInitiali
 import hu.martinmarkus.basichytools.configmanagement.managers.UserManager;
 import hu.martinmarkus.basichytools.eventmanagement.UserConnectionEventHandler;
 import hu.martinmarkus.basichytools.eventmanagement.UserValidationEventHandler;
-import hu.martinmarkus.basichytools.functions.generalfunctions.chatfunctions.Me;
-import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.Informer;
+import hu.martinmarkus.basichytools.gamefunctions.GameFunction;
+import hu.martinmarkus.basichytools.gamefunctions.generalfunctions.chatfunctions.Me;
 import hu.martinmarkus.basichytools.models.User;
 import hu.martinmarkus.configmanagerlibrary.threading.ResultListener;
 
@@ -45,7 +45,7 @@ public class Main {
         UserManager.getInstance().getUser("mockUser12345", new ResultListener<User>() {
             @Override
             public void getResultOnFinish(User user) {
-                Me me = new Me(user, "megcsinálta a seggtörlést");
+                GameFunction me = new Me(user, "me message");
                 me.execute();
             }
         });

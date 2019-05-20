@@ -1,7 +1,7 @@
 package hu.martinmarkus.basichytools.configmanagement.managers;
 
 import hu.martinmarkus.basichytools.configmanagement.initializers.ModuleInitializer;
-import hu.martinmarkus.basichytools.functions.FunctionParameter;
+import hu.martinmarkus.basichytools.gamefunctions.FunctionParameter;
 import hu.martinmarkus.basichytools.models.containers.FunctionParameterContainer;
 import hu.martinmarkus.basichytools.persistence.repositories.FunctionParameterContainerRepository;
 import hu.martinmarkus.basichytools.synchronization.ISynchronizer;
