@@ -9,16 +9,18 @@ public class FunctionParameter {
     private String permission;
     private double usagePrice;
     private String description;
+    private int requiredParameterCount;
     private boolean doLogging;
 
     public FunctionParameter(String name, String command, List<String> aliases, String permission,
-                             double usagePrice, String description, boolean doLogging) {
+                             double usagePrice, String description, int requiredParameterCount, boolean doLogging) {
         this.name = name;
         this.command = command;
         this.aliases = aliases;
         this.permission = permission;
         this.usagePrice = usagePrice;
         this.description = description;
+        this.requiredParameterCount = requiredParameterCount;
         this.doLogging = doLogging;
     }
 
@@ -68,6 +70,14 @@ public class FunctionParameter {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getRequiredParameterCount() {
+        return requiredParameterCount;
+    }
+
+    public void setRequiredParameterCount(int requiredParameterCount) {
+        this.requiredParameterCount = requiredParameterCount;
     }
 
     public boolean isDoLogging() {

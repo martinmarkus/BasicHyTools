@@ -2,12 +2,12 @@ package hu.martinmarkus.basichytools;
 
 import hu.martinmarkus.basichytools.configmanagement.initializers.ModuleInitializer;
 import hu.martinmarkus.basichytools.configmanagement.managers.UserManager;
+import hu.martinmarkus.basichytools.eventmanagement.CommandEventHandler;
 import hu.martinmarkus.basichytools.eventmanagement.UserConnectionEventHandler;
 import hu.martinmarkus.basichytools.eventmanagement.UserValidationEventHandler;
 import hu.martinmarkus.basichytools.gamefunctions.GameFunction;
 import hu.martinmarkus.basichytools.gamefunctions.generalfunctions.chatfunctions.Me;
 import hu.martinmarkus.basichytools.models.User;
-import hu.martinmarkus.configmanagerlibrary.threading.ResultListener;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -49,8 +49,8 @@ public class Main {
                     e.printStackTrace();
                 }
                 User user = UserManager.getInstance().getOnlineUser("mockUser12345");
-                GameFunction me = new Me(user, "'cutsom me message'");
-                me.execute();
+                CommandEventHandler commandEventHandler = new CommandEventHandler();
+                commandEventHandler.onUserExecuteCommand();
             }
         });
         thread.start();
