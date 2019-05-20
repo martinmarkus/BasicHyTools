@@ -5,6 +5,7 @@ import hu.martinmarkus.basichytools.configmanagement.managers.LanguageConfigMana
 import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.HyLogger;
 import hu.martinmarkus.basichytools.models.LanguageConfig;
 import hu.martinmarkus.basichytools.models.User;
+import hu.martinmarkus.basichytools.models.placeholders.placeholderhelpers.PlaceholderReplacer;
 
 import java.util.List;
 import java.util.concurrent.Callable;

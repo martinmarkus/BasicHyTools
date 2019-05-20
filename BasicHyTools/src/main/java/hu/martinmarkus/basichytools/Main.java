@@ -40,6 +40,7 @@ public class Main {
         User user = UserManager.getInstance().getOnlineUser("mockUser12345");
         Me me = new Me(user);
         me.execute();
+
         /*
         userManager.registerUser(birdemic);
         ConfigReader<User> reader = new YamlConfigReader<>(User.class, HyToolsInitializer.getUsersPath());

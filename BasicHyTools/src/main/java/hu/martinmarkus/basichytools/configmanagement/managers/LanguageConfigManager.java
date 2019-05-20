@@ -57,12 +57,11 @@ public class LanguageConfigManager {
     private LanguageConfig generateDefaultLanguageConfig() {
         LanguageConfig languageConfig = new LanguageConfig();
         // TODO: use mock lang generator
-        languageConfig.setNotEnoughPermission("asd");
-        languageConfig.setNotEnoughMoney("asd");
-        languageConfig.setNotEnoughXp("asd");
-        languageConfig.setErrorHasOccurred("error");
-        languageConfig.setCommandExecuted("exec");
-        languageConfig.setUserIsStillConnecting("still connecting");
+        languageConfig.setNotEnoughPermission("You don't have permission to execute this function.");
+        languageConfig.setNotEnoughMoney("You don't have enough money to execute this function.");
+        languageConfig.setErrorHasOccurred("An error has occurred while trying to execute a function. Please contact an administrator.");
+        languageConfig.setCommandExecuted("User %value% has executed the following function: %value%");
+        languageConfig.setUserIsStillConnecting("The user is still not available (still connecting?)");
         return languageConfig;
     }
 }
