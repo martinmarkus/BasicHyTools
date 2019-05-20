@@ -12,6 +12,8 @@ public class ModuleInitializer {
         initializeFunctionParameterConfig();
         initializeGroupConfig();
         initializeUserConfig();
+
+        // TODO: add HERE the instantiation of event handler classes???
     }
 
     public static void initializeDefaultConfig() {
