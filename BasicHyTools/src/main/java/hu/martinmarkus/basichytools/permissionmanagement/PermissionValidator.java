@@ -3,7 +3,7 @@ package hu.martinmarkus.basichytools.permissionmanagement;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class IPermissionValidator<T> {
+public abstract class PermissionValidator<T> {
     final String SEPARATOR = "\\.";
     final String ALL_PERMISSIONS = "*";
 
@@ -11,7 +11,7 @@ public abstract class IPermissionValidator<T> {
 
     public abstract boolean validate(T object, String permission);
 
-    IPermissionValidator() {
+    PermissionValidator() {
         permissionParts = new ArrayList<>();
     }
 

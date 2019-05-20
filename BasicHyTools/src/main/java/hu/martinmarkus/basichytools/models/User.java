@@ -3,7 +3,7 @@ package hu.martinmarkus.basichytools.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import hu.martinmarkus.basichytools.configmanagement.managers.DefaultConfigManager;
 import hu.martinmarkus.basichytools.configmanagement.managers.GroupManager;
-import hu.martinmarkus.basichytools.permissionmanagement.IPermissionValidator;
+import hu.martinmarkus.basichytools.permissionmanagement.PermissionValidator;
 import hu.martinmarkus.basichytools.permissionmanagement.UserPermissionValidator;
 
 import java.util.ArrayList;
@@ -56,7 +56,7 @@ public class User {
             return true;
         }
 
-        IPermissionValidator validator = new UserPermissionValidator();
+        PermissionValidator validator = new UserPermissionValidator();
         return validator.validate(this, permission);
     }
 
