@@ -78,6 +78,7 @@ public class GroupManager {
 
         List<String> permissions = new ArrayList<>();
         permissions.add("group.default");
+        permissions.add("hytools.basic.*");
         List<String> inheritances = new ArrayList<>();
         Group group = new Group("default", "[Default]", "", permissions, inheritances);
         groupList.add(group);

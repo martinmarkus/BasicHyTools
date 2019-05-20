@@ -5,7 +5,10 @@ import hu.martinmarkus.basichytools.configmanagement.managers.UserManager;
 import hu.martinmarkus.basichytools.eventmanagement.UserConnectionEventHandler;
 import hu.martinmarkus.basichytools.eventmanagement.UserValidationEventHandler;
 import hu.martinmarkus.basichytools.functions.generalfunctions.chatfunctions.Me;
+import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.Informer;
 import hu.martinmarkus.basichytools.models.User;
+import hu.martinmarkus.configmanagerlibrary.threading.ResultListener;
+
 import java.io.IOException;
 import java.util.Properties;
 
@@ -37,9 +40,15 @@ public class Main {
         UserConnectionEventHandler handler = new UserConnectionEventHandler();
         handler.onUserJoin();
 
-        User user = UserManager.getInstance().getOnlineUser("mockUser12345");
-        Me me = new Me(user);
-        me.execute();
+
+
+        UserManager.getInstance().getUser("mockUser12345", new ResultListener<User>() {
+            @Override
+            public void getResultOnFinish(User user) {
+                Me me = new Me(user);
+                me.execute();
+            }
+        });
 
         /*
         userManager.registerUser(birdemic);

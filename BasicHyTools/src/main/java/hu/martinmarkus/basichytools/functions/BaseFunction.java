@@ -2,7 +2,7 @@ package hu.martinmarkus.basichytools.functions;
 
 import hu.martinmarkus.basichytools.configmanagement.managers.FunctionParameterManager;
 import hu.martinmarkus.basichytools.configmanagement.managers.LanguageConfigManager;
-import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.HyLogger;
+import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.Informer;
 import hu.martinmarkus.basichytools.models.LanguageConfig;
 import hu.martinmarkus.basichytools.models.User;
 import hu.martinmarkus.basichytools.models.placeholders.placeholderhelpers.PlaceholderReplacer;
@@ -26,7 +26,7 @@ public abstract class BaseFunction<T> {
 
     protected void runFunction(Runnable runnable) {
         if (executorUser == null) {
-            HyLogger.log(HyLogger.INFO, languageConfig.getUserIsStillConnecting());
+            Informer.logWarn(languageConfig.getUserIsStillConnecting());
             return;
         } else if (!hasPermission()) {
             return;
@@ -51,7 +51,7 @@ public abstract class BaseFunction<T> {
 
     protected T callFunction(Callable<T> callable) {
         if (executorUser == null) {
-            HyLogger.log(HyLogger.INFO, languageConfig.getUserIsStillConnecting());
+            Informer.logWarn(languageConfig.getUserIsStillConnecting());
             return null;
         } else if (!hasPermission()) {
             return null;
@@ -74,7 +74,7 @@ public abstract class BaseFunction<T> {
         if (!isOperator) {
             double usagePrice = functionParameter.getUsagePrice();
             executorUser.decreaseBalance(usagePrice);
-            HyLogger.send(executorUser, languageConfig.getCommandExecuted());
+            executorUser.sendMessage(languageConfig.getCommandExecuted());
         }
 
         doLogging();
@@ -99,20 +99,26 @@ public abstract class BaseFunction<T> {
 
     private void doLogging() {
         if (functionParameter.isDoLogging()) {
-            HyLogger.log(HyLogger.INFO, executorUser.getName()
-                    + " has executed: " + functionParameter.getCommand());
+            String message = languageConfig.getCommandExecuted();
+            String userName = executorUser.getName();
+
+            PlaceholderReplacer replacer = new PlaceholderReplacer();
+            message = replacer.replace(message, userName, functionParameter.getName());
+
+            Informer.logInfo(message);
         }
     }
 
     private boolean hasMoney() {
-        Double usagePrice = functionParameter.getUsagePrice();
-        Double balance = executorUser.getBalance();
-        boolean hasMoney = balance < usagePrice;
+        double usagePrice = functionParameter.getUsagePrice();
+        double balance = executorUser.getBalance();
+        boolean hasMoney = balance >= usagePrice;
 
         if (!hasMoney) {
-            HyLogger.send(executorUser, languageConfig.getNotEnoughMoney());
+            executorUser.sendMessage(languageConfig.getNotEnoughMoney());
         }
 
+        executorUser.decreaseBalance(usagePrice);
         return hasMoney;
     }
 
@@ -121,7 +127,7 @@ public abstract class BaseFunction<T> {
         boolean hasPermission = executorUser.hasPermission(permission);
 
         if (!hasPermission) {
-            HyLogger.send(executorUser, languageConfig.getNotEnoughPermission());
+            executorUser.sendMessage(languageConfig.getNotEnoughPermission());
         }
 
         return hasPermission;

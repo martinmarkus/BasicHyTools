@@ -3,6 +3,9 @@ package hu.martinmarkus.basichytools.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import hu.martinmarkus.basichytools.configmanagement.managers.DefaultConfigManager;
 import hu.martinmarkus.basichytools.configmanagement.managers.GroupManager;
+import hu.martinmarkus.basichytools.configmanagement.managers.LanguageConfigManager;
+import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.Informer;
+import hu.martinmarkus.basichytools.models.placeholders.placeholderhelpers.PlaceholderReplacer;
 import hu.martinmarkus.basichytools.permissionmanagement.PermissionValidator;
 import hu.martinmarkus.basichytools.permissionmanagement.UserPermissionValidator;
 
@@ -16,6 +19,7 @@ public class User {
      */
     @JsonIgnore
     private boolean isValidated = false;
+
 
     private String name;
     private String permissionGroupName;
@@ -51,6 +55,12 @@ public class User {
     }
 
     @JsonIgnore
+    public void sendMessage(String message) {
+        // TODO: implement default message sending to User
+
+    }
+
+    @JsonIgnore
     public boolean hasPermission(String permission) {
         if (isOperator || uniquePermissions.contains(permission)) {
             return true;
@@ -72,26 +82,41 @@ public class User {
     }
 
     public void decreaseBalance(double value) {
-        balance -= value;
+        balance -= Math.abs(value);
         DefaultConfig config = DefaultConfigManager.getInstance().getDefaultConfig();
         double minMoney = config.getMinMoney();
         if (balance < minMoney) {
             balance = minMoney;
         }
+
+        LanguageConfig languageConfig = LanguageConfigManager.getInstance().getLanguageConfig();
+        PlaceholderReplacer replacer = new PlaceholderReplacer();
+        String message = replacer.replace(languageConfig.getBalanceDecreased(), String.valueOf(balance));
+        sendMessage(message);
     }
 
     public void increaseBalance(double value) {
-        balance += value;
+        balance += Math.abs(value);
         DefaultConfig config = DefaultConfigManager.getInstance().getDefaultConfig();
         double maxMoney = config.getMaxMoney();
         if (balance > maxMoney) {
             balance = maxMoney;
         }
+
+        LanguageConfig languageConfig = LanguageConfigManager.getInstance().getLanguageConfig();
+        PlaceholderReplacer replacer = new PlaceholderReplacer();
+        String message = replacer.replace(languageConfig.getBalanceIncreased(), String.valueOf(balance));
+        sendMessage(message);
     }
 
     public void resetBalance() {
         DefaultConfig config = DefaultConfigManager.getInstance().getDefaultConfig();
         balance = config.getStartingBalance();
+
+        LanguageConfig languageConfig = LanguageConfigManager.getInstance().getLanguageConfig();
+        PlaceholderReplacer replacer = new PlaceholderReplacer();
+        String message = replacer.replace(languageConfig.getBalanceSet(), String.valueOf(balance));
+        sendMessage(message);
     }
 
     public String getName() {

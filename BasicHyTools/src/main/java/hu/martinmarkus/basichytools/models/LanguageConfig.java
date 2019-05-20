@@ -22,14 +22,20 @@ public class LanguageConfig {
     private String commandExecuted;
     private String userIsStillConnecting;
 
+    private String balanceIncreased;
+    private String balanceDecreased;
+    private String balanceSet;
+
     public LanguageConfig() {
+
     }
 
-    public LanguageConfig(String motd, String joinMessage,
-                          String quitMessage, String cooldown, String afkOn, String afkOff, String banned,
-                          String ipBanned, String unbanned, String kicked, String allKicked, String muted,
-                          String unmuted, String notEnoughPermission, String notEnoughMoney,
-                          String errorHasOccurred, String commandExecuted, String userIsStillConnecting) {
+    public LanguageConfig(String motd, String joinMessage, String quitMessage, String cooldown,
+                          String afkOn, String afkOff, String banned, String ipBanned, String unbanned,
+                          String kicked, String allKicked, String muted, String unmuted, String notEnoughPermission,
+                          String notEnoughMoney, String errorHasOccurred, String commandExecuted,
+                          String userIsStillConnecting, String balanceIncreased, String balanceDecreased,
+                          String balanceSet) {
         this.motd = motd;
         this.joinMessage = joinMessage;
         this.quitMessage = quitMessage;
@@ -48,6 +54,9 @@ public class LanguageConfig {
         this.errorHasOccurred = errorHasOccurred;
         this.commandExecuted = commandExecuted;
         this.userIsStillConnecting = userIsStillConnecting;
+        this.balanceIncreased = balanceIncreased;
+        this.balanceDecreased = balanceDecreased;
+        this.balanceSet = balanceSet;
     }
 
     public String getMotd() {
@@ -192,5 +201,29 @@ public class LanguageConfig {
 
     public void setUserIsStillConnecting(String userIsStillConnecting) {
         this.userIsStillConnecting = userIsStillConnecting;
+    }
+
+    public String getBalanceIncreased() {
+        return balanceIncreased;
+    }
+
+    public void setBalanceIncreased(String balanceIncreased) {
+        this.balanceIncreased = balanceIncreased;
+    }
+
+    public String getBalanceDecreased() {
+        return balanceDecreased;
+    }
+
+    public void setBalanceDecreased(String balanceDecreased) {
+        this.balanceDecreased = balanceDecreased;
+    }
+
+    public String getBalanceSet() {
+        return balanceSet;
+    }
+
+    public void setBalanceSet(String balanceSet) {
+        this.balanceSet = balanceSet;
     }
 }
