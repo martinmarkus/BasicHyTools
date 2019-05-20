@@ -1,6 +1,7 @@
 package hu.martinmarkus.basichytools.configmanagement.managers;
 
 import hu.martinmarkus.basichytools.configmanagement.initializers.ModuleInitializer;
+import hu.martinmarkus.basichytools.models.BasicHyToolsLocation;
 import hu.martinmarkus.basichytools.models.DefaultConfig;
 import hu.martinmarkus.basichytools.persistence.repositories.DefaultConfigRepository;
 import hu.martinmarkus.basichytools.persistence.repositories.IDefaultConfigRepository;
@@ -70,8 +71,10 @@ public class DefaultConfigManager {
         announcerMessages.add("This is the second example announcement.");
         announcerMessages.add("This is the third example announcement.");
 
+        BasicHyToolsLocation spawnLocation = new BasicHyToolsLocation("spawnWorld", 10.0f, 10.0f, 10.0f);
+
         return new DefaultConfig(60, 5, 5, 60,
                 true, 300, 2800, 300, 30, 1000,
-                0, 999999999, 1, 15, 180, announcerMessages);
+                0, 999999999, 1, 15, 180, announcerMessages, spawnLocation);
     }
 }

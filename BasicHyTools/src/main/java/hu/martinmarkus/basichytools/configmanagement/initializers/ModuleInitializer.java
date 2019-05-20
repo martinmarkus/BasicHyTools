@@ -8,8 +8,8 @@ public class ModuleInitializer {
 
     public static void initializeAllModules() {
         initializeDefaultConfig();
-        initializeFunctionParameterConfig();
         initializeLanguageConfig();
+        initializeFunctionParameterConfig();
         initializeGroupConfig();
         initializeUserConfig();
     }

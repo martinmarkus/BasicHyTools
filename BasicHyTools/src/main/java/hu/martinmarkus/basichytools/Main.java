@@ -1,13 +1,8 @@
 package hu.martinmarkus.basichytools;
 
 import hu.martinmarkus.basichytools.configmanagement.initializers.ModuleInitializer;
-import hu.martinmarkus.basichytools.configmanagement.managers.UserManager;
 import hu.martinmarkus.basichytools.eventmanagement.UserConnectionEventHandler;
 import hu.martinmarkus.basichytools.eventmanagement.UserValidationEventHandler;
-import hu.martinmarkus.basichytools.gamefunctions.GameFunction;
-import hu.martinmarkus.basichytools.gamefunctions.generalfunctions.chatfunctions.Me;
-import hu.martinmarkus.basichytools.models.User;
-import hu.martinmarkus.configmanagerlibrary.threading.ResultListener;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -41,7 +36,7 @@ public class Main {
         handler.onUserJoin();
 
 
-
+        /*
         UserManager.getInstance().getUser("mockUser12345", new ResultListener<User>() {
             @Override
             public void getResultOnFinish(User user) {
@@ -49,14 +44,6 @@ public class Main {
                 me.execute();
             }
         });
-
-        /*
-        userManager.registerUser(birdemic);
-        ConfigReader<User> reader = new YamlConfigReader<>(User.class, ModuleInitializer.getUsersPath());
-        reader.read("mockUser12345", user -> {
-
-            String permission = "group.default";
-            boolean hasPermission = user.hasPermission(permission);
-        });*/
+        */
     }
 }

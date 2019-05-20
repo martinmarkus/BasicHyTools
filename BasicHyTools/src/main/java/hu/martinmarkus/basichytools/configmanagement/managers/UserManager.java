@@ -54,6 +54,15 @@ public class UserManager {
         return onlineUserList.getList();
     }
 
+    public boolean isUserOnlineByName(String userName) {
+        for (User user : onlineUserList.getList()) {
+            if (user.getName().equalsIgnoreCase(userName)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void registerUser(String name, ResultListener<User> registerListener) {
         if (name == null || name.isEmpty()) {
             return;
@@ -74,9 +83,9 @@ public class UserManager {
     }
 
     private void addUser(User user, ResultListener<User> registerListener) {
-        user.setOnline(true);
-        user.setValidated(true);
         onlineUserList.add(user);
+        user.setValidated(true);
+        user.setOnline(true);
         registerListener.getResultOnFinish(user);
     }
 
@@ -97,7 +106,7 @@ public class UserManager {
     }
 
     public User generateDefaultUser(String name) {
-        BasicHyToolsLocation location = new BasicHyToolsLocation("spawnWorld",10.0f, 10.0f, 10.0f);
+        BasicHyToolsLocation location = DefaultConfigManager.getInstance().getDefaultConfig().getSpawnLocation();
         return new User(name, "default", 1000.0, 100.0,
                 false, "123.123.123.123", "2019-05-16 13:15", location, new ArrayList<>(),
                 true, false, false, false);

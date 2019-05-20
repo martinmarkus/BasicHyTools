@@ -1,10 +1,12 @@
 package hu.martinmarkus.basichytools.models;
 
 public class BasicHyToolsLocation {
+
     private String worldName;
     private float x;
     private float y;
     private float z;
+
 
     public BasicHyToolsLocation(String worldName, float x, float y, float z) {
         this.worldName = worldName;

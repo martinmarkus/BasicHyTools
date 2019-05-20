@@ -19,11 +19,13 @@ public class DefaultConfig {
     private int payCooldown;
     private int announcerInterval;
     private List<String> announcerMessages;
+    private BasicHyToolsLocation spawnLocation;
 
     public DefaultConfig(int teleportCooldown, int teleportDelay, int teleportInvulnerability,
                          int healCooldown, boolean allowAfk, int autoAfk, int autoAfkKick, int autoSaveInterval,
                          int tpAcceptCancellation, double startingBalance, double minMoney, double maxMoney,
-                         double minPayAmount, int payCooldown, int announcerInterval, List<String> announcerMessages) {
+                         double minPayAmount, int payCooldown, int announcerInterval, List<String> announcerMessages,
+                         BasicHyToolsLocation spawnLocation) {
         this.teleportCooldown = teleportCooldown;
         this.teleportDelay = teleportDelay;
         this.teleportInvulnerability = teleportInvulnerability;
@@ -40,6 +42,7 @@ public class DefaultConfig {
         this.payCooldown = payCooldown;
         this.announcerInterval = announcerInterval;
         this.announcerMessages = announcerMessages;
+        this.spawnLocation = spawnLocation;
     }
 
     public int getTeleportCooldown() {
@@ -168,5 +171,13 @@ public class DefaultConfig {
 
     public void setAnnouncerMessages(List<String> announcerMessages) {
         this.announcerMessages = announcerMessages;
+    }
+
+    public BasicHyToolsLocation getSpawnLocation() {
+        return spawnLocation;
+    }
+
+    public void setSpawnLocation(BasicHyToolsLocation spawnLocation) {
+        this.spawnLocation = spawnLocation;
     }
 }

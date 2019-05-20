@@ -13,13 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class User {
-    /*
-        Signs the validation state of the User.
-        Required for JoinEvent validation
-     */
     @JsonIgnore
-    private boolean isValidated = false;
-
+    private boolean isValidated = false;        //Signs the validation state of the User.
 
     private String name;
     private String permissionGroupName;
@@ -58,6 +53,38 @@ public class User {
     public void sendMessage(String message) {
         // TODO: implement default message sending to User
 
+    }
+
+    @JsonIgnore
+    public void teleportToSpawn() {
+        BasicHyToolsLocation spawnLocation =
+                DefaultConfigManager.getInstance().getDefaultConfig().getSpawnLocation();
+        teleport(spawnLocation);
+    }
+
+    @JsonIgnore
+    public void teleportOnFirstJoin() {
+        float userX = location.getX();
+        float userY = location.getY();
+        float userZ = location.getZ();
+        String userWorldName = location.getWorldName();
+
+        BasicHyToolsLocation spawnLocation =
+                DefaultConfigManager.getInstance().getDefaultConfig().getSpawnLocation();
+
+        float spawnX = spawnLocation.getX();
+        float spawnY = spawnLocation.getY();
+        float spawnZ = spawnLocation.getZ();
+        String spawnWorldName = spawnLocation.getWorldName();
+
+        if (userX == spawnX && userY == spawnY && userZ == spawnZ &&
+                userWorldName.equalsIgnoreCase(spawnWorldName)) {
+            teleport(spawnLocation);
+        }
+    }
+
+    public void teleport(BasicHyToolsLocation location) {
+        // TODO teleport user to location
     }
 
     @JsonIgnore
