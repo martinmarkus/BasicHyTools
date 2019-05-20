@@ -145,4 +145,28 @@ public abstract class BaseFunction<T> {
 
         return hasPermission;
     }
+
+    public FunctionParameter getFunctionParameter() {
+        return functionParameter;
+    }
+
+    public void setFunctionParameter(FunctionParameter functionParameter) {
+        this.functionParameter = functionParameter;
+    }
+
+    public User getExecutorUser() {
+        return executorUser;
+    }
+
+    public void setExecutorUser(User executorUser) {
+        this.executorUser = executorUser;
+    }
+
+    public String getRawCommand() {
+        return rawCommand;
+    }
+
+    public void setRawCommand(String rawCommand) {
+        this.rawCommand = rawCommand;
+    }
 }
