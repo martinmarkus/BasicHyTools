@@ -2,7 +2,7 @@ package hu.martinmarkus.basichytools.configmanagement.initializers;
 
 import hu.martinmarkus.basichytools.configmanagement.managers.*;
 
-public class HyToolsInitializer {
+public class ModuleInitializer {
     private static final String ROOT = "BasicHyTools";
     private static final String USERS = ROOT.concat("\\Users");
 

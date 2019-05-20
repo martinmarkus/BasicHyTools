@@ -1,7 +1,7 @@
 package hu.martinmarkus.basichytools.configmanagement.managers;
 
+import hu.martinmarkus.basichytools.configmanagement.initializers.ModuleInitializer;
 import hu.martinmarkus.basichytools.models.containers.UserList;
-import hu.martinmarkus.basichytools.configmanagement.initializers.HyToolsInitializer;
 import hu.martinmarkus.basichytools.models.BasicHyToolsLocation;
 import hu.martinmarkus.basichytools.models.User;
 import hu.martinmarkus.basichytools.persistence.repositories.IUserRepository;
@@ -27,7 +27,7 @@ public class UserManager {
     }
 
     private UserManager() {
-        String path = HyToolsInitializer.getUsersPath();
+        String path = ModuleInitializer.getUsersPath();
         userRepository = new UserRepository(path);
         onlineUserList = new UserList();
     }

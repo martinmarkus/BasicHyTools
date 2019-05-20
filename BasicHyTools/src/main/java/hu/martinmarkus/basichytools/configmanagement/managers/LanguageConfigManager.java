@@ -1,6 +1,6 @@
 package hu.martinmarkus.basichytools.configmanagement.managers;
 
-import hu.martinmarkus.basichytools.configmanagement.initializers.HyToolsInitializer;
+import hu.martinmarkus.basichytools.configmanagement.initializers.ModuleInitializer;
 import hu.martinmarkus.basichytools.models.LanguageConfig;
 import hu.martinmarkus.basichytools.persistence.repositories.ILanguageConfigRepository;
 import hu.martinmarkus.basichytools.persistence.repositories.LanguageConfigRepository;
@@ -24,7 +24,7 @@ public class LanguageConfigManager {
     }
 
     private LanguageConfigManager() {
-        String path = HyToolsInitializer.getRootPath();
+        String path = ModuleInitializer.getRootPath();
         languageConfigRepository = new LanguageConfigRepository(path);
         initLanguageConfigFromFile();
     }

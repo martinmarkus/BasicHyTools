@@ -1,13 +1,11 @@
 package hu.martinmarkus.basichytools.configmanagement.managers;
 
-import hu.martinmarkus.basichytools.configmanagement.initializers.HyToolsInitializer;
+import hu.martinmarkus.basichytools.configmanagement.initializers.ModuleInitializer;
 import hu.martinmarkus.basichytools.functions.FunctionParameter;
 import hu.martinmarkus.basichytools.models.containers.FunctionParameterContainer;
-import hu.martinmarkus.basichytools.models.containers.GroupContainer;
 import hu.martinmarkus.basichytools.persistence.repositories.FunctionParameterContainerRepository;
 import hu.martinmarkus.basichytools.synchronization.ISynchronizer;
 import hu.martinmarkus.basichytools.synchronization.Synchronizer;
-import hu.martinmarkus.configmanagerlibrary.threading.ResultListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +27,7 @@ public class FunctionParameterManager {
     }
 
     private FunctionParameterManager() {
-        String path = HyToolsInitializer.getRootPath();
+        String path = ModuleInitializer.getRootPath();
         functionParameterContainerRepository = new FunctionParameterContainerRepository(path);
         initFunctionParameterContainerFromFile();
     }

@@ -1,6 +1,6 @@
 package hu.martinmarkus.basichytools.configmanagement.managers;
 
-import hu.martinmarkus.basichytools.configmanagement.initializers.HyToolsInitializer;
+import hu.martinmarkus.basichytools.configmanagement.initializers.ModuleInitializer;
 import hu.martinmarkus.basichytools.models.DefaultConfig;
 import hu.martinmarkus.basichytools.persistence.repositories.DefaultConfigRepository;
 import hu.martinmarkus.basichytools.persistence.repositories.IDefaultConfigRepository;
@@ -27,7 +27,7 @@ public class DefaultConfigManager {
     }
 
     private DefaultConfigManager() {
-        String path = HyToolsInitializer.getRootPath();
+        String path = ModuleInitializer.getRootPath();
         defaultConfigRepository = new DefaultConfigRepository(path);
         initDefaultConfigFromFile();
     }

@@ -1,6 +1,6 @@
 package hu.martinmarkus.basichytools;
 
-import hu.martinmarkus.basichytools.configmanagement.initializers.HyToolsInitializer;
+import hu.martinmarkus.basichytools.configmanagement.initializers.ModuleInitializer;
 import hu.martinmarkus.basichytools.configmanagement.managers.UserManager;
 import hu.martinmarkus.basichytools.eventmanagement.UserConnectionEventHandler;
 import hu.martinmarkus.basichytools.eventmanagement.UserValidationEventHandler;
@@ -29,7 +29,7 @@ public class Main {
 
     public static void main(String[] args) {
         printProjectProperties();
-        HyToolsInitializer.initializeAllModules();
+        ModuleInitializer.initializeAllModules();
 
         UserValidationEventHandler validationEventHandler = new UserValidationEventHandler();
         validationEventHandler.OnInvalidUserInteraction();
@@ -43,7 +43,7 @@ public class Main {
 
         /*
         userManager.registerUser(birdemic);
-        ConfigReader<User> reader = new YamlConfigReader<>(User.class, HyToolsInitializer.getUsersPath());
+        ConfigReader<User> reader = new YamlConfigReader<>(User.class, ModuleInitializer.getUsersPath());
         reader.read("mockUser12345", user -> {
 
             String permission = "group.default";

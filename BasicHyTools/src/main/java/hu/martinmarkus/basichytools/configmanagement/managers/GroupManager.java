@@ -1,6 +1,6 @@
 package hu.martinmarkus.basichytools.configmanagement.managers;
 
-import hu.martinmarkus.basichytools.configmanagement.initializers.HyToolsInitializer;
+import hu.martinmarkus.basichytools.configmanagement.initializers.ModuleInitializer;
 import hu.martinmarkus.basichytools.models.Group;
 import hu.martinmarkus.basichytools.models.containers.GroupContainer;
 import hu.martinmarkus.basichytools.persistence.repositories.GroupContainerRepository;
@@ -29,7 +29,7 @@ public class GroupManager {
     }
 
     private GroupManager() {
-        String path = HyToolsInitializer.getRootPath();
+        String path = ModuleInitializer.getRootPath();
         groupContainerRepository = new GroupContainerRepository(path);
         groupList = new ArrayList<>();
         initPermissionGroupsFromFile();
