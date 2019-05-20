@@ -8,6 +8,9 @@ import hu.martinmarkus.basichytools.synchronization.ISynchronizer;
 import hu.martinmarkus.basichytools.synchronization.Synchronizer;
 import hu.martinmarkus.configmanagerlibrary.threading.ResultListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DefaultConfigManager {
     public static final String DEFAULT_CONFIG = "config";
 
@@ -63,8 +66,13 @@ public class DefaultConfigManager {
     }
 
     public DefaultConfig generateDefaultConfig() {
+        List<String> announcerMessages = new ArrayList<>();
+        announcerMessages.add("This is the first example announcement.");
+        announcerMessages.add("This is the second example announcement.");
+        announcerMessages.add("This is the third example announcement.");
+
         return new DefaultConfig(60, 5, 5, 60,
                 true, 300, 2800, 300, 30, 1000,
-                0, 999999999, 1, 15);
+                0, 999999999, 1, 15, 180, announcerMessages);
     }
 }

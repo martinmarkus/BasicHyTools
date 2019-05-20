@@ -1,5 +1,7 @@
 package hu.martinmarkus.basichytools.models;
 
+import java.util.List;
+
 public class DefaultConfig {
     private int teleportCooldown;
     private int teleportDelay;
@@ -15,11 +17,13 @@ public class DefaultConfig {
     private double maxMoney;
     private double minPayAmount;
     private int payCooldown;
+    private int announcerInterval;
+    private List<String> announcerMessages;
 
     public DefaultConfig(int teleportCooldown, int teleportDelay, int teleportInvulnerability,
                          int healCooldown, boolean allowAfk, int autoAfk, int autoAfkKick, int autoSaveInterval,
                          int tpAcceptCancellation, double startingBalance, double minMoney, double maxMoney,
-                         double minPayAmount, int payCooldown) {
+                         double minPayAmount, int payCooldown, int announcerInterval, List<String> announcerMessages) {
         this.teleportCooldown = teleportCooldown;
         this.teleportDelay = teleportDelay;
         this.teleportInvulnerability = teleportInvulnerability;
@@ -34,6 +38,8 @@ public class DefaultConfig {
         this.maxMoney = maxMoney;
         this.minPayAmount = minPayAmount;
         this.payCooldown = payCooldown;
+        this.announcerInterval = announcerInterval;
+        this.announcerMessages = announcerMessages;
     }
 
     public int getTeleportCooldown() {
@@ -146,5 +152,21 @@ public class DefaultConfig {
 
     public void setPayCooldown(int payCooldown) {
         this.payCooldown = payCooldown;
+    }
+
+    public int getAnnouncerInterval() {
+        return announcerInterval;
+    }
+
+    public void setAnnouncerInterval(int announcerInterval) {
+        this.announcerInterval = announcerInterval;
+    }
+
+    public List<String> getAnnouncerMessages() {
+        return announcerMessages;
+    }
+
+    public void setAnnouncerMessages(List<String> announcerMessages) {
+        this.announcerMessages = announcerMessages;
     }
 }
