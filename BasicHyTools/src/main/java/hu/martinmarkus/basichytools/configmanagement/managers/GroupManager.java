@@ -14,7 +14,7 @@ import java.util.List;
 
 public class GroupManager {
     private static GroupManager groupManager;
-    public static final String GROUPS_CONFIG = "permissionGroups";
+    public static final String GROUPS_CONFIG = "groups";
 
     private List<Group> groupList;
     private IGroupContainerRepository groupContainerRepository;

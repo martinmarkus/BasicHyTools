@@ -29,7 +29,7 @@ public class Main {
 
     public static void main(String[] args) {
         printProjectProperties();
-        HyToolsInitializer.initialize();
+        HyToolsInitializer.initializeAllModules();
 
         UserValidationEventHandler validationEventHandler = new UserValidationEventHandler();
         validationEventHandler.OnInvalidUserInteraction();

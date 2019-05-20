@@ -6,11 +6,30 @@ public class HyToolsInitializer {
     private static final String ROOT = "BasicHyTools";
     private static final String USERS = ROOT.concat("\\Users");
 
-    public static void initialize() {
+    public static void initializeAllModules() {
+        initializeDefaultConfig();
+        initializeFunctionParameterConfig();
+        initializeLanguageConfig();
+        initializeGroupConfig();
+        initializeUserConfig();
+    }
+
+    public static void initializeDefaultConfig() {
         DefaultConfigManager.getInstance();
+    }
+
+    public static void initializeFunctionParameterConfig() {
         FunctionParameterManager.getInstance();
+
+    }
+    public static void initializeLanguageConfig() {
         LanguageConfigManager.getInstance();
+    }
+    public static void initializeGroupConfig() {
         GroupManager.getInstance();
+    }
+
+    public static void initializeUserConfig() {
         UserManager.getInstance();
     }
 

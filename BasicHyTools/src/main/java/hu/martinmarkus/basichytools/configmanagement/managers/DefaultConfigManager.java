@@ -6,7 +6,6 @@ import hu.martinmarkus.basichytools.persistence.repositories.DefaultConfigReposi
 import hu.martinmarkus.basichytools.persistence.repositories.IDefaultConfigRepository;
 import hu.martinmarkus.basichytools.synchronization.ISynchronizer;
 import hu.martinmarkus.basichytools.synchronization.Synchronizer;
-import hu.martinmarkus.configmanagerlibrary.threading.ResultListener;
 
 import java.util.ArrayList;
 import java.util.List;
