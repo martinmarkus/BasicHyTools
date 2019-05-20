@@ -1,6 +1,6 @@
 package hu.martinmarkus.basichytools.models.containers;
 
-import hu.martinmarkus.basichytools.gamefunctions.FunctionParameter;
+import hu.martinmarkus.basichytools.models.FunctionParameter;
 
 import java.util.List;
 

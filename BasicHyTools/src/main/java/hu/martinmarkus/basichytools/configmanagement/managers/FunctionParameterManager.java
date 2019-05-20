@@ -1,7 +1,7 @@
 package hu.martinmarkus.basichytools.configmanagement.managers;
 
 import hu.martinmarkus.basichytools.configmanagement.initializers.ModuleInitializer;
-import hu.martinmarkus.basichytools.gamefunctions.FunctionParameter;
+import hu.martinmarkus.basichytools.models.FunctionParameter;
 import hu.martinmarkus.basichytools.models.containers.FunctionParameterContainer;
 import hu.martinmarkus.basichytools.persistence.repositories.FunctionParameterContainerRepository;
 import hu.martinmarkus.basichytools.synchronization.ISynchronizer;
@@ -70,12 +70,12 @@ public class FunctionParameterManager {
 
     private FunctionParameterContainer generateDefaultFunctionParameterContainer() {
         List<FunctionParameter> functionParameters = new ArrayList<>();
-        // TODO: implement default function parameters
-        FunctionParameter functionParameter = new FunctionParameter("me", 0, "me",
-                null, "hytools.basic.me",
-                "This is a description", true);
-        functionParameters.add(functionParameter);
+        List<String> aliases = new ArrayList<>();
 
+        // TODO: implement default function parameters
+        FunctionParameter functionParameter = new FunctionParameter("me", "me", aliases,
+                "hytools.basic.me", 0,"This is a description", true);
+        functionParameters.add(functionParameter);
 
         return new FunctionParameterContainer(functionParameters);
     }

@@ -1,23 +1,23 @@
-package hu.martinmarkus.basichytools.gamefunctions;
+package hu.martinmarkus.basichytools.models;
 
 import java.util.List;
 
 public class FunctionParameter {
     private String name;
-    private double usagePrice;
     private String command;
     private List<String> aliases;
     private String permission;
+    private double usagePrice;
     private String description;
     private boolean doLogging;
 
-    public FunctionParameter(String name, double usagePrice, String command, List<String> aliases,
-                             String permission, String description, boolean doLogging) {
+    public FunctionParameter(String name, String command, List<String> aliases, String permission,
+                             double usagePrice, String description, boolean doLogging) {
         this.name = name;
-        this.usagePrice = usagePrice;
         this.command = command;
         this.aliases = aliases;
         this.permission = permission;
+        this.usagePrice = usagePrice;
         this.description = description;
         this.doLogging = doLogging;
     }
@@ -28,14 +28,6 @@ public class FunctionParameter {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public double getUsagePrice() {
-        return usagePrice;
-    }
-
-    public void setUsagePrice(double usagePrice) {
-        this.usagePrice = usagePrice;
     }
 
     public String getCommand() {
@@ -60,6 +52,14 @@ public class FunctionParameter {
 
     public void setPermission(String permission) {
         this.permission = permission;
+    }
+
+    public double getUsagePrice() {
+        return usagePrice;
+    }
+
+    public void setUsagePrice(double usagePrice) {
+        this.usagePrice = usagePrice;
     }
 
     public String getDescription() {

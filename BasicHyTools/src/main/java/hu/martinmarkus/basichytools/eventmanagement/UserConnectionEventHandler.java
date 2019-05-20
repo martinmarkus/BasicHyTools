@@ -1,8 +1,6 @@
 package hu.martinmarkus.basichytools.eventmanagement;
 
-import hu.martinmarkus.basichytools.configmanagement.managers.DefaultConfigManager;
 import hu.martinmarkus.basichytools.configmanagement.managers.UserManager;
-import hu.martinmarkus.basichytools.models.BasicHyToolsLocation;
 import hu.martinmarkus.basichytools.models.User;
 
 public class UserConnectionEventHandler {
@@ -30,7 +28,7 @@ public class UserConnectionEventHandler {
             // TODO: successful registration to online users' list, handle it
             // TODO: broadcast join msg
             // TODO: show motd
-            validUser.teleportOnFirstJoin();
+            validUser.teleportToSpawnOnFirstJoin();
         });
     }
 

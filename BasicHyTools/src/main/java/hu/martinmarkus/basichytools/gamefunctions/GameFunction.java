@@ -3,6 +3,7 @@ package hu.martinmarkus.basichytools.gamefunctions;
 import hu.martinmarkus.basichytools.configmanagement.managers.FunctionParameterManager;
 import hu.martinmarkus.basichytools.configmanagement.managers.LanguageConfigManager;
 import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.Informer;
+import hu.martinmarkus.basichytools.models.FunctionParameter;
 import hu.martinmarkus.basichytools.models.LanguageConfig;
 import hu.martinmarkus.basichytools.models.User;
 import hu.martinmarkus.basichytools.models.placeholders.placeholderhelpers.PlaceholderReplacer;

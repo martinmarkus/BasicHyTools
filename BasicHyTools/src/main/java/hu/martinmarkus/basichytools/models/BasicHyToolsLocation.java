@@ -7,7 +7,6 @@ public class BasicHyToolsLocation {
     private float y;
     private float z;
 
-
     public BasicHyToolsLocation(String worldName, float x, float y, float z) {
         this.worldName = worldName;
         this.x = x;

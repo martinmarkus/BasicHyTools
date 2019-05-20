@@ -22,11 +22,12 @@ public class ModuleInitializer {
 
     public static void initializeFunctionParameterConfig() {
         FunctionParameterManager.getInstance();
-
     }
+
     public static void initializeLanguageConfig() {
         LanguageConfigManager.getInstance();
     }
+    
     public static void initializeGroupConfig() {
         GroupManager.getInstance();
     }

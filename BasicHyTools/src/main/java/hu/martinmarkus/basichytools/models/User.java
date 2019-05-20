@@ -63,7 +63,7 @@ public class User {
     }
 
     @JsonIgnore
-    public void teleportOnFirstJoin() {
+    public void teleportToSpawnOnFirstJoin() {
         float userX = location.getX();
         float userY = location.getY();
         float userZ = location.getZ();

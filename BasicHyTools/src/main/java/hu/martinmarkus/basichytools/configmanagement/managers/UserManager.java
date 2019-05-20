@@ -17,7 +17,6 @@ public class UserManager {
     private UserList onlineUserList;
     private IUserRepository userRepository;
 
-    // Singleton
     public static UserManager getInstance() {
         if (userManager == null) {
             userManager = new UserManager();

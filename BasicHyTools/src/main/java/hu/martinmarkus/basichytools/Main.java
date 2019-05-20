@@ -1,8 +1,13 @@
 package hu.martinmarkus.basichytools;
 
 import hu.martinmarkus.basichytools.configmanagement.initializers.ModuleInitializer;
+import hu.martinmarkus.basichytools.configmanagement.managers.UserManager;
 import hu.martinmarkus.basichytools.eventmanagement.UserConnectionEventHandler;
 import hu.martinmarkus.basichytools.eventmanagement.UserValidationEventHandler;
+import hu.martinmarkus.basichytools.gamefunctions.GameFunction;
+import hu.martinmarkus.basichytools.gamefunctions.generalfunctions.chatfunctions.Me;
+import hu.martinmarkus.basichytools.models.User;
+import hu.martinmarkus.configmanagerlibrary.threading.ResultListener;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -35,15 +40,21 @@ public class Main {
         UserConnectionEventHandler handler = new UserConnectionEventHandler();
         handler.onUserJoin();
 
-
-        /*
-        UserManager.getInstance().getUser("mockUser12345", new ResultListener<User>() {
+        Thread thread = new Thread(new Runnable() {
             @Override
-            public void getResultOnFinish(User user) {
-                GameFunction me = new Me(user, "me message");
+            public void run() {
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                User user = UserManager.getInstance().getOnlineUser("mockUser12345");
+                GameFunction me = new Me(user, "'cutsom me message'");
                 me.execute();
             }
         });
-        */
+        thread.start();
+
+
     }
 }
