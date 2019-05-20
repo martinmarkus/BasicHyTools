@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import hu.martinmarkus.basichytools.configmanagement.managers.DefaultConfigManager;
 import hu.martinmarkus.basichytools.configmanagement.managers.GroupManager;
 import hu.martinmarkus.basichytools.configmanagement.managers.LanguageConfigManager;
-import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.Informer;
 import hu.martinmarkus.basichytools.models.placeholders.placeholderhelpers.PlaceholderReplacer;
 import hu.martinmarkus.basichytools.permissionmanagement.PermissionValidator;
 import hu.martinmarkus.basichytools.permissionmanagement.UserPermissionValidator;

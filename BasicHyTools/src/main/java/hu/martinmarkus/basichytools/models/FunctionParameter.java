@@ -12,8 +12,9 @@ public class FunctionParameter {
     private int requiredParameterCount;
     private boolean doLogging;
 
-    public FunctionParameter(String name, String command, List<String> aliases, String permission,
-                             double usagePrice, String description, int requiredParameterCount, boolean doLogging) {
+    public FunctionParameter(String name, String command, List<String> aliases,
+                             String permission, double usagePrice, String description,
+                             int requiredParameterCount, boolean doLogging) {
         this.name = name;
         this.command = command;
         this.aliases = aliases;
