@@ -108,6 +108,6 @@ public class UserManager {
         BasicHyToolsLocation location = DefaultConfigManager.getInstance().getDefaultConfig().getSpawnLocation();
         return new User(name, "default", 1000.0, 100.0,
                 false, "123.123.123.123", "2019-05-16 13:15", location, new ArrayList<>(),
-                true, false, false, false);
+                false, false, false, false);
     }
 }

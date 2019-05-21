@@ -19,33 +19,33 @@ public class User {
     private String permissionGroupName;
     private double balance;
     private double exp;
-    private boolean isOnline;
+    private boolean online;
     private String loginIp;
     private String loginTime;
     private BasicHyToolsLocation location;
     private List<String> uniquePermissions;
-    private boolean isOperator;
-    private boolean isMuted;
-    private boolean isBanned;
-    private boolean isIpBanned;
+    private boolean operator;
+    private boolean muted;
+    private boolean banned;
+    private boolean ipBanned;
 
     public User(String name, String permissionGroupName, double balance, double exp,
-                boolean isOnline, String loginIp, String loginTime,
+                boolean online, String loginIp, String loginTime,
                 BasicHyToolsLocation location, List<String> uniquePermissions,
-                boolean isOperator, boolean isMuted, boolean isBanned, boolean isIpBanned) {
+                boolean operator, boolean muted, boolean banned, boolean ipBanned) {
         this.name = name;
         this.permissionGroupName = permissionGroupName;
         this.balance = balance;
         this.exp = exp;
-        this.isOnline = isOnline;
+        this.online = online;
         this.loginIp = loginIp;
         this.loginTime = loginTime;
         this.location = location;
         this.uniquePermissions = uniquePermissions;
-        this.isOperator = isOperator;
-        this.isMuted = isMuted;
-        this.isBanned = isBanned;
-        this.isIpBanned = isIpBanned;
+        this.operator = operator;
+        this.muted = muted;
+        this.banned = banned;
+        this.ipBanned = ipBanned;
     }
 
     @JsonIgnore
@@ -88,7 +88,7 @@ public class User {
 
     @JsonIgnore
     public boolean hasPermission(String permission) {
-        if (isOperator || uniquePermissions.contains(permission)) {
+        if (operator || uniquePermissions.contains(permission)) {
             return true;
         }
 
@@ -108,7 +108,8 @@ public class User {
     }
 
     public void decreaseBalance(double value) {
-        balance -= Math.abs(value);
+        value = Math.abs(value);
+        balance -= value;
         DefaultConfig config = DefaultConfigManager.getInstance().getDefaultConfig();
         double minMoney = config.getMinMoney();
         if (balance < minMoney) {
@@ -117,12 +118,14 @@ public class User {
 
         LanguageConfig languageConfig = LanguageConfigManager.getInstance().getLanguageConfig();
         PlaceholderReplacer replacer = new PlaceholderReplacer();
-        String message = replacer.replace(languageConfig.getBalanceDecreased(), String.valueOf(balance));
+        String message = replacer.replace(languageConfig.getBalanceDecreased(), name, String.valueOf(value),
+                String.valueOf(balance));
         sendMessage(message);
     }
 
     public void increaseBalance(double value) {
-        balance += Math.abs(value);
+        value = Math.abs(value);
+        balance += value;
         DefaultConfig config = DefaultConfigManager.getInstance().getDefaultConfig();
         double maxMoney = config.getMaxMoney();
         if (balance > maxMoney) {
@@ -131,7 +134,8 @@ public class User {
 
         LanguageConfig languageConfig = LanguageConfigManager.getInstance().getLanguageConfig();
         PlaceholderReplacer replacer = new PlaceholderReplacer();
-        String message = replacer.replace(languageConfig.getBalanceIncreased(), String.valueOf(balance));
+        String message = replacer.replace(languageConfig.getBalanceIncreased(), name, String.valueOf(value),
+                String.valueOf(balance));
         sendMessage(message);
     }
 
@@ -178,11 +182,11 @@ public class User {
     }
 
     public boolean isOnline() {
-        return isOnline;
+        return online;
     }
 
     public void setOnline(boolean isOnline) {
-        this.isOnline = isOnline;
+        this.online = isOnline;
     }
 
     public String getLoginIp() {
@@ -218,35 +222,35 @@ public class User {
     }
 
     public boolean isOperator() {
-        return isOperator;
+        return operator;
     }
 
     public void setOperator(boolean isOperator) {
-        this.isOperator = isOperator;
+        this.operator = isOperator;
     }
 
     public boolean isMuted() {
-        return isMuted;
+        return muted;
     }
 
     public void setMuted(boolean isMuted) {
-        this.isMuted = isMuted;
+        this.muted = isMuted;
     }
 
     public boolean isBanned() {
-        return isBanned;
+        return banned;
     }
 
     public void setBanned(boolean isBanned) {
-        this.isBanned = isBanned;
+        this.banned = isBanned;
     }
 
     public boolean isIpBanned() {
-        return isIpBanned;
+        return ipBanned;
     }
 
     public void setIpBanned(boolean ipBanned) {
-        isIpBanned = ipBanned;
+        this.ipBanned = ipBanned;
     }
 
     @JsonIgnore

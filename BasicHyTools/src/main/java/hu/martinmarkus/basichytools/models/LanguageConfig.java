@@ -9,11 +9,14 @@ public class LanguageConfig {
     private String afkOn;
     private String afkOff;
     private String banned;
+    private String tempBanned;
     private String ipBanned;
+    private String tempIpBanned;
     private String unbanned;
     private String kicked;
     private String allKicked;
     private String muted;
+    private String tempMuted;
     private String unmuted;
 
     private String notEnoughPermission;
@@ -22,6 +25,7 @@ public class LanguageConfig {
     private String commandExecuted;
     private String userIsStillConnecting;
     private String invalidCommandUsage;
+    private String invalidCommandUsagePleaseTry;
 
     private String balanceIncreased;
     private String balanceDecreased;
@@ -31,12 +35,12 @@ public class LanguageConfig {
 
     }
 
-    public LanguageConfig(String motd, String joinMessage, String quitMessage, String cooldown,
-                          String afkOn, String afkOff, String banned, String ipBanned, String unbanned,
-                          String kicked, String allKicked, String muted, String unmuted, String notEnoughPermission,
-                          String notEnoughMoney, String errorHasOccurred, String commandExecuted,
-                          String userIsStillConnecting, String invalidCommandUsage, String balanceIncreased,
-                          String balanceDecreased, String balanceSet) {
+    public LanguageConfig(String motd, String joinMessage, String quitMessage, String cooldown, String afkOn,
+                          String afkOff, String banned, String tempBanned, String ipBanned, String tempIpBanned,
+                          String unbanned, String kicked, String allKicked, String muted, String tempMuted, String unmuted,
+                          String notEnoughPermission, String notEnoughMoney, String errorHasOccurred, String commandExecuted,
+                          String userIsStillConnecting, String invalidCommandUsage, String invalidCommandUsagePleaseTry,
+                          String balanceIncreased, String balanceDecreased, String balanceSet) {
         this.motd = motd;
         this.joinMessage = joinMessage;
         this.quitMessage = quitMessage;
@@ -44,11 +48,14 @@ public class LanguageConfig {
         this.afkOn = afkOn;
         this.afkOff = afkOff;
         this.banned = banned;
+        this.tempBanned = tempBanned;
         this.ipBanned = ipBanned;
+        this.tempIpBanned = tempIpBanned;
         this.unbanned = unbanned;
         this.kicked = kicked;
         this.allKicked = allKicked;
         this.muted = muted;
+        this.tempMuted = tempMuted;
         this.unmuted = unmuted;
         this.notEnoughPermission = notEnoughPermission;
         this.notEnoughMoney = notEnoughMoney;
@@ -56,6 +63,7 @@ public class LanguageConfig {
         this.commandExecuted = commandExecuted;
         this.userIsStillConnecting = userIsStillConnecting;
         this.invalidCommandUsage = invalidCommandUsage;
+        this.invalidCommandUsagePleaseTry = invalidCommandUsagePleaseTry;
         this.balanceIncreased = balanceIncreased;
         this.balanceDecreased = balanceDecreased;
         this.balanceSet = balanceSet;
@@ -117,12 +125,28 @@ public class LanguageConfig {
         this.banned = banned;
     }
 
+    public String getTempBanned() {
+        return tempBanned;
+    }
+
+    public void setTempBanned(String tempBanned) {
+        this.tempBanned = tempBanned;
+    }
+
     public String getIpBanned() {
         return ipBanned;
     }
 
     public void setIpBanned(String ipBanned) {
         this.ipBanned = ipBanned;
+    }
+
+    public String getTempIpBanned() {
+        return tempIpBanned;
+    }
+
+    public void setTempIpBanned(String tempIpBanned) {
+        this.tempIpBanned = tempIpBanned;
     }
 
     public String getUnbanned() {
@@ -155,6 +179,14 @@ public class LanguageConfig {
 
     public void setMuted(String muted) {
         this.muted = muted;
+    }
+
+    public String getTempMuted() {
+        return tempMuted;
+    }
+
+    public void setTempMuted(String tempMuted) {
+        this.tempMuted = tempMuted;
     }
 
     public String getUnmuted() {
@@ -211,6 +243,14 @@ public class LanguageConfig {
 
     public void setInvalidCommandUsage(String invalidCommandUsage) {
         this.invalidCommandUsage = invalidCommandUsage;
+    }
+
+    public String getInvalidCommandUsagePleaseTry() {
+        return invalidCommandUsagePleaseTry;
+    }
+
+    public void setInvalidCommandUsagePleaseTry(String invalidCommandUsagePleaseTry) {
+        this.invalidCommandUsagePleaseTry = invalidCommandUsagePleaseTry;
     }
 
     public String getBalanceIncreased() {

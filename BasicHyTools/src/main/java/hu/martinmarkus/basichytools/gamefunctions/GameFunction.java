@@ -49,7 +49,9 @@ public abstract class GameFunction<T> {
 
         if (!isOperator) {
             double usagePrice = functionParameter.getUsagePrice();
-            executorUser.decreaseBalance(usagePrice);
+            if (usagePrice > 0) {
+                executorUser.decreaseBalance(usagePrice);
+            }
         }
 
         doLogging();
@@ -128,7 +130,6 @@ public abstract class GameFunction<T> {
             executorUser.sendMessage(languageConfig.getNotEnoughMoney());
         }
 
-        executorUser.decreaseBalance(usagePrice);
         return hasMoney;
     }
 

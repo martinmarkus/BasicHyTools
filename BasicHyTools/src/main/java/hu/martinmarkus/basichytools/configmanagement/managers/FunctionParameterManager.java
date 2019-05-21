@@ -83,8 +83,8 @@ public class FunctionParameterManager {
         List<String> aliases = new ArrayList<>();
 
         // TODO: implement default function parameters
-        FunctionParameter functionParameter = new FunctionParameter("Me", "me", aliases,
-                "hytools.basic.me", 0,"This is a description",
+        FunctionParameter functionParameter = new FunctionParameter("Me", "me <message>", aliases,
+                "hytools.basic.me", 10,"This is a description",
                 1, true);
         functionParameters.add(functionParameter);
 
