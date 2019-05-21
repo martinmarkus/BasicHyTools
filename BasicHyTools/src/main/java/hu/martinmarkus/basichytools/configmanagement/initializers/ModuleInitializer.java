@@ -1,58 +1,27 @@
 package hu.martinmarkus.basichytools.configmanagement.initializers;
 
 import hu.martinmarkus.basichytools.configmanagement.managers.*;
+import hu.martinmarkus.basichytools.globalmechanisms.savemechanisms.GroupSaver;
 import hu.martinmarkus.basichytools.globalmechanisms.savemechanisms.UserSaver;
 import hu.martinmarkus.basichytools.models.DefaultConfig;
 
 public class ModuleInitializer {
     private static final String ROOT = "BasicHyTools";
     private static final String USERS = ROOT.concat("\\Users");
+    private static final int SAVE_INTERVAL = getSaveInterval();
 
-    public static void unloadAllModules() {
-        UserSaver userSaver = UserSaver.getInstance();
-        userSaver.stopAutoSave();
+    public static void unload() {
+        UserSaver.getInstance().stopAutoSave();
+        GroupSaver.getInstance().stopAutoSave();
     }
 
-    public static void loadAllModules() {
-        initializeDefaultConfig();
-        initializeLanguageConfig();
-        initializeFunctionParameterConfig();
-        initializeGroupConfig();
-        initializeUserConfig();
-        initializeSaverModules();
-    }
-
-    private static void initializeSaverModules() {
-        initializeUserSaver();
-        // TODO: add all saver module
-    }
-
-    private static void initializeUserSaver() {
-        DefaultConfig defaultConfig = DefaultConfigManager.getInstance().getDefaultConfig();
-        int saveInterval = defaultConfig.getAutoSaveInterval();
-
-        UserSaver userSaver = UserSaver.getInstance();
-        userSaver.startAutoSave(saveInterval);
-    }
-
-    public static void initializeDefaultConfig() {
+    public static void load() {
         DefaultConfigManager.getInstance();
-    }
-
-    public static void initializeFunctionParameterConfig() {
-        FunctionParameterManager.getInstance();
-    }
-
-    public static void initializeLanguageConfig() {
         LanguageConfigManager.getInstance();
-    }
-    
-    public static void initializeGroupConfig() {
+        FunctionParameterManager.getInstance();
         GroupManager.getInstance();
-    }
-
-    public static void initializeUserConfig() {
         UserManager.getInstance();
+        initializeSaverModules();
     }
 
     public static String getRootPath() {
@@ -61,5 +30,15 @@ public class ModuleInitializer {
 
     public static String getUsersPath() {
         return USERS;
+    }
+
+    private static void initializeSaverModules() {
+        UserSaver.getInstance().startAutoSave(SAVE_INTERVAL);
+        GroupSaver.getInstance().startAutoSave(SAVE_INTERVAL);
+    }
+
+    private static int getSaveInterval() {
+        DefaultConfig defaultConfig = DefaultConfigManager.getInstance().getDefaultConfig();
+        return defaultConfig.getAutoSaveInterval();
     }
 }

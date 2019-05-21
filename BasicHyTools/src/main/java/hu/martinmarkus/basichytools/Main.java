@@ -31,8 +31,8 @@ public class Main {
 
     public static void main(String[] args) {
         printProjectProperties();
-        ModuleInitializer.unloadAllModules();
-        ModuleInitializer.loadAllModules();
+        ModuleInitializer.unload();
+        ModuleInitializer.load();
 
         UserValidationEventHandler validationEventHandler = new UserValidationEventHandler();
         validationEventHandler.OnInvalidUserInteraction();
@@ -69,6 +69,6 @@ public class Main {
             e.printStackTrace();
         }
 
-        userSaver.stopAutoSave();
+        ModuleInitializer.unload();
     }
 }

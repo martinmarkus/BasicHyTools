@@ -16,7 +16,7 @@ public class GroupManager {
     private static GroupManager groupManager;
     public static final String GROUPS_CONFIG = "groups";
 
-    private List<Group> groupList;
+    private GroupContainer groupContainer;
     private IGroupContainerRepository groupContainerRepository;
 
     // Singleton
@@ -31,12 +31,12 @@ public class GroupManager {
     private GroupManager() {
         String path = ModuleInitializer.getRootPath();
         groupContainerRepository = new GroupContainerRepository(path);
-        groupList = new ArrayList<>();
+        groupContainer = new GroupContainer(new ArrayList<>());
         initPermissionGroupsFromFile();
     }
 
     public Group getPermissionGroup(String name) {
-        for (Group group : groupList) {
+        for (Group group : groupContainer.getGroups()) {
             if (group.getName().equalsIgnoreCase(name)) {
                 return group;
             }
@@ -45,7 +45,11 @@ public class GroupManager {
     }
 
     public List<Group> getAllPermissionGroups() {
-        return groupList;
+        return groupContainer.getGroups();
+    }
+
+    public GroupContainer getGroupContainer() {
+        return groupContainer;
     }
 
     private void initPermissionGroupsFromFile() {
@@ -55,7 +59,7 @@ public class GroupManager {
             if (groupContainer == null) {
                 initGroupContainer();
             } else {
-                groupList = groupContainer.getGroups();
+                this.groupContainer.setGroups(groupContainer.getGroups());
             }
             synchronizer.continueRun();
         });
@@ -64,13 +68,13 @@ public class GroupManager {
     }
 
     private void initGroupContainer() {
-        if (groupList != null && !groupList.isEmpty()) {
+        if (groupContainer.getGroups() != null && !groupContainer.getGroups().isEmpty()) {
             return;
         }
 
-        GroupContainer groupContainer = generateDefaultGroupContainer();
-        groupList = groupContainer.getGroups();
-        groupContainerRepository.add(GROUPS_CONFIG, groupContainer);
+        GroupContainer aGroupContainer = generateDefaultGroupContainer();
+        this.groupContainer.setGroups(aGroupContainer.getGroups());
+        groupContainerRepository.add(GROUPS_CONFIG, aGroupContainer);
     }
 
     public GroupContainer generateDefaultGroupContainer() {
