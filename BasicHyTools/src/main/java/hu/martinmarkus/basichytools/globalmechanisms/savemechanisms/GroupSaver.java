@@ -9,7 +9,7 @@ import hu.martinmarkus.basichytools.persistence.repositories.GroupContainerRepos
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-public class GroupSaver extends ConfigSaver<GroupContainer> {
+public class GroupSaver extends ConfigSaver {
 
     private static GroupSaver groupSaver;
 
@@ -45,7 +45,7 @@ public class GroupSaver extends ConfigSaver<GroupContainer> {
     }
 
     @Override
-    public void saveNow(GroupContainer value) {
+    public void saveNow() {
         saveAllGroups();
     }
 

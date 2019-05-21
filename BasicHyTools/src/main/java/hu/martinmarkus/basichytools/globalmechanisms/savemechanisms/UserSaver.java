@@ -10,7 +10,7 @@ import hu.martinmarkus.basichytools.persistence.repositories.UserRepository;
 import java.util.List;
 import java.util.concurrent.*;
 
-public class UserSaver extends ConfigSaver<User> {
+public class UserSaver extends ConfigSaver {
 
     private static UserSaver userSaver;
 
@@ -46,8 +46,8 @@ public class UserSaver extends ConfigSaver<User> {
     }
 
     @Override
-    public void saveNow(User value) {
-        userRepository.set(value.getName(), value);
+    public void saveNow() {
+        saveAllUsers();
     }
 
     private void saveAllUsers() {

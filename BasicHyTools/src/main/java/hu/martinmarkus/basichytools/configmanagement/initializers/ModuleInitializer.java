@@ -12,7 +12,9 @@ public class ModuleInitializer {
 
     public static void unload() {
         UserSaver.getInstance().stopAutoSave();
+        UserSaver.getInstance().saveNow();
         GroupSaver.getInstance().stopAutoSave();
+        GroupSaver.getInstance().saveNow();
     }
 
     public static void load() {

@@ -7,7 +7,7 @@ import hu.martinmarkus.basichytools.models.placeholders.placeholderhelpers.Place
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 
-public abstract class ConfigSaver<T> implements IConfigSaver<T> {
+public abstract class ConfigSaver implements IConfigSaver {
     protected final int MIN_SAVE_INTERVAL = 10;
 
     protected ScheduledExecutorService executorService;
@@ -19,7 +19,7 @@ public abstract class ConfigSaver<T> implements IConfigSaver<T> {
 
     public abstract void startAutoSave(int saveInterval);
 
-    public abstract void saveNow(T value);
+    public abstract void saveNow();
 
     @Override
     public void stopAutoSave() {
