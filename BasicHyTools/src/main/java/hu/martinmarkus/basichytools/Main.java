@@ -5,10 +5,6 @@ import hu.martinmarkus.basichytools.configmanagement.managers.UserManager;
 import hu.martinmarkus.basichytools.eventmanagement.CommandEventHandler;
 import hu.martinmarkus.basichytools.eventmanagement.UserConnectionEventHandler;
 import hu.martinmarkus.basichytools.eventmanagement.UserValidationEventHandler;
-import hu.martinmarkus.basichytools.gamefunctions.GameFunction;
-import hu.martinmarkus.basichytools.gamefunctions.generalfunctions.chatfunctions.Me;
-import hu.martinmarkus.basichytools.globalmechanisms.savemechanisms.ConfigSaver;
-import hu.martinmarkus.basichytools.globalmechanisms.savemechanisms.IConfigSaver;
 import hu.martinmarkus.basichytools.globalmechanisms.savemechanisms.UserSaver;
 import hu.martinmarkus.basichytools.models.User;
 
@@ -35,7 +31,7 @@ public class Main {
 
     public static void main(String[] args) {
         printProjectProperties();
-        ModuleInitializer.initializeAllModules();
+        ModuleInitializer.loadAllModules();
 
         UserValidationEventHandler validationEventHandler = new UserValidationEventHandler();
         validationEventHandler.OnInvalidUserInteraction();

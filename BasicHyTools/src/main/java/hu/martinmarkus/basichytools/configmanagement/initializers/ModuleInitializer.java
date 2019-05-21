@@ -13,7 +13,7 @@ public class ModuleInitializer {
         userSaver.stopAutoSave();
     }
 
-    public static void initializeAllModules() {
+    public static void loadAllModules() {
         initializeDefaultConfig();
         initializeLanguageConfig();
         initializeFunctionParameterConfig();
