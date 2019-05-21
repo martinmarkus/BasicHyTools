@@ -51,7 +51,7 @@ public class User {
     @JsonIgnore
     public void sendMessage(String message) {
         // TODO: implement default message sending to User
-
+        System.out.println("Msg to " + name + ": " + message);
     }
 
     @JsonIgnore

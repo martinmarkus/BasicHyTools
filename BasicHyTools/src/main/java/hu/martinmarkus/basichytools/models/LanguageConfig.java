@@ -21,6 +21,7 @@ public class LanguageConfig {
     private String errorHasOccurred;
     private String commandExecuted;
     private String userIsStillConnecting;
+    private String invalidCommandUsage;
 
     private String balanceIncreased;
     private String balanceDecreased;
@@ -34,8 +35,8 @@ public class LanguageConfig {
                           String afkOn, String afkOff, String banned, String ipBanned, String unbanned,
                           String kicked, String allKicked, String muted, String unmuted, String notEnoughPermission,
                           String notEnoughMoney, String errorHasOccurred, String commandExecuted,
-                          String userIsStillConnecting, String balanceIncreased, String balanceDecreased,
-                          String balanceSet) {
+                          String userIsStillConnecting, String invalidCommandUsage, String balanceIncreased,
+                          String balanceDecreased, String balanceSet) {
         this.motd = motd;
         this.joinMessage = joinMessage;
         this.quitMessage = quitMessage;
@@ -54,6 +55,7 @@ public class LanguageConfig {
         this.errorHasOccurred = errorHasOccurred;
         this.commandExecuted = commandExecuted;
         this.userIsStillConnecting = userIsStillConnecting;
+        this.invalidCommandUsage = invalidCommandUsage;
         this.balanceIncreased = balanceIncreased;
         this.balanceDecreased = balanceDecreased;
         this.balanceSet = balanceSet;
@@ -201,6 +203,14 @@ public class LanguageConfig {
 
     public void setUserIsStillConnecting(String userIsStillConnecting) {
         this.userIsStillConnecting = userIsStillConnecting;
+    }
+
+    public String getInvalidCommandUsage() {
+        return invalidCommandUsage;
+    }
+
+    public void setInvalidCommandUsage(String invalidCommandUsage) {
+        this.invalidCommandUsage = invalidCommandUsage;
     }
 
     public String getBalanceIncreased() {

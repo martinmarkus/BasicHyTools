@@ -27,6 +27,16 @@ public class FunctionParameterManager {
         return functionParameterManager;
     }
 
+    public FunctionParameter getByName(String functionName) {
+        for (FunctionParameter parameter : functionParameterList) {
+            if (parameter.getName().equalsIgnoreCase(functionName)) {
+                return parameter;
+            }
+        }
+
+        return null;
+    }
+
     private FunctionParameterManager() {
         String path = ModuleInitializer.getRootPath();
         functionParameterContainerRepository = new FunctionParameterContainerRepository(path);
@@ -67,7 +77,6 @@ public class FunctionParameterManager {
     public List<FunctionParameter> getAlLFunctionParameters() {
         return functionParameterList;
     }
-
 
     private FunctionParameterContainer generateDefaultFunctionParameterContainer() {
         List<FunctionParameter> functionParameters = new ArrayList<>();

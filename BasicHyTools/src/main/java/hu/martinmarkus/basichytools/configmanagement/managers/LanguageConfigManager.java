@@ -62,6 +62,7 @@ public class LanguageConfigManager {
         languageConfig.setErrorHasOccurred("An error has occurred while trying to execute a function. Please contact an administrator.");
         languageConfig.setCommandExecuted("User %value% has executed: %value%");
         languageConfig.setUserIsStillConnecting("The user is still not available (still connecting?)");
+        languageConfig.setInvalidCommandUsage("Invalid command.");
         return languageConfig;
     }
 }
