@@ -5,7 +5,6 @@ import hu.martinmarkus.basichytools.configmanagement.managers.UserManager;
 import hu.martinmarkus.basichytools.eventmanagement.CommandEventHandler;
 import hu.martinmarkus.basichytools.eventmanagement.UserConnectionEventHandler;
 import hu.martinmarkus.basichytools.eventmanagement.UserValidationEventHandler;
-import hu.martinmarkus.basichytools.globalmechanisms.savemechanisms.UserSaver;
 import hu.martinmarkus.basichytools.models.User;
 
 import java.io.IOException;
@@ -31,7 +30,7 @@ public class Main {
 
     public static void main(String[] args) {
         printProjectProperties();
-        ModuleInitializer.unload();
+
         ModuleInitializer.load();
 
         UserValidationEventHandler validationEventHandler = new UserValidationEventHandler();
@@ -54,20 +53,6 @@ public class Main {
             }
         });
         thread.start();
-
-
-        UserSaver userSaver = UserSaver.getInstance();
-        userSaver.startAutoSave(5);
-
-        try {
-            Thread.sleep(10000);
-            for (int i = 0; i < 10; i++) {
-                System.out.println("hello");
-                Thread.sleep(1000);
-            }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
 
         ModuleInitializer.unload();
     }
