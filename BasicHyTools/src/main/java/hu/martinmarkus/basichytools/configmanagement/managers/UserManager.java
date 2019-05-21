@@ -1,6 +1,7 @@
 package hu.martinmarkus.basichytools.configmanagement.managers;
 
 import hu.martinmarkus.basichytools.configmanagement.initializers.ModuleInitializer;
+import hu.martinmarkus.basichytools.datetimemanagement.DateTimeManager;
 import hu.martinmarkus.basichytools.models.containers.UserList;
 import hu.martinmarkus.basichytools.models.BasicHyToolsLocation;
 import hu.martinmarkus.basichytools.models.User;
@@ -105,9 +106,11 @@ public class UserManager {
     }
 
     public User generateDefaultUser(String name) {
+        // TODO get the IP of 'name' named player
         BasicHyToolsLocation location = DefaultConfigManager.getInstance().getDefaultConfig().getSpawnLocation();
+        String date = DateTimeManager.getActualDate();
         return new User(name, "default", 1000.0, 100.0,
-                false, "123.123.123.123", "2019-05-16 13:15", location, new ArrayList<>(),
-                false, false, false, false);
+                false, "123.123.123.123", date, location, new ArrayList<>(),
+                false, false, false, false, true);
     }
 }

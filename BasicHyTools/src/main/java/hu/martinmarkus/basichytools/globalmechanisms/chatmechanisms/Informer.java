@@ -1,5 +1,6 @@
 package hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms;
 
+import hu.martinmarkus.basichytools.datetimemanagement.DateTimeManager;
 import hu.martinmarkus.basichytools.models.User;
 
 import java.text.SimpleDateFormat;
@@ -24,9 +25,7 @@ public class Informer {
     }
 
     private static void log(String message) {
-        String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
-                .format(Calendar.getInstance().getTime());
-
-        System.out.println("[" + timeStamp + "] [" + BASE + "] " + message);
+        String date = DateTimeManager.getActualDate();
+        System.out.println("[" + date + "] [" + BASE + "] " + message);
     }
 }

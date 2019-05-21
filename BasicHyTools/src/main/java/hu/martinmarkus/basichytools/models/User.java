@@ -28,11 +28,13 @@ public class User {
     private boolean muted;
     private boolean banned;
     private boolean ipBanned;
+    private boolean whileListed;
 
     public User(String name, String permissionGroupName, double balance, double exp,
                 boolean online, String loginIp, String loginTime,
                 BasicHyToolsLocation location, List<String> uniquePermissions,
-                boolean operator, boolean muted, boolean banned, boolean ipBanned) {
+                boolean operator, boolean muted, boolean banned, boolean ipBanned,
+                boolean whileListed) {
         this.name = name;
         this.permissionGroupName = permissionGroupName;
         this.balance = balance;
@@ -46,6 +48,7 @@ public class User {
         this.muted = muted;
         this.banned = banned;
         this.ipBanned = ipBanned;
+        this.whileListed = whileListed;
     }
 
     @JsonIgnore
@@ -251,6 +254,14 @@ public class User {
 
     public void setIpBanned(boolean ipBanned) {
         this.ipBanned = ipBanned;
+    }
+
+    public boolean isWhileListed() {
+        return whileListed;
+    }
+
+    public void setWhileListed(boolean whileListed) {
+        this.whileListed = whileListed;
     }
 
     @JsonIgnore
