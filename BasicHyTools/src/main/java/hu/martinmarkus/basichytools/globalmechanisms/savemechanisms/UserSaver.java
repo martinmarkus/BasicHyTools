@@ -40,6 +40,7 @@ public class UserSaver extends ConfigSaver<User> {
         }
 
         isRunning = true;
+        super.executorService = Executors.newScheduledThreadPool(0);
         super.executorService.scheduleAtFixedRate(this::saveAllUsers,
                 0, saveInterval, TimeUnit.SECONDS);
     }

@@ -31,6 +31,7 @@ public class Main {
 
     public static void main(String[] args) {
         printProjectProperties();
+        ModuleInitializer.unloadAllModules();
         ModuleInitializer.loadAllModules();
 
         UserValidationEventHandler validationEventHandler = new UserValidationEventHandler();
