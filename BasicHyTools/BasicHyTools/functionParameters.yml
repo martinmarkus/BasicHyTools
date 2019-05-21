@@ -1,0 +1,9 @@
+functionParameters:
+- name: "Me"
+  command: "me <message>"
+  aliases: []
+  permission: "hytools.basic.me"
+  usagePrice: 10.0
+  description: "This is a description"
+  requiredParameterCount: 1
+  doLogging: true

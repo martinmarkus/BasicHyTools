@@ -26,6 +26,7 @@ public class LanguageConfig {
     private String userIsStillConnecting;
     private String invalidCommandUsage;
     private String invalidCommandUsagePleaseTry;
+    private String configSaveSuccessful;
 
     private String balanceIncreased;
     private String balanceDecreased;
@@ -40,7 +41,7 @@ public class LanguageConfig {
                           String unbanned, String kicked, String allKicked, String muted, String tempMuted, String unmuted,
                           String notEnoughPermission, String notEnoughMoney, String errorHasOccurred, String commandExecuted,
                           String userIsStillConnecting, String invalidCommandUsage, String invalidCommandUsagePleaseTry,
-                          String balanceIncreased, String balanceDecreased, String balanceSet) {
+                          String configSaveSuccessful, String balanceIncreased, String balanceDecreased, String balanceSet) {
         this.motd = motd;
         this.joinMessage = joinMessage;
         this.quitMessage = quitMessage;
@@ -64,6 +65,7 @@ public class LanguageConfig {
         this.userIsStillConnecting = userIsStillConnecting;
         this.invalidCommandUsage = invalidCommandUsage;
         this.invalidCommandUsagePleaseTry = invalidCommandUsagePleaseTry;
+        this.configSaveSuccessful = configSaveSuccessful;
         this.balanceIncreased = balanceIncreased;
         this.balanceDecreased = balanceDecreased;
         this.balanceSet = balanceSet;
@@ -251,6 +253,14 @@ public class LanguageConfig {
 
     public void setInvalidCommandUsagePleaseTry(String invalidCommandUsagePleaseTry) {
         this.invalidCommandUsagePleaseTry = invalidCommandUsagePleaseTry;
+    }
+
+    public String getConfigSaveSuccessful() {
+        return configSaveSuccessful;
+    }
+
+    public void setConfigSaveSuccessful(String configSaveSuccessful) {
+        this.configSaveSuccessful = configSaveSuccessful;
     }
 
     public String getBalanceIncreased() {

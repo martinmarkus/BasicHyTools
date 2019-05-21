@@ -105,6 +105,10 @@ public class UserManager {
         }
     }
 
+    public void set(String name, User user) {
+        userRepository.set(name, user);
+    }
+
     public User generateDefaultUser(String name) {
         // TODO get the IP of 'name' named player
         String loginIp ="123.123.123.123";

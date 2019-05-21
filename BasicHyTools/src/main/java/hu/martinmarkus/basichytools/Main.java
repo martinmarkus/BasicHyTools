@@ -7,6 +7,9 @@ import hu.martinmarkus.basichytools.eventmanagement.UserConnectionEventHandler;
 import hu.martinmarkus.basichytools.eventmanagement.UserValidationEventHandler;
 import hu.martinmarkus.basichytools.gamefunctions.GameFunction;
 import hu.martinmarkus.basichytools.gamefunctions.generalfunctions.chatfunctions.Me;
+import hu.martinmarkus.basichytools.globalmechanisms.savemechanisms.ConfigSaver;
+import hu.martinmarkus.basichytools.globalmechanisms.savemechanisms.IConfigSaver;
+import hu.martinmarkus.basichytools.globalmechanisms.savemechanisms.UserSaver;
 import hu.martinmarkus.basichytools.models.User;
 
 import java.io.IOException;
@@ -56,5 +59,19 @@ public class Main {
         thread.start();
 
 
+        UserSaver userSaver = UserSaver.getInstance();
+        userSaver.startAutoSave(5);
+
+        try {
+            Thread.sleep(10000);
+            for (int i = 0; i < 10; i++) {
+                System.out.println("hello");
+                Thread.sleep(1000);
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        userSaver.stopAutoSave();
     }
 }

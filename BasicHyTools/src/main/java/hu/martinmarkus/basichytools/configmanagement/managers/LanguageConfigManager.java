@@ -84,6 +84,7 @@ public class LanguageConfigManager {
         languageConfig.setUserIsStillConnecting("The user is still not available (still connecting?)");
         languageConfig.setInvalidCommandUsage("Invalid command usage.");
         languageConfig.setInvalidCommandUsagePleaseTry("Invalid command usage. Please try '%value%'");
+        languageConfig.setConfigSaveSuccessful("The auto-saving of '%value%' config was successful.");
         return languageConfig;
     }
 }
