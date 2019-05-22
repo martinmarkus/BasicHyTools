@@ -62,7 +62,18 @@ public class FunctionCooldown {
     }
 
     public synchronized int getCooldownValueOf(CooldownContainer cooldownContainer) {
-        return (Integer) doIteratively(cooldownContainer, cooldownContainer::getCooldownSeconds);
+        for (CooldownContainer aCooldownContainer : cooldownContainers) {
+            String checkName = aCooldownContainer.getUserName();
+            String passedName = cooldownContainer.getUserName();
+
+            String checkFunction = aCooldownContainer.getFunctionName();
+            String passedFunction = cooldownContainer.getFunctionName();
+
+            if (checkName.equalsIgnoreCase(passedName) && checkFunction.equalsIgnoreCase(passedFunction)) {
+                return aCooldownContainer.getCooldownSeconds();
+            }
+        }
+        return 0;
     }
 
     public synchronized void addCooldown(CooldownContainer cooldownContainer) {

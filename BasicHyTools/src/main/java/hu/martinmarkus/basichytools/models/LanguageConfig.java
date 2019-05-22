@@ -27,6 +27,7 @@ public class LanguageConfig {
     private String invalidCommandUsagePleaseTry;
     private String configSaveSuccessful;
     private String stillOnCooldown;
+    private String forOneMoreSecond;
     private String minute;
     private String second;
 
@@ -43,7 +44,8 @@ public class LanguageConfig {
                           String unbanned, String kicked, String allKicked, String muted, String tempMuted, String unmuted,
                           String notEnoughPermission, String notEnoughMoney, String errorHasOccurred, String commandExecuted,
                           String userIsStillConnecting, String invalidCommandUsage, String invalidCommandUsagePleaseTry,
-                          String configSaveSuccessful, String stillOnCooldown, String minute, String second,
+                          String configSaveSuccessful, String stillOnCooldown, String forOneMoreSecond,
+                          String minute, String second,
                           String balanceIncreased, String balanceDecreased, String balanceSet) {
         this.motd = motd;
         this.joinMessage = joinMessage;
@@ -69,6 +71,7 @@ public class LanguageConfig {
         this.invalidCommandUsagePleaseTry = invalidCommandUsagePleaseTry;
         this.configSaveSuccessful = configSaveSuccessful;
         this.stillOnCooldown = stillOnCooldown;
+        this.forOneMoreSecond = forOneMoreSecond;
         this.minute = minute;
         this.second = second;
         this.balanceIncreased = balanceIncreased;
@@ -266,6 +269,14 @@ public class LanguageConfig {
 
     public void setStillOnCooldown(String stillOnCooldown) {
         this.stillOnCooldown = stillOnCooldown;
+    }
+
+    public String getForOneMoreSecond() {
+        return forOneMoreSecond;
+    }
+
+    public void setForOneMoreSecond(String forOneMoreSecond) {
+        this.forOneMoreSecond = forOneMoreSecond;
     }
 
     public String getSecond() {

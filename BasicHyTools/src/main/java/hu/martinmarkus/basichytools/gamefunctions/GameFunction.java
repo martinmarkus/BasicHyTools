@@ -187,7 +187,7 @@ public abstract class GameFunction<T> {
     private String createCooldownMessage() {
         int cooldown = FunctionCooldown.getInstance().getCooldownValueOf(cooldownContainer);
 
-        int minutes =  cooldown / 60;
+        int minutes = cooldown / 60;
         int seconds = cooldown % 60;
 
         String cooldownValue;
@@ -195,10 +195,12 @@ public abstract class GameFunction<T> {
         String secondString = languageConfig.getSecond();
         if (minutes == 0) {
             cooldownValue = String.format("%02d " + secondString, seconds);
+            if (seconds == 0) {
+                cooldownValue = languageConfig.getForOneMoreSecond();
+            }
         } else {
-            cooldownValue = String.format("%02d " + minuteString + ", %02d " + secondString , minutes, seconds);
+            cooldownValue = String.format("%02d " + minuteString + ", %02d " + secondString, minutes, seconds);
         }
-
         return cooldownValue;
     }
 
@@ -224,5 +226,13 @@ public abstract class GameFunction<T> {
 
     public void setRawCommand(String rawCommand) {
         this.rawCommand = rawCommand;
+    }
+
+    public CooldownContainer getCooldownContainer() {
+        return cooldownContainer;
+    }
+
+    public void setCooldownContainer(CooldownContainer cooldownContainer) {
+        this.cooldownContainer = cooldownContainer;
     }
 }
