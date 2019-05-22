@@ -9,6 +9,7 @@ import java.util.concurrent.ScheduledExecutorService;
 
 public abstract class ConfigSaver implements IConfigSaver {
     protected final int MIN_SAVE_INTERVAL = 10;
+    protected final int INITIAL_DELAY = 60;
 
     protected ScheduledExecutorService executorService;
     protected boolean isRunning;

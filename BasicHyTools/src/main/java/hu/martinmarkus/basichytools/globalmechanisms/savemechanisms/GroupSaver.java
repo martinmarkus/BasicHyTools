@@ -41,7 +41,7 @@ public class GroupSaver extends ConfigSaver {
         isRunning = true;
         super.executorService = Executors.newScheduledThreadPool(0);
         super.executorService.scheduleAtFixedRate(this::saveAllGroups,
-                0, saveInterval, TimeUnit.SECONDS);
+                INITIAL_DELAY, saveInterval, TimeUnit.SECONDS);
     }
 
     @Override

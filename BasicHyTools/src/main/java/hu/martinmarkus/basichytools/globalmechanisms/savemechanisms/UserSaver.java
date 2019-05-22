@@ -7,6 +7,7 @@ import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.Informer;
 import hu.martinmarkus.basichytools.models.User;
 import hu.martinmarkus.basichytools.persistence.repositories.UserRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
 
@@ -42,7 +43,7 @@ public class UserSaver extends ConfigSaver {
         isRunning = true;
         super.executorService = Executors.newScheduledThreadPool(0);
         super.executorService.scheduleAtFixedRate(this::saveAllUsers,
-                0, saveInterval, TimeUnit.SECONDS);
+                INITIAL_DELAY, saveInterval, TimeUnit.SECONDS);
     }
 
     @Override
@@ -51,11 +52,15 @@ public class UserSaver extends ConfigSaver {
     }
 
     private void saveAllUsers() {
+
         List<User> onlineUsers = UserManager.getInstance().getAllOnlineUsers();
+        List<String> valueIds = new ArrayList<>();
+
         for (User user : onlineUsers) {
-            userRepository.set(user.getName(), user);
+            valueIds.add(user.getName());
         }
 
+        userRepository.setAll(valueIds, onlineUsers);
         Informer.logInfo(createLogMessage("users"));
     }
 }

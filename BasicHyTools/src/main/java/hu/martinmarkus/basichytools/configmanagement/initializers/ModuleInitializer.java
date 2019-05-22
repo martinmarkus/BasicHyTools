@@ -1,6 +1,7 @@
 package hu.martinmarkus.basichytools.configmanagement.initializers;
 
 import hu.martinmarkus.basichytools.configmanagement.managers.*;
+import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.Announcer;
 import hu.martinmarkus.basichytools.globalmechanisms.savemechanisms.GroupSaver;
 import hu.martinmarkus.basichytools.globalmechanisms.savemechanisms.UserSaver;
 import hu.martinmarkus.basichytools.models.DefaultConfig;
@@ -15,6 +16,8 @@ public class ModuleInitializer {
         UserSaver.getInstance().saveNow();
         GroupSaver.getInstance().stopAutoSave();
         GroupSaver.getInstance().saveNow();
+
+        Announcer.getInstance().stopAnnouncing();
     }
 
     public static void load() {
@@ -23,7 +26,9 @@ public class ModuleInitializer {
         FunctionParameterManager.getInstance();
         GroupManager.getInstance();
         UserManager.getInstance();
+
         initializeSaverModules();
+        initializeAnnouncerModule();
     }
 
     public static String getRootPath() {
@@ -37,6 +42,10 @@ public class ModuleInitializer {
     private static void initializeSaverModules() {
         UserSaver.getInstance().startAutoSave(SAVE_INTERVAL);
         GroupSaver.getInstance().startAutoSave(SAVE_INTERVAL);
+    }
+
+    private static void initializeAnnouncerModule() {
+        Announcer.getInstance().startAnnouncing();
     }
 
     private static int getSaveInterval() {
