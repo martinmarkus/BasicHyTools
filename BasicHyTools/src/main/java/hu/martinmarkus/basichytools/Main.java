@@ -28,7 +28,14 @@ public class Main {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+
+        // TODO: test cooldown system
+        // TODO: test cooldown system
+        // TODO: test cooldown system
+        // TODO: test cooldown system
+        // TODO: test cooldown system
+
         printProjectProperties();
 
         ModuleInitializer.load();
@@ -39,21 +46,26 @@ public class Main {
         UserConnectionEventHandler handler = new UserConnectionEventHandler();
         handler.onUserJoin();
 
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                User user = UserManager.getInstance().getOnlineUser("mockUser12345");
-                CommandEventHandler commandEventHandler = new CommandEventHandler();
-                commandEventHandler.onUserExecuteCommand();
+
+        Thread thread = new Thread(() -> {
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
+
+            User user = UserManager.getInstance().getOnlineUser("mockUser12345");
+            CommandEventHandler commandEventHandler = new CommandEventHandler();
+            commandEventHandler.onUserExecuteCommand();
+            try {
+                System.in.read();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            commandEventHandler.onUserExecuteCommand();
+            ModuleInitializer.unload();
+
         });
         thread.start();
-
-        ModuleInitializer.unload();
     }
 }

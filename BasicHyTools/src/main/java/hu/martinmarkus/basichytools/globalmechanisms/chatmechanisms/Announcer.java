@@ -30,6 +30,7 @@ public class Announcer {
         DefaultConfig defaultConfig = DefaultConfigManager.getInstance().getDefaultConfig();
         announceInterval = defaultConfig.getAnnouncerInterval();
         messages = defaultConfig.getAnnouncerMessages();
+        this.isRunning = false;
     }
 
     public void startAnnouncing() {

@@ -5,7 +5,6 @@ public class LanguageConfig {
     private String motd;
     private String joinMessage;
     private String quitMessage;
-    private String cooldown;
     private String afkOn;
     private String afkOff;
     private String banned;
@@ -27,6 +26,9 @@ public class LanguageConfig {
     private String invalidCommandUsage;
     private String invalidCommandUsagePleaseTry;
     private String configSaveSuccessful;
+    private String stillOnCooldown;
+    private String minute;
+    private String second;
 
     private String balanceIncreased;
     private String balanceDecreased;
@@ -36,16 +38,16 @@ public class LanguageConfig {
 
     }
 
-    public LanguageConfig(String motd, String joinMessage, String quitMessage, String cooldown, String afkOn,
+    public LanguageConfig(String motd, String joinMessage, String quitMessage, String afkOn,
                           String afkOff, String banned, String tempBanned, String ipBanned, String tempIpBanned,
                           String unbanned, String kicked, String allKicked, String muted, String tempMuted, String unmuted,
                           String notEnoughPermission, String notEnoughMoney, String errorHasOccurred, String commandExecuted,
                           String userIsStillConnecting, String invalidCommandUsage, String invalidCommandUsagePleaseTry,
-                          String configSaveSuccessful, String balanceIncreased, String balanceDecreased, String balanceSet) {
+                          String configSaveSuccessful, String stillOnCooldown, String minute, String second,
+                          String balanceIncreased, String balanceDecreased, String balanceSet) {
         this.motd = motd;
         this.joinMessage = joinMessage;
         this.quitMessage = quitMessage;
-        this.cooldown = cooldown;
         this.afkOn = afkOn;
         this.afkOff = afkOff;
         this.banned = banned;
@@ -66,6 +68,9 @@ public class LanguageConfig {
         this.invalidCommandUsage = invalidCommandUsage;
         this.invalidCommandUsagePleaseTry = invalidCommandUsagePleaseTry;
         this.configSaveSuccessful = configSaveSuccessful;
+        this.stillOnCooldown = stillOnCooldown;
+        this.minute = minute;
+        this.second = second;
         this.balanceIncreased = balanceIncreased;
         this.balanceDecreased = balanceDecreased;
         this.balanceSet = balanceSet;
@@ -93,14 +98,6 @@ public class LanguageConfig {
 
     public void setQuitMessage(String quitMessage) {
         this.quitMessage = quitMessage;
-    }
-
-    public String getCooldown() {
-        return cooldown;
-    }
-
-    public void setCooldown(String cooldown) {
-        this.cooldown = cooldown;
     }
 
     public String getAfkOn() {
@@ -261,6 +258,30 @@ public class LanguageConfig {
 
     public void setConfigSaveSuccessful(String configSaveSuccessful) {
         this.configSaveSuccessful = configSaveSuccessful;
+    }
+
+    public String getStillOnCooldown() {
+        return stillOnCooldown;
+    }
+
+    public void setStillOnCooldown(String stillOnCooldown) {
+        this.stillOnCooldown = stillOnCooldown;
+    }
+
+    public String getSecond() {
+        return second;
+    }
+
+    public void setSecond(String second) {
+        this.second = second;
+    }
+
+    public String getMinute() {
+        return minute;
+    }
+
+    public void setMinute(String minute) {
+        this.minute = minute;
     }
 
     public String getBalanceIncreased() {

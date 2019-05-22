@@ -60,7 +60,6 @@ public class LanguageConfigManager {
         languageConfig.setMotd("Example motd message\nNew line");
         languageConfig.setJoinMessage("[%value%] has joined.");
         languageConfig.setQuitMessage("[%value%] has quited.");
-        languageConfig.setCooldown("You can't do this for %value%.");
         languageConfig.setAfkOn("[%value%] is AFK.");
         languageConfig.setAfkOff("[%value%] is no longer AFK.");
         languageConfig.setBanned("[%value%] has been banned by [%value%].");
@@ -84,7 +83,13 @@ public class LanguageConfigManager {
         languageConfig.setUserIsStillConnecting("The user is still not available (still connecting?)");
         languageConfig.setInvalidCommandUsage("Invalid command usage.");
         languageConfig.setInvalidCommandUsagePleaseTry("Invalid command usage. Please try '%value%'");
-        languageConfig.setConfigSaveSuccessful("The auto-saving of '%value%' config was successful.");
+        languageConfig.setConfigSaveSuccessful("The auto-saving of [%value%] config was successful.");
+        languageConfig.setStillOnCooldown("You can't use the function [%value%] for %value%.");
+        languageConfig.setMinute("minute(s)");
+        languageConfig.setSecond("second(s)");
+
+
         return languageConfig;
+
     }
 }

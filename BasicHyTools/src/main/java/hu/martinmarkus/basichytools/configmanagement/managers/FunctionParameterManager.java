@@ -85,7 +85,7 @@ public class FunctionParameterManager {
         // TODO: implement default function parameters
         FunctionParameter functionParameter = new FunctionParameter("Me", "me <message>", aliases,
                 "hytools.basic.me", 10,"This is a description",
-                1, true);
+                1, 5, true);
         functionParameters.add(functionParameter);
 
         return new FunctionParameterContainer(functionParameters);

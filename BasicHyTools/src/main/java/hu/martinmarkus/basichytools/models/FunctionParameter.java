@@ -10,11 +10,12 @@ public class FunctionParameter {
     private double usagePrice;
     private String description;
     private int requiredParameterCount;
+    private int cooldown;
     private boolean doLogging;
 
     public FunctionParameter(String name, String command, List<String> aliases,
                              String permission, double usagePrice, String description,
-                             int requiredParameterCount, boolean doLogging) {
+                             int requiredParameterCount, int cooldown, boolean doLogging) {
         this.name = name;
         this.command = command;
         this.aliases = aliases;
@@ -22,6 +23,7 @@ public class FunctionParameter {
         this.usagePrice = usagePrice;
         this.description = description;
         this.requiredParameterCount = requiredParameterCount;
+        this.cooldown = cooldown;
         this.doLogging = doLogging;
     }
 
@@ -79,6 +81,14 @@ public class FunctionParameter {
 
     public void setRequiredParameterCount(int requiredParameterCount) {
         this.requiredParameterCount = requiredParameterCount;
+    }
+
+    public int getCooldown() {
+        return cooldown;
+    }
+
+    public void setCooldown(int cooldown) {
+        this.cooldown = cooldown;
     }
 
     public boolean isDoLogging() {
