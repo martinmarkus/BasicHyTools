@@ -2,11 +2,11 @@ package hu.martinmarkus.basichytools.configmanagement.initializers;
 
 import hu.martinmarkus.basichytools.configmanagement.managers.*;
 import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.Announcer;
+import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.ChatCooldown;
 import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.FunctionCooldown;
 import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.Informer;
 import hu.martinmarkus.basichytools.globalmechanisms.savemechanisms.GroupSaver;
 import hu.martinmarkus.basichytools.globalmechanisms.savemechanisms.UserSaver;
-import hu.martinmarkus.basichytools.models.DefaultConfig;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -16,7 +16,6 @@ import static com.sun.org.apache.xalan.internal.utils.SecuritySupport.getResourc
 public class ModuleInitializer {
     private static final String ROOT = "BasicHyTools";
     private static final String USERS = ROOT.concat("\\Users");
-    private static final int SAVE_INTERVAL = getSaveInterval();
 
     public static void unload() {
         UserSaver.getInstance().stopAutoSave();
@@ -27,6 +26,7 @@ public class ModuleInitializer {
         Announcer.getInstance().stopAnnouncing();
 
         FunctionCooldown.getInstance().stopCooldownCheck();
+        ChatCooldown.getInstance().stopCooldownCheck();
 
         Informer.logInfo("The system is unloaded.");
     }
@@ -39,8 +39,9 @@ public class ModuleInitializer {
         UserManager.getInstance();
 
         initializeSaverModules();
+
         initializeAnnouncerModule();
-        initializeFunctionCooldownModule();
+        initializeCooldownModules();
 
         Informer.logInfo(getProjectProperties());
     }
@@ -54,21 +55,17 @@ public class ModuleInitializer {
     }
 
     private static void initializeSaverModules() {
-        UserSaver.getInstance().startAutoSave(SAVE_INTERVAL);
-        GroupSaver.getInstance().startAutoSave(SAVE_INTERVAL);
+        UserSaver.getInstance().startAutoSave();
+        GroupSaver.getInstance().startAutoSave();
     }
 
     private static void initializeAnnouncerModule() {
         Announcer.getInstance().startAnnouncing();
     }
 
-    private static void initializeFunctionCooldownModule() {
+    private static void initializeCooldownModules() {
         FunctionCooldown.getInstance().startCooldownCheck();
-    }
-
-    private static int getSaveInterval() {
-        DefaultConfig defaultConfig = DefaultConfigManager.getInstance().getDefaultConfig();
-        return defaultConfig.getAutoSaveInterval();
+        ChatCooldown.getInstance().startCooldownCheck();
     }
 
     private static String getProjectProperties() {

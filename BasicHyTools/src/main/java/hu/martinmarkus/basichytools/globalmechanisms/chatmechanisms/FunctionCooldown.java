@@ -49,6 +49,7 @@ public class FunctionCooldown {
             int cooldownSeconds = cooldownContainer.getCooldownSeconds();
 
             cooldownContainer.setCooldownSeconds(cooldownSeconds - CHECK_INTERVAL);
+
             if (cooldownSeconds <= 0) {
                 iter.remove();
             }

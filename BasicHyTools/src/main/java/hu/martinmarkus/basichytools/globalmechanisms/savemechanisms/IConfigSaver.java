@@ -1,7 +1,7 @@
 package hu.martinmarkus.basichytools.globalmechanisms.savemechanisms;
 
 public interface IConfigSaver {
-    void startAutoSave(int saveInterval);
+    void startAutoSave();
     void stopAutoSave();
     void saveNow();
 }

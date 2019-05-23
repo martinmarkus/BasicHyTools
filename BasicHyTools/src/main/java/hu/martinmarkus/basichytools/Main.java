@@ -9,15 +9,13 @@ import hu.martinmarkus.basichytools.models.User;
 
 import java.io.IOException;
 public class Main {
-        public static void main(String[] args) throws IOException {
+        public static void main(String[] args) {
 
         // TODO: test cooldown system
         // TODO: test cooldown system
         // TODO: test cooldown system
         // TODO: test cooldown system
         // TODO: test cooldown system
-
-
         ModuleInitializer.load();
 
         UserValidationEventHandler validationEventHandler = new UserValidationEventHandler();

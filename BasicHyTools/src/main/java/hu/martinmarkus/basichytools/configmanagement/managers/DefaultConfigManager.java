@@ -75,6 +75,6 @@ public class DefaultConfigManager {
 
         return new DefaultConfig(60, 5, 5, 60,
                 true, 300, 2800, 300, 30, 1000,
-                0, 999999999, 1, 15, 180, announcerMessages, spawnLocation);
+                0, 999999999, 1, 15, 3,180, announcerMessages, spawnLocation);
     }
 }

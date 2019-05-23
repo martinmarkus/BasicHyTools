@@ -17,6 +17,7 @@ public class DefaultConfig {
     private double maxMoney;
     private double minPayAmount;
     private int payCooldown;
+    private int defaultChatCooldown;
     private int announcerInterval;
     private List<String> announcerMessages;
     private BasicHyToolsLocation spawnLocation;
@@ -24,7 +25,7 @@ public class DefaultConfig {
     public DefaultConfig(int teleportCooldown, int teleportDelay, int teleportInvulnerability,
                          int healCooldown, boolean allowAfk, int autoAfk, int autoAfkKick, int autoSaveInterval,
                          int tpAcceptCancellation, double startingBalance, double minMoney, double maxMoney,
-                         double minPayAmount, int payCooldown, int announcerInterval, List<String> announcerMessages,
+                         double minPayAmount, int payCooldown, int defaultChatCooldown, int announcerInterval, List<String> announcerMessages,
                          BasicHyToolsLocation spawnLocation) {
         this.teleportCooldown = teleportCooldown;
         this.teleportDelay = teleportDelay;
@@ -40,6 +41,7 @@ public class DefaultConfig {
         this.maxMoney = maxMoney;
         this.minPayAmount = minPayAmount;
         this.payCooldown = payCooldown;
+        this.defaultChatCooldown = defaultChatCooldown;
         this.announcerInterval = announcerInterval;
         this.announcerMessages = announcerMessages;
         this.spawnLocation = spawnLocation;
@@ -155,6 +157,14 @@ public class DefaultConfig {
 
     public void setPayCooldown(int payCooldown) {
         this.payCooldown = payCooldown;
+    }
+
+    public int getDefaultChatCooldown() {
+        return defaultChatCooldown;
+    }
+
+    public void setDefaultChatCooldown(int defaultChatCooldown) {
+        this.defaultChatCooldown = defaultChatCooldown;
     }
 
     public int getAnnouncerInterval() {

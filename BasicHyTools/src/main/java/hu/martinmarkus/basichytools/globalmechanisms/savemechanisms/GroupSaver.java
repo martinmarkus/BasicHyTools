@@ -29,7 +29,7 @@ public class GroupSaver extends ConfigSaver {
     }
 
     @Override
-    public void startAutoSave(int saveInterval) {
+    public void startAutoSave() {
         if (isRunning) {
             return;
         }
