@@ -37,7 +37,7 @@ public class SwearFilter {
             if (censoredWord == null || censoredWord.isEmpty()) {
                 continue;
             }
-            
+
             if (message.toLowerCase().contains(censoredWord)) {
                 int messageLength = message.length();
                 String randomChars = getCensoredChars(messageLength);

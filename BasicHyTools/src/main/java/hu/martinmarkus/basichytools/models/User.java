@@ -58,6 +58,12 @@ public class User {
     }
 
     @JsonIgnore
+    public void sendMotd() {
+        String motd = LanguageConfigManager.getInstance().getLanguageConfig().getMotd();
+        sendMessage(motd);
+    }
+
+    @JsonIgnore
     public void teleportToSpawn() {
         BasicHyToolsLocation spawnLocation =
                 DefaultConfigManager.getInstance().getDefaultConfig().getSpawnLocation();

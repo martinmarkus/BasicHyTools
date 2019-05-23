@@ -34,6 +34,7 @@ public class Main {
             }
 
             User user = UserManager.getInstance().getOnlineUser("mockUser12345");
+            user.sendMotd();
             CommandEventHandler commandEventHandler = new CommandEventHandler();
             commandEventHandler.onUserExecuteCommand();
             try {
