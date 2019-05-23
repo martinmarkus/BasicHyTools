@@ -39,6 +39,7 @@ public class LanguageConfig {
     private String balanceSet;
 
     private List<String> censoredWords;
+    private String cantSendThisMessage;
 
     public LanguageConfig() {
 
@@ -51,7 +52,8 @@ public class LanguageConfig {
                           String commandExecuted, String userIsStillConnecting, String invalidCommandUsage,
                           String invalidCommandUsagePleaseTry, String configSaveSuccessful, String chatStillOnCooldown,
                           String functionStillOnCooldown, String forOneMoreSecond, String minute, String second,
-                          String balanceIncreased, String balanceDecreased, String balanceSet, List<String> censoredWords) {
+                          String balanceIncreased, String balanceDecreased, String balanceSet, List<String> censoredWords,
+                          String cantSendThisMessage) {
         this.motd = motd;
         this.joinMessage = joinMessage;
         this.quitMessage = quitMessage;
@@ -84,6 +86,7 @@ public class LanguageConfig {
         this.balanceDecreased = balanceDecreased;
         this.balanceSet = balanceSet;
         this.censoredWords = censoredWords;
+        this.cantSendThisMessage = cantSendThisMessage;
     }
 
     public String getMotd() {
@@ -340,5 +343,13 @@ public class LanguageConfig {
 
     public void setCensoredWords(List<String> censoredWords) {
         this.censoredWords = censoredWords;
+    }
+
+    public String getCantSendThisMessage() {
+        return cantSendThisMessage;
+    }
+
+    public void setCantSendThisMessage(String cantSendThisMessage) {
+        this.cantSendThisMessage = cantSendThisMessage;
     }
 }

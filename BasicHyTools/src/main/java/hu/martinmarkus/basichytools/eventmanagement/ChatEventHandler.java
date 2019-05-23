@@ -14,51 +14,60 @@ public class ChatEventHandler {
 
     private DefaultConfig defaultConfig = DefaultConfigManager.getInstance().getDefaultConfig();
 
-    public void onChatMessageContainsSwearWord() {
+    public void onMessageSent(String message) {
         User user = UserManager.getInstance().getOnlineUser("mockUser12345"); // TODO: get the sender
-        String message = "Egy NaGyBetŰs fUCk szöPÉLke"; // TODO: get the message
+        //String message = "Egy NaGyBetŰs fUCk szöPÉLke"; // TODO: get the message
+
+        if (user == null || message == null || message.isEmpty()) {
+            ignoreMessageEvent();
+            return;
+        }
 
         boolean isOperator = user.isOperator();
-        String swearFilterPermission = defaultConfig.getGlobalMechanismPermissions().get("swearFilterBypass");
-        if (isOperator || user.hasPermission(swearFilterPermission)) {
+        if (isOperator) {
             executeMessageSending(user, message);
             return;
         }
 
-        SwearFilter swearFilter = new SwearFilter();
-        boolean containsSwearWord = swearFilter.containsCensoredWord(message);
-
-        if (containsSwearWord) {
-            message = swearFilter.doCensoring(message);
+        boolean isOnCooldown = isOnCooldown(user);
+        if (isOnCooldown) {
+            ignoreMessageEvent();
+            return;
         }
+
+        boolean canSendMessage = user.canSendMessage(message);
+        if (!canSendMessage) {
+            sendCantSendMessage(user);
+            ignoreMessageEvent();
+            return;
+        }
+
+        user.addSentMessage(message);
+        message = getCensoredMessage(user, message);
         executeMessageSending(user, message);
     }
 
-    // TODO: implement message cooldown checking
-    public void onSendChatMessageCooldown() {
-        String userName = "mockUser12345"; // TODO: get the user
-        String message = "mockMessage"; // TODO: get the message
+    private String getCensoredMessage(User user, String message) {
+        String swearFilterPermission = defaultConfig.getGlobalMechanismPermissions().get("swearFilterBypass");
+        SwearFilter swearFilter = new SwearFilter();
+        boolean containsSwearWord = swearFilter.containsCensoredWord(message);
 
-        User user = UserManager.getInstance().getOnlineUser(userName);
-        if (user == null) {
-            ignoreMessage();
-            return;
+        if (!user.hasPermission(swearFilterPermission) && containsSwearWord) {
+            message = swearFilter.doCensoring(message);
         }
 
-        boolean isOperator = user.isOperator();
+        return message;
+    }
+
+    private boolean isOnCooldown(User user) {
         String chatCooldownPassPermission = defaultConfig.getGlobalMechanismPermissions().get("chatCooldownBypass");
-        if (isOperator || user.hasPermission(chatCooldownPassPermission)) {
-            executeMessageSending(user, message);
-            return;
-        }
-
-        int cooldown = ChatCooldown.getInstance().getCooldownValue(userName);
-        if (cooldown > 0) {
+        int cooldown = ChatCooldown.getInstance().getCooldownValue(user.getName());
+        if (!user.hasPermission(chatCooldownPassPermission) && cooldown > 0) {
             ignoreMessageSendWithWarn(user, cooldown);
-            return;
+            return true;
         }
 
-        executeMessageSending(user, message);
+        return false;
     }
 
     private void executeMessageSending(User user, String message) {
@@ -69,16 +78,16 @@ public class ChatEventHandler {
     }
 
     private void ignoreMessageSendWithWarn(User user, int cooldown) {
-        ignoreMessage();
-        sendWarnToUser(user, cooldown);
+        ignoreMessageEvent();
+        sendStillOnCooldown(user, cooldown);
     }
 
 
-    private void ignoreMessage() {
+    private void ignoreMessageEvent() {
         // TODO: ignore message send event
     }
 
-    private void sendWarnToUser(User user, int cooldown) {
+    private void sendStillOnCooldown(User user, int cooldown) {
         LanguageConfig languageConfig = LanguageConfigManager.getInstance().getLanguageConfig();
         String message = languageConfig.getChatStillOnCooldown();
         String secondString = languageConfig.getSecond();
@@ -92,6 +101,13 @@ public class ChatEventHandler {
 
         PlaceholderReplacer replacer = new PlaceholderReplacer();
         message = replacer.replace(message, messageValue);
+
+        user.sendMessage(message);
+    }
+
+    private void sendCantSendMessage(User user) {
+        LanguageConfig languageConfig = LanguageConfigManager.getInstance().getLanguageConfig();
+        String message = languageConfig.getCantSendThisMessage();
 
         user.sendMessage(message);
     }

@@ -1,5 +1,6 @@
 package hu.martinmarkus.basichytools.models;
 
+import com.fasterxml.jackson.annotation.JacksonInject;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.jmx.remote.internal.ArrayQueue;
 import hu.martinmarkus.basichytools.configmanagement.managers.DefaultConfigManager;
@@ -10,14 +11,16 @@ import hu.martinmarkus.basichytools.permissionmanagement.PermissionValidator;
 import hu.martinmarkus.basichytools.permissionmanagement.UserPermissionValidator;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class User {
     @JsonIgnore
     private boolean isValidated = false;        // Signs the validation state of the User
 
     @JsonIgnore
-    private List<String> lastSendMessages = new ArrayQueue<>(3);
+    private Queue<String> lastSendMessages = new LinkedList<>();
 
     private String name;
     private String permissionGroupName;
@@ -72,6 +75,28 @@ public class User {
         BasicHyToolsLocation spawnLocation =
                 DefaultConfigManager.getInstance().getDefaultConfig().getSpawnLocation();
         teleport(spawnLocation);
+    }
+
+    @JsonIgnore
+    public boolean canSendMessage(String message) {
+        if (lastSendMessages == null) {
+            lastSendMessages = new LinkedList<>();
+        }
+        return !lastSendMessages.contains(message.toLowerCase());
+    }
+
+    @JsonIgnore
+    public void addSentMessage(String message) {
+        if (lastSendMessages == null) {
+            lastSendMessages = new LinkedList<>();
+        }
+
+        lastSendMessages.add(message.toLowerCase());
+
+        int maxMemorableMessage = 3;
+        if (lastSendMessages.size() > maxMemorableMessage) {
+            lastSendMessages.poll();
+        }
     }
 
     @JsonIgnore
@@ -177,15 +202,14 @@ public class User {
     }
 
     @JsonIgnore
-    public List<String> getLastSendMessages() {
+    public Queue<String> getLastSendMessages() {
         return lastSendMessages;
     }
 
     @JsonIgnore
-    public void setLastSendMessages(List<String> lastSendMessages) {
+    public void setLastSendMessages(Queue<String> lastSendMessages) {
         this.lastSendMessages = lastSendMessages;
     }
-
 
     // getters/setters:
 

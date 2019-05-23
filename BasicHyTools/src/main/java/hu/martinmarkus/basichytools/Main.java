@@ -42,7 +42,12 @@ public class Main {
                 e.printStackTrace();
             }
             ChatEventHandler chatEventHandler = new ChatEventHandler();
-            chatEventHandler.onChatMessageContainsSwearWord();
+            chatEventHandler.onMessageSent("Egy NaGyBetŰs fUCk szöPÉLke");
+            chatEventHandler.onMessageSent("asd");
+            chatEventHandler.onMessageSent("Egy");
+            chatEventHandler.onMessageSent("Egy éálkszöPÉLke");
+            chatEventHandler.onMessageSent("asélkélkd");
+
 
 
             ModuleInitializer.unload();

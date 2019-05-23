@@ -97,6 +97,7 @@ public class LanguageConfigManager {
         languageConfig.setConfigSaveSuccessful("The auto-saving of [%value%] config was successful.");
         languageConfig.setChatStillOnCooldown("You can't use the chat for %value%. Please don't spam!");
         languageConfig.setFunctionStillOnCooldown("You can't use the function [%value%] for %value%.");
+        languageConfig.setCantSendThisMessage("You can't send this message, because one of your last messages was the same.");
         languageConfig.setForOneMoreSecond("one more second");
         languageConfig.setMinute("minute(s)");
         languageConfig.setSecond("second(s)");
