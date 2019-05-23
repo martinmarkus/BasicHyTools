@@ -21,11 +21,23 @@ public class SwearFilter {
     }
 
     public boolean containsCensoredWord(String message) {
+        if (message == null || message.isEmpty()) {
+            return false;
+        }
+
         return censoredWords.contains(message.toLowerCase());
     }
 
     public String doCensoring(String message) {
+        if (message == null || message.isEmpty()) {
+            return null;
+        }
+
         for (String censoredWord : censoredWords) {
+            if (censoredWord == null || censoredWord.isEmpty()) {
+                continue;
+            }
+            
             if (message.toLowerCase().contains(censoredWord)) {
                 int messageLength = message.length();
                 String randomChars = getCensoredChars(messageLength);
