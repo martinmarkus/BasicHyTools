@@ -15,6 +15,7 @@ public class ChatEventHandler {
         User user = UserManager.getInstance().getOnlineUser(userName);
         if (user == null) {
             ignoreMessageSend();
+            return;
         }
 
         boolean isOperator = user.isOperator();
