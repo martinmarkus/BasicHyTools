@@ -1,6 +1,7 @@
 package hu.martinmarkus.basichytools.models;
 
 import java.util.List;
+import java.util.Map;
 
 public class DefaultConfig {
     private int teleportCooldown;
@@ -21,12 +22,13 @@ public class DefaultConfig {
     private int announcerInterval;
     private List<String> announcerMessages;
     private BasicHyToolsLocation spawnLocation;
+    private Map<String, String> globalMechanismPermissions;
 
     public DefaultConfig(int teleportCooldown, int teleportDelay, int teleportInvulnerability,
                          int healCooldown, boolean allowAfk, int autoAfk, int autoAfkKick, int autoSaveInterval,
                          int tpAcceptCancellation, double startingBalance, double minMoney, double maxMoney,
                          double minPayAmount, int payCooldown, int defaultChatCooldown, int announcerInterval, List<String> announcerMessages,
-                         BasicHyToolsLocation spawnLocation) {
+                         BasicHyToolsLocation spawnLocation, Map<String, String> globalMechanismPermissions) {
         this.teleportCooldown = teleportCooldown;
         this.teleportDelay = teleportDelay;
         this.teleportInvulnerability = teleportInvulnerability;
@@ -45,6 +47,7 @@ public class DefaultConfig {
         this.announcerInterval = announcerInterval;
         this.announcerMessages = announcerMessages;
         this.spawnLocation = spawnLocation;
+        this.globalMechanismPermissions = globalMechanismPermissions;
     }
 
     public int getTeleportCooldown() {
@@ -189,5 +192,13 @@ public class DefaultConfig {
 
     public void setSpawnLocation(BasicHyToolsLocation spawnLocation) {
         this.spawnLocation = spawnLocation;
+    }
+
+    public Map<String, String> getGlobalMechanismPermissions() {
+        return globalMechanismPermissions;
+    }
+
+    public void setGlobalMechanismPermissions(Map<String, String> globalMechanismPermissions) {
+        this.globalMechanismPermissions = globalMechanismPermissions;
     }
 }

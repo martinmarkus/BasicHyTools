@@ -1,18 +1,29 @@
 package hu.martinmarkus.basichytools.eventmanagement;
 
+import hu.martinmarkus.basichytools.configmanagement.managers.DefaultConfigManager;
 import hu.martinmarkus.basichytools.configmanagement.managers.LanguageConfigManager;
 import hu.martinmarkus.basichytools.configmanagement.managers.UserManager;
 import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.ChatCooldown;
 import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.SwearFilter;
+import hu.martinmarkus.basichytools.models.DefaultConfig;
 import hu.martinmarkus.basichytools.models.LanguageConfig;
 import hu.martinmarkus.basichytools.models.User;
 import hu.martinmarkus.basichytools.models.placeholders.placeholderhelpers.PlaceholderReplacer;
 
 public class ChatEventHandler {
 
+    private DefaultConfig defaultConfig = DefaultConfigManager.getInstance().getDefaultConfig();
+
     public void onChatMessageContainsSwearWord() {
-        User user = null; // TODO: get the sender
-        String message = "fUCk"; // TODO: get the message
+        User user = UserManager.getInstance().getOnlineUser("mockUser12345"); // TODO: get the sender
+        String message = "Egy NaGyBetŰs fUCk szöPÉLke"; // TODO: get the message
+
+        boolean isOperator = user.isOperator();
+        String swearFilterPermission = defaultConfig.getGlobalMechanismPermissions().get("swearFilterBypass");
+        if (isOperator || user.hasPermission(swearFilterPermission)) {
+            executeMessageSending(user, message);
+            return;
+        }
 
         SwearFilter swearFilter = new SwearFilter();
         boolean containsSwearWord = swearFilter.containsCensoredWord(message);
@@ -20,10 +31,7 @@ public class ChatEventHandler {
         if (containsSwearWord) {
             message = swearFilter.doCensoring(message);
         }
-
-        // TODO: send "message" to chat
-
-        sendMessage(user, message);
+        executeMessageSending(user, message);
     }
 
     // TODO: implement message cooldown checking
@@ -38,7 +46,9 @@ public class ChatEventHandler {
         }
 
         boolean isOperator = user.isOperator();
-        if (isOperator) {
+        String chatCooldownPassPermission = defaultConfig.getGlobalMechanismPermissions().get("chatCooldownBypass");
+        if (isOperator || user.hasPermission(chatCooldownPassPermission)) {
+            executeMessageSending(user, message);
             return;
         }
 
@@ -48,11 +58,14 @@ public class ChatEventHandler {
             return;
         }
 
-        sendMessage(user, message);
+        executeMessageSending(user, message);
     }
 
-    private void sendMessage(User user, String message) {
-        // TODO: send message by user
+    private void executeMessageSending(User user, String message) {
+        ChatCooldown.getInstance().addChatCooldown(user.getName());
+        // TODO: send message by user to everyone
+
+        System.out.println("execute msg send to everyone by " + user.getName() + ": " + message);
     }
 
     private void ignoreMessageSendWithWarn(User user, int cooldown) {

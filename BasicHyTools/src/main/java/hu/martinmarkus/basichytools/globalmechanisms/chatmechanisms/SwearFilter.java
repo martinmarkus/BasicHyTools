@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class SwearFilter {
 
-    private final String[] CENSOR_CHARS = new String[]{"*", "%", "#", "&", "@"};
+    private final String CENSOR_CHAR = "*";
 
     private List<String> censoredWords;
 
@@ -25,7 +25,16 @@ public class SwearFilter {
             return false;
         }
 
-        return censoredWords.contains(message.toLowerCase());
+        for (String censoredWord : censoredWords) {
+            if (censoredWord == null) {
+                continue;
+            }
+
+            if (containsIgnoreCase(message, censoredWord)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public String doCensoring(String message) {
@@ -34,14 +43,13 @@ public class SwearFilter {
         }
 
         for (String censoredWord : censoredWords) {
-            if (censoredWord == null || censoredWord.isEmpty()) {
+            if (censoredWord == null) {
                 continue;
             }
 
-            if (message.toLowerCase().contains(censoredWord)) {
-                int messageLength = message.length();
-                String randomChars = getCensoredChars(messageLength);
-                message = message.replace(censoredWord, randomChars);
+            if (containsIgnoreCase(message, censoredWord)) {
+                String censorChars = getCensoredChars(censoredWord.length());
+                message = message.replaceAll("(?i)" + censoredWord, censorChars);
             }
         }
 
@@ -49,15 +57,26 @@ public class SwearFilter {
     }
 
     private String getCensoredChars(int charLength) {
-        Random rand = new Random();
         StringBuilder censoredChars = new StringBuilder();
-        int randomIndex;
 
         for (int i = 0; i < charLength; i++) {
-            randomIndex = rand.nextInt(CENSOR_CHARS.length);
-            censoredChars.append(CENSOR_CHARS[randomIndex]);
+            censoredChars.append(CENSOR_CHAR);
         }
 
         return censoredChars.toString();
+    }
+
+    private boolean containsIgnoreCase(String str, String searchStr) {
+        if(str == null || searchStr == null) return false;
+
+        final int length = searchStr.length();
+        if (length == 0)
+            return true;
+
+        for (int i = str.length() - length; i >= 0; i--) {
+            if (str.regionMatches(true, i, searchStr, 0, length))
+                return true;
+        }
+        return false;
     }
 }

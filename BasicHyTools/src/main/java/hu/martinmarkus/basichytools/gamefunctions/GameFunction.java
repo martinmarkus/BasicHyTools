@@ -1,5 +1,6 @@
 package hu.martinmarkus.basichytools.gamefunctions;
 
+import hu.martinmarkus.basichytools.configmanagement.managers.DefaultConfigManager;
 import hu.martinmarkus.basichytools.configmanagement.managers.FunctionParameterManager;
 import hu.martinmarkus.basichytools.configmanagement.managers.LanguageConfigManager;
 import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.FunctionCooldown;
@@ -71,10 +72,9 @@ public abstract class GameFunction<T> {
         }
 
         boolean isOperator = executor.isOperator();
-        if (!isOperator) {
-            if (!hasMoney() || isOnCooldown()) {
-                return;
-            }
+        boolean canDoFunction = canDoFunction();
+        if (!canDoFunction) {
+            return;
         }
 
         if (runnable != null) {
@@ -101,10 +101,9 @@ public abstract class GameFunction<T> {
         }
 
         boolean isOperator = executor.isOperator();
-        if (!isOperator) {
-            if (!hasMoney() || isOnCooldown()) {
-                return null;
-            }
+        boolean canDoFunction = canDoFunction();
+        if (!canDoFunction) {
+            return null;
         }
 
         T result = null;
@@ -125,6 +124,22 @@ public abstract class GameFunction<T> {
         FunctionCooldown.getInstance().addCooldown(cooldownContainer);
         doLogging();
         return result;
+    }
+
+    private boolean canDoFunction() {
+        boolean isOperator = executor.isOperator();
+        if (!isOperator) {
+            if (!hasMoney()) {
+                return false;
+            }
+            String functionCooldownPassPermission = DefaultConfigManager.getInstance().getDefaultConfig()
+                    .getGlobalMechanismPermissions().get("functionCooldownBypass");
+            if (!executor.hasPermission(functionCooldownPassPermission) && isOnCooldown()) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     private void doLogging() {

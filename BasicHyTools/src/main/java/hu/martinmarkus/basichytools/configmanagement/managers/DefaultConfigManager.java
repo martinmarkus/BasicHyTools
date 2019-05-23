@@ -9,7 +9,9 @@ import hu.martinmarkus.basichytools.synchronization.ISynchronizer;
 import hu.martinmarkus.basichytools.synchronization.Synchronizer;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class DefaultConfigManager {
     public static final String DEFAULT_CONFIG = "config";
@@ -73,8 +75,14 @@ public class DefaultConfigManager {
 
         BasicHyToolsLocation spawnLocation = new BasicHyToolsLocation("spawnWorld", 10.0f, 10.0f, 10.0f);
 
+        Map<String, String> globalMechanismPermissions = new HashMap<>();
+        globalMechanismPermissions.put("chatCooldownBypass", "hytools.bypass.chatCooldown");
+        globalMechanismPermissions.put("functionCooldownBypass", "hytools.bypass.functionCooldown");
+        globalMechanismPermissions.put("swearFilterBypass", "hytools.bypass.swearFilter");
+
         return new DefaultConfig(60, 5, 5, 60,
                 true, 300, 2800, 300, 30, 1000,
-                0, 999999999, 1, 15, 3,180, announcerMessages, spawnLocation);
+                0, 999999999, 1, 15, 3,180,
+                announcerMessages, spawnLocation, globalMechanismPermissions);
     }
 }

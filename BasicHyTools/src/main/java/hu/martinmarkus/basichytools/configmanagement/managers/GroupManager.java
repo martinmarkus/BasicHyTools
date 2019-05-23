@@ -89,6 +89,7 @@ public class GroupManager {
 
         permissions = new ArrayList<>();
         permissions.add("group.builder");
+        permissions.add("hytools.bypass.*");
         inheritances = new ArrayList<>(Arrays.asList("default"));
         group = new Group("builder", "[Builder]", "", permissions, inheritances);
         groupList.add(group);

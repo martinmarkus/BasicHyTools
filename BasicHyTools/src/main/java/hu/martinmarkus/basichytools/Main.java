@@ -34,7 +34,6 @@ public class Main {
             }
 
             User user = UserManager.getInstance().getOnlineUser("mockUser12345");
-            user.sendMotd();
             CommandEventHandler commandEventHandler = new CommandEventHandler();
             commandEventHandler.onUserExecuteCommand();
             try {
@@ -42,11 +41,8 @@ public class Main {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            commandEventHandler.onUserExecuteCommand();
-
             ChatEventHandler chatEventHandler = new ChatEventHandler();
-
-            chatEventHandler.onSendChatMessageCooldown();
+            chatEventHandler.onChatMessageContainsSwearWord();
 
 
             ModuleInitializer.unload();
