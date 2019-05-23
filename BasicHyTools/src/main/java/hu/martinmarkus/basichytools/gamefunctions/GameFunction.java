@@ -172,7 +172,7 @@ public abstract class GameFunction<T> {
 
     private boolean isOnCooldown() {
         if (FunctionCooldown.getInstance().isOnCooldown(cooldownContainer)) {
-            String message = languageConfig.getStillOnCooldown();
+            String message = languageConfig.getFunctionStillOnCooldown();
             PlaceholderReplacer replacer = new PlaceholderReplacer();
 
             String cooldownValue = createCooldownMessage();

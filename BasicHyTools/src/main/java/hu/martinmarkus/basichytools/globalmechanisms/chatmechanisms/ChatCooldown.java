@@ -78,4 +78,12 @@ public class ChatCooldown {
         return chatMessageCooldown.containsKey(userName);
     }
 
+    public synchronized int getCooldownValue(String userName) {
+        if (chatMessageCooldown.containsKey(userName)) {
+            return chatMessageCooldown.get(userName);
+        }
+
+        return 0;
+    }
+
 }

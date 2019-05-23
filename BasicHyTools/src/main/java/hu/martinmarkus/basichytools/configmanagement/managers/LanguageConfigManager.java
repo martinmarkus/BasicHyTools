@@ -84,7 +84,8 @@ public class LanguageConfigManager {
         languageConfig.setInvalidCommandUsage("Invalid command usage.");
         languageConfig.setInvalidCommandUsagePleaseTry("Invalid command usage. Please try '%value%'");
         languageConfig.setConfigSaveSuccessful("The auto-saving of [%value%] config was successful.");
-        languageConfig.setStillOnCooldown("You can't use the function [%value%] for %value%.");
+        languageConfig.setChatStillOnCooldown("You can't use the chat for %value%. Please don't spam!");
+        languageConfig.setFunctionStillOnCooldown("You can't use the function [%value%] for %value%.");
         languageConfig.setForOneMoreSecond("one more second");
         languageConfig.setMinute("minute(s)");
         languageConfig.setSecond("second(s)");

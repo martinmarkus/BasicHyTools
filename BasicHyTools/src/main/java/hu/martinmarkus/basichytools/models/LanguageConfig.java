@@ -26,7 +26,8 @@ public class LanguageConfig {
     private String invalidCommandUsage;
     private String invalidCommandUsagePleaseTry;
     private String configSaveSuccessful;
-    private String stillOnCooldown;
+    private String chatStillOnCooldown;
+    private String functionStillOnCooldown;
     private String forOneMoreSecond;
     private String minute;
     private String second;
@@ -44,7 +45,8 @@ public class LanguageConfig {
                           String unbanned, String kicked, String allKicked, String muted, String tempMuted, String unmuted,
                           String notEnoughPermission, String notEnoughMoney, String errorHasOccurred, String commandExecuted,
                           String userIsStillConnecting, String invalidCommandUsage, String invalidCommandUsagePleaseTry,
-                          String configSaveSuccessful, String stillOnCooldown, String forOneMoreSecond,
+                          String configSaveSuccessful, String chatStillOnCooldown,
+                          String functionStillOnCooldown, String forOneMoreSecond,
                           String minute, String second,
                           String balanceIncreased, String balanceDecreased, String balanceSet) {
         this.motd = motd;
@@ -70,7 +72,8 @@ public class LanguageConfig {
         this.invalidCommandUsage = invalidCommandUsage;
         this.invalidCommandUsagePleaseTry = invalidCommandUsagePleaseTry;
         this.configSaveSuccessful = configSaveSuccessful;
-        this.stillOnCooldown = stillOnCooldown;
+        this.chatStillOnCooldown = chatStillOnCooldown;
+        this.functionStillOnCooldown = functionStillOnCooldown;
         this.forOneMoreSecond = forOneMoreSecond;
         this.minute = minute;
         this.second = second;
@@ -263,12 +266,20 @@ public class LanguageConfig {
         this.configSaveSuccessful = configSaveSuccessful;
     }
 
-    public String getStillOnCooldown() {
-        return stillOnCooldown;
+    public String getChatStillOnCooldown() {
+        return chatStillOnCooldown;
     }
 
-    public void setStillOnCooldown(String stillOnCooldown) {
-        this.stillOnCooldown = stillOnCooldown;
+    public void setChatStillOnCooldown(String chatStillOnCooldown) {
+        this.chatStillOnCooldown = chatStillOnCooldown;
+    }
+
+    public String getFunctionStillOnCooldown() {
+        return functionStillOnCooldown;
+    }
+
+    public void setFunctionStillOnCooldown(String functionStillOnCooldown) {
+        this.functionStillOnCooldown = functionStillOnCooldown;
     }
 
     public String getForOneMoreSecond() {
