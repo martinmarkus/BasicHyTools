@@ -1,6 +1,7 @@
 package hu.martinmarkus.basichytools.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sun.jmx.remote.internal.ArrayQueue;
 import hu.martinmarkus.basichytools.configmanagement.managers.DefaultConfigManager;
 import hu.martinmarkus.basichytools.configmanagement.managers.GroupManager;
 import hu.martinmarkus.basichytools.configmanagement.managers.LanguageConfigManager;
@@ -13,7 +14,10 @@ import java.util.List;
 
 public class User {
     @JsonIgnore
-    private boolean isValidated = false;        //Signs the validation state of the User.
+    private boolean isValidated = false;        // Signs the validation state of the User
+
+    @JsonIgnore
+    private List<String> lastSendMessages = new ArrayQueue<>(3);
 
     private String name;
     private String permissionGroupName;
@@ -162,6 +166,29 @@ public class User {
         return name;
     }
 
+    @JsonIgnore
+    public boolean isValidated() {
+        return isValidated;
+    }
+
+    @JsonIgnore
+    public void setValidated(boolean isValidated) {
+        this.isValidated = isValidated;
+    }
+
+    @JsonIgnore
+    public List<String> getLastSendMessages() {
+        return lastSendMessages;
+    }
+
+    @JsonIgnore
+    public void setLastSendMessages(List<String> lastSendMessages) {
+        this.lastSendMessages = lastSendMessages;
+    }
+
+
+    // getters/setters:
+
     public void setName(String name) {
         this.name = name;
     }
@@ -268,15 +295,5 @@ public class User {
 
     public void setWhiteListed(boolean whiteListed) {
         this.whiteListed = whiteListed;
-    }
-
-    @JsonIgnore
-    public boolean isValidated() {
-        return isValidated;
-    }
-
-    @JsonIgnore
-    public void setValidated(boolean isValidated) {
-        this.isValidated = isValidated;
     }
 }
