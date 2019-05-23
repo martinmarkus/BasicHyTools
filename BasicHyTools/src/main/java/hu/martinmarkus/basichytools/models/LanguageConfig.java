@@ -1,5 +1,7 @@
 package hu.martinmarkus.basichytools.models;
 
+import java.util.List;
+
 public class LanguageConfig {
 
     private String motd;
@@ -36,19 +38,20 @@ public class LanguageConfig {
     private String balanceDecreased;
     private String balanceSet;
 
+    private List<String> censoredWords;
+
     public LanguageConfig() {
 
     }
 
-    public LanguageConfig(String motd, String joinMessage, String quitMessage, String afkOn,
-                          String afkOff, String banned, String tempBanned, String ipBanned, String tempIpBanned,
-                          String unbanned, String kicked, String allKicked, String muted, String tempMuted, String unmuted,
-                          String notEnoughPermission, String notEnoughMoney, String errorHasOccurred, String commandExecuted,
-                          String userIsStillConnecting, String invalidCommandUsage, String invalidCommandUsagePleaseTry,
-                          String configSaveSuccessful, String chatStillOnCooldown,
-                          String functionStillOnCooldown, String forOneMoreSecond,
-                          String minute, String second,
-                          String balanceIncreased, String balanceDecreased, String balanceSet) {
+    public LanguageConfig(String motd, String joinMessage, String quitMessage, String afkOn, String afkOff,
+                          String banned, String tempBanned, String ipBanned, String tempIpBanned, String unbanned,
+                          String kicked, String allKicked, String muted, String tempMuted, String unmuted,
+                          String notEnoughPermission, String notEnoughMoney, String errorHasOccurred,
+                          String commandExecuted, String userIsStillConnecting, String invalidCommandUsage,
+                          String invalidCommandUsagePleaseTry, String configSaveSuccessful, String chatStillOnCooldown,
+                          String functionStillOnCooldown, String forOneMoreSecond, String minute, String second,
+                          String balanceIncreased, String balanceDecreased, String balanceSet, List<String> censoredWords) {
         this.motd = motd;
         this.joinMessage = joinMessage;
         this.quitMessage = quitMessage;
@@ -80,6 +83,7 @@ public class LanguageConfig {
         this.balanceIncreased = balanceIncreased;
         this.balanceDecreased = balanceDecreased;
         this.balanceSet = balanceSet;
+        this.censoredWords = censoredWords;
     }
 
     public String getMotd() {
@@ -290,20 +294,20 @@ public class LanguageConfig {
         this.forOneMoreSecond = forOneMoreSecond;
     }
 
-    public String getSecond() {
-        return second;
-    }
-
-    public void setSecond(String second) {
-        this.second = second;
-    }
-
     public String getMinute() {
         return minute;
     }
 
     public void setMinute(String minute) {
         this.minute = minute;
+    }
+
+    public String getSecond() {
+        return second;
+    }
+
+    public void setSecond(String second) {
+        this.second = second;
     }
 
     public String getBalanceIncreased() {
@@ -328,5 +332,13 @@ public class LanguageConfig {
 
     public void setBalanceSet(String balanceSet) {
         this.balanceSet = balanceSet;
+    }
+
+    public List<String> getCensoredWords() {
+        return censoredWords;
+    }
+
+    public void setCensoredWords(List<String> censoredWords) {
+        this.censoredWords = censoredWords;
     }
 }

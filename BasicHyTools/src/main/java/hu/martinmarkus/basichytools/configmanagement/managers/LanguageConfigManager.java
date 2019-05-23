@@ -7,6 +7,9 @@ import hu.martinmarkus.basichytools.persistence.repositories.LanguageConfigRepos
 import hu.martinmarkus.basichytools.synchronization.ISynchronizer;
 import hu.martinmarkus.basichytools.synchronization.Synchronizer;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class LanguageConfigManager {
     public static final String LANGUAGE_CONFIG = "language";
 
@@ -57,6 +60,14 @@ public class LanguageConfigManager {
     private LanguageConfig generateDefaultLanguageConfig() {
         LanguageConfig languageConfig = new LanguageConfig();
         // TODO: use mock lang generator
+
+        List<String> censoredWords = new ArrayList<>();
+        censoredWords.add("fuck");
+        censoredWords.add("bitch");
+        censoredWords.add("whore");
+        censoredWords.add("shit");
+        languageConfig.setCensoredWords(censoredWords);
+
         languageConfig.setMotd("Example motd message\nNew line");
         languageConfig.setJoinMessage("[%value%] has joined.");
         languageConfig.setQuitMessage("[%value%] has quited.");
