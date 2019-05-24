@@ -50,9 +50,9 @@ public class CommandEventHandler {
     private boolean isCommandBlocked(User user, String command) {
         DefaultConfig defaultConfig = DefaultConfigManager.getInstance().getDefaultConfig();
         String blockedCommandBypassPermission = defaultConfig.getGlobalMechanismPermissions().get("blockedCommandBypass");
-        List<String> blockedCommands = defaultConfig.getBlockedCommands();
 
         if (!user.isOperator() && !user.hasPermission(blockedCommandBypassPermission)) {
+            List<String> blockedCommands = defaultConfig.getBlockedCommands();
             for (String blockedCommand : blockedCommands) {
                 if (command.equalsIgnoreCase(blockedCommand)) {
                     String message = languageConfig.getUnknownCommand();
@@ -74,9 +74,9 @@ public class CommandEventHandler {
             if (fullCommand.length - 1 == requiredCount) {
                 return true;
             }
+            sendErrorMessageToUser(user, fullCommand[0]);
         }
 
-        sendErrorMessageToUser(user, fullCommand[0]);
         return false;
     }
 
