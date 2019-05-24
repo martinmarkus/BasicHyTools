@@ -39,15 +39,15 @@ public class CommandEventHandler {
         }
 
         String command = rawCommand.split(" ")[0];
-        boolean shouldBlockCommand = shouldBlockCommand(user, command);
-        if (shouldBlockCommand) {
+        boolean isCommandBlocked = isCommandBlocked(user, command);
+        if (isCommandBlocked) {
             return;
         }
 
         executeFunction(rawCommand, user);
     }
 
-    private boolean shouldBlockCommand(User user, String command) {
+    private boolean isCommandBlocked(User user, String command) {
         DefaultConfig defaultConfig = DefaultConfigManager.getInstance().getDefaultConfig();
         String blockedCommandBypassPermission = defaultConfig.getGlobalMechanismPermissions().get("blockedCommandBypass");
         List<String> blockedCommands = defaultConfig.getBlockedCommands();
