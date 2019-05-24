@@ -21,26 +21,13 @@ public class Main {
 
         UserValidationEventHandler validationEventHandler = new UserValidationEventHandler();
         validationEventHandler.OnInvalidUserInteraction();
-
         UserConnectionEventHandler handler = new UserConnectionEventHandler();
         handler.onUserJoin();
 
-
         Thread thread = new Thread(() -> {
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-            User user = UserManager.getInstance().getOnlineUser("mockUser12345");
             CommandEventHandler commandEventHandler = new CommandEventHandler();
             commandEventHandler.onUserExecuteCommand();
-            try {
-                System.in.read();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+
             ChatEventHandler chatEventHandler = new ChatEventHandler();
             chatEventHandler.onMessageSent("Egy NaGyBetŰs fUCk szöPÉLke");
             chatEventHandler.onMessageSent("asd");
@@ -48,10 +35,7 @@ public class Main {
             chatEventHandler.onMessageSent("Egy éálkszöPÉLke");
             chatEventHandler.onMessageSent("asélkélkd");
 
-
-
             ModuleInitializer.unload();
-
         });
         thread.start();
     }
