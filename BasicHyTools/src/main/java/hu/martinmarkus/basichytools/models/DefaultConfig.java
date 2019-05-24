@@ -23,12 +23,14 @@ public class DefaultConfig {
     private List<String> announcerMessages;
     private BasicHyToolsLocation spawnLocation;
     private Map<String, String> globalMechanismPermissions;
+    private List<String> blockedCommands;
 
     public DefaultConfig(int teleportCooldown, int teleportDelay, int teleportInvulnerability,
                          int healCooldown, boolean allowAfk, int autoAfk, int autoAfkKick, int autoSaveInterval,
                          int tpAcceptCancellation, double startingBalance, double minMoney, double maxMoney,
-                         double minPayAmount, int payCooldown, int defaultChatCooldown, int announcerInterval, List<String> announcerMessages,
-                         BasicHyToolsLocation spawnLocation, Map<String, String> globalMechanismPermissions) {
+                         double minPayAmount, int payCooldown, int defaultChatCooldown, int announcerInterval,
+                         List<String> announcerMessages, BasicHyToolsLocation spawnLocation,
+                         Map<String, String> globalMechanismPermissions, List<String> blockedCommands) {
         this.teleportCooldown = teleportCooldown;
         this.teleportDelay = teleportDelay;
         this.teleportInvulnerability = teleportInvulnerability;
@@ -48,6 +50,7 @@ public class DefaultConfig {
         this.announcerMessages = announcerMessages;
         this.spawnLocation = spawnLocation;
         this.globalMechanismPermissions = globalMechanismPermissions;
+        this.blockedCommands = blockedCommands;
     }
 
     public int getTeleportCooldown() {
@@ -200,5 +203,13 @@ public class DefaultConfig {
 
     public void setGlobalMechanismPermissions(Map<String, String> globalMechanismPermissions) {
         this.globalMechanismPermissions = globalMechanismPermissions;
+    }
+
+    public List<String> getBlockedCommands() {
+        return blockedCommands;
+    }
+
+    public void setBlockedCommands(List<String> blockedCommands) {
+        this.blockedCommands = blockedCommands;
     }
 }

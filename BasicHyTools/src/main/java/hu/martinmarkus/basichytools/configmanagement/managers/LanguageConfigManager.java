@@ -92,6 +92,7 @@ public class LanguageConfigManager {
         languageConfig.setErrorHasOccurred("An error has occurred while trying to execute a function. Please contact an administrator.");
         languageConfig.setCommandExecuted("User %value% has executed: %value%");
         languageConfig.setUserIsStillConnecting("The user is still not available (still connecting?)");
+        languageConfig.setUnknownCommand("Unknown command.");
         languageConfig.setInvalidCommandUsage("Invalid command usage.");
         languageConfig.setInvalidCommandUsagePleaseTry("Invalid command usage. Please try '%value%'");
         languageConfig.setConfigSaveSuccessful("The auto-saving of [%value%] config was successful.");

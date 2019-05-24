@@ -1,14 +1,13 @@
 package hu.martinmarkus.basichytools.models;
 
-import com.fasterxml.jackson.annotation.JacksonInject;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.sun.jmx.remote.internal.ArrayQueue;
 import hu.martinmarkus.basichytools.configmanagement.managers.DefaultConfigManager;
 import hu.martinmarkus.basichytools.configmanagement.managers.GroupManager;
 import hu.martinmarkus.basichytools.configmanagement.managers.LanguageConfigManager;
 import hu.martinmarkus.basichytools.models.placeholders.placeholderhelpers.PlaceholderReplacer;
 import hu.martinmarkus.basichytools.permissionmanagement.PermissionValidator;
 import hu.martinmarkus.basichytools.permissionmanagement.UserPermissionValidator;
+import hu.martinmarkus.basichytools.stringhelpers.StringHelper;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -61,6 +60,7 @@ public class User {
     @JsonIgnore
     public void sendMessage(String message) {
         // TODO: implement default message sending to User
+        message = StringHelper.censoreMessage(this, message);
         System.out.println("Msg to " + name + ": " + message);
     }
 
@@ -120,6 +120,7 @@ public class User {
         }
     }
 
+    @JsonIgnore
     public void teleport(BasicHyToolsLocation location) {
         // TODO teleport user to location
     }
@@ -145,6 +146,7 @@ public class User {
         return allPermissions;
     }
 
+    @JsonIgnore
     public void decreaseBalance(double value) {
         value = Math.abs(value);
         balance -= value;
@@ -161,6 +163,7 @@ public class User {
         sendMessage(message);
     }
 
+    @JsonIgnore
     public void increaseBalance(double value) {
         value = Math.abs(value);
         balance += value;
@@ -177,6 +180,7 @@ public class User {
         sendMessage(message);
     }
 
+    @JsonIgnore
     public void resetBalance() {
         DefaultConfig config = DefaultConfigManager.getInstance().getDefaultConfig();
         balance = config.getStartingBalance();
@@ -185,10 +189,6 @@ public class User {
         PlaceholderReplacer replacer = new PlaceholderReplacer();
         String message = replacer.replace(languageConfig.getBalanceSet(), String.valueOf(balance));
         sendMessage(message);
-    }
-
-    public String getName() {
-        return name;
     }
 
     @JsonIgnore
@@ -212,6 +212,10 @@ public class User {
     }
 
     // getters/setters:
+
+    public String getName() {
+        return name;
+    }
 
     public void setName(String name) {
         this.name = name;

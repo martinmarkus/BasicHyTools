@@ -25,6 +25,7 @@ public class LanguageConfig {
     private String errorHasOccurred;
     private String commandExecuted;
     private String userIsStillConnecting;
+    private String unknownCommand;
     private String invalidCommandUsage;
     private String invalidCommandUsagePleaseTry;
     private String configSaveSuccessful;
@@ -49,7 +50,8 @@ public class LanguageConfig {
                           String banned, String tempBanned, String ipBanned, String tempIpBanned, String unbanned,
                           String kicked, String allKicked, String muted, String tempMuted, String unmuted,
                           String notEnoughPermission, String notEnoughMoney, String errorHasOccurred,
-                          String commandExecuted, String userIsStillConnecting, String invalidCommandUsage,
+                          String commandExecuted, String userIsStillConnecting, String unknownCommand,
+                          String invalidCommandUsage,
                           String invalidCommandUsagePleaseTry, String configSaveSuccessful, String chatStillOnCooldown,
                           String functionStillOnCooldown, String forOneMoreSecond, String minute, String second,
                           String balanceIncreased, String balanceDecreased, String balanceSet, List<String> censoredWords,
@@ -74,6 +76,7 @@ public class LanguageConfig {
         this.errorHasOccurred = errorHasOccurred;
         this.commandExecuted = commandExecuted;
         this.userIsStillConnecting = userIsStillConnecting;
+        this.unknownCommand = unknownCommand;
         this.invalidCommandUsage = invalidCommandUsage;
         this.invalidCommandUsagePleaseTry = invalidCommandUsagePleaseTry;
         this.configSaveSuccessful = configSaveSuccessful;
@@ -247,6 +250,14 @@ public class LanguageConfig {
 
     public void setUserIsStillConnecting(String userIsStillConnecting) {
         this.userIsStillConnecting = userIsStillConnecting;
+    }
+
+    public String getUnknownCommand() {
+        return unknownCommand;
+    }
+
+    public void setUnknownCommand(String unknownCommand) {
+        this.unknownCommand = unknownCommand;
     }
 
     public String getInvalidCommandUsage() {

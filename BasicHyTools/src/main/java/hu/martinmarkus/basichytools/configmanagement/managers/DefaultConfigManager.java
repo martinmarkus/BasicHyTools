@@ -73,16 +73,22 @@ public class DefaultConfigManager {
         announcerMessages.add("This is the second example announcement.");
         announcerMessages.add("This is the third example announcement.");
 
+        List<String> blockedCommands = new ArrayList<>();
+        blockedCommands.add("testblockedcommand1");
+        blockedCommands.add("testblockedcommand2");
+        blockedCommands.add("testblockedcommand3");
+
         BasicHyToolsLocation spawnLocation = new BasicHyToolsLocation("spawnWorld", 10.0f, 10.0f, 10.0f);
 
         Map<String, String> globalMechanismPermissions = new HashMap<>();
         globalMechanismPermissions.put("chatCooldownBypass", "hytools.bypass.chatCooldown");
         globalMechanismPermissions.put("functionCooldownBypass", "hytools.bypass.functionCooldown");
         globalMechanismPermissions.put("swearFilterBypass", "hytools.bypass.swearFilter");
+        globalMechanismPermissions.put("blockedCommandBypass", "hytools.bypass.blockedCommand");
 
         return new DefaultConfig(60, 5, 5, 60,
                 true, 300, 2800, 300, 30, 1000,
                 0, 999999999, 1, 15, 3,180,
-                announcerMessages, spawnLocation, globalMechanismPermissions);
+                announcerMessages, spawnLocation, globalMechanismPermissions, blockedCommands);
     }
 }

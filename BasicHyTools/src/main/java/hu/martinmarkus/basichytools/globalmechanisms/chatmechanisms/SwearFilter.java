@@ -1,6 +1,7 @@
 package hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms;
 
 import hu.martinmarkus.basichytools.configmanagement.managers.LanguageConfigManager;
+import hu.martinmarkus.basichytools.stringhelpers.StringHelper;
 
 import java.util.List;
 import java.util.Random;
@@ -30,7 +31,7 @@ public class SwearFilter {
                 continue;
             }
 
-            if (containsIgnoreCase(message, censoredWord)) {
+            if (StringHelper.containsIgnoreCase(message, censoredWord)) {
                 return true;
             }
         }
@@ -47,7 +48,7 @@ public class SwearFilter {
                 continue;
             }
 
-            if (containsIgnoreCase(message, censoredWord)) {
+            if (StringHelper.containsIgnoreCase(message, censoredWord)) {
                 String censorChars = getCensoredChars(censoredWord.length());
                 message = message.replaceAll("(?i)" + censoredWord, censorChars);
             }
@@ -64,19 +65,5 @@ public class SwearFilter {
         }
 
         return censoredChars.toString();
-    }
-
-    private boolean containsIgnoreCase(String str, String searchStr) {
-        if(str == null || searchStr == null) return false;
-
-        final int length = searchStr.length();
-        if (length == 0)
-            return true;
-
-        for (int i = str.length() - length; i >= 0; i--) {
-            if (str.regionMatches(true, i, searchStr, 0, length))
-                return true;
-        }
-        return false;
     }
 }

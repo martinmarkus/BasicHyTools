@@ -4,11 +4,11 @@ import hu.martinmarkus.basichytools.configmanagement.managers.DefaultConfigManag
 import hu.martinmarkus.basichytools.configmanagement.managers.LanguageConfigManager;
 import hu.martinmarkus.basichytools.configmanagement.managers.UserManager;
 import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.ChatCooldown;
-import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.SwearFilter;
 import hu.martinmarkus.basichytools.models.DefaultConfig;
 import hu.martinmarkus.basichytools.models.LanguageConfig;
 import hu.martinmarkus.basichytools.models.User;
 import hu.martinmarkus.basichytools.models.placeholders.placeholderhelpers.PlaceholderReplacer;
+import hu.martinmarkus.basichytools.stringhelpers.StringHelper;
 
 public class ChatEventHandler {
 
@@ -16,7 +16,7 @@ public class ChatEventHandler {
 
     public void onMessageSent(String message) {
         User user = UserManager.getInstance().getOnlineUser("mockUser12345"); // TODO: get the sender
-        //String message = "Egy NaGyBetŰs fUCk szöPÉLke"; // TODO: get the message
+        //String message = "Egy NaGyBetŰs fUCk"; // TODO: get the message
 
         if (user == null || message == null || message.isEmpty()) {
             ignoreMessageEvent();
@@ -43,21 +43,10 @@ public class ChatEventHandler {
         }
 
         user.addSentMessage(message);
-        message = getCensoredMessage(user, message);
+        message = StringHelper.censoreMessage(user, message);
         executeMessageSending(user, message);
     }
 
-    private String getCensoredMessage(User user, String message) {
-        String swearFilterPermission = defaultConfig.getGlobalMechanismPermissions().get("swearFilterBypass");
-        SwearFilter swearFilter = new SwearFilter();
-        boolean containsSwearWord = swearFilter.containsCensoredWord(message);
-
-        if (!user.hasPermission(swearFilterPermission) && containsSwearWord) {
-            message = swearFilter.doCensoring(message);
-        }
-
-        return message;
-    }
 
     private boolean isOnCooldown(User user) {
         String chatCooldownPassPermission = defaultConfig.getGlobalMechanismPermissions().get("chatCooldownBypass");

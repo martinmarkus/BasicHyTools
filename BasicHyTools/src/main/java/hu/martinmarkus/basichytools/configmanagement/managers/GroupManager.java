@@ -89,13 +89,13 @@ public class GroupManager {
 
         permissions = new ArrayList<>();
         permissions.add("group.builder");
-        permissions.add("hytools.bypass.*");
         inheritances = new ArrayList<>(Arrays.asList("default"));
         group = new Group("builder", "[Builder]", "", permissions, inheritances);
         groupList.add(group);
 
         permissions = new ArrayList<>();
         permissions.add("group.moderator");
+        permissions.add("hytools.bypass.*");
         inheritances = new ArrayList<>(Arrays.asList("default", "builder"));
         group = new Group("moderator", "[Moderator]", "", permissions, inheritances);
         groupList.add(group);

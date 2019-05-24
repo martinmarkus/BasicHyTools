@@ -1,14 +1,17 @@
 package hu.martinmarkus.basichytools.eventmanagement;
 
+import hu.martinmarkus.basichytools.configmanagement.managers.DefaultConfigManager;
 import hu.martinmarkus.basichytools.configmanagement.managers.FunctionParameterManager;
 import hu.martinmarkus.basichytools.configmanagement.managers.LanguageConfigManager;
 import hu.martinmarkus.basichytools.configmanagement.managers.UserManager;
 import hu.martinmarkus.basichytools.gamefunctions.GameFunction;
 import hu.martinmarkus.basichytools.gamefunctions.generalfunctions.chatfunctions.Me;
-import hu.martinmarkus.basichytools.models.FunctionParameter;
+import hu.martinmarkus.basichytools.models.DefaultConfig;
 import hu.martinmarkus.basichytools.models.LanguageConfig;
 import hu.martinmarkus.basichytools.models.User;
 import hu.martinmarkus.basichytools.models.placeholders.placeholderhelpers.PlaceholderReplacer;
+
+import java.util.List;
 
 public class CommandEventHandler {
 
@@ -21,7 +24,7 @@ public class CommandEventHandler {
     }
 
     public void onUserExecuteCommand() {
-        String rawCommand = "me szia kjghg";
+        String rawCommand = "me hello FUCk";
         String userName = "mockUser12345";
 
         User user = UserManager.getInstance().getOnlineUser(userName);
@@ -35,7 +38,31 @@ public class CommandEventHandler {
             return;
         }
 
+        String command = rawCommand.split(" ")[0];
+        boolean shouldBlockCommand = shouldBlockCommand(user, command);
+        if (shouldBlockCommand) {
+            return;
+        }
+
         executeFunction(rawCommand, user);
+    }
+
+    private boolean shouldBlockCommand(User user, String command) {
+        DefaultConfig defaultConfig = DefaultConfigManager.getInstance().getDefaultConfig();
+        String blockedCommandBypassPermission = defaultConfig.getGlobalMechanismPermissions().get("blockedCommandBypass");
+        List<String> blockedCommands = defaultConfig.getBlockedCommands();
+
+        if (!user.isOperator() && !user.hasPermission(blockedCommandBypassPermission)) {
+            for (String blockedCommand : blockedCommands) {
+                if (command.equalsIgnoreCase(blockedCommand)) {
+                    String message = languageConfig.getUnknownCommand();
+                    user.sendMessage(message);
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     private boolean hasEnoughParam(String functionName, String[] fullCommand, User user, boolean atleast) {
