@@ -14,7 +14,7 @@ import hu.martinmarkus.basichytools.utils.PlaceholderReplacer;
 import java.util.List;
 import java.util.concurrent.Callable;
 
-public abstract class GameFunction<T> {
+public abstract class GameFunction {
     protected LanguageConfig languageConfig;
     protected FunctionParameter functionParameter;
     protected CooldownContainer cooldownContainer;
@@ -24,7 +24,7 @@ public abstract class GameFunction<T> {
 
     public abstract void execute();
 
-    public abstract T executeWithReturnValue();
+    public abstract Object executeWithReturnValue();
 
     public abstract void initRawCommand();
 
@@ -92,7 +92,7 @@ public abstract class GameFunction<T> {
         doLogging();
     }
 
-    protected T callFunction(Callable<T> callable) {
+    protected Object callFunction(Callable<Object> callable) {
         if (executor == null) {
             Informer.logWarn(languageConfig.getUserIsStillConnecting());
             return null;
@@ -106,7 +106,7 @@ public abstract class GameFunction<T> {
             return null;
         }
 
-        T result = null;
+        Object result = null;
         if (callable != null) {
             try {
                 result = callable.call();

@@ -3,7 +3,7 @@ package hu.martinmarkus.basichytools.gamefunctions.vaultfunctions;
 import hu.martinmarkus.basichytools.gamefunctions.GameFunction;
 import hu.martinmarkus.basichytools.models.User;
 
-public class BalancePayer<T> extends GameFunction<T> {
+public class BalancePayer extends GameFunction {
 
     public BalancePayer(User executor /*add other function params*/) {
         super(executor, "");
@@ -20,11 +20,10 @@ public class BalancePayer<T> extends GameFunction<T> {
     }
 
     @Override
-    public T executeWithReturnValue() {
+    public Object executeWithReturnValue() {
         execute();
         return null;
     }
-
     @Override
     public void initRawCommand() {
         super.rawCommand = "empty default raw command";

@@ -3,7 +3,7 @@ package hu.martinmarkus.basichytools.gamefunctions.whitelistfunctions;
 import hu.martinmarkus.basichytools.gamefunctions.GameFunction;
 import hu.martinmarkus.basichytools.models.User;
 
-public class WhiteListEnabler<T> extends GameFunction<T> {
+public class WhiteListEnabler extends GameFunction {
 
     public WhiteListEnabler(User executor /*add other function params*/) {
         super(executor, "");
@@ -20,7 +20,7 @@ public class WhiteListEnabler<T> extends GameFunction<T> {
     }
 
     @Override
-    public T executeWithReturnValue() {
+    public Object executeWithReturnValue() {
         execute();
         return null;
     }

@@ -3,7 +3,7 @@ package hu.martinmarkus.basichytools.gamefunctions.moderationfunctions;
 import hu.martinmarkus.basichytools.gamefunctions.GameFunction;
 import hu.martinmarkus.basichytools.models.User;
 
-public class Mute<T> extends GameFunction<T> {
+public class Mute extends GameFunction {
 
     public Mute(User executor /*add other function params*/) {
         super(executor, "");
@@ -20,7 +20,7 @@ public class Mute<T> extends GameFunction<T> {
     }
 
     @Override
-    public T executeWithReturnValue() {
+    public Object executeWithReturnValue() {
         execute();
         return null;
     }

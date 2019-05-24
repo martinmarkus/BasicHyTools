@@ -1,11 +1,10 @@
-package hu.martinmarkus.basichytools.gamefunctions.permissionfunctions;
+package hu.martinmarkus.basichytools.gamefunctions.chatfunctions;
 
 import hu.martinmarkus.basichytools.gamefunctions.GameFunction;
 import hu.martinmarkus.basichytools.models.User;
 
-public class RankSetter extends GameFunction {
-
-    public RankSetter(User executor /*add other function params*/) {
+public class Ignore extends GameFunction {
+    public Ignore(User executor /*add other function params*/) {
         super(executor, "");
 
         initRawCommand();   // must be called for correct logging

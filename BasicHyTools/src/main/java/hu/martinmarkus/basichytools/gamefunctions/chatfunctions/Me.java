@@ -1,12 +1,15 @@
-package hu.martinmarkus.basichytools.gamefunctions.permissionfunctions;
+package hu.martinmarkus.basichytools.gamefunctions.chatfunctions;
 
 import hu.martinmarkus.basichytools.gamefunctions.GameFunction;
 import hu.martinmarkus.basichytools.models.User;
 
-public class RankSetter extends GameFunction {
+public class Me extends GameFunction {
 
-    public RankSetter(User executor /*add other function params*/) {
-        super(executor, "");
+    private String meMessage;
+
+    public Me(User executor, String meMessage /*add other function params*/) {
+        super(executor, "me");
+        this.meMessage = meMessage;
 
         initRawCommand();   // must be called for correct logging
     }
@@ -27,7 +30,7 @@ public class RankSetter extends GameFunction {
 
     @Override
     public void initRawCommand() {
-        super.rawCommand = "empty default raw command";
+        super.rawCommand = "/me " + meMessage;
         // required for raw command logging
     }
 }

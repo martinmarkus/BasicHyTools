@@ -3,7 +3,7 @@ package hu.martinmarkus.basichytools.gamefunctions.vaultfunctions;
 import hu.martinmarkus.basichytools.gamefunctions.GameFunction;
 import hu.martinmarkus.basichytools.models.User;
 
-public class BalanceSetter<T> extends GameFunction<T> {
+public class BalanceSetter extends GameFunction {
 
     public BalanceSetter(User executor /*add other function params*/) {
         super(executor, "");
@@ -20,7 +20,7 @@ public class BalanceSetter<T> extends GameFunction<T> {
     }
 
     @Override
-    public T executeWithReturnValue() {
+    public Object executeWithReturnValue() {
         execute();
         return null;
     }

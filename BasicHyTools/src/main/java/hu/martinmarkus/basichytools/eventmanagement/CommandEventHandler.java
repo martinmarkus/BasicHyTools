@@ -5,7 +5,7 @@ import hu.martinmarkus.basichytools.configmanagement.managers.FunctionParameterM
 import hu.martinmarkus.basichytools.configmanagement.managers.LanguageConfigManager;
 import hu.martinmarkus.basichytools.configmanagement.managers.UserManager;
 import hu.martinmarkus.basichytools.gamefunctions.GameFunction;
-import hu.martinmarkus.basichytools.gamefunctions.generalfunctions.chatfunctions.Me;
+import hu.martinmarkus.basichytools.gamefunctions.chatfunctions.Me;
 import hu.martinmarkus.basichytools.models.DefaultConfig;
 import hu.martinmarkus.basichytools.models.LanguageConfig;
 import hu.martinmarkus.basichytools.models.User;

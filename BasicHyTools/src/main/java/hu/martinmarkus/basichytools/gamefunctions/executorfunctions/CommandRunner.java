@@ -3,7 +3,7 @@ package hu.martinmarkus.basichytools.gamefunctions.executorfunctions;
 import hu.martinmarkus.basichytools.gamefunctions.GameFunction;
 import hu.martinmarkus.basichytools.models.User;
 
-public class CommandRunner<T> extends GameFunction<T> {
+public class CommandRunner extends GameFunction {
 
     public CommandRunner(User executor /*add other function params*/) {
         super(executor,  "");
@@ -20,7 +20,7 @@ public class CommandRunner<T> extends GameFunction<T> {
     }
 
     @Override
-    public T executeWithReturnValue() {
+    public Object executeWithReturnValue() {
         execute();
         return null;
     }
