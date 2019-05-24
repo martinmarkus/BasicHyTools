@@ -2,9 +2,8 @@ package hu.martinmarkus.basichytools.globalmechanisms.savemechanisms;
 
 import hu.martinmarkus.basichytools.configmanagement.managers.DefaultConfigManager;
 import hu.martinmarkus.basichytools.configmanagement.managers.LanguageConfigManager;
-import hu.martinmarkus.basichytools.models.DefaultConfig;
 import hu.martinmarkus.basichytools.models.LanguageConfig;
-import hu.martinmarkus.basichytools.models.placeholders.placeholderhelpers.PlaceholderReplacer;
+import hu.martinmarkus.basichytools.utils.PlaceholderReplacer;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;

@@ -1,4 +1,4 @@
-package hu.martinmarkus.basichytools.synchronization;
+package hu.martinmarkus.basichytools.utils.synchronization;
 
 public class Synchronizer implements ISynchronizer {
     private final Integer notifier = 1;

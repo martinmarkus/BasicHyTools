@@ -1,7 +1,7 @@
 package hu.martinmarkus.basichytools.configmanagement.managers;
 
 import hu.martinmarkus.basichytools.configmanagement.initializers.ModuleInitializer;
-import hu.martinmarkus.basichytools.datetimemanagement.DateTimeManager;
+import hu.martinmarkus.basichytools.utils.DateTimeUtil;
 import hu.martinmarkus.basichytools.models.containers.UserList;
 import hu.martinmarkus.basichytools.models.BasicHyToolsLocation;
 import hu.martinmarkus.basichytools.models.User;
@@ -115,7 +115,7 @@ public class UserManager {
         String group = "default";
         double balance = 1000.0;
         double exp = 0;
-        String date = DateTimeManager.getActualDate();
+        String date = DateTimeUtil.getActualDate();
         BasicHyToolsLocation location = DefaultConfigManager.getInstance().getDefaultConfig().getSpawnLocation();
 
         return new User(name, group, balance, exp,

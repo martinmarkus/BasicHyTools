@@ -4,10 +4,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import hu.martinmarkus.basichytools.configmanagement.managers.DefaultConfigManager;
 import hu.martinmarkus.basichytools.configmanagement.managers.GroupManager;
 import hu.martinmarkus.basichytools.configmanagement.managers.LanguageConfigManager;
-import hu.martinmarkus.basichytools.models.placeholders.placeholderhelpers.PlaceholderReplacer;
+import hu.martinmarkus.basichytools.utils.PlaceholderReplacer;
 import hu.martinmarkus.basichytools.permissionmanagement.PermissionValidator;
 import hu.martinmarkus.basichytools.permissionmanagement.UserPermissionValidator;
-import hu.martinmarkus.basichytools.stringhelpers.StringHelper;
+import hu.martinmarkus.basichytools.utils.StringUtil;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -60,7 +60,7 @@ public class User {
     @JsonIgnore
     public void sendMessage(String message) {
         // TODO: implement default message sending to User
-        message = StringHelper.censoreMessage(this, message);
+        message = StringUtil.censoreMessage(this, message);
         System.out.println("Msg to " + name + ": " + message);
     }
 

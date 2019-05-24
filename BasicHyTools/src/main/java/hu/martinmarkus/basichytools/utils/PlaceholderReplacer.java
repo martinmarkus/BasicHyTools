@@ -1,9 +1,9 @@
-package hu.martinmarkus.basichytools.models.placeholders.placeholderhelpers;
+package hu.martinmarkus.basichytools.utils;
 
 import hu.martinmarkus.basichytools.models.placeholders.IPlaceholder;
 import hu.martinmarkus.basichytools.models.placeholders.Placeholder;
 
-public class PlaceholderReplacer implements IPlaceholderReplacer {
+public class PlaceholderReplacer {
 
     private IPlaceholder placeholder;
 

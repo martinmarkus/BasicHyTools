@@ -1,12 +1,11 @@
 package hu.martinmarkus.basichytools.configmanagement.managers;
 
 import hu.martinmarkus.basichytools.configmanagement.initializers.ModuleInitializer;
-import hu.martinmarkus.basichytools.gamefunctions.generalfunctions.chatfunctions.Me;
 import hu.martinmarkus.basichytools.models.FunctionParameter;
 import hu.martinmarkus.basichytools.models.containers.FunctionParameterContainer;
 import hu.martinmarkus.basichytools.persistence.repositories.FunctionParameterContainerRepository;
-import hu.martinmarkus.basichytools.synchronization.ISynchronizer;
-import hu.martinmarkus.basichytools.synchronization.Synchronizer;
+import hu.martinmarkus.basichytools.utils.synchronization.ISynchronizer;
+import hu.martinmarkus.basichytools.utils.synchronization.Synchronizer;
 
 import java.util.ArrayList;
 import java.util.List;

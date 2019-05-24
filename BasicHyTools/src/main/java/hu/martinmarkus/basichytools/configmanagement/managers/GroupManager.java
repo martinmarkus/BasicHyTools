@@ -5,8 +5,8 @@ import hu.martinmarkus.basichytools.models.Group;
 import hu.martinmarkus.basichytools.models.containers.GroupContainer;
 import hu.martinmarkus.basichytools.persistence.repositories.GroupContainerRepository;
 import hu.martinmarkus.basichytools.persistence.repositories.IGroupContainerRepository;
-import hu.martinmarkus.basichytools.synchronization.ISynchronizer;
-import hu.martinmarkus.basichytools.synchronization.Synchronizer;
+import hu.martinmarkus.basichytools.utils.synchronization.ISynchronizer;
+import hu.martinmarkus.basichytools.utils.synchronization.Synchronizer;
 
 import java.util.ArrayList;
 import java.util.Arrays;

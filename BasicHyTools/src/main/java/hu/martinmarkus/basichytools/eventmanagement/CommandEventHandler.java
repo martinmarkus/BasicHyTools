@@ -9,7 +9,7 @@ import hu.martinmarkus.basichytools.gamefunctions.generalfunctions.chatfunctions
 import hu.martinmarkus.basichytools.models.DefaultConfig;
 import hu.martinmarkus.basichytools.models.LanguageConfig;
 import hu.martinmarkus.basichytools.models.User;
-import hu.martinmarkus.basichytools.models.placeholders.placeholderhelpers.PlaceholderReplacer;
+import hu.martinmarkus.basichytools.utils.PlaceholderReplacer;
 
 import java.util.List;
 

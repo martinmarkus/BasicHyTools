@@ -1,4 +1,4 @@
-package hu.martinmarkus.basichytools.synchronization;
+package hu.martinmarkus.basichytools.utils.synchronization;
 
 public interface ISynchronizer {
     void waitRun();
