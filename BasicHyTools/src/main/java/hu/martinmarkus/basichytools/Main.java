@@ -8,12 +8,6 @@ import hu.martinmarkus.basichytools.eventmanagement.UserValidationEventHandler;
 
 public class Main {
         public static void main(String[] args) {
-
-        // TODO: test cooldown system
-        // TODO: test cooldown system
-        // TODO: test cooldown system
-        // TODO: test cooldown system
-        // TODO: test cooldown system
         ModuleInitializer.load();
 
         UserValidationEventHandler validationEventHandler = new UserValidationEventHandler();
