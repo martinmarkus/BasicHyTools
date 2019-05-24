@@ -1,10 +1,6 @@
 package hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms;
 
-import hu.martinmarkus.basichytools.datetimemanagement.DateTimeManager;
-import hu.martinmarkus.basichytools.models.User;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import hu.martinmarkus.basichytools.utils.DateTimeUtil;
 
 public class Informer {
     private static final String BASE = "BasicHyTools";
@@ -25,7 +21,7 @@ public class Informer {
     }
 
     private static void log(String message) {
-        String date = DateTimeManager.getActualDate();
+        String date = DateTimeUtil.getActualDate();
         System.out.println("[" + date + "] [" + BASE + "] " + message);
     }
 }

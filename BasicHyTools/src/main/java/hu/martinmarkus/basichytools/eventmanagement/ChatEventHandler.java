@@ -7,8 +7,8 @@ import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.ChatCooldown
 import hu.martinmarkus.basichytools.models.DefaultConfig;
 import hu.martinmarkus.basichytools.models.LanguageConfig;
 import hu.martinmarkus.basichytools.models.User;
-import hu.martinmarkus.basichytools.models.placeholders.placeholderhelpers.PlaceholderReplacer;
-import hu.martinmarkus.basichytools.stringhelpers.StringHelper;
+import hu.martinmarkus.basichytools.utils.PlaceholderReplacer;
+import hu.martinmarkus.basichytools.utils.StringUtil;
 
 public class ChatEventHandler {
 
@@ -43,7 +43,7 @@ public class ChatEventHandler {
         }
 
         user.addSentMessage(message);
-        message = StringHelper.censoreMessage(user, message);
+        message = StringUtil.censoreMessage(user, message);
         executeMessageSending(user, message);
     }
 

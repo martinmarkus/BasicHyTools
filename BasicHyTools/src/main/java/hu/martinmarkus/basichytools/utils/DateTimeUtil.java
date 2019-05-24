@@ -1,9 +1,9 @@
-package hu.martinmarkus.basichytools.datetimemanagement;
+package hu.martinmarkus.basichytools.utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class DateTimeManager {
+public class DateTimeUtil {
 
     private static final String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
 

@@ -1,11 +1,11 @@
-package hu.martinmarkus.basichytools.stringhelpers;
+package hu.martinmarkus.basichytools.utils;
 
 import hu.martinmarkus.basichytools.configmanagement.managers.DefaultConfigManager;
 import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.SwearFilter;
 import hu.martinmarkus.basichytools.models.DefaultConfig;
 import hu.martinmarkus.basichytools.models.User;
 
-public class StringHelper {
+public class StringUtil {
 
     public static boolean containsIgnoreCase(String str, String searchStr) {
         if(str == null || searchStr == null) return false;

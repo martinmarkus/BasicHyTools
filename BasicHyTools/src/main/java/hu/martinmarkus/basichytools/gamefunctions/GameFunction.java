@@ -9,7 +9,7 @@ import hu.martinmarkus.basichytools.models.FunctionParameter;
 import hu.martinmarkus.basichytools.models.LanguageConfig;
 import hu.martinmarkus.basichytools.models.User;
 import hu.martinmarkus.basichytools.models.containers.CooldownContainer;
-import hu.martinmarkus.basichytools.models.placeholders.placeholderhelpers.PlaceholderReplacer;
+import hu.martinmarkus.basichytools.utils.PlaceholderReplacer;
 
 import java.util.List;
 import java.util.concurrent.Callable;

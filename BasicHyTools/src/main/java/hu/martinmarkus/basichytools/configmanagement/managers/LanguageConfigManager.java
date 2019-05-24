@@ -4,8 +4,8 @@ import hu.martinmarkus.basichytools.configmanagement.initializers.ModuleInitiali
 import hu.martinmarkus.basichytools.models.LanguageConfig;
 import hu.martinmarkus.basichytools.persistence.repositories.ILanguageConfigRepository;
 import hu.martinmarkus.basichytools.persistence.repositories.LanguageConfigRepository;
-import hu.martinmarkus.basichytools.synchronization.ISynchronizer;
-import hu.martinmarkus.basichytools.synchronization.Synchronizer;
+import hu.martinmarkus.basichytools.utils.synchronization.ISynchronizer;
+import hu.martinmarkus.basichytools.utils.synchronization.Synchronizer;
 
 import java.util.ArrayList;
 import java.util.List;
