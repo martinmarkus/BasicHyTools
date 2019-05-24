@@ -15,13 +15,27 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/BasicHyTools$Main.ic" NAME="Main Coverage Results" MODIFIED="1558561998241" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hu.martinmarkus.basichytools.models.*</FILTER>
+    </SUITE>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/Main.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/eventmanagement/ChatEventHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
+            <state relative-caret-position="-161">
+              <caret line="5" column="81" selection-start-line="5" selection-start-column="81" selection-end-line="5" selection-end-column="81" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/eventmanagement/CommandEventHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1725">
+              <caret line="75" column="13" lean-forward="true" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -30,19 +44,43 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BasicHyTools/permissionGroups.yml">
+        <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagement/managers/FunctionParameterManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="851">
-              <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+            <state relative-caret-position="110">
+              <caret line="86" column="36" lean-forward="true" selection-start-line="86" selection-start-column="36" selection-end-line="86" selection-end-column="36" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BasicHyTools/Users/mockUser12345.yml">
+        <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/eventmanagement/UserMoveEventHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="414">
+              <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/eventmanagement/UserValidationEventHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="142">
+              <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/stringhelpers/StringHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="508">
+              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -52,64 +90,85 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>hasPer</find>
+      <find>Sync</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="WARN_ABOUT_CRLF" value="false" />
+    <option name="WARN_ABOUT_DETACHED_HEAD" value="false" />
+    <option name="PREVIEW_PUSH_ON_COMMIT_AND_PUSH" value="false" />
+    <option name="ADD_SUFFIX_TO_CHERRY_PICKS_OF_PUBLISHED_COMMITS" value="false" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/MANIFEST.MF" />
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" />
-        <option value="$PROJECT_DIR$/src/main/resources/project.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/globalmechanisms/backupmechanisms/PermissionGroupSaver.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/ingameexecution/executorfunctions/CommandRunner.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/whitelisting/whitelistfunctions/WhiteListManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/whitelisting/whitelistfunctions/WhiteListEnabler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/generalfunctions/chatfunctions/BalanceTopList.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/permissionmanagement/permissionfunctions/RankClearer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/permissionmanagement/permissionfunctions/RankRemover.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/BaseFunction.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/models/BasicHyToolsLocation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/BaseFunction.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/ConfigManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagers/ConfigManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/models/PermissionGroupContainer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagers/BasicHyToolsInitializer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/containers/PermissionGroupContainer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagers/UserConfigManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagers/DefaultPermissionGroupsGenerator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagers/PermissionGroupContainerGenerator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagers/PermissionGroupConfigManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/models/DefaultUser.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/synchronization/Synchroniser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/synchronization/Synchronizer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanaging/PermissionGroupContainerGenerator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/models/PermissionGroup.java" />
-        <option value="$PROJECT_DIR$/path/permissionGroups.yml" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanaging/BasicHyToolsInitializer.java" />
-        <option value="$PROJECT_DIR$/BasicHyTools/Users/mockUser12345.yml" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/models/User.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanaging/HyToolsInitializer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanaging/PermissionGroupConfigManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/eventmanagement/joinevents/UserQuitEventHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/eventmanagement/joinevents/UserJoinEventHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/eventmanagement/quitevents/UserQuitEventHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanaging/UserConfigManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/eventmanagement/joinevents/UserConnectionEventHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/eventmanagement/UserConnectionEventHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanaging/PermissionGroupManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/gamefunctions/moderationfunctions/TempBan.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/gamefunctions/moderationfunctions/UnBan.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/gamefunctions/permissionfunctions/PermAdder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/gamefunctions/permissionfunctions/PermRemover.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/gamefunctions/permissionfunctions/RankRemover.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/gamefunctions/permissionfunctions/RankSetter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/gamefunctions/vaultfunctions/BalanceGetter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/gamefunctions/vaultfunctions/BalanceGiver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/gamefunctions/vaultfunctions/BalancePayer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/gamefunctions/vaultfunctions/BalanceSetter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/gamefunctions/vaultfunctions/BalanceTaker.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/gamefunctions/whitelistfunctions/WhiteListAdder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/gamefunctions/whitelistfunctions/WhiteListDisabler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/gamefunctions/whitelistfunctions/WhiteListEnabler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/gamefunctions/whitelistfunctions/WhiteListRemover.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/gamefunctions/GameCommandListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/gamefunctions/generalfunctions/chatfunctions/Me.java" />
+        <option value="$PROJECT_DIR$/BasicHyTools/functionParameters.yml" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/datetimemanagement/DateTimeManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/globalmechanisms/chatmechanisms/Informer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagement/managers/UserManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/models/FunctionParameter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagement/managers/FunctionParameterManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/gamefunctions/FunctionCooldown.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/globalmechanisms/chatmechanisms/Announcer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/models/containers/CooldownContainer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/globalmechanisms/chatmechanisms/FunctionCooldown.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/globalmechanisms/savemechanisms/ConfigSaver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/globalmechanisms/savemechanisms/GroupSaver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/globalmechanisms/savemechanisms/UserSaver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/globalmechanisms/savemechanisms/IConfigSaver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagement/initializers/ModuleInitializer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/globalmechanisms/chatmechanisms/ChatCooldown.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/eventmanagement/UserMoveEventHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/globalmechanisms/chatmechanisms/SpamFilter.java" />
+        <option value="$PROJECT_DIR$/BasicHyTools/language.yml" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/globalmechanisms/chatmechanisms/Motd.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/gamefunctions/GameFunction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/globalmechanisms/chatmechanisms/LastSentMessageChecker.java" />
         <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/Main.java" />
+        <option value="$PROJECT_DIR$/BasicHyTools/Users/mockUser12345.yml" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/models/DefaultConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/globalmechanisms/chatmechanisms/SwearFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagement/managers/DefaultConfigManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagement/managers/LanguageConfigManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/models/LanguageConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagement/managers/GroupManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/stringhelpers/StringHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/models/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/eventmanagement/ChatEventHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/eventmanagement/CommandEventHandler.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="340" />
-    <option name="y" value="28" />
+    <option name="x" value="346" />
+    <option name="y" value="23" />
     <option name="width" value="1346" />
     <option name="height" value="688" />
   </component>
@@ -119,6 +178,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -129,17 +190,6 @@
             <path>
               <item name="BasicHyTools" type="b2602c69:ProjectViewProjectNode" />
               <item name="BasicHyTools" type="462c0819:PsiDirectoryNode" />
-              <item name="BasicHyTools" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BasicHyTools" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BasicHyTools" type="462c0819:PsiDirectoryNode" />
-              <item name="BasicHyTools" type="462c0819:PsiDirectoryNode" />
-              <item name="Users" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BasicHyTools" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BasicHyTools" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -170,32 +220,12 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="basichytools" type="462c0819:PsiDirectoryNode" />
-              <item name="configmanaging" type="462c0819:PsiDirectoryNode" />
+              <item name="gamefunctions" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BasicHyTools" type="b2602c69:ProjectViewProjectNode" />
               <item name="BasicHyTools" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="basichytools" type="462c0819:PsiDirectoryNode" />
-              <item name="eventmanagement" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BasicHyTools" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BasicHyTools" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="basichytools" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BasicHyTools" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BasicHyTools" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BasicHyTools" type="b2602c69:ProjectViewProjectNode" />
@@ -205,12 +235,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558011833752" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558727442331" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -218,14 +246,17 @@
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\marti\Documents\BasicHyTools\BasicHyTools\src\main\resources\META-INF" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="hu.martinmarkus.basichytools.generalfunctions.chatfunctions" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\marti\Documents\BasicHyTools\BasicHyTools\src\main\resources" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="hu.martinmarkus.basichytools.permissionmanagement" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\marti\Documents\BasicHyTools\BasicHyTools\src\main\resources\META-INF" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -246,7 +277,7 @@
       <module name="BasicHyTools" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="hu.martinmarkus.basichytools.functions.*" />
+          <option name="PATTERN" value="hu.martinmarkus.basichytools.models.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -273,11 +304,20 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2647504" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2700454" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -286,15 +326,15 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32991454" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.1965812" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49924356" weight="0.30598292" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49621785" visible="true" weight="0.22051282" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49621785" weight="0.5555556" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.37606838" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.24615385" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50075644" side_tool="true" weight="0.31965813" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50378215" side_tool="true" weight="0.37094018" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.16239317" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.18632479" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -304,412 +344,496 @@
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
     </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26096824" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.1948718" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.2991453" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.24615385" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.16239317" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-    </layout-to-restore>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="setValue">
+      <expression>
+        <expression-string>5</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/generalfunctions/teleportationfunctions/warp/SetWarp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/generalfunctions/teleportationfunctions/warp/DeleteWarp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/generalfunctions/teleportationfunctions/warp/Warp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/executorfunctions/CommandRunner.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/gamefunctions/vaultfunctions/BalancePayer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/moderationfunctions/Ban.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/gamefunctions/vaultfunctions/BalanceSetter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/gamefunctions/vaultfunctions/BalanceTaker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/gamefunctions/whitelistfunctions/WhiteListAdder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/gamefunctions/whitelistfunctions/WhiteListEnabler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/gamefunctions/whitelistfunctions/WhiteListRemover.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/gamefunctions/permissionfunctions/PermAdder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/gamefunctions/whitelistfunctions/WhiteListDisabler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/gamefunctions/GameCommandListener.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/datetimemanagement/DateTimeManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/globalmechanisms/chatmechanisms/Informer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="27" column="54" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/persistence/repositories/UserRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-373">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/persistence/daos/UserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="920">
+          <caret line="51" column="27" selection-start-line="51" selection-start-column="27" selection-end-line="51" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagement/managers/UserManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="72" selection-start-line="72" selection-end-line="72" />
+          <folding>
+            <element signature="e#3340#3341#0" expanded="true" />
+            <element signature="e#3386#3387#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/models/FunctionParameter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
-          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/moderationfunctions/UnBan.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/moderationfunctions/IpBan.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/moderationfunctions/Kick.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/moderationfunctions/KickAll.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/moderationfunctions/Mute.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/moderationfunctions/TempBan.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/whitelisting/whitelistfunctions/WhiteListManager.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/whitelistfunctions/WhiteListAdder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/whitelistfunctions/WhiteListRemover.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/whitelistfunctions/WhiteListEnabler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/whitelistfunctions/WhiteListDisabler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/vaultfunctions/BalanceGiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/vaultfunctions/BalanceTaker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/vaultfunctions/BalanceSetter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/vaultfunctions/BalanceGetter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/vaultfunctions/BalancePayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/generalfunctions/chatfunctions/BalanceTopList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/generalfunctions/chatfunctions/Helpop.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/permissionfunctions/RankSetter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/permissionfunctions/PermRemover.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/permissionfunctions/PermAdder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/permissionfunctions/RankRemover.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <caret line="2" column="22" lean-forward="true" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+          <folding>
+            <element signature="e#2189#2190#0" expanded="true" />
+            <element signature="e#2220#2221#0" expanded="true" />
+            <element signature="e#2265#2266#0" expanded="true" />
+            <element signature="e#2305#2306#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/models/BasicHyToolsLocation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+        <state relative-caret-position="46">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/models/containers/CooldownContainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
           <folding>
-            <element signature="e#392#393#0" expanded="true" />
-            <element signature="e#424#425#0" expanded="true" />
-            <element signature="e#474#475#0" expanded="true" />
-            <element signature="e#516#517#0" expanded="true" />
-            <element signature="e#543#544#0" expanded="true" />
-            <element signature="e#567#568#0" expanded="true" />
-            <element signature="e#600#601#0" expanded="true" />
-            <element signature="e#626#627#0" expanded="true" />
-            <element signature="e#653#654#0" expanded="true" />
-            <element signature="e#677#678#0" expanded="true" />
-            <element signature="e#710#711#0" expanded="true" />
+            <element signature="e#470#471#0" expanded="true" />
+            <element signature="e#518#519#0" expanded="true" />
+            <element signature="e#558#559#0" expanded="true" />
+            <element signature="e#597#598#0" expanded="true" />
+            <element signature="e#632#633#0" expanded="true" />
+            <element signature="e#688#689#0" expanded="true" />
             <element signature="e#736#737#0" expanded="true" />
-            <element signature="e#763#764#0" expanded="true" />
-            <element signature="e#787#788#0" expanded="true" />
-            <element signature="e#820#821#0" expanded="true" />
-            <element signature="e#846#847#0" expanded="true" />
+            <element signature="e#775#776#0" expanded="true" />
+            <element signature="e#813#814#0" expanded="true" />
+            <element signature="e#872#873#0" expanded="true" />
+            <element signature="e#926#927#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/functions/BaseFunction.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/globalmechanisms/chatmechanisms/Announcer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="51" column="52" selection-start-line="51" selection-start-column="42" selection-end-line="51" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#514#515#0" expanded="true" />
-            <element signature="e#562#563#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/containers/PermissionGroupContainer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="147">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/permissionGroups.yml" />
-    <entry file="jar://$PROJECT_DIR$/src/main/resources/ConfigManagerLibrary-1.0.0.jar!/hu/martinmarkus/configmanagerlibrary/fileprocessing/configreaders/ConfigReader.class" />
-    <entry file="jar://$PROJECT_DIR$/src/main/resources/ConfigManagerLibrary-1.0.0.jar!/hu/martinmarkus/configmanagerlibrary/threading/AsyncExecutor.class" />
-    <entry file="jar://$PROJECT_DIR$/src/main/resources/ConfigManagerLibrary-1.0.1.jar!/hu/martinmarkus/configmanagerlibrary/fileprocessing/configreaders/ConfigReader.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/gamefunctions/generalfunctions/chatfunctions/Me.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="53" column="19" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
+        <state relative-caret-position="483">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/globalmechanisms/savemechanisms/UserSaver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="39" column="64" selection-start-line="39" selection-start-column="64" selection-end-line="39" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/path/permissionGroups.yyml" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanaging/PermissionGroupContainerGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-598">
-          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+        <state relative-caret-position="207">
+          <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/synchronization/Synchronizer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/globalmechanisms/savemechanisms/IConfigSaver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="69">
+          <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/path/permissionGroups.yml" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanaging/HyToolsInitializer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagement/initializers/ModuleInitializer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="10" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="10" />
-          <folding>
-            <element signature="e#507#508#0" expanded="true" />
-            <element signature="e#534#535#0" expanded="true" />
-            <element signature="e#586#587#0" expanded="true" />
-            <element signature="e#612#613#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="184">
+          <caret line="8" column="78" selection-start-line="8" selection-start-column="78" selection-end-line="8" selection-end-column="78" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/eventmanagement/quitevents/UserQuitEventHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/globalmechanisms/chatmechanisms/FunctionCooldown.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="5" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="18" selection-end-column="5" />
+        <state relative-caret-position="-1480">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/src/main/resources/ConfigManagerLibrary-1.0.1.jar!/hu/martinmarkus/configmanagerlibrary/threading/AsyncExecutor.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/globalmechanisms/savemechanisms/ConfigSaver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/globalmechanisms/savemechanisms/GroupSaver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
+          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
           <folding>
-            <element signature="e#0#2035#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/ArrayList.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/globalmechanisms/chatmechanisms/SpamFilter.java" />
+    <entry file="file://$PROJECT_DIR$/BasicHyTools/language.yml" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/globalmechanisms/chatmechanisms/Motd.java" />
+    <entry file="file://$PROJECT_DIR$/BasicHyTools/groups.yml" />
+    <entry file="file://$PROJECT_DIR$/BasicHyTools/functionParameters.yml" />
+    <entry file="file://$PROJECT_DIR$/BasicHyTools/config.yml" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/gamefunctions/GameFunction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="524" selection-start-line="524" selection-end-line="524" />
+        <state relative-caret-position="90">
+          <caret line="138" column="13" selection-start-line="138" selection-start-column="13" selection-end-line="138" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/globalmechanisms/chatmechanisms/LastSentMessageChecker.java" />
+    <entry file="file://$PROJECT_DIR$/BasicHyTools/Users/mockUser12345.yml" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="851">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/globalmechanisms/chatmechanisms/CommandBlocker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/globalmechanisms/chatmechanisms/SwearFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/globalmechanisms/chatmechanisms/ChatCooldown.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="961">
+          <caret line="66" column="65" selection-start-line="66" selection-start-column="46" selection-end-line="66" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/models/LanguageConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4048">
+          <caret line="254" column="39" selection-start-line="254" selection-start-column="39" selection-end-line="254" selection-end-column="39" />
+          <folding>
+            <element signature="e#7172#7173#0" expanded="true" />
+            <element signature="e#7232#7233#0" expanded="true" />
+            <element signature="e#7284#7285#0" expanded="true" />
+            <element signature="e#9445#9446#0" expanded="true" />
+            <element signature="e#9487#9488#0" expanded="true" />
+            <element signature="e#9557#9558#0" expanded="true" />
+            <element signature="e#9619#9620#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/models/DefaultConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2737">
+          <caret line="207" column="46" selection-start-line="207" selection-start-column="46" selection-end-line="207" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5680#5681#0" expanded="true" />
+            <element signature="e#5729#5730#0" expanded="true" />
+            <element signature="e#6138#6139#0" expanded="true" />
+            <element signature="e#6206#6207#0" expanded="true" />
+            <element signature="e#6260#6261#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagement/managers/LanguageConfigManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="91" column="40" selection-start-line="91" selection-start-column="40" selection-end-line="91" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagement/managers/GroupManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="478">
+          <caret line="97" column="33" selection-start-line="97" selection-start-column="33" selection-end-line="97" selection-end-column="33" />
+          <folding>
+            <element signature="e#1750#1751#0" expanded="true" />
+            <element signature="e#1787#1788#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/eventmanagement/UserConnectionEventHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-161">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="345">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagement/managers/DefaultConfigManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="76" column="48" selection-start-line="76" selection-start-column="29" selection-end-line="76" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/eventmanagement/UserMoveEventHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#371#372#0" expanded="true" />
-            <element signature="e#416#417#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanaging/UserManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1242">
-          <caret line="67" selection-start-line="67" selection-end-line="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2278#2279#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BasicHyTools/permissionGroups.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="851">
-          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanaging/PermissionGroupManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/models/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="47" column="57" selection-start-line="47" selection-start-column="57" selection-end-line="47" selection-end-column="57" />
+        <state relative-caret-position="23">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2306#2491#0" />
+            <element signature="e#3127#3289#0" />
+            <element signature="e#2665#2886#0" />
+            <element signature="e#2892#3128#0" />
+            <element signature="e#3134#3501#0" />
+            <element signature="e#3507#4261#0" />
+            <element signature="e#4267#4368#0" />
+            <element signature="e#4374#4671#0" />
+            <element signature="e#4677#5047#0" />
+            <element signature="e#5053#5716#0" />
+            <element signature="e#5722#6385#0" />
+            <element signature="e#6391#6852#0" />
+            <element signature="e#6961#6962#0" expanded="true" />
+            <element signature="e#6995#6996#0" expanded="true" />
+            <element signature="e#7064#7065#0" expanded="true" />
+            <element signature="e#7110#7111#0" expanded="true" />
+            <element signature="e#7502#7503#0" expanded="true" />
+            <element signature="e#7529#7530#0" expanded="true" />
+            <element signature="e#7423#7424#0" expanded="true" />
+            <element signature="e#7455#7456#0" expanded="true" />
+            <element signature="e#7501#7502#0" expanded="true" />
+            <element signature="e#7543#7544#0" expanded="true" />
+            <element signature="e#7613#7614#0" expanded="true" />
+            <element signature="e#7675#7676#0" expanded="true" />
+            <element signature="e#7709#7710#0" expanded="true" />
+            <element signature="e#7739#7740#0" expanded="true" />
+            <element signature="e#7785#7786#0" expanded="true" />
+            <element signature="e#7823#7824#0" expanded="true" />
+            <element signature="e#7853#7854#0" expanded="true" />
+            <element signature="e#7879#7880#0" expanded="true" />
+            <element signature="e#7917#7918#0" expanded="true" />
+            <element signature="e#7947#7948#0" expanded="true" />
+            <element signature="e#7980#7981#0" expanded="true" />
+            <element signature="e#8009#8010#0" expanded="true" />
+            <element signature="e#8056#8057#0" expanded="true" />
+            <element signature="e#8094#8095#0" expanded="true" />
+            <element signature="e#8128#8129#0" expanded="true" />
+            <element signature="e#8158#8159#0" expanded="true" />
+            <element signature="e#8204#8205#0" expanded="true" />
+            <element signature="e#8242#8243#0" expanded="true" />
+            <element signature="e#8278#8279#0" expanded="true" />
+            <element signature="e#8310#8311#0" expanded="true" />
+            <element signature="e#8360#8361#0" expanded="true" />
+            <element signature="e#8402#8403#0" expanded="true" />
+            <element signature="e#8451#8452#0" expanded="true" />
+            <element signature="e#8482#8483#0" expanded="true" />
+            <element signature="e#8544#8545#0" expanded="true" />
+            <element signature="e#8584#8585#0" expanded="true" />
+            <element signature="e#8634#8635#0" expanded="true" />
+            <element signature="e#8674#8675#0" expanded="true" />
+            <element signature="e#8746#8747#0" expanded="true" />
+            <element signature="e#8804#8805#0" expanded="true" />
+            <element signature="e#8839#8840#0" expanded="true" />
+            <element signature="e#8870#8871#0" expanded="true" />
+            <element signature="e#8921#8922#0" expanded="true" />
+            <element signature="e#8963#8964#0" expanded="true" />
+            <element signature="e#8995#8996#0" expanded="true" />
+            <element signature="e#9023#9024#0" expanded="true" />
+            <element signature="e#9068#9069#0" expanded="true" />
+            <element signature="e#9104#9105#0" expanded="true" />
+            <element signature="e#9137#9138#0" expanded="true" />
+            <element signature="e#9166#9167#0" expanded="true" />
+            <element signature="e#9213#9214#0" expanded="true" />
+            <element signature="e#9251#9252#0" expanded="true" />
+            <element signature="e#9286#9287#0" expanded="true" />
+            <element signature="e#9317#9318#0" expanded="true" />
+            <element signature="e#9366#9367#0" expanded="true" />
+            <element signature="e#9406#9407#0" expanded="true" />
+            <element signature="e#9444#9445#0" expanded="true" />
+            <element signature="e#9478#9479#0" expanded="true" />
+            <element signature="e#9533#9534#0" expanded="true" />
+            <element signature="e#9579#9580#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/stringhelpers/StringHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="508">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/models/PermissionGroup.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/eventmanagement/ChatEventHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+        <state relative-caret-position="-161">
+          <caret line="5" column="81" selection-start-line="5" selection-start-column="81" selection-end-line="5" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/eventmanagement/CommandEventHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1725">
+          <caret line="75" column="13" lean-forward="true" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BasicHyTools/Users/mockUser12345.yml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagement/managers/FunctionParameterManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="110">
+          <caret line="86" column="36" lean-forward="true" selection-start-line="86" selection-start-column="36" selection-end-line="86" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/eventmanagement/UserValidationEventHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="142">
+          <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
         </state>
       </provider>
     </entry>

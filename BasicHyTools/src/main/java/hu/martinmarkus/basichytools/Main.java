@@ -1,41 +1,58 @@
 package hu.martinmarkus.basichytools;
 
-import hu.martinmarkus.basichytools.configmanaging.HyToolsInitializer;
-import hu.martinmarkus.basichytools.configmanaging.UserManager;
+import hu.martinmarkus.basichytools.configmanagement.initializers.ModuleInitializer;
+import hu.martinmarkus.basichytools.configmanagement.managers.UserManager;
+import hu.martinmarkus.basichytools.eventmanagement.ChatEventHandler;
+import hu.martinmarkus.basichytools.eventmanagement.CommandEventHandler;
 import hu.martinmarkus.basichytools.eventmanagement.UserConnectionEventHandler;
+import hu.martinmarkus.basichytools.eventmanagement.UserValidationEventHandler;
 import hu.martinmarkus.basichytools.models.User;
-import hu.martinmarkus.configmanagerlibrary.fileprocessing.configwriters.ConfigWriter;
-import hu.martinmarkus.configmanagerlibrary.fileprocessing.configwriters.YamlConfigWriter;
 
 import java.io.IOException;
-import java.util.Properties;
-
-import static com.sun.org.apache.xalan.internal.utils.SecuritySupport.getResourceAsStream;
-
 public class Main {
-    private static void printProjectProperties() {
-        try {
-            Properties properties = new Properties();
-            properties.load(getResourceAsStream("project.properties"));
+        public static void main(String[] args) {
 
-            String message = properties.getProperty("artifactId") + " v" + properties.getProperty("version")
-                    + " by '" + properties.getProperty("author") + "' is loaded."
-                    + "\nProject repository: " + properties.getProperty("repo");
+        // TODO: test cooldown system
+        // TODO: test cooldown system
+        // TODO: test cooldown system
+        // TODO: test cooldown system
+        // TODO: test cooldown system
+        ModuleInitializer.load();
 
-            System.out.println(message);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+        UserValidationEventHandler validationEventHandler = new UserValidationEventHandler();
+        validationEventHandler.OnInvalidUserInteraction();
 
-    public static void main(String[] args) {
-        HyToolsInitializer.initialize();
+        UserConnectionEventHandler handler = new UserConnectionEventHandler();
+        handler.onUserJoin();
 
-        UserManager userConfigManager = UserManager.getInstance();
-        User birdemic = userConfigManager.generateMockUser();
 
-        ConfigWriter<User> configWriter = new YamlConfigWriter<>(User.class, HyToolsInitializer.getUsersPath());
-        configWriter.write("mockUser12345", birdemic);
+        Thread thread = new Thread(() -> {
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 
+            User user = UserManager.getInstance().getOnlineUser("mockUser12345");
+            CommandEventHandler commandEventHandler = new CommandEventHandler();
+            commandEventHandler.onUserExecuteCommand();
+            try {
+                System.in.read();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            ChatEventHandler chatEventHandler = new ChatEventHandler();
+            chatEventHandler.onMessageSent("Egy NaGyBetŰs fUCk szöPÉLke");
+            chatEventHandler.onMessageSent("asd");
+            chatEventHandler.onMessageSent("Egy");
+            chatEventHandler.onMessageSent("Egy éálkszöPÉLke");
+            chatEventHandler.onMessageSent("asélkélkd");
+
+
+
+            ModuleInitializer.unload();
+
+        });
+        thread.start();
     }
 }
