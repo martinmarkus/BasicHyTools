@@ -32,7 +32,6 @@ public class LanguageConfigManager {
         initLanguageConfigFromFile();
     }
 
-    // config initialization:
     private void initLanguageConfigFromFile() {
         ISynchronizer synchronizer = new Synchronizer();
 
@@ -62,10 +61,9 @@ public class LanguageConfigManager {
         // TODO: use mock lang generator
 
         List<String> censoredWords = new ArrayList<>();
-        censoredWords.add("fuck");
-        censoredWords.add("bitch");
-        censoredWords.add("whore");
-        censoredWords.add("shit");
+        censoredWords.add("damn");
+        censoredWords.add("frick");
+        censoredWords.add("poop");
         languageConfig.setCensoredWords(censoredWords);
 
         languageConfig.setMotd("Example motd message\nNew line");
