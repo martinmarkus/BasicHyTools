@@ -6,7 +6,6 @@ import hu.martinmarkus.basichytools.utils.StringUtil;
 import java.util.List;
 
 public class SwearFilter {
-
     private final String CENSOR_CHAR = "*";
 
     private List<String> censoredWords;

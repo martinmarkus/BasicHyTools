@@ -13,7 +13,6 @@ public abstract class ConfigSaver implements IConfigSaver {
     protected final int INITIAL_DELAY = 60;
 
     protected int saveInterval;
-
     protected ScheduledExecutorService executorService;
     protected boolean isRunning;
 

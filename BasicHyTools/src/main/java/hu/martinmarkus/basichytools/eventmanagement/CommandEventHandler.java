@@ -24,6 +24,7 @@ public class CommandEventHandler {
     }
 
     public void onUserExecuteCommand() {
+        // TODO: get sender and command
         String rawCommand = "me hello FUCk";
         String userName = "mockUser12345";
 

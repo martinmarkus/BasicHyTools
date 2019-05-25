@@ -49,7 +49,6 @@ public class Announcer {
         isRunning = false;
     }
 
-
     private void announceRandom() {
         Random rand = new Random();
         int random = rand.nextInt(messages.size());

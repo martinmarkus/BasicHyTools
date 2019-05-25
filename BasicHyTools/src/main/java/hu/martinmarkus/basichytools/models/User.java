@@ -60,7 +60,7 @@ public class User {
     @JsonIgnore
     public void sendMessage(String message) {
         // TODO: implement default message sending to User
-        message = StringUtil.censoreMessage(this, message);
+        message = StringUtil.censorMessage(this, message);
         System.out.println("Msg to " + name + ": " + message);
     }
 

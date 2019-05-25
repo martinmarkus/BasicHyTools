@@ -85,5 +85,4 @@ public class ChatCooldown {
 
         return 0;
     }
-
 }

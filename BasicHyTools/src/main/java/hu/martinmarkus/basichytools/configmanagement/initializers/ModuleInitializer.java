@@ -24,11 +24,10 @@ public class ModuleInitializer {
         GroupSaver.getInstance().saveNow();
 
         Announcer.getInstance().stopAnnouncing();
-
         FunctionCooldown.getInstance().stopCooldownCheck();
         ChatCooldown.getInstance().stopCooldownCheck();
 
-        Informer.logInfo("The system is unloaded.");
+        Informer.logInfo("The system has unloaded.");
     }
 
     public static void load() {
@@ -39,7 +38,6 @@ public class ModuleInitializer {
         UserManager.getInstance();
 
         initializeSaverModules();
-
         initializeAnnouncerModule();
         initializeCooldownModules();
 
@@ -69,7 +67,7 @@ public class ModuleInitializer {
     }
 
     private static String getProjectProperties() {
-        String message = "The system is loaded.";
+        String message = "The system has loaded.";
         try {
             Properties properties = new Properties();
             properties.load(getResourceAsStream("project.properties"));
@@ -77,9 +75,8 @@ public class ModuleInitializer {
             message = properties.getProperty("artifactId") + " v" + properties.getProperty("version")
                     + " by '" + properties.getProperty("author") + "' is loaded."
                     + "\nProject repository: " + properties.getProperty("repo");
-        } catch (IOException e) {
+        } catch (IOException ignored) {
         }
         return message;
     }
-
 }

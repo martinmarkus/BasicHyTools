@@ -21,7 +21,7 @@ public class StringUtil {
         return false;
     }
 
-    public static String censoreMessage(User sender, String message) {
+    public static String censorMessage(User sender, String message) {
         if (message == null || message.isEmpty()) {
             return message;
         }

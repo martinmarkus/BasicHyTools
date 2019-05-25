@@ -43,7 +43,7 @@ public class ChatEventHandler {
         }
 
         user.addSentMessage(message);
-        message = StringUtil.censoreMessage(user, message);
+        message = StringUtil.censorMessage(user, message);
         executeMessageSending(user, message);
     }
 
