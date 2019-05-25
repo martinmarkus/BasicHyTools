@@ -16,7 +16,6 @@
         </resources>
         <plugins>
             <plugin>
-                <!-- Build an executable JAR -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.1.0</version>
@@ -33,9 +32,7 @@
         </plugins>
     </build>
 
-    <!-- Dependencies -->
     <dependencies>
-
         <dependency>
             <groupId>martinmarkus.configmanagerlibrary</groupId>
             <artifactId>config-manager-library</artifactId>
@@ -43,6 +40,6 @@
             <scope>system</scope>
             <systemPath>${project.basedir}/src/main/resources/ConfigManagerLibrary-1.0.3.jar</systemPath>
         </dependency>
-
     </dependencies>
+
 </project>
