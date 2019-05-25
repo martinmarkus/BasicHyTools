@@ -41,6 +41,7 @@ public class LanguageConfig {
 
     private List<String> censoredWords;
     private String cantSendThisMessage;
+    private String broadcastPrefix;
 
     public LanguageConfig() {
 
@@ -55,7 +56,7 @@ public class LanguageConfig {
                           String invalidCommandUsagePleaseTry, String configSaveSuccessful, String chatStillOnCooldown,
                           String functionStillOnCooldown, String forOneMoreSecond, String minute, String second,
                           String balanceIncreased, String balanceDecreased, String balanceSet, List<String> censoredWords,
-                          String cantSendThisMessage) {
+                          String cantSendThisMessage, String broadcastPrefix) {
         this.motd = motd;
         this.joinMessage = joinMessage;
         this.quitMessage = quitMessage;
@@ -90,6 +91,7 @@ public class LanguageConfig {
         this.balanceSet = balanceSet;
         this.censoredWords = censoredWords;
         this.cantSendThisMessage = cantSendThisMessage;
+        this.broadcastPrefix = broadcastPrefix;
     }
 
     public String getMotd() {
@@ -362,5 +364,13 @@ public class LanguageConfig {
 
     public void setCantSendThisMessage(String cantSendThisMessage) {
         this.cantSendThisMessage = cantSendThisMessage;
+    }
+
+    public String getBroadcastPrefix() {
+        return broadcastPrefix;
+    }
+
+    public void setBroadcastPrefix(String broadcastPrefix) {
+        this.broadcastPrefix = broadcastPrefix;
     }
 }

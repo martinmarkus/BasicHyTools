@@ -1,5 +1,6 @@
 package hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms;
 
+import hu.martinmarkus.basichytools.configmanagement.managers.LanguageConfigManager;
 import hu.martinmarkus.basichytools.utils.DateTimeUtil;
 
 public class Informer {
@@ -8,8 +9,15 @@ public class Informer {
     private static final String WARN = "[WARN]";
     private static final String ERROR = "[ERROR]";
 
+    private static final String BROADCAST =
+            LanguageConfigManager.getInstance().getLanguageConfig().getBroadcastPrefix();
+
     public static void logInfo(String message) {
         log(INFO + ": " + message);
+    }
+
+    public static void logBroadcast(String message) {
+        log(BROADCAST + ": " + message);
     }
 
     public static void logWarn(String message) {

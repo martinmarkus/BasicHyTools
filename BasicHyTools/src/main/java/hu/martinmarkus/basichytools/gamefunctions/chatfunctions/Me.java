@@ -8,7 +8,7 @@ public class Me extends GameFunction {
     private String meMessage;
 
     public Me(User executor, String meMessage /*add other function params*/) {
-        super(executor, "me");
+        super(executor, "Me");
         this.meMessage = meMessage;
 
         initRawCommand();   // must be called for correct logging

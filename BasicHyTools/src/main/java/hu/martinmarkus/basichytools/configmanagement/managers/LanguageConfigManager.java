@@ -100,6 +100,7 @@ public class LanguageConfigManager {
         languageConfig.setForOneMoreSecond("one more second");
         languageConfig.setMinute("minute(s)");
         languageConfig.setSecond("second(s)");
+        languageConfig.setBroadcastPrefix("[Broadcast]");
 
         return languageConfig;
 

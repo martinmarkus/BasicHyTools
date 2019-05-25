@@ -4,7 +4,6 @@ import hu.martinmarkus.basichytools.gamefunctions.GameFunction;
 import hu.martinmarkus.basichytools.models.User;
 
 public class BalanceTopList extends GameFunction {
-
     public BalanceTopList(User executor /*add other function params*/) {
         super(executor,  "");
 
