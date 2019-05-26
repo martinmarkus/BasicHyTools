@@ -1,6 +1,5 @@
 package hu.martinmarkus.basichytools.gamefunctions;
 
-import hu.martinmarkus.basichytools.configmanagement.DefaultConfigManager;
 import hu.martinmarkus.basichytools.configmanagement.FunctionParameterManager;
 import hu.martinmarkus.basichytools.configmanagement.LanguageConfigManager;
 import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.FunctionCooldown;
@@ -22,7 +21,6 @@ public abstract class GameFunction {
     protected User executor;
     protected String rawCommand;
 
-    // abstract methods
     public abstract void execute();
 
     public abstract Object executeWithReturnValue();
@@ -62,35 +60,14 @@ public abstract class GameFunction {
         functionCooldown.addCooldown(cooldownContainer);
     }
 
-    protected boolean hasEnoughParam(String[] fullCommand, boolean atleast) {
-        if (fullCommand != null && fullCommand.length != 0) {
-            int requiredCount = functionParameter.getRequiredParameterCount();
-            if (atleast && fullCommand.length - 1 >= requiredCount) {
-                return true;
-            }
-            if (fullCommand.length - 1 == requiredCount) {
-                return true;
-            }
-            sendInvalidParameterCountMessage();
-        }
-        return false;
-    }
-
-    private void sendInvalidParameterCountMessage() {
-        String command = functionParameter.getCommand();
-        String message = languageConfig.getInvalidCommandUsagePleaseTry();
-        PlaceholderReplacer replacer = new PlaceholderReplacer();
-        message = replacer.replace(message, command);
-        executor.sendMessage(message);
-    }
-
     protected void runFunction(Runnable runnable) {
-        if (executor == null || rawCommand == null || !hasPermission()) {
+        if (executor == null || rawCommand == null) {
             return;
         }
 
         boolean isOperator = executor.isOperator();
-        boolean canDoFunction = canDoFunction();
+        GameFunctionValidator validator = new GameFunctionValidator(this);
+        boolean canDoFunction = validator.canDoFunction();
         if (!canDoFunction) {
             return;
         }
@@ -111,12 +88,13 @@ public abstract class GameFunction {
     }
 
     protected Object callFunction(Callable<Object> callable) {
-        if (executor == null || rawCommand == null || !hasPermission()) {
+        if (executor == null || rawCommand == null) {
             return null;
         }
 
         boolean isOperator = executor.isOperator();
-        boolean canDoFunction = canDoFunction();
+        GameFunctionValidator validator = new GameFunctionValidator(this);
+        boolean canDoFunction = validator.canDoFunction();
         if (!canDoFunction) {
             return null;
         }
@@ -141,22 +119,6 @@ public abstract class GameFunction {
         return result;
     }
 
-    private boolean canDoFunction() {
-        boolean isOperator = executor.isOperator();
-        if (!isOperator) {
-            if (!hasMoney()) {
-                return false;
-            }
-            String functionCooldownPassPermission = DefaultConfigManager.getInstance().getDefaultConfig()
-                    .getGlobalMechanismPermissions().get("functionCooldownBypass");
-            if (!executor.hasPermission(functionCooldownPassPermission) && isOnCooldown()) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
     private void doLogging() {
         if (functionParameter.isDoLogging()) {
             String message = languageConfig.getCommandExecuted();
@@ -167,71 +129,6 @@ public abstract class GameFunction {
 
             Informer.logInfo(message);
         }
-    }
-
-    private boolean hasMoney() {
-        if (functionParameter == null) {
-            return false;
-        }
-
-        double usagePrice = functionParameter.getUsagePrice();
-        double balance = executor.getBalance();
-        boolean hasMoney = balance >= usagePrice;
-
-        if (!hasMoney) {
-            executor.sendMessage(languageConfig.getNotEnoughMoney());
-        }
-
-        return hasMoney;
-    }
-
-    private boolean hasPermission() {
-        if (functionParameter == null) {
-            return false;
-        }
-
-        String permission = functionParameter.getPermission();
-        boolean hasPermission = executor.hasPermission(permission);
-
-        if (!hasPermission) {
-            executor.sendMessage(languageConfig.getNotEnoughPermission());
-        }
-
-        return hasPermission;
-    }
-
-    private boolean isOnCooldown() {
-        if (FunctionCooldown.getInstance().isOnCooldown(cooldownContainer)) {
-            String message = languageConfig.getFunctionStillOnCooldown();
-            PlaceholderReplacer replacer = new PlaceholderReplacer();
-
-            String cooldownValue = createCooldownMessage();
-            message = replacer.replace(message, functionParameter.getName(), cooldownValue);
-            executor.sendMessage(message);
-            return true;
-        }
-
-        return false;
-    }
-
-    private String createCooldownMessage() {
-        int cooldown = FunctionCooldown.getInstance().getCooldownValueOf(cooldownContainer);
-
-        int minutes = cooldown / 60;
-        int seconds = cooldown % 60;
-
-        String cooldownValue;
-        String minuteString = languageConfig.getMinute();
-        String secondString = languageConfig.getSecond();
-        if (minutes == 0) {
-            cooldownValue = String.format("%02d " + secondString, seconds);
-            if (seconds == 0) {
-                cooldownValue = languageConfig.getForOneMoreSecond();
-            }
-        } else {
-            cooldownValue = String.format("%02d " + minuteString + ", %02d " + secondString, minutes, seconds);
-        }
-        return cooldownValue;
     }
 
     public FunctionParameter getFunctionParameter() {
