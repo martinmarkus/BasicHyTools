@@ -24,13 +24,6 @@ public class Main {
             CommandEventHandler commandEventHandler = new CommandEventHandler();
             commandEventHandler.onUserExecuteCommand();
 
-            ChatEventHandler chatEventHandler = new ChatEventHandler();
-            chatEventHandler.onMessageSent("Egy NaGyBetŰs fUCk szöPÉLke");
-            chatEventHandler.onMessageSent("asd");
-            chatEventHandler.onMessageSent("Egy");
-            chatEventHandler.onMessageSent("Egy éálkszöPÉLke");
-            chatEventHandler.onMessageSent("asélkélkd");
-
             ModuleInitializer.unload();
         });
         thread.start();
