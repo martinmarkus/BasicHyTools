@@ -14,6 +14,6 @@ public class GameFunctionFactory extends ObjectFactory<GameFunction> {
     }
 
     private GameFunctionFactory() {
-        super("gameFunctionSettings.xml");
+        super("configSettings/gameFunctionSettings.xml");
     }
 }
