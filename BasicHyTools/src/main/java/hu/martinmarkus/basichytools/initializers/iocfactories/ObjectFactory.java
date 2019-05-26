@@ -1,4 +1,4 @@
-package hu.martinmarkus.basichytools.configmanagement.initializers.ioc;
+package hu.martinmarkus.basichytools.initializers.iocfactories;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;

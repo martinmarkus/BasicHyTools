@@ -1,10 +1,7 @@
-package hu.martinmarkus.basichytools.configmanagement.managers;
+package hu.martinmarkus.basichytools.configmanagement;
 
-import hu.martinmarkus.basichytools.configmanagement.initializers.ioc.FunctionParameterFactory;
-import hu.martinmarkus.basichytools.configmanagement.initializers.ModuleInitializer;
-import hu.martinmarkus.basichytools.configmanagement.initializers.ioc.GameFunctionFactory;
-import hu.martinmarkus.basichytools.configmanagement.initializers.ioc.IFunctionParameterFactory;
-import hu.martinmarkus.basichytools.configmanagement.initializers.ioc.IGameFunctionFactory;
+import hu.martinmarkus.basichytools.initializers.iocfactories.concretefactories.FunctionParameterFactory;
+import hu.martinmarkus.basichytools.initializers.ModuleInitializer;
 import hu.martinmarkus.basichytools.models.FunctionParameter;
 import hu.martinmarkus.basichytools.models.containers.FunctionParameterContainer;
 import hu.martinmarkus.basichytools.persistence.repositories.FunctionParameterContainerRepository;
@@ -83,7 +80,7 @@ public class FunctionParameterManager {
 
     private FunctionParameterContainer generateDefaultFunctionParameterContainer() {
         List<FunctionParameter> functionParameters = new ArrayList<>();
-        IFunctionParameterFactory functionParameterFactory = new FunctionParameterFactory();
+        FunctionParameterFactory functionParameterFactory = new FunctionParameterFactory();
 
         functionParameters.add(functionParameterFactory.getBean("me"));
         functionParameters.add(functionParameterFactory.getBean("broadcast"));

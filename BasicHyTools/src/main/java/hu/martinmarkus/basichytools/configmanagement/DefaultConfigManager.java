@@ -1,19 +1,12 @@
-package hu.martinmarkus.basichytools.configmanagement.managers;
+package hu.martinmarkus.basichytools.configmanagement;
 
-import hu.martinmarkus.basichytools.configmanagement.initializers.ModuleInitializer;
-import hu.martinmarkus.basichytools.configmanagement.initializers.ioc.DefaultConfigFactory;
-import hu.martinmarkus.basichytools.configmanagement.initializers.ioc.IDefaultConfigFactory;
-import hu.martinmarkus.basichytools.models.BasicHyToolsLocation;
+import hu.martinmarkus.basichytools.initializers.ModuleInitializer;
+import hu.martinmarkus.basichytools.initializers.iocfactories.concretefactories.DefaultConfigFactory;
 import hu.martinmarkus.basichytools.models.DefaultConfig;
 import hu.martinmarkus.basichytools.persistence.repositories.DefaultConfigRepository;
 import hu.martinmarkus.basichytools.persistence.repositories.IDefaultConfigRepository;
 import hu.martinmarkus.basichytools.utils.synchronization.ISynchronizer;
 import hu.martinmarkus.basichytools.utils.synchronization.Synchronizer;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class DefaultConfigManager {
     public static final String DEFAULT_CONFIG = "config";
@@ -70,31 +63,7 @@ public class DefaultConfigManager {
     }
 
     public DefaultConfig generateDefaultConfig() {
-        IDefaultConfigFactory defaultConfigFactory = new DefaultConfigFactory();
+        DefaultConfigFactory defaultConfigFactory = new DefaultConfigFactory();
         return defaultConfigFactory.getBean("defaultConfig");
-        /*
-        List<String> announcerMessages = new ArrayList<>();
-        announcerMessages.add("This is the first example announcement.");
-        announcerMessages.add("This is the second example announcement.");
-        announcerMessages.add("This is the third example announcement.");
-
-        List<String> blockedCommands = new ArrayList<>();
-        blockedCommands.add("testblockedcommand1");
-        blockedCommands.add("testblockedcommand2");
-        blockedCommands.add("testblockedcommand3");
-
-        BasicHyToolsLocation spawnLocation = new BasicHyToolsLocation("spawnWorld", 10.0f, 10.0f, 10.0f);
-
-        Map<String, String> globalMechanismPermissions = new HashMap<>();
-        globalMechanismPermissions.put("chatCooldownBypass", "hytools.bypass.chatCooldown");
-        globalMechanismPermissions.put("functionCooldownBypass", "hytools.bypass.functionCooldown");
-        globalMechanismPermissions.put("swearFilterBypass", "hytools.bypass.swearFilter");
-        globalMechanismPermissions.put("blockedCommandBypass", "hytools.bypass.blockedCommand");
-
-        return new DefaultConfig(60, 5, 5, 60,
-                true, 300, 2800, 300, 30, 1000,
-                0, 999999999, 1, 15, 3,180,
-                announcerMessages, spawnLocation, globalMechanismPermissions, blockedCommands);
-        */
     }
 }

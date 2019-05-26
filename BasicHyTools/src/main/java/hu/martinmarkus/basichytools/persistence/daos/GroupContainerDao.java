@@ -1,6 +1,6 @@
 package hu.martinmarkus.basichytools.persistence.daos;
 
-import hu.martinmarkus.basichytools.configmanagement.managers.GroupManager;
+import hu.martinmarkus.basichytools.configmanagement.GroupManager;
 import hu.martinmarkus.basichytools.models.containers.GroupContainer;
 import hu.martinmarkus.basichytools.persistence.PersistenceMode;
 import hu.martinmarkus.configmanagerlibrary.threading.ResultListener;

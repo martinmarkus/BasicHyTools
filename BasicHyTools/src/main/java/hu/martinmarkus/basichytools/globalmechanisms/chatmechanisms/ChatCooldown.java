@@ -1,6 +1,6 @@
 package hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms;
 
-import hu.martinmarkus.basichytools.configmanagement.managers.DefaultConfigManager;
+import hu.martinmarkus.basichytools.configmanagement.DefaultConfigManager;
 
 import java.util.*;
 import java.util.concurrent.Executors;

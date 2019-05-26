@@ -1,7 +1,7 @@
 package hu.martinmarkus.basichytools.globalmechanisms.savemechanisms;
 
-import hu.martinmarkus.basichytools.configmanagement.managers.DefaultConfigManager;
-import hu.martinmarkus.basichytools.configmanagement.managers.LanguageConfigManager;
+import hu.martinmarkus.basichytools.configmanagement.DefaultConfigManager;
+import hu.martinmarkus.basichytools.configmanagement.LanguageConfigManager;
 import hu.martinmarkus.basichytools.models.LanguageConfig;
 import hu.martinmarkus.basichytools.utils.PlaceholderReplacer;
 

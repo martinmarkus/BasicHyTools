@@ -1,8 +1,8 @@
 package hu.martinmarkus.basichytools.gamefunctions;
 
-import hu.martinmarkus.basichytools.configmanagement.managers.DefaultConfigManager;
-import hu.martinmarkus.basichytools.configmanagement.managers.FunctionParameterManager;
-import hu.martinmarkus.basichytools.configmanagement.managers.LanguageConfigManager;
+import hu.martinmarkus.basichytools.configmanagement.DefaultConfigManager;
+import hu.martinmarkus.basichytools.configmanagement.FunctionParameterManager;
+import hu.martinmarkus.basichytools.configmanagement.LanguageConfigManager;
 import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.FunctionCooldown;
 import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.Informer;
 import hu.martinmarkus.basichytools.models.FunctionParameter;

@@ -1,8 +1,7 @@
-package hu.martinmarkus.basichytools.configmanagement.managers;
+package hu.martinmarkus.basichytools.configmanagement;
 
-import hu.martinmarkus.basichytools.configmanagement.initializers.ModuleInitializer;
-import hu.martinmarkus.basichytools.configmanagement.initializers.ioc.GroupFactory;
-import hu.martinmarkus.basichytools.configmanagement.initializers.ioc.IGroupFactory;
+import hu.martinmarkus.basichytools.initializers.ModuleInitializer;
+import hu.martinmarkus.basichytools.initializers.iocfactories.concretefactories.GroupFactory;
 import hu.martinmarkus.basichytools.models.Group;
 import hu.martinmarkus.basichytools.models.containers.GroupContainer;
 import hu.martinmarkus.basichytools.persistence.repositories.GroupContainerRepository;
@@ -81,7 +80,7 @@ public class GroupManager {
     public GroupContainer generateDefaultGroupContainer() {
         List<Group> groupList = new ArrayList<>();
 
-        IGroupFactory groupFactory = new GroupFactory();
+        GroupFactory groupFactory = new GroupFactory();
         groupList.add(groupFactory.getBean("default"));
         groupList.add(groupFactory.getBean("builder"));
         groupList.add(groupFactory.getBean("moderator"));

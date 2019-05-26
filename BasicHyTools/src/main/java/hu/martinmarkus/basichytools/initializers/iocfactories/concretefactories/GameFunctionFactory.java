@@ -1,8 +1,9 @@
-package hu.martinmarkus.basichytools.configmanagement.initializers.ioc;
+package hu.martinmarkus.basichytools.initializers.iocfactories.concretefactories;
 
+import hu.martinmarkus.basichytools.initializers.iocfactories.ObjectFactory;
 import hu.martinmarkus.basichytools.gamefunctions.GameFunction;
 
-public class GameFunctionFactory extends ObjectFactory<GameFunction> implements IGameFunctionFactory {
+public class GameFunctionFactory extends ObjectFactory<GameFunction> {
     private static GameFunctionFactory gameFunctionFactory;
 
     public static GameFunctionFactory getInstance() {

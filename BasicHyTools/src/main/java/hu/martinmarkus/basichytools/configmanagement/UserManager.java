@@ -1,6 +1,6 @@
-package hu.martinmarkus.basichytools.configmanagement.managers;
+package hu.martinmarkus.basichytools.configmanagement;
 
-import hu.martinmarkus.basichytools.configmanagement.initializers.ModuleInitializer;
+import hu.martinmarkus.basichytools.initializers.ModuleInitializer;
 import hu.martinmarkus.basichytools.utils.DateTimeUtil;
 import hu.martinmarkus.basichytools.models.containers.UserList;
 import hu.martinmarkus.basichytools.models.BasicHyToolsLocation;

@@ -1,6 +1,6 @@
 package hu.martinmarkus.basichytools.utils;
 
-import hu.martinmarkus.basichytools.configmanagement.managers.DefaultConfigManager;
+import hu.martinmarkus.basichytools.configmanagement.DefaultConfigManager;
 import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.SwearFilter;
 import hu.martinmarkus.basichytools.models.DefaultConfig;
 import hu.martinmarkus.basichytools.models.User;

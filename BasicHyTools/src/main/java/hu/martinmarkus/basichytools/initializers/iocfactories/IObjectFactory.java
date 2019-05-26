@@ -1,4 +1,4 @@
-package hu.martinmarkus.basichytools.configmanagement.initializers.ioc;
+package hu.martinmarkus.basichytools.initializers.iocfactories;
 
 public interface IObjectFactory<T> {
     T getBean(String beanName);

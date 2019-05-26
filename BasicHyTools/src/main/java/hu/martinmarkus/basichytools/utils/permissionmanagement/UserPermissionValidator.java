@@ -1,4 +1,4 @@
-package hu.martinmarkus.basichytools.permissionmanagement;
+package hu.martinmarkus.basichytools.utils.permissionmanagement;
 
 import hu.martinmarkus.basichytools.models.User;
 

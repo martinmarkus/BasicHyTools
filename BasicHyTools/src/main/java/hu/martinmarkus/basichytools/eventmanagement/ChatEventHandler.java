@@ -1,8 +1,8 @@
 package hu.martinmarkus.basichytools.eventmanagement;
 
-import hu.martinmarkus.basichytools.configmanagement.managers.DefaultConfigManager;
-import hu.martinmarkus.basichytools.configmanagement.managers.LanguageConfigManager;
-import hu.martinmarkus.basichytools.configmanagement.managers.UserManager;
+import hu.martinmarkus.basichytools.configmanagement.DefaultConfigManager;
+import hu.martinmarkus.basichytools.configmanagement.LanguageConfigManager;
+import hu.martinmarkus.basichytools.configmanagement.UserManager;
 import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.ChatCooldown;
 import hu.martinmarkus.basichytools.models.DefaultConfig;
 import hu.martinmarkus.basichytools.models.LanguageConfig;
