@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+
+    <util:list id="emptyList" value-type="java.lang.String"/>
+
+    <!-- inheritances -->
+    <util:list id="builderInheritances" value-type="java.lang.String">
+        <value>default</value>
+    </util:list>
+    <util:list id="moderatorInheritances" value-type="java.lang.String">
+        <value>default</value>
+        <value>builder</value>
+    </util:list>
+    <util:list id="helperInheritances" value-type="java.lang.String">
+        <value>default</value>
+        <value>builder</value>
+        <value>moderator</value>
+    </util:list>
+    <util:list id="adminInheritances" value-type="java.lang.String">
+        <value>default</value>
+        <value>builder</value>
+        <value>moderator</value>
+        <value>helper</value>
+    </util:list>
+    <util:list id="ownerInheritances" value-type="java.lang.String">
+        <value>default</value>
+        <value>builder</value>
+        <value>moderator</value>
+        <value>helper</value>
+        <value>admin</value>
+    </util:list>
+
+    <!-- permissions -->
+    <util:list id="defaultPermissions" value-type="java.lang.String">
+        <value>group.default</value>
+    </util:list>
+    <util:list id="builderPermissions" value-type="java.lang.String">
+        <value>group.builder</value>
+    </util:list>
+    <util:list id="moderatorPermissions" value-type="java.lang.String">
+        <value>group.moderator</value>
+    </util:list>
+    <util:list id="helperPermissions" value-type="java.lang.String">
+        <value>group.helper</value>
+    </util:list>
+    <util:list id="adminPermissions" value-type="java.lang.String">
+        <value>group.admin</value>
+        <value>*</value>
+    </util:list>
+    <util:list id="ownerPermissions" value-type="java.lang.String">
+        <value>group.owner</value>
+    </util:list>
+
+    <!-- groups -->
+    <bean id="default" class="hu.martinmarkus.basichytools.models.Group">
+        <constructor-arg index="0" value="default"/> <!-- name -->
+        <constructor-arg index="1" value="[Default]"/> <!-- prefix -->
+        <constructor-arg index="2" value=""/> <!-- suffix -->
+        <constructor-arg index="3" ref="defaultPermissions"/> <!-- permissions -->
+        <constructor-arg index="4" ref="emptyList"/> <!-- inheritances -->
+    </bean>
+    <bean id="builder" class="hu.martinmarkus.basichytools.models.Group">
+        <constructor-arg index="0" value="builder"/> <!-- name -->
+        <constructor-arg index="1" value="[Builder]"/> <!-- prefix -->
+        <constructor-arg index="2" value=""/> <!-- suffix -->
+        <constructor-arg index="3" ref="builderPermissions"/> <!-- permissions -->
+        <constructor-arg index="4" ref="builderInheritances"/> <!-- inheritances -->
+    </bean>
+    <bean id="moderator" class="hu.martinmarkus.basichytools.models.Group">
+        <constructor-arg index="0" value="moderator"/> <!-- name -->
+        <constructor-arg index="1" value="[Moderator]"/> <!-- prefix -->
+        <constructor-arg index="2" value=""/> <!-- suffix -->
+        <constructor-arg index="3" ref="moderatorPermissions"/> <!-- permissions -->
+        <constructor-arg index="4" ref="moderatorInheritances"/> <!-- inheritances -->
+    </bean>
+    <bean id="helper" class="hu.martinmarkus.basichytools.models.Group">
+        <constructor-arg index="0" value="helper"/> <!-- name -->
+        <constructor-arg index="1" value="[Helper]"/> <!-- prefix -->
+        <constructor-arg index="2" value=""/> <!-- suffix -->
+        <constructor-arg index="3" ref="helperPermissions"/> <!-- permissions -->
+        <constructor-arg index="4" ref="helperInheritances"/> <!-- inheritances -->
+    </bean>
+    <bean id="admin" class="hu.martinmarkus.basichytools.models.Group">
+        <constructor-arg index="0" value="admin"/> <!-- name -->
+        <constructor-arg index="1" value="[Admin]"/> <!-- prefix -->
+        <constructor-arg index="2" value=""/> <!-- suffix -->
+        <constructor-arg index="3" ref="adminPermissions"/> <!-- permissions -->
+        <constructor-arg index="4" ref="adminInheritances"/> <!-- inheritances -->
+    </bean>
+    <bean id="owner" class="hu.martinmarkus.basichytools.models.Group">
+        <constructor-arg index="0" value="owner"/> <!-- name -->
+        <constructor-arg index="1" value="[Owner]"/> <!-- prefix -->
+        <constructor-arg index="2" value=""/> <!-- suffix -->
+        <constructor-arg index="3" ref="ownerPermissions"/> <!-- permissions -->
+        <constructor-arg index="4" ref="ownerInheritances"/> <!-- inheritances -->
+    </bean>
+
+</beans>

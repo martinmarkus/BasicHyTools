@@ -6,7 +6,6 @@ import hu.martinmarkus.basichytools.models.placeholders.Placeholder;
 public class PlaceholderReplacer {
 
     private IPlaceholder placeholder;
-
     public PlaceholderReplacer() {
         placeholder = new Placeholder();
     }

@@ -1,7 +1,7 @@
 package hu.martinmarkus.basichytools.globalmechanisms.savemechanisms;
 
-import hu.martinmarkus.basichytools.configmanagement.initializers.ModuleInitializer;
-import hu.martinmarkus.basichytools.configmanagement.managers.UserManager;
+import hu.martinmarkus.basichytools.initializers.ModuleInitializer;
+import hu.martinmarkus.basichytools.configmanagement.UserManager;
 import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.Informer;
 
 import hu.martinmarkus.basichytools.models.User;

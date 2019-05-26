@@ -5,7 +5,6 @@ import hu.martinmarkus.basichytools.models.Group;
 import java.util.List;
 
 public class GroupContainer {
-
     private List<Group> groups;
 
     public GroupContainer(List<Group> groups) {

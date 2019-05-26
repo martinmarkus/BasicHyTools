@@ -1,6 +1,6 @@
 package hu.martinmarkus.basichytools.persistence.daos;
 
-import hu.martinmarkus.basichytools.configmanagement.managers.FunctionParameterManager;
+import hu.martinmarkus.basichytools.configmanagement.FunctionParameterManager;
 import hu.martinmarkus.basichytools.models.containers.FunctionParameterContainer;
 import hu.martinmarkus.basichytools.persistence.PersistenceMode;
 import hu.martinmarkus.configmanagerlibrary.threading.ResultListener;

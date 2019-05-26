@@ -1,6 +1,6 @@
 package hu.martinmarkus.basichytools.eventmanagement;
 
-import hu.martinmarkus.basichytools.configmanagement.managers.UserManager;
+import hu.martinmarkus.basichytools.configmanagement.UserManager;
 import hu.martinmarkus.basichytools.models.User;
 
 public class UserMoveEventHandler {

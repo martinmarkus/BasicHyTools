@@ -1,6 +1,6 @@
 package hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms;
 
-import hu.martinmarkus.basichytools.configmanagement.managers.DefaultConfigManager;
+import hu.martinmarkus.basichytools.configmanagement.DefaultConfigManager;
 import hu.martinmarkus.basichytools.models.DefaultConfig;
 
 import java.util.List;
@@ -48,7 +48,6 @@ public class Announcer {
         executorService.shutdownNow();
         isRunning = false;
     }
-
 
     private void announceRandom() {
         Random rand = new Random();

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+
+    <util:list id="blockedCommands" value-type="java.lang.String">
+        <value>testblockedcommand1</value>
+        <value>testblockedcommand2</value>
+        <value>testblockedcommand3</value>
+    </util:list>
+
+    <util:list id="announcerMessages" value-type="java.lang.String">
+        <value>This is the first example announcement.</value>
+        <value>This is the second example announcement.</value>
+        <value>This is the third example announcement.</value>
+    </util:list>
+
+    <util:map id="globalMechanismPermissions" map-class="java.util.HashMap">
+        <entry key="chatCooldownBypass" value="hytools.bypass.chatCooldown"/>
+        <entry key="functionCooldownBypass" value="hytools.bypass.functionCooldown"/>
+        <entry key="swearFilterBypass" value="hytools.bypass.swearFilter"/>
+        <entry key="blockedCommandBypass" value="hytools.bypass.blockedCommand"/>
+    </util:map>
+
+    <bean id="spawnLocation" class="hu.martinmarkus.basichytools.models.BasicHyToolsLocation">
+        <constructor-arg index="0" value="spawnWorld"/>
+        <constructor-arg index="1" value="10.0f"/>
+        <constructor-arg index="2" value="10.0f"/>
+        <constructor-arg index="3" value="10.0f"/>
+    </bean>
+
+    <bean id="defaultConfig" class="hu.martinmarkus.basichytools.models.DefaultConfig">
+        <constructor-arg index="0" value="60"/> <!-- teleportCooldown -->
+        <constructor-arg index="1" value="5"/> <!-- teleportDelay -->
+        <constructor-arg index="2" value="5"/> <!-- teleportInvulnerability -->
+        <constructor-arg index="3" value="60"/> <!-- healCooldown -->
+        <constructor-arg index="4" value="true"/> <!-- allowAfk -->
+        <constructor-arg index="5" value="300"/> <!-- autoAfk -->
+        <constructor-arg index="6" value="2800"/> <!-- autoAfkKick -->
+        <constructor-arg index="7" value="300"/> <!-- autoSaveInterval -->
+        <constructor-arg index="8" value="30"/> <!-- tpAcceptCancellation -->
+        <constructor-arg index="9" value="1000"/> <!-- startingBalance -->
+        <constructor-arg index="10" value="0"/> <!-- minMoney -->
+        <constructor-arg index="11" value="999999999"/> <!-- maxMoney -->
+        <constructor-arg index="12" value="1"/> <!-- minPayAmount -->
+        <constructor-arg index="13" value="15"/> <!-- payCooldown -->
+        <constructor-arg index="14" value="3"/> <!-- defaultChatCooldown -->
+        <constructor-arg index="15" value="180"/> <!-- announcerInterval -->
+        <constructor-arg index="16" ref="announcerMessages"/> <!-- announcerMessages -->
+        <constructor-arg index="17" ref="spawnLocation"/> <!-- spawnLocation -->
+        <constructor-arg index="18" ref="globalMechanismPermissions"/> <!-- globalMechanismPermissions -->
+        <constructor-arg index="19" ref="blockedCommands"/> <!-- blockedCommands -->
+    </bean>
+</beans>

@@ -1,6 +1,6 @@
 package hu.martinmarkus.basichytools.utils;
 
-import hu.martinmarkus.basichytools.configmanagement.managers.DefaultConfigManager;
+import hu.martinmarkus.basichytools.configmanagement.DefaultConfigManager;
 import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.SwearFilter;
 import hu.martinmarkus.basichytools.models.DefaultConfig;
 import hu.martinmarkus.basichytools.models.User;
@@ -21,7 +21,7 @@ public class StringUtil {
         return false;
     }
 
-    public static String censoreMessage(User sender, String message) {
+    public static String censorMessage(User sender, String message) {
         if (message == null || message.isEmpty()) {
             return message;
         }

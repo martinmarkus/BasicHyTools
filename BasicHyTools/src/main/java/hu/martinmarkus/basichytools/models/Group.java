@@ -1,7 +1,7 @@
 package hu.martinmarkus.basichytools.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import hu.martinmarkus.basichytools.configmanagement.managers.GroupManager;
+import hu.martinmarkus.basichytools.configmanagement.GroupManager;
 
 import java.util.ArrayList;
 import java.util.List;
