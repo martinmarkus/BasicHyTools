@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class Whisper extends GameFunction {
 
     @Autowired
-    public Whisper(@Value("Whisper") String functionName) {
+    public Whisper(@Value("whisper") String functionName) {
         super(functionName);
     }
 

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class DeleteHome extends GameFunction {
 
     @Autowired
-    public DeleteHome(@Value("DeleteHome") String functionName) {
+    public DeleteHome(@Value("deleteHome") String functionName) {
         super(functionName);
     }
 

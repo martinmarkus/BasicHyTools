@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class SetWarp extends GameFunction {
 
     @Autowired
-    public SetWarp(@Value("SetWarp") String functionName) {
+    public SetWarp(@Value("setWarp") String functionName) {
         super(functionName);
     }
 

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class Seen extends GameFunction {
 
     @Autowired
-    public Seen(@Value("Seen") String functionName) {
+    public Seen(@Value("seen") String functionName) {
         super(functionName);
     }
 

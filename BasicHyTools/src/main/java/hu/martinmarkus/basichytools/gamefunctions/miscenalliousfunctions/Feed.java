@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class Feed extends GameFunction {
 
     @Autowired
-    public Feed(@Value("Feed") String functionName) {
+    public Feed(@Value("feed") String functionName) {
         super(functionName);
     }
 

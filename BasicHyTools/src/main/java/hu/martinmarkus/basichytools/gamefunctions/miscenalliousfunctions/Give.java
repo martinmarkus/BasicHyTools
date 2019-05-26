@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 
 public class Give extends GameFunction {
 
-    public Give(@Value("Give") String functionName) {
+    public Give(@Value("give") String functionName) {
         super(functionName);
     }
 

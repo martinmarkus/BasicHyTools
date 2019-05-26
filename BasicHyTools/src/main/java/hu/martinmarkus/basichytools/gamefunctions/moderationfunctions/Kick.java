@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class Kick extends GameFunction {
 
     @Autowired
-    public Kick(@Value("Kick") String functionName) {
+    public Kick(@Value("kick") String functionName) {
         super(functionName);
     }
 

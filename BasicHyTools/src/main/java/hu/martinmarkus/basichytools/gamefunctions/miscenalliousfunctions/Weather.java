@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class Weather extends GameFunction {
 
     @Autowired
-    public Weather(@Value("Weather") String functionName) {
+    public Weather(@Value("weather") String functionName) {
         super(functionName);
     }
 

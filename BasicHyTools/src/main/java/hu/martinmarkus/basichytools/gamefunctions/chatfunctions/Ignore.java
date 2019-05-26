@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class Ignore extends GameFunction {
 
     @Autowired
-    public Ignore(@Value("Ignore") String functionName) {
+    public Ignore(@Value("ignore") String functionName) {
         super(functionName);
     }
 

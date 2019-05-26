@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class TeleportDeny extends GameFunction {
 
     @Autowired
-    public TeleportDeny(@Value("TeleportDeny") String functionName) {
+    public TeleportDeny(@Value("teleportDeny") String functionName) {
         super(functionName);
     }
 

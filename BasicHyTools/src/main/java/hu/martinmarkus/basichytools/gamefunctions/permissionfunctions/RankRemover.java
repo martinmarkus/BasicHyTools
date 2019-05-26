@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class RankRemover extends GameFunction {
 
     @Autowired
-    public RankRemover(@Value("RankRemover") String functionName) {
+    public RankRemover(@Value("rankRemover") String functionName) {
         super(functionName);
     }
 

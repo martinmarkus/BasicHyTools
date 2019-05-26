@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class OnlineList extends GameFunction {
 
     @Autowired
-    public OnlineList(@Value("OnlineList") String functionName) {
+    public OnlineList(@Value("onlineList") String functionName) {
         super(functionName);
     }
 

@@ -30,14 +30,13 @@ public class ModuleInitializer {
         Announcer.getInstance().stopAnnouncing();
         FunctionCooldown.getInstance().stopCooldownCheck();
         ChatCooldown.getInstance().stopCooldownCheck();
-
-        FunctionParameterFactory.getInstance().clear();
         GameFunctionFactory.getInstance().clear();
-
+        
         Informer.logInfo("The system has unloaded.");
     }
 
     public static void load() {
+        GameFunctionFactory.getInstance();
         DefaultConfigManager.getInstance();
         LanguageConfigManager.getInstance();
         FunctionParameterManager.getInstance();
@@ -47,14 +46,8 @@ public class ModuleInitializer {
         initializeSaverModules();
         initializeAnnouncerModule();
         initializeCooldownModules();
-        initializeIoCModules();
 
         Informer.logInfo(getProjectProperties());
-    }
-
-    private static void initializeIoCModules() {
-        GameFunctionFactory.getInstance();
-        FunctionParameterFactory.getInstance();
     }
 
     public static String getRootPath() {

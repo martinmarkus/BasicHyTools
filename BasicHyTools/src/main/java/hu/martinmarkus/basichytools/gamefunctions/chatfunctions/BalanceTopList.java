@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class BalanceTopList extends GameFunction {
 
     @Autowired
-    public BalanceTopList(@Value("BalanceTopList") String functionName) {
+    public BalanceTopList(@Value("balanceTopList") String functionName) {
         super(functionName);
     }
 

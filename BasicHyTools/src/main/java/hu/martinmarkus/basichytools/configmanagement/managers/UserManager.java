@@ -109,6 +109,7 @@ public class UserManager {
         userRepository.set(name, user);
     }
 
+    // TODO: delete on release, doesn't require IoC solution
     public User generateDefaultUser(String name) {
         // TODO get the IP of 'name' named player
         String loginIp ="123.123.123.123";

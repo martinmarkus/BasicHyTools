@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class Speed extends GameFunction {
 
     @Autowired
-    public Speed(@Value("Speed") String functionName) {
+    public Speed(@Value("speed") String functionName) {
         super(functionName);
     }
 

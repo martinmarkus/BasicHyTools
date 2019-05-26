@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class Helpop extends GameFunction {
 
     @Autowired
-    public Helpop(@Value("Helpop") String functionName) {
+    public Helpop(@Value("helpop") String functionName) {
         super(functionName);
     }
 

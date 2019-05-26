@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class PermRemover extends GameFunction {
 
     @Autowired
-    public PermRemover(@Value("PermRemover") String functionName) {
+    public PermRemover(@Value("permRemover") String functionName) {
         super(functionName);
     }
 

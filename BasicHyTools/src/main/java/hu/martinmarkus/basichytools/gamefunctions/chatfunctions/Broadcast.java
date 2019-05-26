@@ -12,7 +12,7 @@ public class Broadcast extends GameFunction {
     private String broadcastMessage;
 
     @Autowired
-    public Broadcast(@Value("Broadcast") String functionName) {
+    public Broadcast(@Value("broadcast") String functionName) {
         super(functionName);
     }
 

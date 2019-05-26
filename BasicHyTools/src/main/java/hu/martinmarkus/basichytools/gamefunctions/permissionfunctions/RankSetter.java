@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class RankSetter extends GameFunction {
 
     @Autowired
-    public RankSetter(@Value("RankSetter") String functionName) {
+    public RankSetter(@Value("rankSetter") String functionName) {
         super(functionName);
     }
 

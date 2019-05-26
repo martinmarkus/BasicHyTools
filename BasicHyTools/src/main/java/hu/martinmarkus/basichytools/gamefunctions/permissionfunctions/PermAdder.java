@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class PermAdder extends GameFunction {
 
     @Autowired
-    public PermAdder(@Value("PermAdder") String functionName) {
+    public PermAdder(@Value("permAdder") String functionName) {
         super(functionName);
     }
 

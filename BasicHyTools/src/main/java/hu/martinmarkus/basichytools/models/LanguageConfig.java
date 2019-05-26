@@ -3,7 +3,6 @@ package hu.martinmarkus.basichytools.models;
 import java.util.List;
 
 public class LanguageConfig {
-
     private String motd;
     private String joinMessage;
     private String quitMessage;

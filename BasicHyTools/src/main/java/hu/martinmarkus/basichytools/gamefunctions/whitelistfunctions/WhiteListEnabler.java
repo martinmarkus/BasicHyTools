@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class WhiteListEnabler extends GameFunction {
 
     @Autowired
-    public WhiteListEnabler(@Value("WhiteListEnabler") String functionName) {
+    public WhiteListEnabler(@Value("whiteListEnabler") String functionName) {
         super(functionName);
     }
 

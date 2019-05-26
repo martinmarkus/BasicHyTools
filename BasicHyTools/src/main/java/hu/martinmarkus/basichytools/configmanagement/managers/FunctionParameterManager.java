@@ -83,10 +83,11 @@ public class FunctionParameterManager {
 
     private FunctionParameterContainer generateDefaultFunctionParameterContainer() {
         List<FunctionParameter> functionParameters = new ArrayList<>();
-        IFunctionParameterFactory functionParameterFactory = FunctionParameterFactory.getInstance();
+        IFunctionParameterFactory functionParameterFactory = new FunctionParameterFactory();
 
-        functionParameters.add(functionParameterFactory.getBean("Me"));
-        functionParameters.add(functionParameterFactory.getBean("Broadcast"));
+        functionParameters.add(functionParameterFactory.getBean("me"));
+        functionParameters.add(functionParameterFactory.getBean("broadcast"));
+        functionParameters.add(functionParameterFactory.getBean("balanceTopList"));
 
         return new FunctionParameterContainer(functionParameters);
     }

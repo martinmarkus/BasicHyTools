@@ -1,6 +1,8 @@
 package hu.martinmarkus.basichytools.configmanagement.managers;
 
 import hu.martinmarkus.basichytools.configmanagement.initializers.ModuleInitializer;
+import hu.martinmarkus.basichytools.configmanagement.initializers.ioc.DefaultConfigFactory;
+import hu.martinmarkus.basichytools.configmanagement.initializers.ioc.IDefaultConfigFactory;
 import hu.martinmarkus.basichytools.models.BasicHyToolsLocation;
 import hu.martinmarkus.basichytools.models.DefaultConfig;
 import hu.martinmarkus.basichytools.persistence.repositories.DefaultConfigRepository;
@@ -68,6 +70,9 @@ public class DefaultConfigManager {
     }
 
     public DefaultConfig generateDefaultConfig() {
+        IDefaultConfigFactory defaultConfigFactory = new DefaultConfigFactory();
+        return defaultConfigFactory.getBean("defaultConfig");
+        /*
         List<String> announcerMessages = new ArrayList<>();
         announcerMessages.add("This is the first example announcement.");
         announcerMessages.add("This is the second example announcement.");
@@ -90,5 +95,6 @@ public class DefaultConfigManager {
                 true, 300, 2800, 300, 30, 1000,
                 0, 999999999, 1, 15, 3,180,
                 announcerMessages, spawnLocation, globalMechanismPermissions, blockedCommands);
+        */
     }
 }

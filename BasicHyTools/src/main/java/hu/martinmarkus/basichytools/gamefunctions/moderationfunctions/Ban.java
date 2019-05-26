@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class Ban extends GameFunction {
 
     @Autowired
-    public Ban(@Value("Ban") String functionName) {
+    public Ban(@Value("ban") String functionName) {
         super(functionName);
     }
 

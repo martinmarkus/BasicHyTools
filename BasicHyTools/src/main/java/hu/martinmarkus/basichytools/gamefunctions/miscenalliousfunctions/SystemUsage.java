@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class SystemUsage extends GameFunction {
 
     @Autowired
-    public SystemUsage(@Value("SystemUsage") String functionName) {
+    public SystemUsage(@Value("systemUsage") String functionName) {
         super(functionName);
     }
 

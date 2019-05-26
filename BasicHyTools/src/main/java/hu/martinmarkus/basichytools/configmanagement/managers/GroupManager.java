@@ -1,6 +1,8 @@
 package hu.martinmarkus.basichytools.configmanagement.managers;
 
 import hu.martinmarkus.basichytools.configmanagement.initializers.ModuleInitializer;
+import hu.martinmarkus.basichytools.configmanagement.initializers.ioc.GroupFactory;
+import hu.martinmarkus.basichytools.configmanagement.initializers.ioc.IGroupFactory;
 import hu.martinmarkus.basichytools.models.Group;
 import hu.martinmarkus.basichytools.models.containers.GroupContainer;
 import hu.martinmarkus.basichytools.persistence.repositories.GroupContainerRepository;
@@ -9,7 +11,6 @@ import hu.martinmarkus.basichytools.utils.synchronization.ISynchronizer;
 import hu.martinmarkus.basichytools.utils.synchronization.Synchronizer;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class GroupManager {
@@ -80,43 +81,13 @@ public class GroupManager {
     public GroupContainer generateDefaultGroupContainer() {
         List<Group> groupList = new ArrayList<>();
 
-        List<String> permissions = new ArrayList<>();
-        permissions.add("group.default");
-        permissions.add("hytools.basic.*");
-        List<String> inheritances = new ArrayList<>();
-        Group group = new Group("default", "[Default]", "", permissions, inheritances);
-        groupList.add(group);
-
-        permissions = new ArrayList<>();
-        permissions.add("group.builder");
-        inheritances = new ArrayList<>(Arrays.asList("default"));
-        group = new Group("builder", "[Builder]", "", permissions, inheritances);
-        groupList.add(group);
-
-        permissions = new ArrayList<>();
-        permissions.add("group.moderator");
-        permissions.add("hytools.bypass.*");
-        inheritances = new ArrayList<>(Arrays.asList("default", "builder"));
-        group = new Group("moderator", "[Moderator]", "", permissions, inheritances);
-        groupList.add(group);
-
-        permissions = new ArrayList<>();
-        permissions.add("group.helper");
-        inheritances = new ArrayList<>(Arrays.asList("default", "builder", "moderator"));
-        group = new Group("helper", "[Helper]", "", permissions, inheritances);
-        groupList.add(group);
-
-        permissions = new ArrayList<>();
-        permissions.add("group.admin");
-        inheritances = new ArrayList<>(Arrays.asList("default", "builder", "moderator", "helper"));
-        group = new Group("admin", "[Admin]", "", permissions, inheritances);
-        groupList.add(group);
-
-        permissions = new ArrayList<>();
-        permissions.add("group.owner");
-        inheritances = new ArrayList<>(Arrays.asList("default", "builder", "moderator", "helper", "admin"));
-        group = new Group("owner", "[Owner]", "", permissions, inheritances);
-        groupList.add(group);
+        IGroupFactory groupFactory = new GroupFactory();
+        groupList.add(groupFactory.getBean("default"));
+        groupList.add(groupFactory.getBean("builder"));
+        groupList.add(groupFactory.getBean("moderator"));
+        groupList.add(groupFactory.getBean("helper"));
+        groupList.add(groupFactory.getBean("admin"));
+        groupList.add(groupFactory.getBean("owner"));
 
         return new GroupContainer(groupList);
     }

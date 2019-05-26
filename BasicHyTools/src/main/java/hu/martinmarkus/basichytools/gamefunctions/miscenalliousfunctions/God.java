@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class God extends GameFunction {
 
     @Autowired
-    public God(@Value("God") String functionName) {
+    public God(@Value("god") String functionName) {
         super(functionName);
     }
 

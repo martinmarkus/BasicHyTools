@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class BalanceTaker extends GameFunction {
 
     @Autowired
-    public BalanceTaker(@Value("BalanceTaker") String functionName) {
+    public BalanceTaker(@Value("balanceTaker") String functionName) {
         super(functionName);
     }
 

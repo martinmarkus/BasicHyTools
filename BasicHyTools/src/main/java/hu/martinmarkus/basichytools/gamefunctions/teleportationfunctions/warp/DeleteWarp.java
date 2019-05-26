@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class DeleteWarp extends GameFunction {
 
     @Autowired
-    public DeleteWarp(@Value("DeleteWarp") String functionName) {
+    public DeleteWarp(@Value("deleteWarp") String functionName) {
         super(functionName);
     }
 

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class IpBan extends GameFunction {
 
     @Autowired
-    public IpBan(@Value("IpBan") String functionName) {
+    public IpBan(@Value("ipBan") String functionName) {
         super(functionName);
     }
 

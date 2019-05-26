@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class CommandRunner extends GameFunction {
 
     @Autowired
-    public CommandRunner(@Value("CommandRunner") String functionName) {
+    public CommandRunner(@Value("commandRunner") String functionName) {
         super(functionName);
     }
 

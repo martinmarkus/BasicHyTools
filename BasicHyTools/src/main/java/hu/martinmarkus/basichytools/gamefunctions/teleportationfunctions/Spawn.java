@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class Spawn extends GameFunction {
 
     @Autowired
-    public Spawn(@Value("Spawn") String functionName) {
+    public Spawn(@Value("spawn") String functionName) {
         super(functionName);
     }
 

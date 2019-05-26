@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class SocialSpy extends GameFunction {
 
     @Autowired
-    public SocialSpy(@Value("SocialSpy") String functionName) {
+    public SocialSpy(@Value("socialSpy") String functionName) {
         super(functionName);
     }
 

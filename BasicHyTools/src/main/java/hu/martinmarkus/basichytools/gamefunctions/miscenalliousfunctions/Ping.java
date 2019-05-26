@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class Ping extends GameFunction {
 
     @Autowired
-    public Ping(@Value("Ping") String functionName) {
+    public Ping(@Value("ping") String functionName) {
         super(functionName);
     }
 

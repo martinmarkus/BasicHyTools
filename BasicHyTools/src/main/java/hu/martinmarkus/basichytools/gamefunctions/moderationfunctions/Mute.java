@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class Mute extends GameFunction {
 
     @Autowired
-    public Mute(@Value("Mute") String functionName) {
+    public Mute(@Value("mute") String functionName) {
         super(functionName);
     }
 

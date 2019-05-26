@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class TeleportRequest extends GameFunction {
 
     @Autowired
-    public TeleportRequest(@Value("TeleportRequest") String functionName) {
+    public TeleportRequest(@Value("teleportRequest") String functionName) {
         super(functionName);
     }
 
