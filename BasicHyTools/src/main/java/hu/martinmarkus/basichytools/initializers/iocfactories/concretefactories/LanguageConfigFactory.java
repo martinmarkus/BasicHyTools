@@ -5,6 +5,6 @@ import hu.martinmarkus.basichytools.models.LanguageConfig;
 
 public class LanguageConfigFactory extends ObjectFactory<LanguageConfig> {
     public LanguageConfigFactory() {
-        super("languageConfigSettings.xml");
+        super("configSettings/languageConfigSettings.xml");
     }
 }

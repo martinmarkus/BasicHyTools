@@ -5,6 +5,6 @@ import hu.martinmarkus.basichytools.models.Group;
 
 public class GroupFactory extends ObjectFactory<Group> {
     public GroupFactory() {
-        super("groupsSettings.xml");
+        super("configSettings/groupsSettings.xml");
     }
 }

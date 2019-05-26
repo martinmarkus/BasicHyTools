@@ -5,6 +5,6 @@ import hu.martinmarkus.basichytools.models.DefaultConfig;
 
 public class DefaultConfigFactory extends ObjectFactory<DefaultConfig> {
     public DefaultConfigFactory() {
-        super("defaultConfigSettings.xml");
+        super("configSettings/defaultConfigSettings.xml");
     }
 }
