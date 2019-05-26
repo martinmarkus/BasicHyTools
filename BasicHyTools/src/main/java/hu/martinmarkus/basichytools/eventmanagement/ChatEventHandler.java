@@ -16,7 +16,7 @@ public class ChatEventHandler {
 
     public void onMessageSent(String message) {
         User user = UserManager.getInstance().getOnlineUser("mockUser12345"); // TODO: get the sender
-        //String message = "Egy NaGyBetŰs fUCk"; // TODO: get the message
+        //String message = "message send by user"; // TODO: get the message
 
         if (user == null || message == null || message.isEmpty()) {
             ignoreMessageEvent();

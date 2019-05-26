@@ -12,7 +12,7 @@ public class UserValidationEventHandler {
     }
 
     // if the user is not validated, block all necessary interactions
-    public void OnInvalidUserInteraction() {
+    public synchronized void OnInvalidUserInteraction() {
         // TODO: get the user's name
         String username = "mockUser12345";
 
