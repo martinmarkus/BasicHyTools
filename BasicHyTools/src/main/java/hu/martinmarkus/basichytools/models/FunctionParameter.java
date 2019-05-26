@@ -13,6 +13,20 @@ public class FunctionParameter {
     private int cooldown;
     private boolean doLogging;
 
+    public FunctionParameter(String name, String command, List<String> aliases,
+                             String permission, double usagePrice, String description,
+                             int requiredParameterCount, int cooldown, boolean doLogging) {
+        this.name = name;
+        this.command = command;
+        this.aliases = aliases;
+        this.permission = permission;
+        this.usagePrice = usagePrice;
+        this.description = description;
+        this.requiredParameterCount = requiredParameterCount;
+        this.cooldown = cooldown;
+        this.doLogging = doLogging;
+    }
+
     public String getName() {
         return name;
     }

@@ -22,7 +22,7 @@ public class CommandEventHandler {
 
     public void onUserExecuteCommand() {
         // TODO: get sender and command
-        String rawCommand = "me hello FUCk";
+        String rawCommand = "broadcast hello FUCk";
         String userName = "mockUser12345";
 
         User user = UserManager.getInstance().getOnlineUser(userName);
@@ -49,39 +49,53 @@ public class CommandEventHandler {
         DefaultConfig defaultConfig = DefaultConfigManager.getInstance().getDefaultConfig();
         String blockedCommandBypassPermission = defaultConfig.getGlobalMechanismPermissions().get("blockedCommandBypass");
 
-        if (!user.isOperator() && !user.hasPermission(blockedCommandBypassPermission)) {
-            List<String> blockedCommands = defaultConfig.getBlockedCommands();
-            for (String blockedCommand : blockedCommands) {
-                if (command.equalsIgnoreCase(blockedCommand)) {
-                    String message = languageConfig.getUnknownCommand();
-                    user.sendMessage(message);
-                    return true;
-                }
+        if (user.isOperator() || user.hasPermission(blockedCommandBypassPermission)) {
+            return false;
+        }
+
+        List<String> blockedCommands = defaultConfig.getBlockedCommands();
+        for (String blockedCommand : blockedCommands) {
+            if (command.equalsIgnoreCase(blockedCommand)) {
+                String message = languageConfig.getUnknownCommand();
+                user.sendMessage(message);
+                return true;
             }
         }
+
         return false;
     }
 
     private void executeFunction(String rawCommand, User user) {
-        GameFunction gameFunction = null;
-        String[] commandWithArgs = rawCommand.split(" ");
-        String command = commandWithArgs[0].toLowerCase();
-
-        FunctionParameterManager functionParameterManager = FunctionParameterManager.getInstance();
-        List<FunctionParameter> functionParameters = functionParameterManager.getAlLFunctionParameters();
-        ObjectFactory<GameFunction> objectFactory = new ObjectFactory<>();
-
-        for (FunctionParameter functionParameter : functionParameters) {
-            String name = functionParameter.getName();
-            if (command.equalsIgnoreCase(functionParameter.getName())) {
-                gameFunction = objectFactory.getBean(name.toLowerCase());
-                break;
-            }
-        }
+        GameFunction gameFunction = defineGameFunction(rawCommand);
 
         if (gameFunction != null) {
             gameFunction.setRequiredParams(rawCommand, user);
             gameFunction.execute();
         }
+    }
+
+    private GameFunction defineGameFunction(String rawCommand) {
+        String command = getCommand(rawCommand);
+        List<FunctionParameter> functionParameters = getFunctionParameters();
+        ObjectFactory<GameFunction> objectFactory = new ObjectFactory<>();
+
+        for (FunctionParameter functionParameter : functionParameters) {
+            String name = functionParameter.getName().toLowerCase();
+            if (command.equalsIgnoreCase(functionParameter.getName())) {
+                return objectFactory.getBean(name);
+            }
+        }
+
+        return null;
+    }
+
+    private List<FunctionParameter> getFunctionParameters() {
+        FunctionParameterManager functionParameterManager = FunctionParameterManager.getInstance();
+        return functionParameterManager.getAlLFunctionParameters();
+    }
+
+    private String getCommand(String rawCommand) {
+        String[] commandWithArgs = rawCommand.split(" ");
+        return commandWithArgs[0];
     }
 }
