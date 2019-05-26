@@ -1,13 +1,16 @@
 # BasicHyTools
+*(Under development)*
 
-BasicHyTools provides several functionatilies that are essentials for any sandbox-based multiplayer game.
+BasicHyTools provides several essential functionatilies for any sandbox-based multiplayer game.
 
-*BasicHytools depends on ConfigManagerLibrary (https://github.com/martinmarkus/ConfigManagerLibrary).*
+**Dependencies:**
+- Spring Framework (spring-context)
+- ConfigManagerLibrary (https://github.com/martinmarkus/ConfigManagerLibrary).
 
-Major functions: (most of them are still under development)
-- Basic economical system
+**Major functions:**
+- Basic economical system (done)
 - User teleportation management
-- User and group based permission management
-- Chat management: global announcer, chat/command usage cooldown, chat filter
+- User and group based permission management (done)
+- Chat management: global announcer, chat/command usage cooldown and filter (done)
 - User moderation (ban, kick, mute)
 - User connection filter (whitelist)
