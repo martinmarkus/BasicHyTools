@@ -7,6 +7,7 @@ import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.FunctionCool
 import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.Informer;
 import hu.martinmarkus.basichytools.globalmechanisms.savemechanisms.GroupSaver;
 import hu.martinmarkus.basichytools.globalmechanisms.savemechanisms.UserSaver;
+import hu.martinmarkus.basichytools.ioc.ObjectFactory;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -26,6 +27,7 @@ public class ModuleInitializer {
         Announcer.getInstance().stopAnnouncing();
         FunctionCooldown.getInstance().stopCooldownCheck();
         ChatCooldown.getInstance().stopCooldownCheck();
+        ObjectFactory.clear();
 
         Informer.logInfo("The system has unloaded.");
     }
@@ -40,6 +42,7 @@ public class ModuleInitializer {
         initializeSaverModules();
         initializeAnnouncerModule();
         initializeCooldownModules();
+        ObjectFactory.initialize();
 
         Informer.logInfo(getProjectProperties());
     }

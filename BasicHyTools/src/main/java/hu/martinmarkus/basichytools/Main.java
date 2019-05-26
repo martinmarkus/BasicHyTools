@@ -16,14 +16,15 @@ public class Main {
         handler.onUserJoin();
 
         Thread thread = new Thread(() -> {
-            CommandEventHandler commandEventHandler = new CommandEventHandler();
-            commandEventHandler.onUserExecuteCommand();
-
             try {
-                Thread.sleep(1000);
+                Thread.sleep(3000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            CommandEventHandler commandEventHandler = new CommandEventHandler();
+            commandEventHandler.onUserExecuteCommand();
+
+
 
             ChatEventHandler chatEventHandler = new ChatEventHandler();
             chatEventHandler.onMessageSent("Egy NaGyBetŰs fUCk szöPÉLke");

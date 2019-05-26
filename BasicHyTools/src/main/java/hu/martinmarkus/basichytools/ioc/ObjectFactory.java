@@ -1,16 +1,14 @@
 package hu.martinmarkus.basichytools.ioc;
 
-import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class ObjectFactory<T> {
-    private static ApplicationContext context;
-    private final String XML_NAME = "objectFactoryConfiguration.xml";
+    private static final String XML_NAME = "springBeanConfig.xml";
+    private static AbstractApplicationContext context;
 
-    public ObjectFactory() {
-        if (context == null ) {
-            context = new ClassPathXmlApplicationContext(XML_NAME);
-        }
+    public static void initialize() {
+        context = new ClassPathXmlApplicationContext(XML_NAME);
     }
 
     public T getBean(String beanName) {
@@ -19,5 +17,9 @@ public class ObjectFactory<T> {
         } catch (Exception e) {
             return null;
         }
+    }
+
+    public static void clear() {
+        context.close();
     }
 }
