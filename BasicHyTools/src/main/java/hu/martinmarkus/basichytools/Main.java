@@ -1,7 +1,6 @@
 package hu.martinmarkus.basichytools;
 
 import hu.martinmarkus.basichytools.initializers.ModuleInitializer;
-import hu.martinmarkus.basichytools.eventmanagement.ChatEventHandler;
 import hu.martinmarkus.basichytools.eventmanagement.CommandEventHandler;
 import hu.martinmarkus.basichytools.eventmanagement.UserConnectionEventHandler;
 import hu.martinmarkus.basichytools.eventmanagement.UserValidationEventHandler;

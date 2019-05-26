@@ -24,13 +24,15 @@ public class DefaultConfig {
     private BasicHyToolsLocation spawnLocation;
     private Map<String, String> globalMechanismPermissions;
     private List<String> blockedCommands;
+    private String defaultGroup;
 
     public DefaultConfig(int teleportCooldown, int teleportDelay, int teleportInvulnerability,
                          int healCooldown, boolean allowAfk, int autoAfk, int autoAfkKick, int autoSaveInterval,
                          int tpAcceptCancellation, double startingBalance, double minMoney, double maxMoney,
                          double minPayAmount, int payCooldown, int defaultChatCooldown, int announcerInterval,
                          List<String> announcerMessages, BasicHyToolsLocation spawnLocation,
-                         Map<String, String> globalMechanismPermissions, List<String> blockedCommands) {
+                         Map<String, String> globalMechanismPermissions, List<String> blockedCommands,
+                         String defaultGroup) {
         this.teleportCooldown = teleportCooldown;
         this.teleportDelay = teleportDelay;
         this.teleportInvulnerability = teleportInvulnerability;
@@ -51,6 +53,7 @@ public class DefaultConfig {
         this.spawnLocation = spawnLocation;
         this.globalMechanismPermissions = globalMechanismPermissions;
         this.blockedCommands = blockedCommands;
+        this.defaultGroup = defaultGroup;
     }
 
     public int getTeleportCooldown() {
@@ -211,5 +214,13 @@ public class DefaultConfig {
 
     public void setBlockedCommands(List<String> blockedCommands) {
         this.blockedCommands = blockedCommands;
+    }
+
+    public String getDefaultGroup() {
+        return defaultGroup;
+    }
+
+    public void setDefaultGroup(String defaultGroup) {
+        this.defaultGroup = defaultGroup;
     }
 }
