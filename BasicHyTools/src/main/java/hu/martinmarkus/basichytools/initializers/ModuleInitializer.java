@@ -2,7 +2,6 @@ package hu.martinmarkus.basichytools.initializers;
 
 import hu.martinmarkus.basichytools.configmanagement.*;
 import hu.martinmarkus.basichytools.initializers.iocfactories.concretefactories.GameFunctionFactory;
-import hu.martinmarkus.basichytools.configmanagement.managers.*;
 import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.Announcer;
 import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.ChatCooldown;
 import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.FunctionCooldown;
@@ -28,6 +27,7 @@ public class ModuleInitializer {
         Announcer.getInstance().stopAnnouncing();
         FunctionCooldown.getInstance().stopCooldownCheck();
         ChatCooldown.getInstance().stopCooldownCheck();
+
         GameFunctionFactory.getInstance().clear();
         
         Informer.logInfo("The system has unloaded.");
@@ -35,6 +35,7 @@ public class ModuleInitializer {
 
     public static void load() {
         GameFunctionFactory.getInstance();
+
         DefaultConfigManager.getInstance();
         LanguageConfigManager.getInstance();
         FunctionParameterManager.getInstance();
