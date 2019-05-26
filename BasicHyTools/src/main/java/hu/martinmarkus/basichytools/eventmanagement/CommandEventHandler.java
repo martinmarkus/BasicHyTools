@@ -5,22 +5,19 @@ import hu.martinmarkus.basichytools.configmanagement.managers.FunctionParameterM
 import hu.martinmarkus.basichytools.configmanagement.managers.LanguageConfigManager;
 import hu.martinmarkus.basichytools.configmanagement.managers.UserManager;
 import hu.martinmarkus.basichytools.gamefunctions.GameFunction;
-import hu.martinmarkus.basichytools.gamefunctions.chatfunctions.Me;
 import hu.martinmarkus.basichytools.models.DefaultConfig;
+import hu.martinmarkus.basichytools.models.FunctionParameter;
 import hu.martinmarkus.basichytools.models.LanguageConfig;
 import hu.martinmarkus.basichytools.models.User;
-import hu.martinmarkus.basichytools.utils.PlaceholderReplacer;
+import hu.martinmarkus.basichytools.ioc.ObjectFactory;
 
 import java.util.List;
 
 public class CommandEventHandler {
-
     private LanguageConfig languageConfig;
-    private FunctionParameterManager functionParameterManager;
 
     public CommandEventHandler() {
         languageConfig = LanguageConfigManager.getInstance().getLanguageConfig();
-        functionParameterManager = FunctionParameterManager.getInstance();
     }
 
     public void onUserExecuteCommand() {
@@ -62,54 +59,29 @@ public class CommandEventHandler {
                 }
             }
         }
-
         return false;
-    }
-
-    private boolean hasEnoughParam(String functionName, String[] fullCommand, User user, boolean atleast) {
-        if (fullCommand != null && fullCommand.length != 0) {
-            int requiredCount = functionParameterManager.getByName(functionName).getRequiredParameterCount();
-            if (atleast && fullCommand.length - 1 >= requiredCount) {
-                return true;
-            }
-            if (fullCommand.length - 1 == requiredCount) {
-                return true;
-            }
-            sendErrorMessageToUser(user, fullCommand[0]);
-        }
-
-        return false;
-    }
-
-    private void sendErrorMessageToUser(User user, String baseCommand) {
-        String command = functionParameterManager.getByName(baseCommand).getCommand();
-        String message = languageConfig.getInvalidCommandUsagePleaseTry();
-        PlaceholderReplacer replacer = new PlaceholderReplacer();
-        message = replacer.replace(message, command);
-        user.sendMessage(message);
     }
 
     private void executeFunction(String rawCommand, User user) {
+        GameFunction gameFunction = null;
         String[] commandWithArgs = rawCommand.split(" ");
         String command = commandWithArgs[0].toLowerCase();
-        switch (command) {
-            case "me":
-                if (hasEnoughParam("me", commandWithArgs, user, true)) {
-                    executeMe(commandWithArgs, user);
-                }
-                return;
-            default:
-                return;
-        }
-    }
 
-    private void executeMe(String[] commandWithArgs, User user) {
-        GameFunction function;
-        String params = "";
-        for (int i = 1; i < commandWithArgs.length; i++) {
-            params = params.concat(commandWithArgs[i]).concat(" ");
+        FunctionParameterManager functionParameterManager = FunctionParameterManager.getInstance();
+        List<FunctionParameter> functionParameters = functionParameterManager.getAlLFunctionParameters();
+        ObjectFactory<GameFunction> objectFactory = new ObjectFactory<>();
+
+        for (FunctionParameter functionParameter : functionParameters) {
+            String name = functionParameter.getName();
+            if (command.equalsIgnoreCase(functionParameter.getName())) {
+                gameFunction = objectFactory.getBean(name.toLowerCase());
+                break;
+            }
         }
-        function = new Me(user, params);
-        function.execute();
+
+        if (gameFunction != null) {
+            gameFunction.setRequiredParams(rawCommand, user);
+            gameFunction.execute();
+        }
     }
 }

@@ -7,7 +7,7 @@ import hu.martinmarkus.basichytools.eventmanagement.UserConnectionEventHandler;
 import hu.martinmarkus.basichytools.eventmanagement.UserValidationEventHandler;
 
 public class Main {
-        public static void main(String[] args) {
+    public static void main(String[] args) {
         ModuleInitializer.load();
 
         UserValidationEventHandler validationEventHandler = new UserValidationEventHandler();
@@ -19,6 +19,12 @@ public class Main {
             CommandEventHandler commandEventHandler = new CommandEventHandler();
             commandEventHandler.onUserExecuteCommand();
 
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
             ChatEventHandler chatEventHandler = new ChatEventHandler();
             chatEventHandler.onMessageSent("Egy NaGyBetŰs fUCk szöPÉLke");
             chatEventHandler.onMessageSent("asd");
@@ -29,5 +35,6 @@ public class Main {
             ModuleInitializer.unload();
         });
         thread.start();
+
     }
 }

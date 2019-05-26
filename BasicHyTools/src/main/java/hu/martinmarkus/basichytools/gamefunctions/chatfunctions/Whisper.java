@@ -2,20 +2,23 @@ package hu.martinmarkus.basichytools.gamefunctions.chatfunctions;
 
 import hu.martinmarkus.basichytools.gamefunctions.GameFunction;
 import hu.martinmarkus.basichytools.models.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Whisper extends GameFunction {
-    public Whisper(User executor /*add other function params*/) {
-        super(executor, "");
 
-        initRawCommand();   // must be called for correct logging
+    @Autowired
+    public Whisper(@Value("Whisper") String functionName) {
+        super(functionName);
     }
 
     @Override
-    public void execute() {
-        super.runFunction(() -> {
-            // TODO: implement function
-            System.out.println(this.getClass().getName() + " function is not implemented");
-        });
+    public void setRequiredParams(String rawCommand, User executor) {
+        super.rawCommand = rawCommand;
+        super.executor = executor;
+        initializeCooldownContainer();
     }
 
     @Override
@@ -25,8 +28,10 @@ public class Whisper extends GameFunction {
     }
 
     @Override
-    public void initRawCommand() {
-        super.rawCommand = "empty default raw command";
-        // required for raw command logging
+    public void execute() {
+        super.runFunction(() -> {
+            // TODO: implement function
+            System.out.println(this.getClass().getName() + " function is not implemented");
+        });
     }
 }

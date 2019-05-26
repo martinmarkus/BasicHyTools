@@ -22,17 +22,16 @@ public abstract class GameFunction {
     protected User executor;
     protected String rawCommand;
 
+    // abstract methods
     public abstract void execute();
 
     public abstract Object executeWithReturnValue();
 
-    public abstract void initRawCommand();
+    public abstract void setRequiredParams(String rawCommand, User executor);
 
-    public GameFunction(User executor, String functionName) {
-        this.executor = executor;
+    public GameFunction(String functionName) {
         initFunctionParameter(functionName);
         languageConfig = LanguageConfigManager.getInstance().getLanguageConfig();
-        initializeCooldownContainer();
     }
 
     private void initFunctionParameter(String functionName) {
@@ -51,7 +50,7 @@ public abstract class GameFunction {
         }
     }
 
-    private void initializeCooldownContainer() {
+    protected void initializeCooldownContainer() {
         int cooldown = functionParameter.getCooldown();
         String functionName = functionParameter.getName();
         String executorName = executor.getName();
@@ -63,11 +62,30 @@ public abstract class GameFunction {
         functionCooldown.addCooldown(cooldownContainer);
     }
 
+    protected boolean hasEnoughParam(String[] fullCommand, boolean atleast) {
+        if (fullCommand != null && fullCommand.length != 0) {
+            int requiredCount = functionParameter.getRequiredParameterCount();
+            if (atleast && fullCommand.length - 1 >= requiredCount) {
+                return true;
+            }
+            if (fullCommand.length - 1 == requiredCount) {
+                return true;
+            }
+            sendInvalidParameterCountMessage();
+        }
+        return false;
+    }
+
+    private void sendInvalidParameterCountMessage() {
+        String command = functionParameter.getCommand();
+        String message = languageConfig.getInvalidCommandUsagePleaseTry();
+        PlaceholderReplacer replacer = new PlaceholderReplacer();
+        message = replacer.replace(message, command);
+        executor.sendMessage(message);
+    }
+
     protected void runFunction(Runnable runnable) {
-        if (executor == null) {
-            Informer.logWarn(languageConfig.getUserIsStillConnecting());
-            return;
-        } else if (!hasPermission()) {
+        if (executor == null || rawCommand == null || !hasPermission()) {
             return;
         }
 
@@ -93,10 +111,7 @@ public abstract class GameFunction {
     }
 
     protected Object callFunction(Callable<Object> callable) {
-        if (executor == null) {
-            Informer.logWarn(languageConfig.getUserIsStillConnecting());
-            return null;
-        } else if (!hasPermission()) {
+        if (executor == null || rawCommand == null || !hasPermission()) {
             return null;
         }
 

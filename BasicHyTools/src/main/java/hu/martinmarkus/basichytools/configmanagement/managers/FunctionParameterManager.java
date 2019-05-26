@@ -82,9 +82,18 @@ public class FunctionParameterManager {
         List<String> aliases = new ArrayList<>();
 
         // TODO: implement default function parameters
-        FunctionParameter functionParameter = new FunctionParameter("Me", "me <message>", aliases,
-                "hytools.basic.me", 10,"This is a description",
-                1, 5, true);
+        FunctionParameter functionParameter =
+                new FunctionParameter();
+        functionParameter.setName("Me");
+        functionParameter.setCommand("me <message>");
+        functionParameter.setAliases(aliases);
+        functionParameter.setPermission("hytools.basic.me");
+        functionParameter.setCooldown(3);
+        functionParameter.setDescription("This is a description.");
+        functionParameter.setRequiredParameterCount(1);
+        functionParameter.setUsagePrice(5);
+        functionParameter.setDoLogging(true);
+
         functionParameters.add(functionParameter);
 
         return new FunctionParameterContainer(functionParameters);

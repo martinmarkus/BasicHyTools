@@ -2,24 +2,23 @@ package hu.martinmarkus.basichytools.gamefunctions.chatfunctions;
 
 import hu.martinmarkus.basichytools.gamefunctions.GameFunction;
 import hu.martinmarkus.basichytools.models.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Me extends GameFunction {
 
-    private String meMessage;
-
-    public Me(User executor, String meMessage /*add other function params*/) {
-        super(executor, "Me");
-        this.meMessage = meMessage;
-
-        initRawCommand();   // must be called for correct logging
+    @Autowired
+    public Me(@Value("Me") String functionName) {
+        super(functionName);
     }
 
     @Override
-    public void execute() {
-        super.runFunction(() -> {
-            // TODO: implement function
-            System.out.println(this.getClass().getName() + " function is not implemented");
-        });
+    public void setRequiredParams(String rawCommand, User executor) {
+        super.rawCommand = rawCommand;
+        super.executor = executor;
+        initializeCooldownContainer();
     }
 
     @Override
@@ -29,8 +28,10 @@ public class Me extends GameFunction {
     }
 
     @Override
-    public void initRawCommand() {
-        super.rawCommand = "/me " + meMessage;
-        // required for raw command logging
+    public void execute() {
+        super.runFunction(() -> {
+            // TODO: implement function
+            System.out.println(this.getClass().getName() + " function is not implemented");
+        });
     }
 }
