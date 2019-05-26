@@ -1,5 +1,8 @@
 package hu.martinmarkus.basichytools.configmanagement.initializers;
 
+import hu.martinmarkus.basichytools.configmanagement.initializers.ioc.FunctionParameterFactory;
+import hu.martinmarkus.basichytools.configmanagement.initializers.ioc.GameFunctionFactory;
+import hu.martinmarkus.basichytools.configmanagement.initializers.ioc.ObjectFactory;
 import hu.martinmarkus.basichytools.configmanagement.managers.*;
 import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.Announcer;
 import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.ChatCooldown;
@@ -7,7 +10,7 @@ import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.FunctionCool
 import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.Informer;
 import hu.martinmarkus.basichytools.globalmechanisms.savemechanisms.GroupSaver;
 import hu.martinmarkus.basichytools.globalmechanisms.savemechanisms.UserSaver;
-import hu.martinmarkus.basichytools.ioc.ObjectFactory;
+import hu.martinmarkus.basichytools.models.FunctionParameter;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -27,7 +30,9 @@ public class ModuleInitializer {
         Announcer.getInstance().stopAnnouncing();
         FunctionCooldown.getInstance().stopCooldownCheck();
         ChatCooldown.getInstance().stopCooldownCheck();
-        ObjectFactory.clear();
+
+        FunctionParameterFactory.getInstance().clear();
+        GameFunctionFactory.getInstance().clear();
 
         Informer.logInfo("The system has unloaded.");
     }
@@ -42,9 +47,14 @@ public class ModuleInitializer {
         initializeSaverModules();
         initializeAnnouncerModule();
         initializeCooldownModules();
-        ObjectFactory.initialize();
+        initializeIoCModules();
 
         Informer.logInfo(getProjectProperties());
+    }
+
+    private static void initializeIoCModules() {
+        GameFunctionFactory.getInstance();
+        FunctionParameterFactory.getInstance();
     }
 
     public static String getRootPath() {

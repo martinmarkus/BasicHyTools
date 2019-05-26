@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+
+    <util:list id="emptyList" value-type="java.lang.String">
+    </util:list>
+
+    <bean id="Me" class="hu.martinmarkus.basichytools.models.FunctionParameter">
+        <constructor-arg index="0" value="Me"/> <!-- name -->
+        <constructor-arg index="1" value="me &lt;message&gt;"/> <!-- command -->
+        <constructor-arg index="2" ref="emptyList"/> <!-- aliases -->
+        <constructor-arg index="3" value="hytools.basic.me"/> <!-- permission -->
+        <constructor-arg index="4" value="10"/> <!-- usagePrice -->
+        <constructor-arg index="5" value="This is a description."/> <!-- description -->
+        <constructor-arg index="6" value="1"/> <!-- requiredParameterCount -->
+        <constructor-arg index="7" value="false"/> <!-- concreteParameterCount -->
+        <constructor-arg index="8" value="3"/> <!-- cooldown -->
+        <constructor-arg index="9" value="true"/> <!-- doLogging -->
+    </bean>
+
+    <bean id="Broadcast" class="hu.martinmarkus.basichytools.models.FunctionParameter">
+        <constructor-arg index="0" value="Broadcast"/> <!-- name -->
+        <constructor-arg index="1" value="broadcast &lt;message&gt;"/> <!-- command -->
+        <constructor-arg index="2" ref="emptyList"/> <!-- aliases -->
+        <constructor-arg index="3" value="hytools.broadcast"/> <!-- permission -->
+        <constructor-arg index="4" value="0"/> <!-- usagePrice -->
+        <constructor-arg index="5" value="This is a description."/> <!-- description -->
+        <constructor-arg index="6" value="1"/> <!-- requiredParameterCount -->
+        <constructor-arg index="7" value="false"/> <!-- concreteParameterCount -->
+        <constructor-arg index="8" value="0"/> <!-- cooldown -->
+        <constructor-arg index="9" value="true"/> <!-- doLogging -->
+    </bean>
+
+</beans>

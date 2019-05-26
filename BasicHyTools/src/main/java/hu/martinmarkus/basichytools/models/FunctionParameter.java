@@ -10,12 +10,14 @@ public class FunctionParameter {
     private double usagePrice;
     private String description;
     private int requiredParameterCount;
+    private boolean concreteParameterCount;
     private int cooldown;
     private boolean doLogging;
 
     public FunctionParameter(String name, String command, List<String> aliases,
                              String permission, double usagePrice, String description,
-                             int requiredParameterCount, int cooldown, boolean doLogging) {
+                             int requiredParameterCount, boolean concreteParameterCount,
+                             int cooldown, boolean doLogging) {
         this.name = name;
         this.command = command;
         this.aliases = aliases;
@@ -23,6 +25,7 @@ public class FunctionParameter {
         this.usagePrice = usagePrice;
         this.description = description;
         this.requiredParameterCount = requiredParameterCount;
+        this.concreteParameterCount = concreteParameterCount;
         this.cooldown = cooldown;
         this.doLogging = doLogging;
     }
@@ -81,6 +84,14 @@ public class FunctionParameter {
 
     public void setRequiredParameterCount(int requiredParameterCount) {
         this.requiredParameterCount = requiredParameterCount;
+    }
+
+    public boolean isConcreteParameterCount() {
+        return concreteParameterCount;
+    }
+
+    public void setConcreteParameterCount(boolean concreteParameterCount) {
+        this.concreteParameterCount = concreteParameterCount;
     }
 
     public int getCooldown() {

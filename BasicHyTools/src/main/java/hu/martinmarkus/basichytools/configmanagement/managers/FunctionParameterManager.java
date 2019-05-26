@@ -1,6 +1,10 @@
 package hu.martinmarkus.basichytools.configmanagement.managers;
 
+import hu.martinmarkus.basichytools.configmanagement.initializers.ioc.FunctionParameterFactory;
 import hu.martinmarkus.basichytools.configmanagement.initializers.ModuleInitializer;
+import hu.martinmarkus.basichytools.configmanagement.initializers.ioc.GameFunctionFactory;
+import hu.martinmarkus.basichytools.configmanagement.initializers.ioc.IFunctionParameterFactory;
+import hu.martinmarkus.basichytools.configmanagement.initializers.ioc.IGameFunctionFactory;
 import hu.martinmarkus.basichytools.models.FunctionParameter;
 import hu.martinmarkus.basichytools.models.containers.FunctionParameterContainer;
 import hu.martinmarkus.basichytools.persistence.repositories.FunctionParameterContainerRepository;
@@ -79,16 +83,10 @@ public class FunctionParameterManager {
 
     private FunctionParameterContainer generateDefaultFunctionParameterContainer() {
         List<FunctionParameter> functionParameters = new ArrayList<>();
-        List<String> aliases = new ArrayList<>();
+        IFunctionParameterFactory functionParameterFactory = FunctionParameterFactory.getInstance();
 
-        // TODO: implement default function parameters
-        functionParameters.add(new FunctionParameter("Me", "me <message>", aliases,
-                "hytools.basic.me", 10, "this is a description",
-                1, 3, true));
-
-        functionParameters.add(new FunctionParameter("Broadcast", "broadcast <message>", aliases,
-                "hytools.broadcast",0, "this is a description",
-                1, 0, true));
+        functionParameters.add(functionParameterFactory.getBean("Me"));
+        functionParameters.add(functionParameterFactory.getBean("Broadcast"));
 
         return new FunctionParameterContainer(functionParameters);
     }

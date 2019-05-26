@@ -1,5 +1,7 @@
 package hu.martinmarkus.basichytools.eventmanagement;
 
+import hu.martinmarkus.basichytools.configmanagement.initializers.ioc.GameFunctionFactory;
+import hu.martinmarkus.basichytools.configmanagement.initializers.ioc.IGameFunctionFactory;
 import hu.martinmarkus.basichytools.configmanagement.managers.DefaultConfigManager;
 import hu.martinmarkus.basichytools.configmanagement.managers.FunctionParameterManager;
 import hu.martinmarkus.basichytools.configmanagement.managers.LanguageConfigManager;
@@ -9,7 +11,7 @@ import hu.martinmarkus.basichytools.models.DefaultConfig;
 import hu.martinmarkus.basichytools.models.FunctionParameter;
 import hu.martinmarkus.basichytools.models.LanguageConfig;
 import hu.martinmarkus.basichytools.models.User;
-import hu.martinmarkus.basichytools.ioc.ObjectFactory;
+import hu.martinmarkus.basichytools.configmanagement.initializers.ioc.ObjectFactory;
 
 import java.util.List;
 
@@ -77,12 +79,12 @@ public class CommandEventHandler {
     private GameFunction defineGameFunction(String rawCommand) {
         String command = getCommand(rawCommand);
         List<FunctionParameter> functionParameters = getFunctionParameters();
-        ObjectFactory<GameFunction> objectFactory = new ObjectFactory<>();
+        IGameFunctionFactory gameFunctionFactory = GameFunctionFactory.getInstance();
 
         for (FunctionParameter functionParameter : functionParameters) {
             String name = functionParameter.getName().toLowerCase();
             if (command.equalsIgnoreCase(functionParameter.getName())) {
-                return objectFactory.getBean(name);
+                return gameFunctionFactory.getBean(name);
             }
         }
 

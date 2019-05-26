@@ -24,8 +24,6 @@ public class Main {
             CommandEventHandler commandEventHandler = new CommandEventHandler();
             commandEventHandler.onUserExecuteCommand();
 
-
-
             ChatEventHandler chatEventHandler = new ChatEventHandler();
             chatEventHandler.onMessageSent("Egy NaGyBetŰs fUCk szöPÉLke");
             chatEventHandler.onMessageSent("asd");
@@ -36,6 +34,5 @@ public class Main {
             ModuleInitializer.unload();
         });
         thread.start();
-
     }
 }
