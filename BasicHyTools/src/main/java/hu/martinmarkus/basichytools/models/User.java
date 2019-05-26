@@ -141,7 +141,9 @@ public class User {
         GroupManager configManager = GroupManager.getInstance();
         Group group = configManager.getPermissionGroup(permissionGroupName);
 
-        allPermissions.addAll(group.getAllPermissions());
+        if (group != null) {
+            allPermissions.addAll(group.getAllPermissions());
+        }
 
         return allPermissions;
     }

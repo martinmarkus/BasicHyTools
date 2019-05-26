@@ -54,5 +54,6 @@
         <constructor-arg index="17" ref="spawnLocation"/> <!-- spawnLocation -->
         <constructor-arg index="18" ref="globalMechanismPermissions"/> <!-- globalMechanismPermissions -->
         <constructor-arg index="19" ref="blockedCommands"/> <!-- blockedCommands -->
+        <constructor-arg index="20" value="invalid"/> <!-- defaultGroup -->
     </bean>
 </beans>

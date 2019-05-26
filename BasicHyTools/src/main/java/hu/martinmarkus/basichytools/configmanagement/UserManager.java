@@ -113,10 +113,10 @@ public class UserManager {
     public User generateDefaultUser(String name) {
         // TODO get the IP of 'name' named player
         String loginIp ="123.123.123.123";
-        String group = "default";
         double balance = 1000.0;
         double exp = 0;
         String date = DateTimeUtil.getActualDate();
+        String group = DefaultConfigManager.getInstance().getDefaultConfig().getDefaultGroup();
         BasicHyToolsLocation location = DefaultConfigManager.getInstance().getDefaultConfig().getSpawnLocation();
 
         return new User(name, group, balance, exp,
