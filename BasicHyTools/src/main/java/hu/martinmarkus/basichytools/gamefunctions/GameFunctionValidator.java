@@ -39,6 +39,7 @@ public class GameFunctionValidator {
             boolean canBypass = executor.hasPermission(functionCooldownPassPermission);
 
             if (isOnCooldown() && !canBypass) {
+                sendCooldownMessage();
                 return false;
             }
         }
@@ -52,10 +53,10 @@ public class GameFunctionValidator {
         if (fullCommand.length != 0) {
             int requiredCount = functionParameter.getRequiredParameterCount();
             boolean atLeast = functionParameter.isConcreteParameterCount();
-            if (atLeast && fullCommand.length - 1 >= requiredCount) {
+            if (atLeast && fullCommand.length >= requiredCount) {
                 return true;
             }
-            if (fullCommand.length - 1 == requiredCount) {
+            if (fullCommand.length == requiredCount) {
                 return true;
             }
             sendInvalidParameterCountMessage();
@@ -103,17 +104,16 @@ public class GameFunctionValidator {
     }
 
     private boolean isOnCooldown() {
-        if (FunctionCooldown.getInstance().isOnCooldown(cooldownContainer)) {
-            String message = languageConfig.getFunctionStillOnCooldown();
-            PlaceholderReplacer replacer = new PlaceholderReplacer();
+        return FunctionCooldown.getInstance().isOnCooldown(cooldownContainer);
+    }
 
-            String cooldownValue = createCooldownMessage();
-            message = replacer.replace(message, functionParameter.getName(), cooldownValue);
-            executor.sendMessage(message, false);
-            return true;
-        }
+    private void sendCooldownMessage() {
+        String message = languageConfig.getFunctionStillOnCooldown();
+        PlaceholderReplacer replacer = new PlaceholderReplacer();
 
-        return false;
+        String cooldownValue = createCooldownMessage();
+        message = replacer.replace(message, functionParameter.getName(), cooldownValue);
+        executor.sendMessage(message, false);
     }
 
     private String createCooldownMessage() {

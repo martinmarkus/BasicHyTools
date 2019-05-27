@@ -23,7 +23,17 @@ public class Main {
 
             CommandEventHandler commandEventHandler = new CommandEventHandler();
             commandEventHandler.onUserExecuteCommand();
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             commandEventHandler.onUserExecuteCommand();
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             commandEventHandler.onUserExecuteCommand();
 
             ModuleInitializer.unload();
