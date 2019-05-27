@@ -72,8 +72,11 @@ public class ChatEventHandler {
             suffix = builder.defineTitle(user.getUserSuffix(), group.getSuffix());
         }
 
-        String fullMessage = builder.buildMessage(prefix, suffix, user.getName(), message, true);
+        String separator = LanguageConfigManager.getInstance().getLanguageConfig().getSeparator();
+        String fullMessage = builder.buildMessage(prefix, suffix, user.getName(), separator, message);
+
         System.out.println(fullMessage);    // TODO: send message by user to everyone
+
         ChatCooldown.getInstance().addChatCooldown(user.getName());
     }
 

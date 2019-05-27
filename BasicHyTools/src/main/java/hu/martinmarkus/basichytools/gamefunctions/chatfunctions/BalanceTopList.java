@@ -31,7 +31,7 @@ public class BalanceTopList extends GameFunction {
     public void execute() {
         super.runFunction(() -> {
             // TODO: implement function
-            System.out.println(this.getClass().getName() + " function is not implemented");
+            System.out.println(this.getClass().getName() + " function is not implemented.");
         });
     }
 }

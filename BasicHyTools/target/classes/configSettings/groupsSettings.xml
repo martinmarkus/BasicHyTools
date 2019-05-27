@@ -43,6 +43,7 @@
     </util:list>
     <util:list id="builderPermissions" value-type="java.lang.String">
         <value>group.builder</value>
+        <value>hytools.global.*</value>
     </util:list>
     <util:list id="moderatorPermissions" value-type="java.lang.String">
         <value>group.moderator</value>

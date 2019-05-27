@@ -37,4 +37,18 @@ public class StringUtil {
 
         return message;
     }
+
+    public static String concatCommandToMessage(String rawCommand) {
+        StringBuilder message = new StringBuilder();
+        String[] commandArgs = rawCommand.split(" ");
+
+        for (int i = 1; i < commandArgs.length; i++) {
+            message.append(commandArgs[i]);
+            if (i != commandArgs.length - 1) {
+                message.append(" ");
+            }
+        }
+
+        return message.toString();
+    }
 }
