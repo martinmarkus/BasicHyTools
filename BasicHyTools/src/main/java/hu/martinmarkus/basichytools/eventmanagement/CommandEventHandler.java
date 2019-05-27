@@ -23,7 +23,7 @@ public class CommandEventHandler {
     public void onUserExecuteCommand() {
         // TODO: get sender and command
         //String rawCommand = "broadcast hi";
-        String rawCommand = "bc hi";
+        String rawCommand = "helpop hi PoOP Guys";
         String userName = "mockUser12345";
 
         User user = UserManager.getInstance().getOnlineUser(userName);

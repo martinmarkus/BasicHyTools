@@ -4,8 +4,12 @@ public class ChatMessageBuilder {
 
     private final String SEPARATOR = ":";
 
-    public String buildMessage(String prefix, String suffix, String userName, String message, boolean useSeparator) {
+    public String buildMessage(String prefix, String suffix, String userName, String separator, String message) {
         if (userName == null) {
+            return null;
+        }
+
+        if (message == null || message.isEmpty()) {
             return null;
         }
 
@@ -17,15 +21,11 @@ public class ChatMessageBuilder {
             suffix = "";
         }
 
-        if (message == null || message.isEmpty()) {
-            return null;
+        if (separator == null) {
+            separator = "";
         }
 
-        String result = prefix.concat(userName).concat(suffix);
-        if (useSeparator) {
-            result = result.concat(SEPARATOR);
-        }
-        return result.concat(" ").concat(message);
+        return prefix.concat(userName).concat(suffix).concat(separator).concat(message);
     }
 
     public String defineTitle(String specificTitle, String groupTitle) {

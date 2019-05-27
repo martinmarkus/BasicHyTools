@@ -1,7 +1,9 @@
 package hu.martinmarkus.basichytools.gamefunctions.chatfunctions;
 
+import hu.martinmarkus.basichytools.configmanagement.GroupManager;
 import hu.martinmarkus.basichytools.gamefunctions.GameFunction;
 import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.GlobalMessage;
+import hu.martinmarkus.basichytools.models.Group;
 import hu.martinmarkus.basichytools.models.User;
 import hu.martinmarkus.basichytools.utils.ChatMessageBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,12 +45,16 @@ public class Me extends GameFunction {
                 }
             }
 
-            String prefix = executor.getUserPrefix();
-            String suffix = executor.getUserSuffix();
-            String userName = executor.getName();
+            Group group = GroupManager.getInstance().getPermissionGroup(executor.getPermissionGroupName());
+            if (group != null) {
+                String prefix = builder.defineTitle(executor.getUserPrefix(), group.getPrefix());
+                String suffix = builder.defineTitle(executor.getUserSuffix(), group.getSuffix());
+                String userName = executor.getName();
 
-            String fullMessage = builder.buildMessage(prefix, suffix, userName, message.toString(), false);
-            GlobalMessage.send(executor, fullMessage);
+                String fullMessage = builder.buildMessage(prefix, suffix, userName, " ", message.toString());
+                GlobalMessage.send(executor, fullMessage);
+            }
+
         });
     }
 }

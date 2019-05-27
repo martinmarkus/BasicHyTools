@@ -20,10 +20,11 @@
     </util:list>
 
     <util:map id="globalMechanismPermissions" map-class="java.util.HashMap">
-        <entry key="chatCooldownBypass" value="hytools.bypass.chatCooldown"/>
-        <entry key="functionCooldownBypass" value="hytools.bypass.functionCooldown"/>
-        <entry key="swearFilterBypass" value="hytools.bypass.swearFilter"/>
-        <entry key="blockedCommandBypass" value="hytools.bypass.blockedCommand"/>
+        <entry key="chatCooldownBypass" value="hytools.global.bypass.chatCooldown"/>
+        <entry key="functionCooldownBypass" value="hytools.global.bypass.functionCooldown"/>
+        <entry key="swearFilterBypass" value="hytools.global.bypass.swearFilter"/>
+        <entry key="blockedCommandBypass" value="hytools.global.bypass.blockedCommand"/>
+        <entry key="readHelpOp" value="hytools.global.readhelpop"/>
     </util:map>
 
     <bean id="spawnLocation" class="hu.martinmarkus.basichytools.models.BasicHyToolsLocation">

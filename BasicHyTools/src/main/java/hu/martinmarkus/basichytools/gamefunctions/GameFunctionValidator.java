@@ -52,11 +52,10 @@ public class GameFunctionValidator {
 
         if (fullCommand.length != 0) {
             int requiredCount = functionParameter.getRequiredParameterCount();
-            boolean atLeast = functionParameter.isConcreteParameterCount();
-            if (atLeast && fullCommand.length >= requiredCount) {
+            boolean isConcreteParameterCount = functionParameter.isConcreteParameterCount();
+            if (!isConcreteParameterCount && fullCommand.length >= requiredCount) {
                 return true;
-            }
-            if (fullCommand.length == requiredCount) {
+            } else if (fullCommand.length == requiredCount) {
                 return true;
             }
             sendInvalidParameterCountMessage();
