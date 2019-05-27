@@ -17,7 +17,7 @@ public class Main {
 
         Thread thread = new Thread(() -> {
             try {
-                Thread.sleep(3000);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -25,7 +25,15 @@ public class Main {
             commandEventHandler.onUserExecuteCommand();
 
             ChatEventHandler chatEventHandler = new ChatEventHandler();
-            chatEventHandler.onMessageSent(null);
+            chatEventHandler.onMessageSent("asd");
+            try {
+                Thread.sleep(4000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            chatEventHandler.onMessageSent("asd");
+            chatEventHandler.onMessageSent("asd");
+            chatEventHandler.onMessageSent("asd");
             ModuleInitializer.unload();
         });
         thread.start();

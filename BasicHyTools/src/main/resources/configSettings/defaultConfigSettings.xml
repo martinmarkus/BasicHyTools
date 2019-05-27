@@ -48,7 +48,7 @@
         <constructor-arg index="11" value="999999999"/> <!-- maxMoney -->
         <constructor-arg index="12" value="1"/> <!-- minPayAmount -->
         <constructor-arg index="13" value="15"/> <!-- payCooldown -->
-        <constructor-arg index="14" value="3"/> <!-- defaultChatCooldown -->
+        <constructor-arg index="14" value="3"/> <!-- chatCooldown -->
         <constructor-arg index="15" value="180"/> <!-- announcerInterval -->
         <constructor-arg index="16" ref="announcerMessages"/> <!-- announcerMessages -->
         <constructor-arg index="17" ref="spawnLocation"/> <!-- spawnLocation -->
