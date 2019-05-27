@@ -49,7 +49,9 @@ public class CommandEventHandler {
         DefaultConfig defaultConfig = DefaultConfigManager.getInstance().getDefaultConfig();
         String blockedCommandBypassPermission = defaultConfig.getGlobalMechanismPermissions().get("blockedCommandBypass");
 
-        if (user.isOperator() || user.hasPermission(blockedCommandBypassPermission)) {
+        boolean isOperator = user.isOperator();
+        boolean hasPermission = user.hasPermission(blockedCommandBypassPermission);
+        if (isOperator || hasPermission) {
             return false;
         }
 
@@ -77,12 +79,17 @@ public class CommandEventHandler {
     private GameFunction defineGameFunction(String rawCommand) {
         String command = getCommand(rawCommand);
         List<FunctionParameter> functionParameters = getFunctionParameters();
-        GameFunctionFactory gameFunctionFactory = GameFunctionFactory.getInstance();
+
+        boolean isCommand;
+        boolean isAlias;
 
         for (FunctionParameter functionParameter : functionParameters) {
-            String name = functionParameter.getName().toLowerCase();
-            if (command.equalsIgnoreCase(functionParameter.getName())) {
-                return gameFunctionFactory.getBean(name);
+            isCommand = command.equalsIgnoreCase(functionParameter.getName());
+            isAlias = functionParameter.getAliases().contains(command);
+
+            if (isCommand || isAlias) {
+                String name = functionParameter.getName().toLowerCase();
+                return GameFunctionFactory.getInstance().getBean(name);
             }
         }
 
