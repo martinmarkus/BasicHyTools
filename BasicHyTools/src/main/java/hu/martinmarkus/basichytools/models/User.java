@@ -61,16 +61,9 @@ public class User {
     }
 
     @JsonIgnore
-    public void sendMessage(String message) {
-        // TODO: implement default message sending to User
-        message = StringUtil.censorMessage(this, message);
-        System.out.println("Private msg to " + name + ": " + message);
-    }
-
-    @JsonIgnore
     public void sendMotd() {
         String motd = LanguageConfigManager.getInstance().getLanguageConfig().getMotd();
-        sendMessage(motd);
+        sendMessage(motd, false);
     }
 
     @JsonIgnore
@@ -81,11 +74,37 @@ public class User {
     }
 
     @JsonIgnore
+    public void sendMessage(String message, boolean doSpamFiltering) {
+        if (doSpamFiltering) {
+            boolean canSendMessage = canSendMessage(message);
+            if (!canSendMessage && !operator) {
+                sendCantSendMessage();
+                return;
+            }
+            addSentMessage(message);
+        }
+
+        if (!operator) {
+            message = StringUtil.censorMessage(this, message);
+        }
+
+        // TODO: implement default message sending to User
+        System.out.println("(user.sendMessage) " + message);
+    }
+
+    @JsonIgnore
     public boolean canSendMessage(String message) {
         if (lastSendMessages == null) {
             lastSendMessages = new LinkedList<>();
         }
         return !lastSendMessages.contains(message.toLowerCase());
+    }
+
+    private void sendCantSendMessage() {
+        LanguageConfig languageConfig = LanguageConfigManager.getInstance().getLanguageConfig();
+        String message = languageConfig.getCantSendThisMessage();
+
+        sendMessage(message, false);
     }
 
     @JsonIgnore
@@ -165,7 +184,7 @@ public class User {
         PlaceholderReplacer replacer = new PlaceholderReplacer();
         String message = replacer.replace(languageConfig.getBalanceDecreased(), name, String.valueOf(value),
                 String.valueOf(balance));
-        sendMessage(message);
+        sendMessage(message, false);
     }
 
     @JsonIgnore
@@ -182,7 +201,7 @@ public class User {
         PlaceholderReplacer replacer = new PlaceholderReplacer();
         String message = replacer.replace(languageConfig.getBalanceIncreased(), name, String.valueOf(value),
                 String.valueOf(balance));
-        sendMessage(message);
+        sendMessage(message, false);
     }
 
     @JsonIgnore
@@ -193,7 +212,7 @@ public class User {
         LanguageConfig languageConfig = LanguageConfigManager.getInstance().getLanguageConfig();
         PlaceholderReplacer replacer = new PlaceholderReplacer();
         String message = replacer.replace(languageConfig.getBalanceSet(), String.valueOf(balance));
-        sendMessage(message);
+        sendMessage(message, false);
     }
 
     @JsonIgnore

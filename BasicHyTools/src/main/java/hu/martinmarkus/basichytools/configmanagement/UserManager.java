@@ -32,7 +32,7 @@ public class UserManager {
         onlineUserList = new UserList();
     }
 
-    public User getOnlineUser(String name) {
+    public synchronized User getOnlineUser(String name) {
         if (name == null || name.isEmpty()) {
             return null;
         }
@@ -50,11 +50,11 @@ public class UserManager {
         userRepository.get(name, resultListener);
     }
 
-    public List<User> getAllOnlineUsers() {
+    public synchronized List<User> getAllOnlineUsers() {
         return onlineUserList.getList();
     }
 
-    public boolean isUserOnlineByName(String userName) {
+    public synchronized boolean isUserOnlineByName(String userName) {
         for (User user : onlineUserList.getList()) {
             if (user.getName().equalsIgnoreCase(userName)) {
                 return true;
@@ -63,7 +63,7 @@ public class UserManager {
         return false;
     }
 
-    public void registerUser(String name, ResultListener<User> registerListener) {
+    public synchronized void registerUser(String name, ResultListener<User> registerListener) {
         if (name == null || name.isEmpty()) {
             return;
         }
@@ -82,14 +82,14 @@ public class UserManager {
         });
     }
 
-    private void addUser(User user, ResultListener<User> registerListener) {
+    private synchronized void addUser(User user, ResultListener<User> registerListener) {
         onlineUserList.add(user);
         user.setValidated(true);
         user.setOnline(true);
         registerListener.getResultOnFinish(user);
     }
 
-    public void unregisterUser(String name) {
+    public synchronized void unregisterUser(String name) {
         if (name == null || name.isEmpty()) {
             return;
         }

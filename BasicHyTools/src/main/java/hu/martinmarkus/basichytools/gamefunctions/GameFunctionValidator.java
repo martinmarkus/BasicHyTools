@@ -68,7 +68,7 @@ public class GameFunctionValidator {
         String message = languageConfig.getInvalidCommandUsagePleaseTry();
         PlaceholderReplacer replacer = new PlaceholderReplacer();
         message = replacer.replace(message, command);
-        executor.sendMessage(message);
+        executor.sendMessage(message, false);
     }
 
     private boolean hasMoney() {
@@ -81,7 +81,7 @@ public class GameFunctionValidator {
         boolean hasMoney = balance >= usagePrice;
 
         if (!hasMoney) {
-            executor.sendMessage(languageConfig.getNotEnoughMoney());
+            executor.sendMessage(languageConfig.getNotEnoughMoney(), false);
         }
 
         return hasMoney;
@@ -96,7 +96,7 @@ public class GameFunctionValidator {
         boolean hasPermission = executor.hasPermission(permission);
 
         if (!hasPermission) {
-            executor.sendMessage(languageConfig.getNotEnoughPermission());
+            executor.sendMessage(languageConfig.getNotEnoughPermission(), false);
         }
 
         return hasPermission;
@@ -109,7 +109,7 @@ public class GameFunctionValidator {
 
             String cooldownValue = createCooldownMessage();
             message = replacer.replace(message, functionParameter.getName(), cooldownValue);
-            executor.sendMessage(message);
+            executor.sendMessage(message, false);
             return true;
         }
 

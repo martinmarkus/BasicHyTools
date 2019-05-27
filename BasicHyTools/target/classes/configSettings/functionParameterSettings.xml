@@ -40,7 +40,7 @@
         <constructor-arg index="0" value="BalanceTopList"/> <!-- name -->
         <constructor-arg index="1" value="balancetoplist"/> <!-- command -->
         <constructor-arg index="2" ref="emptyList"/> <!-- aliases -->
-        <constructor-arg index="3" value="hytools.balancetoplist"/> <!-- permission -->
+        <constructor-arg index="3" value="hytools.basic.balancetoplist"/> <!-- permission -->
         <constructor-arg index="4" value="0"/> <!-- usagePrice -->
         <constructor-arg index="5" value="This is a description."/> <!-- description -->
         <constructor-arg index="6" value="1"/> <!-- requiredParameterCount -->

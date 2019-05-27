@@ -2,7 +2,9 @@ package hu.martinmarkus.basichytools.utils;
 
 public class ChatMessageBuilder {
 
-    public String buildMessage(String prefix, String suffix, String userName, String message) {
+    private final String SEPARATOR = ":";
+
+    public String buildMessage(String prefix, String suffix, String userName, String message, boolean useSeparator) {
         if (userName == null) {
             return null;
         }
@@ -17,7 +19,11 @@ public class ChatMessageBuilder {
             return null;
         }
 
-        return prefix.concat(userName).concat(suffix).concat(": ").concat(message);
+        String result = prefix.concat(userName).concat(suffix);
+        if (useSeparator) {
+            result = result.concat(SEPARATOR);
+        }
+        return result.concat(" ").concat(message);
     }
 
     public String defineTitle(String specificTitle, String groupTitle) {
