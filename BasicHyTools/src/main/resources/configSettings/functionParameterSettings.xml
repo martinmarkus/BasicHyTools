@@ -26,7 +26,7 @@
     <bean id="broadcast" class="hu.martinmarkus.basichytools.models.FunctionParameter">
         <constructor-arg index="0" value="Broadcast"/> <!-- name -->
         <constructor-arg index="1" value="/broadcast &lt;message&gt;"/> <!-- command -->
-        <constructor-arg index="2" ref="emptyList"/> <!-- aliases -->
+        <constructor-arg index="2" ref="broadcastAliases"/> <!-- aliases -->
         <constructor-arg index="3" value="hytools.broadcast"/> <!-- permission -->
         <constructor-arg index="4" value="0"/> <!-- usagePrice -->
         <constructor-arg index="5" value="This is a description."/> <!-- description -->
@@ -35,6 +35,9 @@
         <constructor-arg index="8" value="3"/> <!-- cooldown -->
         <constructor-arg index="9" value="true"/> <!-- doLogging -->
     </bean>
+    <util:list id="broadcastAliases" value-type="java.lang.String">
+        <value>bc</value>
+    </util:list>
 
     <bean id="balanceTopList" class="hu.martinmarkus.basichytools.models.FunctionParameter">
         <constructor-arg index="0" value="BalanceTopList"/> <!-- name -->

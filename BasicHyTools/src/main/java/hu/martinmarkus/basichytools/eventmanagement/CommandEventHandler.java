@@ -22,7 +22,8 @@ public class CommandEventHandler {
 
     public void onUserExecuteCommand() {
         // TODO: get sender and command
-        String rawCommand = "broadcast hi";
+        //String rawCommand = "broadcast hi";
+        String rawCommand = "bc hi";
         String userName = "mockUser12345";
 
         User user = UserManager.getInstance().getOnlineUser(userName);
@@ -36,12 +37,11 @@ public class CommandEventHandler {
             return;
         }
 
-        String command = rawCommand.split(" ")[0];
+        String command = getCommand(rawCommand);
         boolean isCommandBlocked = isCommandBlocked(user, command);
         if (isCommandBlocked) {
             return;
         }
-
         executeFunction(rawCommand, user);
     }
 
@@ -74,6 +74,7 @@ public class CommandEventHandler {
             gameFunction.setRequiredParams(rawCommand, user);
             gameFunction.execute();
         }
+        // if the command is unknown, just don't do anything
     }
 
     private GameFunction defineGameFunction(String rawCommand) {
