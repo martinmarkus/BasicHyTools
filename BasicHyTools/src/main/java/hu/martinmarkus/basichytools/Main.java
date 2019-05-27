@@ -22,12 +22,7 @@ public class Main {
             }
 
             CommandEventHandler commandEventHandler = new CommandEventHandler();
-            commandEventHandler.onUserExecuteCommand("helpOP segítsetek pls");
-            commandEventHandler.onUserExecuteCommand("heLPME segítsetek pls");
-            commandEventHandler.onUserExecuteCommand("bc segítsetek pls");
-            commandEventHandler.onUserExecuteCommand("bc");
-            commandEventHandler.onUserExecuteCommand("helpop");
-            commandEventHandler.onUserExecuteCommand("me aldkjsalk");
+            commandEventHandler.onUserExecuteCommand(null);
 
             ModuleInitializer.unload();
         });

@@ -10,7 +10,6 @@ import hu.martinmarkus.basichytools.models.DefaultConfig;
 import hu.martinmarkus.basichytools.models.FunctionParameter;
 import hu.martinmarkus.basichytools.models.LanguageConfig;
 import hu.martinmarkus.basichytools.models.User;
-import hu.martinmarkus.basichytools.utils.StringUtil;
 
 import java.util.List;
 
@@ -31,16 +30,19 @@ public class CommandEventHandler {
         }
 
         if (rawCommand == null || rawCommand.isEmpty()) {
-            String message = languageConfig.getInvalidCommandUsage();
-            user.sendMessage(message, false);
             return;
         }
 
         String command = getCommand(rawCommand);
+        if (command.isEmpty()) {
+            return;
+        }
+
         boolean isCommandBlocked = isCommandBlocked(user, command);
         if (isCommandBlocked) {
             return;
         }
+
         executeFunction(rawCommand, user);
     }
 
@@ -104,6 +106,7 @@ public class CommandEventHandler {
         }
         return false;
     }
+
     private List<FunctionParameter> getFunctionParameters() {
         FunctionParameterManager functionParameterManager = FunctionParameterManager.getInstance();
         return functionParameterManager.getAlLFunctionParameters();
@@ -111,6 +114,9 @@ public class CommandEventHandler {
 
     private String getCommand(String rawCommand) {
         String[] commandWithArgs = rawCommand.split(" ");
-        return commandWithArgs[0];
+        if (commandWithArgs.length > 0) {
+            return commandWithArgs[0];
+        }
+        return "";
     }
 }
