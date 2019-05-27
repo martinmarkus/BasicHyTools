@@ -51,9 +51,7 @@ public class DefaultConfigManager {
         ISynchronizer synchronizer = new Synchronizer();
 
         defaultConfig = generateDefaultConfig();
-        defaultConfigRepository.add(DEFAULT_CONFIG, defaultConfig, aBoolean -> {
-            synchronizer.continueRun();
-        });
+        defaultConfigRepository.add(DEFAULT_CONFIG, defaultConfig, aBoolean -> synchronizer.continueRun());
 
         synchronizer.waitRun();
     }
