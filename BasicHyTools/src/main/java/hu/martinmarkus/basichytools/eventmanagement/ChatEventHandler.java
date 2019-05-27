@@ -38,14 +38,6 @@ public class ChatEventHandler {
             return;
         }
 
-        message = StringUtil.censorMessage(user, message);
-        boolean canSendMessage = user.canSendMessage(message);
-        if (!canSendMessage) {
-            sendCantSendMessage(user);
-            ignoreMessageEvent();
-            return;
-        }
-
         executeMessageSending(user, message);
     }
 
@@ -80,7 +72,7 @@ public class ChatEventHandler {
             suffix = builder.defineTitle(user.getUserSuffix(), group.getSuffix());
         }
 
-        String fullMessage = builder.buildMessage(prefix, suffix, user.getName(), message);
+        String fullMessage = builder.buildMessage(prefix, suffix, user.getName(), message, true);
         System.out.println(fullMessage);    // TODO: send message by user to everyone
         ChatCooldown.getInstance().addChatCooldown(user.getName());
     }
@@ -109,13 +101,6 @@ public class ChatEventHandler {
         PlaceholderReplacer replacer = new PlaceholderReplacer();
         message = replacer.replace(message, messageValue);
 
-        user.sendMessage(message);
-    }
-
-    private void sendCantSendMessage(User user) {
-        LanguageConfig languageConfig = LanguageConfigManager.getInstance().getLanguageConfig();
-        String message = languageConfig.getCantSendThisMessage();
-
-        user.sendMessage(message);
+        user.sendMessage(message, false);
     }
 }

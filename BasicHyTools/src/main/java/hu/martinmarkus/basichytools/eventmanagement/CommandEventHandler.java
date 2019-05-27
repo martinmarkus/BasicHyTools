@@ -32,7 +32,7 @@ public class CommandEventHandler {
 
         if (rawCommand == null || rawCommand.isEmpty()) {
             String message = languageConfig.getInvalidCommandUsage();
-            user.sendMessage(message);
+            user.sendMessage(message, false);
             return;
         }
 
@@ -57,7 +57,7 @@ public class CommandEventHandler {
         for (String blockedCommand : blockedCommands) {
             if (command.equalsIgnoreCase(blockedCommand)) {
                 String message = languageConfig.getUnknownCommand();
-                user.sendMessage(message);
+                user.sendMessage(message, false);
                 return true;
             }
         }
