@@ -50,7 +50,7 @@
         <constructor-arg index="31" value="The balance of[%value%] has been set to [%value%]."/> <!-- balanceSet -->
         <constructor-arg index="32" ref="censoredWords"/> <!-- censoredWords -->
         <constructor-arg index="33" value="You can't send this message, because one of your last messages was the same."/> <!-- cantSendThisMessage -->
-        <constructor-arg index="34" value="[Broadcast]"/> <!-- broadcastPrefix -->
+        <constructor-arg index="34" value="[Broadcast]: "/> <!-- broadcastPrefix -->
 
     </bean>
 </beans>

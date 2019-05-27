@@ -43,7 +43,7 @@ public class Broadcast extends GameFunction {
                     message.append(" ");
                 }
             }
-            GlobalMessage.send(broadcastPrefix.concat(" ").concat(message.toString()));
+            GlobalMessage.send(executor, broadcastPrefix.concat(message.toString()));
         });
     }
 }

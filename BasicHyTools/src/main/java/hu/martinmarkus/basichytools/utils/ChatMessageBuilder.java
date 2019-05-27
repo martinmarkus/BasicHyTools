@@ -8,6 +8,7 @@ public class ChatMessageBuilder {
         if (userName == null) {
             return null;
         }
+
         if (prefix == null) {
             prefix = "";
         }
@@ -15,6 +16,7 @@ public class ChatMessageBuilder {
         if (suffix == null) {
             suffix = "";
         }
+
         if (message == null || message.isEmpty()) {
             return null;
         }

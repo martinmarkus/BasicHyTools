@@ -8,7 +8,7 @@ import hu.martinmarkus.basichytools.models.User;
 public class StringUtil {
 
     public static boolean containsIgnoreCase(String str, String searchStr) {
-        if(str == null || searchStr == null) return false;
+        if (str == null || searchStr == null) return false;
 
         final int length = searchStr.length();
         if (length == 0)
