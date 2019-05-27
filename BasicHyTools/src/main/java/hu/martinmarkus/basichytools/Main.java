@@ -1,5 +1,6 @@
 package hu.martinmarkus.basichytools;
 
+import hu.martinmarkus.basichytools.eventmanagement.ChatEventHandler;
 import hu.martinmarkus.basichytools.initializers.ModuleInitializer;
 import hu.martinmarkus.basichytools.eventmanagement.CommandEventHandler;
 import hu.martinmarkus.basichytools.eventmanagement.UserConnectionEventHandler;
@@ -23,6 +24,8 @@ public class Main {
             CommandEventHandler commandEventHandler = new CommandEventHandler();
             commandEventHandler.onUserExecuteCommand();
 
+            ChatEventHandler chatEventHandler = new ChatEventHandler();
+            chatEventHandler.onMessageSent(null);
             ModuleInitializer.unload();
         });
         thread.start();

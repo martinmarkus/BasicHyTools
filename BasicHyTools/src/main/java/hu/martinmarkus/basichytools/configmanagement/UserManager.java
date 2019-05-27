@@ -115,11 +115,13 @@ public class UserManager {
         String loginIp ="123.123.123.123";
         double balance = 1000.0;
         double exp = 0;
+        String prefix = "";
+        String suffix = "";
         String date = DateTimeUtil.getActualDate();
         String group = DefaultConfigManager.getInstance().getDefaultConfig().getDefaultGroup();
         BasicHyToolsLocation location = DefaultConfigManager.getInstance().getDefaultConfig().getSpawnLocation();
 
-        return new User(name, group, balance, exp,
+        return new User(name, group, prefix, suffix, balance, exp,
                 false, loginIp, date, location, new ArrayList<>(),
                 false, false, false, false, true);
     }
