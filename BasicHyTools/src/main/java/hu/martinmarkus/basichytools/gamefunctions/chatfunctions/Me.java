@@ -34,6 +34,11 @@ public class Me extends GameFunction {
     @Override
     public void execute() {
         super.runFunction(() -> {
+            Group group = GroupManager.getInstance().getPermissionGroup(executor.getPermissionGroupName());
+            if (group == null) {
+                return;
+            }
+
             String[] commandArgs = rawCommand.split(" ");
             StringBuilder message = new StringBuilder();
             ChatMessageBuilder builder = new ChatMessageBuilder();
@@ -45,16 +50,12 @@ public class Me extends GameFunction {
                 }
             }
 
-            Group group = GroupManager.getInstance().getPermissionGroup(executor.getPermissionGroupName());
-            if (group != null) {
-                String prefix = builder.defineTitle(executor.getUserPrefix(), group.getPrefix());
-                String suffix = builder.defineTitle(executor.getUserSuffix(), group.getSuffix());
-                String userName = executor.getName();
+            String prefix = builder.defineTitle(executor.getUserPrefix(), group.getPrefix());
+            String suffix = builder.defineTitle(executor.getUserSuffix(), group.getSuffix());
+            String userName = executor.getName();
 
-                String fullMessage = builder.buildMessage(prefix, suffix, userName, " ", message.toString());
-                GlobalMessage.send(executor, fullMessage);
-            }
-
+            String fullMessage = builder.buildMessage(prefix, suffix, userName, " ", message.toString());
+            GlobalMessage.send(executor, fullMessage);
         });
     }
 }

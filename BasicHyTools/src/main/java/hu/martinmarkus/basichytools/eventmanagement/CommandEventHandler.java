@@ -10,6 +10,7 @@ import hu.martinmarkus.basichytools.models.DefaultConfig;
 import hu.martinmarkus.basichytools.models.FunctionParameter;
 import hu.martinmarkus.basichytools.models.LanguageConfig;
 import hu.martinmarkus.basichytools.models.User;
+import hu.martinmarkus.basichytools.utils.StringUtil;
 
 import java.util.List;
 
@@ -20,10 +21,8 @@ public class CommandEventHandler {
         languageConfig = LanguageConfigManager.getInstance().getLanguageConfig();
     }
 
-    public void onUserExecuteCommand() {
+    public void onUserExecuteCommand(String rawCommand) {
         // TODO: get sender and command
-        //String rawCommand = "broadcast hi";
-        String rawCommand = "helpop hi PoOP Guys";
         String userName = "mockUser12345";
 
         User user = UserManager.getInstance().getOnlineUser(userName);
@@ -86,7 +85,7 @@ public class CommandEventHandler {
 
         for (FunctionParameter functionParameter : functionParameters) {
             isCommand = command.equalsIgnoreCase(functionParameter.getName());
-            isAlias = functionParameter.getAliases().contains(command);
+            isAlias = isAlias(command, functionParameter.getAliases());
 
             if (isCommand || isAlias) {
                 String name = functionParameter.getName().toLowerCase();
@@ -97,6 +96,14 @@ public class CommandEventHandler {
         return null;
     }
 
+    private boolean isAlias(String command, List<String> aliases) {
+        for (String alias : aliases) {
+            if (alias.equalsIgnoreCase(command)) {
+                return true;
+            }
+        }
+        return false;
+    }
     private List<FunctionParameter> getFunctionParameters() {
         FunctionParameterManager functionParameterManager = FunctionParameterManager.getInstance();
         return functionParameterManager.getAlLFunctionParameters();
