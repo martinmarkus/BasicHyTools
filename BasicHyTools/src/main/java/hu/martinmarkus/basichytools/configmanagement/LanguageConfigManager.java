@@ -1,6 +1,7 @@
 package hu.martinmarkus.basichytools.configmanagement;
 
 import hu.martinmarkus.basichytools.initializers.ModuleInitializer;
+import hu.martinmarkus.basichytools.initializers.iocfactories.IObjectFactory;
 import hu.martinmarkus.basichytools.initializers.iocfactories.concretefactories.LanguageConfigFactory;
 import hu.martinmarkus.basichytools.models.LanguageConfig;
 import hu.martinmarkus.basichytools.persistence.repositories.ILanguageConfigRepository;
@@ -55,7 +56,7 @@ public class LanguageConfigManager {
     }
 
     private LanguageConfig generateDefaultLanguageConfig() {
-        LanguageConfigFactory languageConfigFactory = new LanguageConfigFactory();
+        IObjectFactory<LanguageConfig> languageConfigFactory = new LanguageConfigFactory();
         return languageConfigFactory.getBean("languageConfig");
     }
 }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+
+    <util:list id="emptyList" value-type="java.lang.String"/>
+
+    <!-- default spawn location -->
+    <bean id="defaultSpawnLocation" class="hu.martinmarkus.basichytools.models.BasicHyToolsLocation">
+        <constructor-arg index="0" value="spawnWorld"/> <!-- worldName -->
+        <constructor-arg index="1" value="10.0f"/> <!-- x -->
+        <constructor-arg index="2" value="10.0f"/> <!-- y -->
+        <constructor-arg index="3" value="10.0f"/> <!-- z -->
+    </bean>
+
+    <!-- new user config -->
+    <bean id="newUser" class="hu.martinmarkus.basichytools.models.User">
+        <constructor-arg index="0" value="invalidName"/> <!-- name, will be overridden -->
+        <constructor-arg index="1" value="default"/> <!-- permissionGroupName, will be overridden -->
+        <constructor-arg index="2" value=""/> <!-- userPrefix -->
+        <constructor-arg index="3" value=""/> <!-- userSuffix -->
+        <constructor-arg index="4" value="1000.0"/> <!-- balance -->
+        <constructor-arg index="5" value="0"/> <!-- exp -->
+        <constructor-arg index="6" value="false"/> <!-- online -->
+        <constructor-arg index="7" value="N/A"/> <!-- loginIp -->
+        <constructor-arg index="8" value="2010-01-01 00:00"/> <!-- loginTime, will be overridden -->
+        <constructor-arg index="9" ref="defaultSpawnLocation"/> <!-- location, will be overridden -->
+        <constructor-arg index="10" ref="emptyList"/> <!-- uniquePermissions -->
+        <constructor-arg index="11" value="false"/> <!-- operator -->
+        <constructor-arg index="12" value="false"/> <!-- muted -->
+        <constructor-arg index="13" value="false"/> <!-- banned -->
+        <constructor-arg index="14" value="false"/> <!-- ipBanned -->
+        <constructor-arg index="15" value="true"/> <!-- whiteListed -->
+    </bean>
+
+</beans>
