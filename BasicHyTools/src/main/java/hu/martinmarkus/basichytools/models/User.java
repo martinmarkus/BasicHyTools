@@ -23,9 +23,14 @@ public class User {
 
     private String name;
     private String permissionGroupName;
+    private String userPrefix;
+    private String userSuffix;
     private double balance;
     private double exp;
+
+    @JsonIgnore
     private boolean online;
+
     private String loginIp;
     private String loginTime;
     private BasicHyToolsLocation location;
@@ -36,13 +41,16 @@ public class User {
     private boolean ipBanned;
     private boolean whiteListed;
 
-    public User(String name, String permissionGroupName, double balance, double exp,
+    public User(String name, String permissionGroupName, String userPrefix, String userSuffix,
+                double balance, double exp,
                 boolean online, String loginIp, String loginTime,
                 BasicHyToolsLocation location, List<String> uniquePermissions,
                 boolean operator, boolean muted, boolean banned, boolean ipBanned,
                 boolean whiteListed) {
         this.name = name;
         this.permissionGroupName = permissionGroupName;
+        this.userPrefix = userPrefix;
+        this.userSuffix = userSuffix;
         this.balance = balance;
         this.exp = exp;
         this.online = online;
@@ -58,16 +66,9 @@ public class User {
     }
 
     @JsonIgnore
-    public void sendMessage(String message) {
-        // TODO: implement default message sending to User
-        message = StringUtil.censorMessage(this, message);
-        System.out.println("Msg to " + name + ": " + message);
-    }
-
-    @JsonIgnore
     public void sendMotd() {
         String motd = LanguageConfigManager.getInstance().getLanguageConfig().getMotd();
-        sendMessage(motd);
+        sendMessage(motd, false);
     }
 
     @JsonIgnore
@@ -78,11 +79,37 @@ public class User {
     }
 
     @JsonIgnore
+    public void sendMessage(String message, boolean doSpamFiltering) {
+        if (doSpamFiltering) {
+            boolean canSendMessage = canSendMessage(message);
+            if (!canSendMessage && !operator) {
+                sendCantSendMessage();
+                return;
+            }
+            addSentMessage(message);
+        }
+
+        if (!operator) {
+            message = StringUtil.censorMessage(this, message);
+        }
+
+        // TODO: implement default message sending to User
+        System.out.println("(user.sendMessage) " + message);
+    }
+
+    @JsonIgnore
     public boolean canSendMessage(String message) {
         if (lastSendMessages == null) {
             lastSendMessages = new LinkedList<>();
         }
         return !lastSendMessages.contains(message.toLowerCase());
+    }
+
+    private void sendCantSendMessage() {
+        LanguageConfig languageConfig = LanguageConfigManager.getInstance().getLanguageConfig();
+        String message = languageConfig.getCantSendThisMessage();
+
+        sendMessage(message, false);
     }
 
     @JsonIgnore
@@ -141,7 +168,9 @@ public class User {
         GroupManager configManager = GroupManager.getInstance();
         Group group = configManager.getPermissionGroup(permissionGroupName);
 
-        allPermissions.addAll(group.getAllPermissions());
+        if (group != null) {
+            allPermissions.addAll(group.getAllPermissions());
+        }
 
         return allPermissions;
     }
@@ -160,7 +189,7 @@ public class User {
         PlaceholderReplacer replacer = new PlaceholderReplacer();
         String message = replacer.replace(languageConfig.getBalanceDecreased(), name, String.valueOf(value),
                 String.valueOf(balance));
-        sendMessage(message);
+        sendMessage(message, false);
     }
 
     @JsonIgnore
@@ -177,7 +206,7 @@ public class User {
         PlaceholderReplacer replacer = new PlaceholderReplacer();
         String message = replacer.replace(languageConfig.getBalanceIncreased(), name, String.valueOf(value),
                 String.valueOf(balance));
-        sendMessage(message);
+        sendMessage(message, false);
     }
 
     @JsonIgnore
@@ -188,7 +217,7 @@ public class User {
         LanguageConfig languageConfig = LanguageConfigManager.getInstance().getLanguageConfig();
         PlaceholderReplacer replacer = new PlaceholderReplacer();
         String message = replacer.replace(languageConfig.getBalanceSet(), String.valueOf(balance));
-        sendMessage(message);
+        sendMessage(message, false);
     }
 
     @JsonIgnore
@@ -229,6 +258,22 @@ public class User {
         this.permissionGroupName = permissionGroupName;
     }
 
+    public String getUserPrefix() {
+        return userPrefix;
+    }
+
+    public void setUserPrefix(String userPrefix) {
+        this.userPrefix = userPrefix;
+    }
+
+    public String getUserSuffix() {
+        return userSuffix;
+    }
+
+    public void setUserSuffix(String userSuffix) {
+        this.userSuffix = userSuffix;
+    }
+
     public double getBalance() {
         return balance;
     }
@@ -245,10 +290,12 @@ public class User {
         this.exp = exp;
     }
 
+    @JsonIgnore
     public boolean isOnline() {
         return online;
     }
 
+    @JsonIgnore
     public void setOnline(boolean isOnline) {
         this.online = isOnline;
     }

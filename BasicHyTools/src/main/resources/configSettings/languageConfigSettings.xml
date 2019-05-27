@@ -51,6 +51,8 @@
         <constructor-arg index="32" ref="censoredWords"/> <!-- censoredWords -->
         <constructor-arg index="33" value="You can't send this message, because one of your last messages was the same."/> <!-- cantSendThisMessage -->
         <constructor-arg index="34" value="[Broadcast]"/> <!-- broadcastPrefix -->
+        <constructor-arg index="35" value="[HelpOp]"/> <!-- helpOp -->
+        <constructor-arg index="36" value=": "/> <!-- separator -->
 
     </bean>
 </beans>

@@ -1,7 +1,6 @@
 package hu.martinmarkus.basichytools;
 
 import hu.martinmarkus.basichytools.initializers.ModuleInitializer;
-import hu.martinmarkus.basichytools.eventmanagement.ChatEventHandler;
 import hu.martinmarkus.basichytools.eventmanagement.CommandEventHandler;
 import hu.martinmarkus.basichytools.eventmanagement.UserConnectionEventHandler;
 import hu.martinmarkus.basichytools.eventmanagement.UserValidationEventHandler;
@@ -17,19 +16,13 @@ public class Main {
 
         Thread thread = new Thread(() -> {
             try {
-                Thread.sleep(3000);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            CommandEventHandler commandEventHandler = new CommandEventHandler();
-            commandEventHandler.onUserExecuteCommand();
 
-            ChatEventHandler chatEventHandler = new ChatEventHandler();
-            chatEventHandler.onMessageSent("Egy NaGyBetŰs fUCk szöPÉLke");
-            chatEventHandler.onMessageSent("asd");
-            chatEventHandler.onMessageSent("Egy");
-            chatEventHandler.onMessageSent("Egy éálkszöPÉLke");
-            chatEventHandler.onMessageSent("asélkélkd");
+            CommandEventHandler commandEventHandler = new CommandEventHandler();
+            commandEventHandler.onUserExecuteCommand(null);
 
             ModuleInitializer.unload();
         });

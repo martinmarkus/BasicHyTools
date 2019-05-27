@@ -5,6 +5,6 @@ import hu.martinmarkus.basichytools.models.FunctionParameter;
 
 public class FunctionParameterFactory extends ObjectFactory<FunctionParameter>{
     public FunctionParameterFactory() {
-        super("functionParameterSettings.xml");
+        super("configSettings/functionParameterSettings.xml");
     }
 }

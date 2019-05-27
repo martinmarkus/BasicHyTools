@@ -18,19 +18,21 @@ public class DefaultConfig {
     private double maxMoney;
     private double minPayAmount;
     private int payCooldown;
-    private int defaultChatCooldown;
+    private int chatCooldown;
     private int announcerInterval;
     private List<String> announcerMessages;
     private BasicHyToolsLocation spawnLocation;
     private Map<String, String> globalMechanismPermissions;
     private List<String> blockedCommands;
+    private String defaultGroup;
 
     public DefaultConfig(int teleportCooldown, int teleportDelay, int teleportInvulnerability,
                          int healCooldown, boolean allowAfk, int autoAfk, int autoAfkKick, int autoSaveInterval,
                          int tpAcceptCancellation, double startingBalance, double minMoney, double maxMoney,
-                         double minPayAmount, int payCooldown, int defaultChatCooldown, int announcerInterval,
+                         double minPayAmount, int payCooldown, int chatCooldown, int announcerInterval,
                          List<String> announcerMessages, BasicHyToolsLocation spawnLocation,
-                         Map<String, String> globalMechanismPermissions, List<String> blockedCommands) {
+                         Map<String, String> globalMechanismPermissions, List<String> blockedCommands,
+                         String defaultGroup) {
         this.teleportCooldown = teleportCooldown;
         this.teleportDelay = teleportDelay;
         this.teleportInvulnerability = teleportInvulnerability;
@@ -45,12 +47,13 @@ public class DefaultConfig {
         this.maxMoney = maxMoney;
         this.minPayAmount = minPayAmount;
         this.payCooldown = payCooldown;
-        this.defaultChatCooldown = defaultChatCooldown;
+        this.chatCooldown = chatCooldown;
         this.announcerInterval = announcerInterval;
         this.announcerMessages = announcerMessages;
         this.spawnLocation = spawnLocation;
         this.globalMechanismPermissions = globalMechanismPermissions;
         this.blockedCommands = blockedCommands;
+        this.defaultGroup = defaultGroup;
     }
 
     public int getTeleportCooldown() {
@@ -165,12 +168,12 @@ public class DefaultConfig {
         this.payCooldown = payCooldown;
     }
 
-    public int getDefaultChatCooldown() {
-        return defaultChatCooldown;
+    public int getChatCooldown() {
+        return chatCooldown;
     }
 
-    public void setDefaultChatCooldown(int defaultChatCooldown) {
-        this.defaultChatCooldown = defaultChatCooldown;
+    public void setChatCooldown(int chatCooldown) {
+        this.chatCooldown = chatCooldown;
     }
 
     public int getAnnouncerInterval() {
@@ -211,5 +214,13 @@ public class DefaultConfig {
 
     public void setBlockedCommands(List<String> blockedCommands) {
         this.blockedCommands = blockedCommands;
+    }
+
+    public String getDefaultGroup() {
+        return defaultGroup;
+    }
+
+    public void setDefaultGroup(String defaultGroup) {
+        this.defaultGroup = defaultGroup;
     }
 }

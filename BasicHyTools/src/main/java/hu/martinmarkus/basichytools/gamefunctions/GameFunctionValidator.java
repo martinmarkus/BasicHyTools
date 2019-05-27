@@ -39,6 +39,7 @@ public class GameFunctionValidator {
             boolean canBypass = executor.hasPermission(functionCooldownPassPermission);
 
             if (isOnCooldown() && !canBypass) {
+                sendCooldownMessage();
                 return false;
             }
         }
@@ -51,11 +52,10 @@ public class GameFunctionValidator {
 
         if (fullCommand.length != 0) {
             int requiredCount = functionParameter.getRequiredParameterCount();
-            boolean atLeast = functionParameter.isConcreteParameterCount();
-            if (atLeast && fullCommand.length - 1 >= requiredCount) {
+            boolean isConcreteParameterCount = functionParameter.isConcreteParameterCount();
+            if (!isConcreteParameterCount && fullCommand.length >= requiredCount) {
                 return true;
-            }
-            if (fullCommand.length - 1 == requiredCount) {
+            } else if (fullCommand.length == requiredCount) {
                 return true;
             }
             sendInvalidParameterCountMessage();
@@ -68,7 +68,7 @@ public class GameFunctionValidator {
         String message = languageConfig.getInvalidCommandUsagePleaseTry();
         PlaceholderReplacer replacer = new PlaceholderReplacer();
         message = replacer.replace(message, command);
-        executor.sendMessage(message);
+        executor.sendMessage(message, false);
     }
 
     private boolean hasMoney() {
@@ -81,7 +81,7 @@ public class GameFunctionValidator {
         boolean hasMoney = balance >= usagePrice;
 
         if (!hasMoney) {
-            executor.sendMessage(languageConfig.getNotEnoughMoney());
+            executor.sendMessage(languageConfig.getNotEnoughMoney(), false);
         }
 
         return hasMoney;
@@ -96,24 +96,23 @@ public class GameFunctionValidator {
         boolean hasPermission = executor.hasPermission(permission);
 
         if (!hasPermission) {
-            executor.sendMessage(languageConfig.getNotEnoughPermission());
+            executor.sendMessage(languageConfig.getNotEnoughPermission(), false);
         }
 
         return hasPermission;
     }
 
     private boolean isOnCooldown() {
-        if (FunctionCooldown.getInstance().isOnCooldown(cooldownContainer)) {
-            String message = languageConfig.getFunctionStillOnCooldown();
-            PlaceholderReplacer replacer = new PlaceholderReplacer();
+        return FunctionCooldown.getInstance().isOnCooldown(cooldownContainer);
+    }
 
-            String cooldownValue = createCooldownMessage();
-            message = replacer.replace(message, functionParameter.getName(), cooldownValue);
-            executor.sendMessage(message);
-            return true;
-        }
+    private void sendCooldownMessage() {
+        String message = languageConfig.getFunctionStillOnCooldown();
+        PlaceholderReplacer replacer = new PlaceholderReplacer();
 
-        return false;
+        String cooldownValue = createCooldownMessage();
+        message = replacer.replace(message, functionParameter.getName(), cooldownValue);
+        executor.sendMessage(message, false);
     }
 
     private String createCooldownMessage() {

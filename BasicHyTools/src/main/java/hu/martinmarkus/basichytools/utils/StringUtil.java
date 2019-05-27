@@ -8,7 +8,7 @@ import hu.martinmarkus.basichytools.models.User;
 public class StringUtil {
 
     public static boolean containsIgnoreCase(String str, String searchStr) {
-        if(str == null || searchStr == null) return false;
+        if (str == null || searchStr == null) return false;
 
         final int length = searchStr.length();
         if (length == 0)
@@ -36,5 +36,19 @@ public class StringUtil {
         }
 
         return message;
+    }
+
+    public static String concatCommandToMessage(String rawCommand) {
+        StringBuilder message = new StringBuilder();
+        String[] commandArgs = rawCommand.split(" ");
+
+        for (int i = 1; i < commandArgs.length; i++) {
+            message.append(commandArgs[i]);
+            if (i != commandArgs.length - 1) {
+                message.append(" ");
+            }
+        }
+
+        return message.toString();
     }
 }

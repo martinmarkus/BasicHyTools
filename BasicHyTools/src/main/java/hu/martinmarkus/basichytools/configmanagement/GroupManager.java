@@ -1,6 +1,7 @@
 package hu.martinmarkus.basichytools.configmanagement;
 
 import hu.martinmarkus.basichytools.initializers.ModuleInitializer;
+import hu.martinmarkus.basichytools.initializers.iocfactories.IObjectFactory;
 import hu.martinmarkus.basichytools.initializers.iocfactories.concretefactories.GroupFactory;
 import hu.martinmarkus.basichytools.models.Group;
 import hu.martinmarkus.basichytools.models.containers.GroupContainer;
@@ -80,7 +81,7 @@ public class GroupManager {
     public GroupContainer generateDefaultGroupContainer() {
         List<Group> groupList = new ArrayList<>();
 
-        GroupFactory groupFactory = new GroupFactory();
+        IObjectFactory<Group> groupFactory = new GroupFactory();
         groupList.add(groupFactory.getBean("default"));
         groupList.add(groupFactory.getBean("builder"));
         groupList.add(groupFactory.getBean("moderator"));

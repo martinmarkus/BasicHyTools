@@ -41,6 +41,8 @@ public class LanguageConfig {
     private List<String> censoredWords;
     private String cantSendThisMessage;
     private String broadcastPrefix;
+    private String helpOpPrefix;
+    private String separator;
 
     public LanguageConfig() {
 
@@ -55,7 +57,7 @@ public class LanguageConfig {
                           String invalidCommandUsagePleaseTry, String configSaveSuccessful, String chatStillOnCooldown,
                           String functionStillOnCooldown, String forOneMoreSecond, String minute, String second,
                           String balanceIncreased, String balanceDecreased, String balanceSet, List<String> censoredWords,
-                          String cantSendThisMessage, String broadcastPrefix) {
+                          String cantSendThisMessage, String broadcastPrefix, String helpOpPrefix, String separator) {
         this.motd = motd;
         this.joinMessage = joinMessage;
         this.quitMessage = quitMessage;
@@ -91,6 +93,8 @@ public class LanguageConfig {
         this.censoredWords = censoredWords;
         this.cantSendThisMessage = cantSendThisMessage;
         this.broadcastPrefix = broadcastPrefix;
+        this.helpOpPrefix = helpOpPrefix;
+        this.separator = separator;
     }
 
     public String getMotd() {
@@ -371,5 +375,21 @@ public class LanguageConfig {
 
     public void setBroadcastPrefix(String broadcastPrefix) {
         this.broadcastPrefix = broadcastPrefix;
+    }
+
+    public String getHelpOpPrefix() {
+        return helpOpPrefix;
+    }
+
+    public void setHelpOpPrefix(String helpOpPrefix) {
+        this.helpOpPrefix = helpOpPrefix;
+    }
+
+    public String getSeparator() {
+        return separator;
+    }
+
+    public void setSeparator(String separator) {
+        this.separator = separator;
     }
 }
