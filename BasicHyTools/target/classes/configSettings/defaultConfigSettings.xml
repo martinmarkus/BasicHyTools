@@ -56,4 +56,5 @@
         <constructor-arg index="19" ref="blockedCommands"/> <!-- blockedCommands -->
         <constructor-arg index="20" value="default"/> <!-- defaultGroup -->
     </bean>
+
 </beans>
