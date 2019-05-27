@@ -28,7 +28,7 @@ public class ChatCooldown {
 
     private ChatCooldown() {
         chatMessageCooldown = new HashMap<>();
-        deafultChatCooldown = DefaultConfigManager.getInstance().getDefaultConfig().getDefaultChatCooldown();
+        deafultChatCooldown = DefaultConfigManager.getInstance().getDefaultConfig().getChatCooldown();
         isRunning = false;
     }
 

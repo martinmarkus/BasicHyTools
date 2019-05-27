@@ -38,6 +38,7 @@ public class ChatEventHandler {
             return;
         }
 
+        message = StringUtil.censorMessage(user, message);
         boolean canSendMessage = user.canSendMessage(message);
         if (!canSendMessage) {
             sendCantSendMessage(user);
@@ -45,7 +46,6 @@ public class ChatEventHandler {
             return;
         }
 
-        message = StringUtil.censorMessage(user, message);
         executeMessageSending(user, message);
     }
 
@@ -66,6 +66,7 @@ public class ChatEventHandler {
             return;
         }
 
+        user.addSentMessage(message);
         Group group = GroupManager.getInstance().getPermissionGroup(user.getPermissionGroupName());
         ChatMessageBuilder builder = new ChatMessageBuilder();
         String prefix;
