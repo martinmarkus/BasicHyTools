@@ -1,12 +1,15 @@
 package hu.martinmarkus.basichytools.eventmanagement;
 
 import hu.martinmarkus.basichytools.configmanagement.DefaultConfigManager;
+import hu.martinmarkus.basichytools.configmanagement.GroupManager;
 import hu.martinmarkus.basichytools.configmanagement.LanguageConfigManager;
 import hu.martinmarkus.basichytools.configmanagement.UserManager;
 import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.ChatCooldown;
 import hu.martinmarkus.basichytools.models.DefaultConfig;
+import hu.martinmarkus.basichytools.models.Group;
 import hu.martinmarkus.basichytools.models.LanguageConfig;
 import hu.martinmarkus.basichytools.models.User;
+import hu.martinmarkus.basichytools.utils.ChatMessageBuilder;
 import hu.martinmarkus.basichytools.utils.PlaceholderReplacer;
 import hu.martinmarkus.basichytools.utils.StringUtil;
 
@@ -42,15 +45,14 @@ public class ChatEventHandler {
             return;
         }
 
-        user.addSentMessage(message);
         message = StringUtil.censorMessage(user, message);
         executeMessageSending(user, message);
     }
 
-
     private boolean isOnCooldown(User user) {
         String chatCooldownPassPermission = defaultConfig.getGlobalMechanismPermissions().get("chatCooldownBypass");
         int cooldown = ChatCooldown.getInstance().getCooldownValue(user.getName());
+
         if (!user.hasPermission(chatCooldownPassPermission) && cooldown > 0) {
             ignoreMessageSendWithWarn(user, cooldown);
             return true;
@@ -60,17 +62,32 @@ public class ChatEventHandler {
     }
 
     private void executeMessageSending(User user, String message) {
-        ChatCooldown.getInstance().addChatCooldown(user.getName());
-        // TODO: send message by user to everyone
+        if (user == null || message == null || message.isEmpty()) {
+            return;
+        }
 
-        System.out.println("execute msg send to everyone by " + user.getName() + ": " + message);
+        Group group = GroupManager.getInstance().getPermissionGroup(user.getPermissionGroupName());
+        ChatMessageBuilder builder = new ChatMessageBuilder();
+        String prefix;
+        String suffix;
+
+        if (group == null) {
+            prefix = builder.defineTitle(user.getUserPrefix());
+            suffix = builder.defineTitle(user.getUserSuffix());
+        } else {
+            prefix = builder.defineTitle(user.getUserPrefix(), group.getPrefix());
+            suffix = builder.defineTitle(user.getUserSuffix(), group.getSuffix());
+        }
+
+        String fullMessage = builder.buildMessage(prefix, suffix, user.getName(), message);
+        System.out.println(fullMessage);    // TODO: send message by user to everyone
+        ChatCooldown.getInstance().addChatCooldown(user.getName());
     }
 
     private void ignoreMessageSendWithWarn(User user, int cooldown) {
         ignoreMessageEvent();
         sendStillOnCooldown(user, cooldown);
     }
-
 
     private void ignoreMessageEvent() {
         // TODO: ignore message send event

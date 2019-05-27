@@ -23,6 +23,8 @@ public class User {
 
     private String name;
     private String permissionGroupName;
+    private String userPrefix;
+    private String userSuffix;
     private double balance;
     private double exp;
     private boolean online;
@@ -36,7 +38,8 @@ public class User {
     private boolean ipBanned;
     private boolean whiteListed;
 
-    public User(String name, String permissionGroupName, double balance, double exp,
+    public User(String name, String permissionGroupName, String userPrefix, String userSuffix,
+                double balance, double exp,
                 boolean online, String loginIp, String loginTime,
                 BasicHyToolsLocation location, List<String> uniquePermissions,
                 boolean operator, boolean muted, boolean banned, boolean ipBanned,
@@ -61,7 +64,7 @@ public class User {
     public void sendMessage(String message) {
         // TODO: implement default message sending to User
         message = StringUtil.censorMessage(this, message);
-        System.out.println("Msg to " + name + ": " + message);
+        System.out.println("Private msg to " + name + ": " + message);
     }
 
     @JsonIgnore
@@ -229,6 +232,22 @@ public class User {
 
     public void setPermissionGroupName(String permissionGroupName) {
         this.permissionGroupName = permissionGroupName;
+    }
+
+    public String getUserPrefix() {
+        return userPrefix;
+    }
+
+    public void setUserPrefix(String userPrefix) {
+        this.userPrefix = userPrefix;
+    }
+
+    public String getUserSuffix() {
+        return userSuffix;
+    }
+
+    public void setUserSuffix(String userSuffix) {
+        this.userSuffix = userSuffix;
     }
 
     public double getBalance() {
