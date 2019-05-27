@@ -38,6 +38,10 @@ public class Announcer {
             return;
         }
 
+        if (announceInterval <= 0) {
+            return;
+        }
+
         isRunning = true;
         executorService = Executors.newScheduledThreadPool(0);
         executorService.scheduleAtFixedRate(this::announceRandom,

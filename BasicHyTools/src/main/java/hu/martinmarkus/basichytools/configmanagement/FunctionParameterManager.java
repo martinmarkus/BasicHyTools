@@ -1,5 +1,6 @@
 package hu.martinmarkus.basichytools.configmanagement;
 
+import hu.martinmarkus.basichytools.initializers.iocfactories.IObjectFactory;
 import hu.martinmarkus.basichytools.initializers.iocfactories.concretefactories.FunctionParameterFactory;
 import hu.martinmarkus.basichytools.initializers.ModuleInitializer;
 import hu.martinmarkus.basichytools.models.FunctionParameter;
@@ -80,7 +81,7 @@ public class FunctionParameterManager {
 
     private FunctionParameterContainer generateDefaultFunctionParameterContainer() {
         List<FunctionParameter> functionParameters = new ArrayList<>();
-        FunctionParameterFactory functionParameterFactory = new FunctionParameterFactory();
+        IObjectFactory<FunctionParameter> functionParameterFactory = new FunctionParameterFactory();
 
         functionParameters.add(functionParameterFactory.getBean("me"));
         functionParameters.add(functionParameterFactory.getBean("broadcast"));

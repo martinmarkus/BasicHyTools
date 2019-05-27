@@ -1,6 +1,7 @@
 package hu.martinmarkus.basichytools.configmanagement;
 
 import hu.martinmarkus.basichytools.initializers.ModuleInitializer;
+import hu.martinmarkus.basichytools.initializers.iocfactories.IObjectFactory;
 import hu.martinmarkus.basichytools.initializers.iocfactories.concretefactories.DefaultConfigFactory;
 import hu.martinmarkus.basichytools.models.DefaultConfig;
 import hu.martinmarkus.basichytools.persistence.repositories.DefaultConfigRepository;
@@ -61,7 +62,7 @@ public class DefaultConfigManager {
     }
 
     public DefaultConfig generateDefaultConfig() {
-        DefaultConfigFactory defaultConfigFactory = new DefaultConfigFactory();
+        IObjectFactory<DefaultConfig> defaultConfigFactory = new DefaultConfigFactory();
         return defaultConfigFactory.getBean("defaultConfig");
     }
 }

@@ -27,7 +27,10 @@ public class User {
     private String userSuffix;
     private double balance;
     private double exp;
+
+    @JsonIgnore
     private boolean online;
+
     private String loginIp;
     private String loginTime;
     private BasicHyToolsLocation location;
@@ -46,6 +49,8 @@ public class User {
                 boolean whiteListed) {
         this.name = name;
         this.permissionGroupName = permissionGroupName;
+        this.userPrefix = userPrefix;
+        this.userSuffix = userSuffix;
         this.balance = balance;
         this.exp = exp;
         this.online = online;
@@ -285,10 +290,12 @@ public class User {
         this.exp = exp;
     }
 
+    @JsonIgnore
     public boolean isOnline() {
         return online;
     }
 
+    @JsonIgnore
     public void setOnline(boolean isOnline) {
         this.online = isOnline;
     }

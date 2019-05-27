@@ -1,6 +1,8 @@
 package hu.martinmarkus.basichytools.configmanagement;
 
 import hu.martinmarkus.basichytools.initializers.ModuleInitializer;
+import hu.martinmarkus.basichytools.initializers.iocfactories.IObjectFactory;
+import hu.martinmarkus.basichytools.initializers.iocfactories.concretefactories.UserFactory;
 import hu.martinmarkus.basichytools.utils.DateTimeUtil;
 import hu.martinmarkus.basichytools.models.containers.UserList;
 import hu.martinmarkus.basichytools.models.BasicHyToolsLocation;
@@ -9,7 +11,6 @@ import hu.martinmarkus.basichytools.persistence.repositories.IUserRepository;
 import hu.martinmarkus.basichytools.persistence.repositories.UserRepository;
 import hu.martinmarkus.configmanagerlibrary.threading.ResultListener;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class UserManager {
@@ -77,6 +78,8 @@ public class UserManager {
                     }
                 });
             } else {
+                String loginIp = getLoginIp(user.getName());
+                user.setLoginIp(loginIp);
                 addUser(user, registerListener);
             }
         });
@@ -105,24 +108,30 @@ public class UserManager {
         }
     }
 
+    private String getLoginIp(String userName) {
+        String loginIp = "123.123.123.123";
+
+        // TODO: obtain the login ip of userName's User
+
+        return loginIp;
+    }
+
     public void set(String name, User user) {
         userRepository.set(name, user);
     }
 
     // TODO: delete on release, doesn't require IoC solution
     public User generateDefaultUser(String name) {
-        // TODO get the IP of 'name' named player
-        String loginIp ="123.123.123.123";
-        double balance = 1000.0;
-        double exp = 0;
-        String prefix = "";
-        String suffix = "";
-        String date = DateTimeUtil.getActualDate();
         String group = DefaultConfigManager.getInstance().getDefaultConfig().getDefaultGroup();
         BasicHyToolsLocation location = DefaultConfigManager.getInstance().getDefaultConfig().getSpawnLocation();
+        IObjectFactory<User> userFactory = new UserFactory();
+        User newUser = userFactory.getBean("newUser");
 
-        return new User(name, group, prefix, suffix, balance, exp,
-                false, loginIp, date, location, new ArrayList<>(),
-                false, false, false, false, true);
+        newUser.setName(name);
+        newUser.setPermissionGroupName(group);
+        newUser.setLocation(location);
+        newUser.setLoginTime(DateTimeUtil.getActualDate());
+
+        return newUser;
     }
 }
