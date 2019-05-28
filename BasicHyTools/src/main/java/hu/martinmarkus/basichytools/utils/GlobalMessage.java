@@ -9,9 +9,10 @@ public class GlobalMessage {
     }
 
     public static void send(String message) {
-        // TODO: sendWithCensor hytale global message
         String lineSeparator = System.getProperty("line.separator");
         message = message.replace("%newline%", lineSeparator);
+
+        // TODO: sendWithCensor hytale global message
         System.out.println("To Everyone: " + message);
     }
 }
