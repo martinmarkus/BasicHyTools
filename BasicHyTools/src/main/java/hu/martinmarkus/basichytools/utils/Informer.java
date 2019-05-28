@@ -1,7 +1,6 @@
-package hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms;
+package hu.martinmarkus.basichytools.utils;
 
 import hu.martinmarkus.basichytools.configmanagement.LanguageConfigManager;
-import hu.martinmarkus.basichytools.utils.DateTimeUtil;
 
 public class Informer {
     private static final String BASE = "BasicHyTools";

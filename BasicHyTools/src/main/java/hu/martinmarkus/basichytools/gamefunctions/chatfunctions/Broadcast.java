@@ -1,7 +1,7 @@
 package hu.martinmarkus.basichytools.gamefunctions.chatfunctions;
 
 import hu.martinmarkus.basichytools.gamefunctions.GameFunction;
-import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.GlobalMessage;
+import hu.martinmarkus.basichytools.utils.GlobalMessage;
 import hu.martinmarkus.basichytools.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

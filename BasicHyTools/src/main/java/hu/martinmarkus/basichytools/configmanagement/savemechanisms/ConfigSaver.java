@@ -1,4 +1,4 @@
-package hu.martinmarkus.basichytools.globalmechanisms.savemechanisms;
+package hu.martinmarkus.basichytools.configmanagement.savemechanisms;
 
 import hu.martinmarkus.basichytools.configmanagement.DefaultConfigManager;
 import hu.martinmarkus.basichytools.configmanagement.LanguageConfigManager;

@@ -2,12 +2,12 @@ package hu.martinmarkus.basichytools.initializers;
 
 import hu.martinmarkus.basichytools.configmanagement.*;
 import hu.martinmarkus.basichytools.initializers.iocfactories.concretefactories.GameFunctionFactory;
-import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.Announcer;
-import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.ChatCooldown;
-import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.FunctionCooldown;
-import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.Informer;
-import hu.martinmarkus.basichytools.globalmechanisms.savemechanisms.GroupSaver;
-import hu.martinmarkus.basichytools.globalmechanisms.savemechanisms.UserSaver;
+import hu.martinmarkus.basichytools.utils.repeatingfunctions.Announcer;
+import hu.martinmarkus.basichytools.utils.repeatingfunctions.ChatCooldown;
+import hu.martinmarkus.basichytools.utils.repeatingfunctions.FunctionCooldown;
+import hu.martinmarkus.basichytools.utils.Informer;
+import hu.martinmarkus.basichytools.configmanagement.savemechanisms.GroupSaver;
+import hu.martinmarkus.basichytools.configmanagement.savemechanisms.UserSaver;
 
 import java.io.IOException;
 import java.util.Properties;

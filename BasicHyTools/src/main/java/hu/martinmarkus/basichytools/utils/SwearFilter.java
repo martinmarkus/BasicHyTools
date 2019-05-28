@@ -1,13 +1,10 @@
-package hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms;
+package hu.martinmarkus.basichytools.utils;
 
 import hu.martinmarkus.basichytools.configmanagement.LanguageConfigManager;
-import hu.martinmarkus.basichytools.utils.StringUtil;
 
 import java.util.List;
 
 public class SwearFilter {
-    private final String CENSOR_CHAR = "*";
-
     private List<String> censoredWords;
 
     public SwearFilter() {
@@ -59,7 +56,7 @@ public class SwearFilter {
         StringBuilder censoredChars = new StringBuilder();
 
         for (int i = 0; i < charLength; i++) {
-            censoredChars.append(CENSOR_CHAR);
+            censoredChars.append("*");
         }
 
         return censoredChars.toString();

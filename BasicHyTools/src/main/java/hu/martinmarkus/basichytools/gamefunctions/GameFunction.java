@@ -2,8 +2,8 @@ package hu.martinmarkus.basichytools.gamefunctions;
 
 import hu.martinmarkus.basichytools.configmanagement.FunctionParameterManager;
 import hu.martinmarkus.basichytools.configmanagement.LanguageConfigManager;
-import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.FunctionCooldown;
-import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.Informer;
+import hu.martinmarkus.basichytools.utils.repeatingfunctions.FunctionCooldown;
+import hu.martinmarkus.basichytools.utils.Informer;
 import hu.martinmarkus.basichytools.models.FunctionParameter;
 import hu.martinmarkus.basichytools.models.LanguageConfig;
 import hu.martinmarkus.basichytools.models.User;

@@ -1,8 +1,8 @@
-package hu.martinmarkus.basichytools.globalmechanisms.savemechanisms;
+package hu.martinmarkus.basichytools.configmanagement.savemechanisms;
 
 import hu.martinmarkus.basichytools.initializers.ModuleInitializer;
 import hu.martinmarkus.basichytools.configmanagement.GroupManager;
-import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.Informer;
+import hu.martinmarkus.basichytools.utils.Informer;
 import hu.martinmarkus.basichytools.models.containers.GroupContainer;
 import hu.martinmarkus.basichytools.persistence.repositories.GroupContainerRepository;
 

@@ -2,8 +2,6 @@ package hu.martinmarkus.basichytools.utils;
 
 public class ChatMessageBuilder {
 
-    private final String SEPARATOR = ":";
-
     public String buildMessage(String prefix, String suffix, String userName, String separator, String message) {
         if (userName == null) {
             return null;

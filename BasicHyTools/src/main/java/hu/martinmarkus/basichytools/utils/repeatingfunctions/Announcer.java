@@ -1,4 +1,4 @@
-package hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms;
+package hu.martinmarkus.basichytools.utils.repeatingfunctions;
 
 import hu.martinmarkus.basichytools.configmanagement.DefaultConfigManager;
 import hu.martinmarkus.basichytools.models.DefaultConfig;

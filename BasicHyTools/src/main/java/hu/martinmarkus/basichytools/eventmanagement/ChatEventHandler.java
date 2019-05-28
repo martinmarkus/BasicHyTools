@@ -4,14 +4,13 @@ import hu.martinmarkus.basichytools.configmanagement.DefaultConfigManager;
 import hu.martinmarkus.basichytools.configmanagement.GroupManager;
 import hu.martinmarkus.basichytools.configmanagement.LanguageConfigManager;
 import hu.martinmarkus.basichytools.configmanagement.UserManager;
-import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.ChatCooldown;
+import hu.martinmarkus.basichytools.utils.repeatingfunctions.ChatCooldown;
 import hu.martinmarkus.basichytools.models.DefaultConfig;
 import hu.martinmarkus.basichytools.models.Group;
 import hu.martinmarkus.basichytools.models.LanguageConfig;
 import hu.martinmarkus.basichytools.models.User;
 import hu.martinmarkus.basichytools.utils.ChatMessageBuilder;
 import hu.martinmarkus.basichytools.utils.PlaceholderReplacer;
-import hu.martinmarkus.basichytools.utils.StringUtil;
 
 public class ChatEventHandler {
 

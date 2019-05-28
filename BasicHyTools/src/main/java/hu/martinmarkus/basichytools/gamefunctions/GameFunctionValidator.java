@@ -1,7 +1,7 @@
 package hu.martinmarkus.basichytools.gamefunctions;
 
 import hu.martinmarkus.basichytools.configmanagement.DefaultConfigManager;
-import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.FunctionCooldown;
+import hu.martinmarkus.basichytools.utils.repeatingfunctions.FunctionCooldown;
 import hu.martinmarkus.basichytools.models.DefaultConfig;
 import hu.martinmarkus.basichytools.models.FunctionParameter;
 import hu.martinmarkus.basichytools.models.LanguageConfig;
