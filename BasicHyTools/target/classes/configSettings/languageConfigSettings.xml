@@ -16,7 +16,7 @@
 
     <!-- language config -->
     <bean id="languageConfig" class="hu.martinmarkus.basichytools.models.LanguageConfig">
-        <constructor-arg index="0" value="Welcome, player %value%!%newline%Online players: %value%%newline%Have Fun!"/> <!-- motd -->
+        <constructor-arg index="0" value="Welcome, %value%!%newline%Online players: %value%%newline%Have Fun!"/> <!-- motd -->
         <constructor-arg index="1" value="[%value%] has joined."/> <!-- joinMessage -->
         <constructor-arg index="2" value="[%value%] has quited."/> <!-- quitMessage -->
         <constructor-arg index="3" value="[%value%] is AFK."/> <!-- afkOn -->
