@@ -87,6 +87,7 @@ public class FunctionParameterManager {
         functionParameters.add(functionParameterFactory.getBean("broadcast"));
         functionParameters.add(functionParameterFactory.getBean("balanceTopList"));
         functionParameters.add(functionParameterFactory.getBean("helpOp"));
+        functionParameters.add(functionParameterFactory.getBean("whisper"));
 
         return new FunctionParameterContainer(functionParameters);
     }

@@ -37,11 +37,11 @@ public class StringUtil {
         return message;
     }
 
-    public static String concatCommandToMessage(String rawCommand) {
+    public static String concatCommandToMessage(String rawCommand, int startingIndex) {
         StringBuilder message = new StringBuilder();
         String[] commandArgs = rawCommand.split(" ");
 
-        for (int i = 1; i < commandArgs.length; i++) {
+        for (int i = startingIndex; i < commandArgs.length; i++) {
             message.append(commandArgs[i]);
             if (i != commandArgs.length - 1) {
                 message.append(" ");

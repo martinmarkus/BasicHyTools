@@ -43,6 +43,10 @@ public class LanguageConfig {
     private String broadcastPrefix;
     private String helpOpPrefix;
     private String separator;
+    private String unknownUser;
+    private String notEnoughPermissionForWhisper;
+    private String whisperToYou;
+    private String whisperFromYou;
 
     public LanguageConfig() {
 
@@ -57,7 +61,8 @@ public class LanguageConfig {
                           String invalidCommandUsagePleaseTry, String configSaveSuccessful, String chatStillOnCooldown,
                           String functionStillOnCooldown, String forOneMoreSecond, String minute, String second,
                           String balanceIncreased, String balanceDecreased, String balanceSet, List<String> censoredWords,
-                          String cantSendThisMessage, String broadcastPrefix, String helpOpPrefix, String separator) {
+                          String cantSendThisMessage, String broadcastPrefix, String helpOpPrefix, String separator,
+                          String unknownUser, String notEnoughPermissionForWhisper, String whisperToYou, String whisperFromYou) {
         this.motd = motd;
         this.joinMessage = joinMessage;
         this.quitMessage = quitMessage;
@@ -95,6 +100,10 @@ public class LanguageConfig {
         this.broadcastPrefix = broadcastPrefix;
         this.helpOpPrefix = helpOpPrefix;
         this.separator = separator;
+        this.unknownUser = unknownUser;
+        this.notEnoughPermissionForWhisper = notEnoughPermissionForWhisper;
+        this.whisperToYou = whisperToYou;
+        this.whisperFromYou = whisperFromYou;
     }
 
     public String getMotd() {
@@ -391,5 +400,37 @@ public class LanguageConfig {
 
     public void setSeparator(String separator) {
         this.separator = separator;
+    }
+
+    public String getUnknownUser() {
+        return unknownUser;
+    }
+
+    public void setUnknownUser(String unknownUser) {
+        this.unknownUser = unknownUser;
+    }
+
+    public String getNotEnoughPermissionForWhisper() {
+        return notEnoughPermissionForWhisper;
+    }
+
+    public void setNotEnoughPermissionForWhisper(String notEnoughPermissionForWhisper) {
+        this.notEnoughPermissionForWhisper = notEnoughPermissionForWhisper;
+    }
+
+    public String getWhisperToYou() {
+        return whisperToYou;
+    }
+
+    public void setWhisperToYou(String whisperToYou) {
+        this.whisperToYou = whisperToYou;
+    }
+
+    public String getWhisperFromYou() {
+        return whisperFromYou;
+    }
+
+    public void setWhisperFromYou(String whisperFromYou) {
+        this.whisperFromYou = whisperFromYou;
     }
 }

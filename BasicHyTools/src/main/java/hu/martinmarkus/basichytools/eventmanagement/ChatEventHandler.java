@@ -103,6 +103,6 @@ public class ChatEventHandler {
         PlaceholderReplacer replacer = new PlaceholderReplacer();
         message = replacer.replace(message, messageValue);
 
-        user.sendMessage(message, false);
+        user.sendMessage(message);
     }
 }

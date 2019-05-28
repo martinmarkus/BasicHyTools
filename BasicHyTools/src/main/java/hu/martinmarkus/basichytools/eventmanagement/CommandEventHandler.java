@@ -60,7 +60,7 @@ public class CommandEventHandler {
         for (String blockedCommand : blockedCommands) {
             if (command.equalsIgnoreCase(blockedCommand)) {
                 String message = languageConfig.getUnknownCommand();
-                user.sendMessage(message, false);
+                user.sendMessage(message);
                 return true;
             }
         }

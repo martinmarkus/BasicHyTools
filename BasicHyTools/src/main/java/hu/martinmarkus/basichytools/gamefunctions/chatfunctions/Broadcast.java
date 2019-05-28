@@ -1,8 +1,11 @@
 package hu.martinmarkus.basichytools.gamefunctions.chatfunctions;
 
+import com.sun.corba.se.impl.protocol.giopmsgheaders.MessageBase;
 import hu.martinmarkus.basichytools.gamefunctions.GameFunction;
+import hu.martinmarkus.basichytools.utils.ChatMessageBuilder;
 import hu.martinmarkus.basichytools.utils.GlobalMessage;
 import hu.martinmarkus.basichytools.models.User;
+import hu.martinmarkus.basichytools.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -32,18 +35,10 @@ public class Broadcast extends GameFunction {
     @Override
     public void execute() {
         super.runFunction(() -> {
-            String[] commandArgs = rawCommand.split(" ");
-            StringBuilder message = new StringBuilder();
-
-            for (int i = 1; i < commandArgs.length; i++) {
-                message.append(commandArgs[i]);
-                if (i != commandArgs.length - 1) {
-                    message.append(" ");
-                }
-            }
+            String message =  StringUtil.concatCommandToMessage(rawCommand, 1);
 
             String separator = languageConfig.getSeparator();
-            String fulMessage = broadcastPrefix.concat(separator).concat(message.toString());
+            String fulMessage = broadcastPrefix.concat(separator).concat(message);
             GlobalMessage.sendWithCensor(executor, fulMessage);
         });
     }

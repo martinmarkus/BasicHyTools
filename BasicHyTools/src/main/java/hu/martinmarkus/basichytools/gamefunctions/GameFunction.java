@@ -111,7 +111,7 @@ public abstract class GameFunction {
         if (!isOperator) {
             double usagePrice = functionParameter.getUsagePrice();
             executor.decreaseBalance(usagePrice);
-            executor.sendMessage(languageConfig.getCommandExecuted(), false);
+            executor.sendMessage(languageConfig.getCommandExecuted());
         }
 
         FunctionCooldown.getInstance().addCooldown(cooldownContainer);

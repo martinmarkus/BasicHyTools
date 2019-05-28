@@ -53,6 +53,10 @@
         <constructor-arg index="34" value="[Broadcast]"/> <!-- broadcastPrefix -->
         <constructor-arg index="35" value="[HelpOp]"/> <!-- helpOp -->
         <constructor-arg index="36" value=": "/> <!-- separator -->
+        <constructor-arg index="37" value="%value% is not a valid user."/> <!-- unknownUser -->
+        <constructor-arg index="38" value="%value% does not have enough permission to receive private message."/> <!-- notEnoughPermissionForWhisper -->
+        <constructor-arg index="39" value=" -> [You]"/> <!-- whisperToYou -->
+        <constructor-arg index="40" value="[You] -> "/> <!-- whisperFromYou -->
 
     </bean>
 </beans>
