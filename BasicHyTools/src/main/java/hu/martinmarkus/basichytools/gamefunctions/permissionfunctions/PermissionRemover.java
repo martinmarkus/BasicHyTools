@@ -7,10 +7,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-public class PermRemover extends GameFunction {
+public class PermissionRemover extends GameFunction {
 
     @Autowired
-    public PermRemover(@Value("permRemover") String functionName) {
+    public PermissionRemover(@Value("permissionRemover") String functionName) {
         super(functionName);
     }
 

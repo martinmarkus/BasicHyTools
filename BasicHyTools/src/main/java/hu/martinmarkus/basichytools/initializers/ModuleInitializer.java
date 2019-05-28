@@ -6,8 +6,8 @@ import hu.martinmarkus.basichytools.utils.repeatingfunctions.Announcer;
 import hu.martinmarkus.basichytools.utils.repeatingfunctions.ChatCooldown;
 import hu.martinmarkus.basichytools.utils.repeatingfunctions.FunctionCooldown;
 import hu.martinmarkus.basichytools.utils.Informer;
-import hu.martinmarkus.basichytools.configmanagement.savemechanisms.GroupSaver;
-import hu.martinmarkus.basichytools.configmanagement.savemechanisms.UserSaver;
+import hu.martinmarkus.basichytools.configmanagement.configsavers.GroupSaver;
+import hu.martinmarkus.basichytools.configmanagement.configsavers.UserSaver;
 
 import java.io.IOException;
 import java.util.Properties;

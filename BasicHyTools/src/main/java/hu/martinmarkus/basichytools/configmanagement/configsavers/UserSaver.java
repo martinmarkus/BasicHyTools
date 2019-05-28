@@ -1,4 +1,4 @@
-package hu.martinmarkus.basichytools.configmanagement.savemechanisms;
+package hu.martinmarkus.basichytools.configmanagement.configsavers;
 
 import hu.martinmarkus.basichytools.initializers.ModuleInitializer;
 import hu.martinmarkus.basichytools.configmanagement.UserManager;

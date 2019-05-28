@@ -7,10 +7,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-public class PermAdder extends GameFunction {
+public class GroupResetter extends GameFunction {
 
     @Autowired
-    public PermAdder(@Value("permAdder") String functionName) {
+    public GroupResetter(@Value("groupResetter") String functionName) {
         super(functionName);
     }
 

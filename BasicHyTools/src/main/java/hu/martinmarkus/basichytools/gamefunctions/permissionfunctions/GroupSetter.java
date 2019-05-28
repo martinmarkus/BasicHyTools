@@ -7,10 +7,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-public class RankRemover extends GameFunction {
+public class GroupSetter extends GameFunction {
 
     @Autowired
-    public RankRemover(@Value("rankRemover") String functionName) {
+    public GroupSetter(@Value("groupSetter") String functionName) {
         super(functionName);
     }
 
