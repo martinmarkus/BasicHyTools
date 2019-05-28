@@ -1,4 +1,4 @@
-package hu.martinmarkus.basichytools.gamefunctions.whitelistfunctions;
+package hu.martinmarkus.basichytools.gamefunctions.chatfunctions;
 
 import hu.martinmarkus.basichytools.gamefunctions.GameFunction;
 import hu.martinmarkus.basichytools.models.User;
@@ -7,10 +7,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-public class WhiteListAdder extends GameFunction {
+public class CommandSpy extends GameFunction {
 
     @Autowired
-    public WhiteListAdder(@Value("whiteListSwitcher") String functionName) {
+    public CommandSpy(@Value("commandSpy") String functionName) {
         super(functionName);
     }
 
@@ -31,7 +31,7 @@ public class WhiteListAdder extends GameFunction {
     public void execute() {
         super.runFunction(() -> {
             // TODO: implement function
-            System.out.println(this.getClass().getName() + " function is not implemented");
+            System.out.println(this.getClass().getName() + " function is not implemented.");
         });
     }
 }

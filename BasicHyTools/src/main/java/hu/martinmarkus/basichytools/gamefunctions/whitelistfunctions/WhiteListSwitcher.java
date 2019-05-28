@@ -7,10 +7,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-public class WhiteListAdder extends GameFunction {
+public class WhiteListSwitcher extends GameFunction {
 
     @Autowired
-    public WhiteListAdder(@Value("whiteListSwitcher") String functionName) {
+    public WhiteListSwitcher(@Value("whiteListDisabler") String functionName) {
         super(functionName);
     }
 

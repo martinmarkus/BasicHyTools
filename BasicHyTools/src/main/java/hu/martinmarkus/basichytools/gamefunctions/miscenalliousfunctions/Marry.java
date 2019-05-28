@@ -1,4 +1,5 @@
-package hu.martinmarkus.basichytools.gamefunctions.vaultfunctions;
+package hu.martinmarkus.basichytools.gamefunctions.miscenalliousfunctions;
+
 
 import hu.martinmarkus.basichytools.gamefunctions.GameFunction;
 import hu.martinmarkus.basichytools.models.User;
@@ -7,10 +8,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-public class BalanceTaker extends GameFunction {
+public class Marry extends GameFunction {
 
     @Autowired
-    public BalanceTaker(@Value("balanceTaker") String functionName) {
+    public Marry(@Value("marry") String functionName) {
         super(functionName);
     }
 

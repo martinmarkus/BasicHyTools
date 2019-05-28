@@ -7,10 +7,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-public class BalanceGiver extends GameFunction {
+public class BalanceAdder extends GameFunction {
 
     @Autowired
-    public BalanceGiver(@Value("balanceGiver") String functionName) {
+    public BalanceAdder(@Value("balanceAdder") String functionName) {
         super(functionName);
     }
 
