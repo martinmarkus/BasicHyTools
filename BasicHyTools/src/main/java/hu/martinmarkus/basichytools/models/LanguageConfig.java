@@ -50,6 +50,8 @@ public class LanguageConfig {
     private String whisperSeparator;
     private String socialSpyPrefix;
     private String commandSpyPrefix;
+    private String socialSpyActivated;
+    private String socialSpyDeactivated;
 
     public LanguageConfig() {
 
@@ -66,7 +68,8 @@ public class LanguageConfig {
                           String balanceIncreased, String balanceDecreased, String balanceSet, List<String> censoredWords,
                           String cantSendThisMessage, String broadcastPrefix, String helpOpPrefix, String separator,
                           String unknownUser, String notEnoughPermissionForWhisper, String whisperToYou, String whisperFromYou,
-                          String whisperSeparator, String socialSpyPrefix, String commandSpyPrefix) {
+                          String whisperSeparator, String socialSpyPrefix, String commandSpyPrefix, String socialSpyActivated,
+                          String socialSpyDeactivated) {
         this.motd = motd;
         this.joinMessage = joinMessage;
         this.quitMessage = quitMessage;
@@ -111,6 +114,8 @@ public class LanguageConfig {
         this.whisperSeparator = whisperSeparator;
         this.socialSpyPrefix = socialSpyPrefix;
         this.commandSpyPrefix = commandSpyPrefix;
+        this.socialSpyActivated = socialSpyActivated;
+        this.socialSpyDeactivated = socialSpyDeactivated;
     }
 
     public String getMotd() {
@@ -463,5 +468,21 @@ public class LanguageConfig {
 
     public void setCommandSpyPrefix(String commandSpyPrefix) {
         this.commandSpyPrefix = commandSpyPrefix;
+    }
+
+    public String getSocialSpyActivated() {
+        return socialSpyActivated;
+    }
+
+    public void setSocialSpyActivated(String socialSpyActivated) {
+        this.socialSpyActivated = socialSpyActivated;
+    }
+
+    public String getSocialSpyDeactivated() {
+        return socialSpyDeactivated;
+    }
+
+    public void setSocialSpyDeactivated(String socialSpyDeactivated) {
+        this.socialSpyDeactivated = socialSpyDeactivated;
     }
 }

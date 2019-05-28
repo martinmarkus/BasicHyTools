@@ -15,15 +15,9 @@ public class Main {
         handler.onUserJoin();
 
         Thread thread = new Thread(() -> {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
 
             CommandEventHandler commandEventHandler = new CommandEventHandler();
-            commandEventHandler.onUserExecuteCommand("msG mockUser12345 szia bazdmeg klj ");
-            commandEventHandler.onUserExecuteCommand("helpop szia bazdmeg klj ");
+            commandEventHandler.onUserExecuteCommand("socialspy");
 
             ModuleInitializer.unload();
         });

@@ -60,6 +60,8 @@
         <constructor-arg index="41" value=" -> "/> <!-- whisperSeparator -->
         <constructor-arg index="42" value="[SocialSpy]"/> <!-- socialSpyPrefix -->
         <constructor-arg index="43" value="[CommandSpy]"/> <!-- commandSpyPrefix -->
+        <constructor-arg index="44" value="You have activated the social spy."/> <!-- socialSpyActivated -->
+        <constructor-arg index="45" value="You have deactivated the social spy."/> <!-- socialSpyDeactivated -->
 
     </bean>
 </beans>
