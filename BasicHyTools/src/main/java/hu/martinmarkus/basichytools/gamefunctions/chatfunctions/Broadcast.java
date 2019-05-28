@@ -44,7 +44,7 @@ public class Broadcast extends GameFunction {
 
             String separator = languageConfig.getSeparator();
             String fulMessage = broadcastPrefix.concat(separator).concat(message.toString());
-            GlobalMessage.send(executor, fulMessage);
+            GlobalMessage.sendWithCensor(executor, fulMessage);
         });
     }
 }

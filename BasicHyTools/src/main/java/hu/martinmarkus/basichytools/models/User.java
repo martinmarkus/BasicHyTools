@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import hu.martinmarkus.basichytools.configmanagement.DefaultConfigManager;
 import hu.martinmarkus.basichytools.configmanagement.GroupManager;
 import hu.martinmarkus.basichytools.configmanagement.LanguageConfigManager;
+import hu.martinmarkus.basichytools.configmanagement.UserManager;
 import hu.martinmarkus.basichytools.utils.PlaceholderReplacer;
 import hu.martinmarkus.basichytools.utils.permissionmanagement.PermissionValidator;
 import hu.martinmarkus.basichytools.utils.permissionmanagement.UserPermissionValidator;
@@ -68,7 +69,10 @@ public class User {
     @JsonIgnore
     public void sendMotd() {
         String motd = LanguageConfigManager.getInstance().getLanguageConfig().getMotd();
-        sendMessage(motd, false);
+        Integer onlineUserCount = UserManager.getInstance().getAllOnlineUsers().size();
+        PlaceholderReplacer replacer = new PlaceholderReplacer();
+        String fullMotd = replacer.replace(motd, name, onlineUserCount.toString());
+        sendMessage(fullMotd, false);
     }
 
     @JsonIgnore
@@ -93,8 +97,11 @@ public class User {
             message = StringUtil.censorMessage(this, message);
         }
 
+        String lineSeparator = System.getProperty("line.separator");
+        message = message.replace("%newline%", lineSeparator);
+
         // TODO: implement default message sending to User
-        System.out.println("(user.sendMessage()) " + message);
+        System.out.println("(sendMessage() to " + name + ") " + message);
     }
 
     @JsonIgnore

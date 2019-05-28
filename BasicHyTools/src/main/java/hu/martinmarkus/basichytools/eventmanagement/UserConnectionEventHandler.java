@@ -32,7 +32,7 @@ public class UserConnectionEventHandler {
         GlobalMessage.send(message);
 
         userManager.registerUser(joinedUserName, validUser -> {
-            validUser.sendMessage(languageConfig.getMotd(), false);
+            validUser.sendMotd();
             validUser.teleportToSpawnOnFirstJoin();
         });
     }

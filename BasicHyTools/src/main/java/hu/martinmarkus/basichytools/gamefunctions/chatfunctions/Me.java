@@ -55,7 +55,7 @@ public class Me extends GameFunction {
             String userName = executor.getName();
 
             String fullMessage = builder.buildMessage(prefix, suffix, userName, " ", message.toString());
-            GlobalMessage.send(executor, fullMessage);
+            GlobalMessage.sendWithCensor(executor, fullMessage);
         });
     }
 }

@@ -19,7 +19,7 @@ public class ChatEventHandler {
 
     public void onMessageSent(String message) {
         User user = UserManager.getInstance().getOnlineUser("mockUser12345"); // TODO: get the sender
-        //String message = "message send by user"; // TODO: get the message
+        //String message = "message sendWithCensor by user"; // TODO: get the message
 
         if (user == null || message == null || message.isEmpty()) {
             ignoreMessageEvent();
@@ -75,7 +75,7 @@ public class ChatEventHandler {
         String separator = LanguageConfigManager.getInstance().getLanguageConfig().getSeparator();
         String fullMessage = builder.buildMessage(prefix, suffix, user.getName(), separator, message);
 
-        GlobalMessage.send(user, fullMessage);  // execute msg sending
+        GlobalMessage.sendWithCensor(user, fullMessage);  // execute msg sending
         ChatCooldown.getInstance().addChatCooldown(user.getName());
     }
 
@@ -85,7 +85,7 @@ public class ChatEventHandler {
     }
 
     private void ignoreMessageEvent() {
-        // TODO: ignore message send event
+        // TODO: ignore message sendWithCensor event
     }
 
     private void sendStillOnCooldown(User user, int cooldown) {
