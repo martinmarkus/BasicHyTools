@@ -94,7 +94,7 @@ public class User {
         }
 
         // TODO: implement default message sending to User
-        System.out.println("(user.sendMessage) " + message);
+        System.out.println("(user.sendMessage()) " + message);
     }
 
     @JsonIgnore

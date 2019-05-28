@@ -6,6 +6,7 @@ import hu.martinmarkus.basichytools.models.placeholders.Placeholder;
 public class PlaceholderReplacer {
 
     private IPlaceholder placeholder;
+
     public PlaceholderReplacer() {
         placeholder = new Placeholder();
     }
@@ -21,7 +22,7 @@ public class PlaceholderReplacer {
             message = message.replaceFirst(placeholder.getValue(), placeholderValue);
 
             if (message.equals(helperMessage)) {
-                break;                // no change has happened
+                break;      // no change has happened
             }
         }
 

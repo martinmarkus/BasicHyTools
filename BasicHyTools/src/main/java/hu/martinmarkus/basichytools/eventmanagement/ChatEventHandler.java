@@ -4,6 +4,7 @@ import hu.martinmarkus.basichytools.configmanagement.DefaultConfigManager;
 import hu.martinmarkus.basichytools.configmanagement.GroupManager;
 import hu.martinmarkus.basichytools.configmanagement.LanguageConfigManager;
 import hu.martinmarkus.basichytools.configmanagement.UserManager;
+import hu.martinmarkus.basichytools.utils.GlobalMessage;
 import hu.martinmarkus.basichytools.utils.repeatingfunctions.ChatCooldown;
 import hu.martinmarkus.basichytools.models.DefaultConfig;
 import hu.martinmarkus.basichytools.models.Group;
@@ -74,8 +75,7 @@ public class ChatEventHandler {
         String separator = LanguageConfigManager.getInstance().getLanguageConfig().getSeparator();
         String fullMessage = builder.buildMessage(prefix, suffix, user.getName(), separator, message);
 
-        System.out.println(fullMessage);    // TODO: send message by user to everyone
-
+        GlobalMessage.send(user, fullMessage);  // execute msg sending
         ChatCooldown.getInstance().addChatCooldown(user.getName());
     }
 
