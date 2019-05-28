@@ -37,8 +37,7 @@ public class Broadcast extends GameFunction {
         super.runFunction(() -> {
             String message =  StringUtil.concatCommandToMessage(rawCommand, 1);
 
-            String separator = languageConfig.getSeparator();
-            String fulMessage = broadcastPrefix.concat(separator).concat(message);
+            String fulMessage = broadcastPrefix.concat(message);
             GlobalMessage.sendWithCensor(executor, fulMessage);
         });
     }

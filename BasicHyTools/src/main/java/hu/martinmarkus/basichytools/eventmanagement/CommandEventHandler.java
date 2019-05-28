@@ -90,7 +90,7 @@ public class CommandEventHandler {
             isAlias = isAlias(command, functionParameter.getAliases());
 
             if (isCommand || isAlias) {
-                String name = functionParameter.getName().toLowerCase();
+                String name = functionParameter.getName();
                 return GameFunctionFactory.getInstance().getBean(name);
             }
         }

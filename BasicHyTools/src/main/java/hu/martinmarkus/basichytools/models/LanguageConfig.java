@@ -47,6 +47,9 @@ public class LanguageConfig {
     private String notEnoughPermissionForWhisper;
     private String whisperToYou;
     private String whisperFromYou;
+    private String whisperSeparator;
+    private String socialSpyPrefix;
+    private String commandSpyPrefix;
 
     public LanguageConfig() {
 
@@ -62,7 +65,8 @@ public class LanguageConfig {
                           String functionStillOnCooldown, String forOneMoreSecond, String minute, String second,
                           String balanceIncreased, String balanceDecreased, String balanceSet, List<String> censoredWords,
                           String cantSendThisMessage, String broadcastPrefix, String helpOpPrefix, String separator,
-                          String unknownUser, String notEnoughPermissionForWhisper, String whisperToYou, String whisperFromYou) {
+                          String unknownUser, String notEnoughPermissionForWhisper, String whisperToYou, String whisperFromYou,
+                          String whisperSeparator, String socialSpyPrefix, String commandSpyPrefix) {
         this.motd = motd;
         this.joinMessage = joinMessage;
         this.quitMessage = quitMessage;
@@ -104,6 +108,9 @@ public class LanguageConfig {
         this.notEnoughPermissionForWhisper = notEnoughPermissionForWhisper;
         this.whisperToYou = whisperToYou;
         this.whisperFromYou = whisperFromYou;
+        this.whisperSeparator = whisperSeparator;
+        this.socialSpyPrefix = socialSpyPrefix;
+        this.commandSpyPrefix = commandSpyPrefix;
     }
 
     public String getMotd() {
@@ -432,5 +439,29 @@ public class LanguageConfig {
 
     public void setWhisperFromYou(String whisperFromYou) {
         this.whisperFromYou = whisperFromYou;
+    }
+
+    public String getWhisperSeparator() {
+        return whisperSeparator;
+    }
+
+    public void setWhisperSeparator(String whisperSeparator) {
+        this.whisperSeparator = whisperSeparator;
+    }
+
+    public String getSocialSpyPrefix() {
+        return socialSpyPrefix;
+    }
+
+    public void setSocialSpyPrefix(String socialSpyPrefix) {
+        this.socialSpyPrefix = socialSpyPrefix;
+    }
+
+    public String getCommandSpyPrefix() {
+        return commandSpyPrefix;
+    }
+
+    public void setCommandSpyPrefix(String commandSpyPrefix) {
+        this.commandSpyPrefix = commandSpyPrefix;
     }
 }

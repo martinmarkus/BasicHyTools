@@ -57,6 +57,9 @@
         <constructor-arg index="38" value="%value% does not have enough permission to receive private message."/> <!-- notEnoughPermissionForWhisper -->
         <constructor-arg index="39" value=" -> [You]"/> <!-- whisperToYou -->
         <constructor-arg index="40" value="[You] -> "/> <!-- whisperFromYou -->
+        <constructor-arg index="41" value=" -> "/> <!-- whisperSeparator -->
+        <constructor-arg index="42" value="[SocialSpy]"/> <!-- socialSpyPrefix -->
+        <constructor-arg index="43" value="[CommandSpy]"/> <!-- commandSpyPrefix -->
 
     </bean>
 </beans>

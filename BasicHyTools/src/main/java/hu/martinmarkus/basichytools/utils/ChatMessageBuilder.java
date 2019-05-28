@@ -7,7 +7,7 @@ public class ChatMessageBuilder {
             return null;
         }
 
-        if (message == null || message.isEmpty()) {
+        if (message == null) {
             return null;
         }
 

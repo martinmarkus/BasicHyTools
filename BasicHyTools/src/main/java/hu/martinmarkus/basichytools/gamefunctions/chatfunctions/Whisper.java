@@ -1,10 +1,10 @@
 package hu.martinmarkus.basichytools.gamefunctions.chatfunctions;
 
-import hu.martinmarkus.basichytools.configmanagement.DefaultConfigManager;
+import hu.martinmarkus.basichytools.configmanagement.FunctionParameterManager;
 import hu.martinmarkus.basichytools.configmanagement.GroupManager;
 import hu.martinmarkus.basichytools.configmanagement.UserManager;
 import hu.martinmarkus.basichytools.gamefunctions.GameFunction;
-import hu.martinmarkus.basichytools.models.DefaultConfig;
+import hu.martinmarkus.basichytools.models.FunctionParameter;
 import hu.martinmarkus.basichytools.models.Group;
 import hu.martinmarkus.basichytools.models.User;
 import hu.martinmarkus.basichytools.utils.ChatMessageBuilder;
@@ -59,9 +59,9 @@ public class Whisper extends GameFunction {
                 String executorMessage = replacer.replace(languageConfig.getNotEnoughPermissionForWhisper(), addresseeName);
                 executor.sendMessage(executorMessage);
             } else {
-                // send whisper for both users
                 executor.sendMessage(buildWhisperToMessage(message));
                 addressee.sendMessage(buildWhisperFromMessage(message));
+                notifySocialSpies(message, addressee);
             }
         });
     }
@@ -92,5 +92,48 @@ public class Whisper extends GameFunction {
         String addresseeNameWithWhisperSign = addresseeName.concat(languageConfig.getWhisperToYou());
         return builder.buildMessage(prefix, suffix, addresseeNameWithWhisperSign,
                 languageConfig.getSeparator(), message);
+    }
+
+    private void notifySocialSpies(String message, User addressee) {
+        List<User> onlineUsers = UserManager.getInstance().getAllOnlineUsers();
+        String socialSpyMessage = buildWhisperMessageForSocialSpy(message, addressee);
+
+        FunctionParameter socialSpyParameter = FunctionParameterManager.getInstance().getByName("socialSpy");
+        if (socialSpyParameter == null) {
+            return;
+        }
+
+        String socialSpyPerm = socialSpyParameter.getPermission();
+        onlineUsers.forEach(onlineUser -> {
+            if (onlineUser.isOperator() || onlineUser.hasPermission(socialSpyPerm)) {
+                if (onlineUser.isSocialSpyActive()) {
+                    onlineUser.sendMessage(socialSpyMessage);
+                }
+            }
+        });
+    }
+
+    private String buildWhisperMessageForSocialSpy(String message, User addressee) {
+        Group executorGroup = GroupManager.getInstance().getPermissionGroup(executor.getPermissionGroupName());
+        Group addresseeGroup = GroupManager.getInstance().getPermissionGroup(addressee.getPermissionGroupName());
+        if (executorGroup == null || addresseeGroup == null) {
+            return "";
+        }
+
+        String executorPrefix = builder.defineTitle(executor.getUserPrefix(), executorGroup.getPrefix());
+        String executorSuffix = builder.defineTitle(executor.getUserSuffix(), executorGroup.getSuffix());
+        String addresseePrefix = builder.defineTitle(addressee.getUserPrefix(), addresseeGroup.getPrefix());
+        String addresseeSuffix = builder.defineTitle(addressee.getUserSuffix(), addresseeGroup.getSuffix());
+
+        String separator = languageConfig.getWhisperSeparator();
+        String executorWithSeparator = builder.buildMessage(executorPrefix, executorSuffix, executor.getName(), separator, "");
+        String addresseeWhisper = builder.buildMessage(addresseePrefix, addresseeSuffix, addresseeName, "", "");
+        String socialSpyPrefix = languageConfig.getSocialSpyPrefix();
+
+        return socialSpyPrefix
+                .concat(executorWithSeparator)
+                .concat(addresseeWhisper)
+                .concat(languageConfig.getSeparator())
+                .concat(message);
     }
 }

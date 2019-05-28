@@ -41,13 +41,15 @@ public class User {
     private boolean banned;
     private boolean ipBanned;
     private boolean whiteListed;
+    private boolean socialSpyActive;
+    private boolean commandSpyActive;
 
     public User(String name, String permissionGroupName, String userPrefix, String userSuffix,
                 double balance, double exp,
                 boolean online, String loginIp, String loginTime,
                 BasicHyToolsLocation location, List<String> uniquePermissions,
                 boolean operator, boolean muted, boolean banned, boolean ipBanned,
-                boolean whiteListed) {
+                boolean whiteListed, boolean socialSpyActive, boolean commandSpyActive) {
         this.name = name;
         this.permissionGroupName = permissionGroupName;
         this.userPrefix = userPrefix;
@@ -64,6 +66,8 @@ public class User {
         this.banned = banned;
         this.ipBanned = ipBanned;
         this.whiteListed = whiteListed;
+        this.socialSpyActive = socialSpyActive;
+        this.commandSpyActive = commandSpyActive;
     }
 
     @JsonIgnore
@@ -372,5 +376,21 @@ public class User {
 
     public void setWhiteListed(boolean whiteListed) {
         this.whiteListed = whiteListed;
+    }
+
+    public boolean isSocialSpyActive() {
+        return socialSpyActive;
+    }
+
+    public void setSocialSpyActive(boolean socialSpyActive) {
+        this.socialSpyActive = socialSpyActive;
+    }
+
+    public boolean isCommandSpyActive() {
+        return commandSpyActive;
+    }
+
+    public void setCommandSpyActive(boolean commandSpyActive) {
+        this.commandSpyActive = commandSpyActive;
     }
 }

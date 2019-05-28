@@ -22,8 +22,8 @@ public class Main {
             }
 
             CommandEventHandler commandEventHandler = new CommandEventHandler();
-            commandEventHandler.onUserExecuteCommand("whisper mockUser12345 szia bazdmeg klj ");
-            commandEventHandler.onUserExecuteCommand("whisper mockUser12345 szia bazdmeg klj ");
+            commandEventHandler.onUserExecuteCommand("msG mockUser12345 szia bazdmeg klj ");
+            commandEventHandler.onUserExecuteCommand("helpop szia bazdmeg klj ");
 
             ModuleInitializer.unload();
         });
