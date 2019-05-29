@@ -23,7 +23,6 @@ public class Main {
             }
             CommandEventHandler commandEventHandler = new CommandEventHandler();
             commandEventHandler.onUserExecuteCommand("socialspy");
-            commandEventHandler.onUserExecuteCommand("warn hello srácook ");
 
             ModuleInitializer.unload();
         });
