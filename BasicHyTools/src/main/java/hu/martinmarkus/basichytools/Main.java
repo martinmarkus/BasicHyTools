@@ -16,8 +16,14 @@ public class Main {
 
         Thread thread = new Thread(() -> {
 
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             CommandEventHandler commandEventHandler = new CommandEventHandler();
             commandEventHandler.onUserExecuteCommand("socialspy");
+            commandEventHandler.onUserExecuteCommand("warn hello srácook ");
 
             ModuleInitializer.unload();
         });

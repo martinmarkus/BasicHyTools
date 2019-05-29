@@ -2,6 +2,8 @@ package hu.martinmarkus.basichytools.gamefunctions.chatfunctions;
 
 import hu.martinmarkus.basichytools.gamefunctions.GameFunction;
 import hu.martinmarkus.basichytools.models.User;
+import hu.martinmarkus.basichytools.utils.GlobalMessage;
+import hu.martinmarkus.basichytools.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -30,8 +32,11 @@ public class Warn extends GameFunction {
     @Override
     public void execute() {
         super.runFunction(() -> {
-            // TODO: implement function
-            System.out.println(this.getClass().getName() + " function is not implemented");
+            String message =  StringUtil.concatCommandToMessage(rawCommand, 1);
+
+            String warPrefix = languageConfig.getWarnPrefix();
+            String fulMessage = warPrefix.concat(message);
+            GlobalMessage.send(executor, fulMessage);
         });
     }
 }

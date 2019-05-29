@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Broadcast extends GameFunction {
-    private String broadcastPrefix = languageConfig.getBroadcastPrefix();
 
     @Autowired
     public Broadcast(@Value("broadcast") String functionName) {
@@ -37,6 +36,7 @@ public class Broadcast extends GameFunction {
         super.runFunction(() -> {
             String message =  StringUtil.concatCommandToMessage(rawCommand, 1);
 
+            String broadcastPrefix = languageConfig.getBroadcastPrefix();
             String fulMessage = broadcastPrefix.concat(message);
             GlobalMessage.send(executor, fulMessage);
         });

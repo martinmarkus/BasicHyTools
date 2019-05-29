@@ -56,6 +56,10 @@ public class LanguageConfig {
     private String youAreIgnored;
     private String ignored;
     private String ignoreRemoved;
+    private String warnPrefix;
+    private String infoPrefix;
+    private String errorPrefix;
+    private String basicHyToolsPrefix;
 
 
     public LanguageConfig() {
@@ -75,7 +79,8 @@ public class LanguageConfig {
                           String unknownUser, String notEnoughPermissionForWhisper, String whisperToYou, String whisperFromYou,
                           String whisperSeparator, String socialSpyPrefix, String commandSpyPrefix, String socialSpyActivated,
                           String socialSpyDeactivated, String youAreIgnoring, String youAreIgnored, String ignored,
-                          String ignoreRemoved) {
+                          String ignoreRemoved, String warnPrefix, String infoPrefix, String errorPrefix,
+                          String basicHyToolsPrefix) {
         this.motd = motd;
         this.joinMessage = joinMessage;
         this.quitMessage = quitMessage;
@@ -126,6 +131,10 @@ public class LanguageConfig {
         this.youAreIgnored = youAreIgnored;
         this.ignored = ignored;
         this.ignoreRemoved = ignoreRemoved;
+        this.warnPrefix = warnPrefix;
+        this.infoPrefix = infoPrefix;
+        this.errorPrefix = errorPrefix;
+        this.basicHyToolsPrefix = basicHyToolsPrefix;
     }
 
     public String getMotd() {
@@ -526,5 +535,37 @@ public class LanguageConfig {
 
     public void setIgnoreRemoved(String ignoreRemoved) {
         this.ignoreRemoved = ignoreRemoved;
+    }
+
+    public String getWarnPrefix() {
+        return warnPrefix;
+    }
+
+    public void setWarnPrefix(String warnPrefix) {
+        this.warnPrefix = warnPrefix;
+    }
+
+    public String getInfoPrefix() {
+        return infoPrefix;
+    }
+
+    public void setInfoPrefix(String infoPrefix) {
+        this.infoPrefix = infoPrefix;
+    }
+
+    public String getErrorPrefix() {
+        return errorPrefix;
+    }
+
+    public void setErrorPrefix(String errorPrefix) {
+        this.errorPrefix = errorPrefix;
+    }
+
+    public String getBasicHyToolsPrefix() {
+        return basicHyToolsPrefix;
+    }
+
+    public void setBasicHyToolsPrefix(String basicHyToolsPrefix) {
+        this.basicHyToolsPrefix = basicHyToolsPrefix;
     }
 }

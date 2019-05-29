@@ -9,10 +9,7 @@ import hu.martinmarkus.basichytools.utils.permissionmanagement.PermissionValidat
 import hu.martinmarkus.basichytools.utils.permissionmanagement.UserPermissionValidator;
 import hu.martinmarkus.basichytools.utils.StringUtil;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 public class User {
     @JsonIgnore
@@ -74,20 +71,29 @@ public class User {
 
     @JsonIgnore
     public void addIgnored(String ignoredUserName) {
+        if (ignoredUsers == null) {
+            ignoredUsers = new ArrayList<>();
+        }
         ignoredUserName = ignoredUserName.toLowerCase();
-        if (ignoredUsers != null && ignoredUsers.contains(ignoredUserName)) {
+        if (ignoredUsers.contains(ignoredUserName)) {
             ignoredUsers.add(ignoredUserName);
         }
     }
 
     @JsonIgnore
     public void removeIgnored(String ignoredUserName) {
+        if (ignoredUsers == null) {
+            ignoredUsers = new ArrayList<>();
+        }
         ignoredUserName = ignoredUserName.toLowerCase();
         ignoredUsers.remove(ignoredUserName);
     }
 
     @JsonIgnore
     public boolean isIgnoring(String ignoredUserName) {
+        if (ignoredUsers == null) {
+            ignoredUsers = new ArrayList<>();
+        }
         ignoredUserName = ignoredUserName.toLowerCase();
         return ignoredUsers.contains(ignoredUserName);
     }

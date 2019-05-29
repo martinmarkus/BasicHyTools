@@ -66,6 +66,10 @@
         <constructor-arg index="47" value="This user is ignoring you."/> <!-- youAreIgnored -->
         <constructor-arg index="48" value="You have ignored User %value%."/> <!-- ignored -->
         <constructor-arg index="49" value="You have removed the ignore from User %value%."/> <!-- ignoreRemoved -->
+        <constructor-arg index="50" value="[Warn]"/> <!-- warnPrefix -->
+        <constructor-arg index="51" value="[Info]"/> <!-- infoPrefix -->
+        <constructor-arg index="52" value="[Error]"/> <!-- errorPrefix -->
+        <constructor-arg index="53" value="[BasicHyTools]"/> <!-- basicHyToolsPrefix -->
 
     </bean>
 </beans>

@@ -14,6 +14,6 @@ public class IgnoreHelper {
             executor.sendMessage(languageConfig.getYouAreIgnored());
             return true;
         }
-        return true;
+        return false;
     }
 }

@@ -3,32 +3,26 @@ package hu.martinmarkus.basichytools.utils;
 import hu.martinmarkus.basichytools.configmanagement.LanguageConfigManager;
 
 public class Informer {
-    private static final String BASE = "BasicHyTools";
-    private static final String INFO = "[INFO]";
-    private static final String WARN = "[WARN]";
-    private static final String ERROR = "[ERROR]";
-
-    private static final String BROADCAST =
-            LanguageConfigManager.getInstance().getLanguageConfig().getBroadcastPrefix();
+    private static final String SEPARATOR = LanguageConfigManager.getInstance().getLanguageConfig().getSeparator();
 
     public static void logInfo(String message) {
-        log(INFO + ": " + message);
-    }
-
-    public static void logBroadcast(String message) {
-        log(BROADCAST + ": " + message);
+        String prefix = LanguageConfigManager.getInstance().getLanguageConfig().getBasicHyToolsPrefix();
+        log(prefix + SEPARATOR + message);
     }
 
     public static void logWarn(String message) {
-        log(WARN + ": " + message);
+        String prefix = LanguageConfigManager.getInstance().getLanguageConfig().getWarnPrefix();
+        log(prefix + SEPARATOR + message);
     }
 
     public static void logError(String message) {
-        log(ERROR + ": " + message);
+        String prefix = LanguageConfigManager.getInstance().getLanguageConfig().getErrorPrefix();
+        log(prefix + SEPARATOR + message);
     }
 
     private static void log(String message) {
+        String prefix = LanguageConfigManager.getInstance().getLanguageConfig().getBasicHyToolsPrefix();
         String date = DateTimeUtil.getActualDate();
-        System.out.println("[" + date + "] [" + BASE + "] " + message);
+        System.out.println("[" + date + "] " + prefix + message);
     }
 }
