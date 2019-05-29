@@ -5,7 +5,7 @@ import hu.martinmarkus.basichytools.configmanagement.UserManager;
 import hu.martinmarkus.basichytools.models.LanguageConfig;
 import hu.martinmarkus.basichytools.models.User;
 import hu.martinmarkus.basichytools.utils.GlobalMessage;
-import hu.martinmarkus.basichytools.utils.PlaceholderReplacer;
+import hu.martinmarkus.basichytools.utils.StringUtil;
 
 public class UserConnectionEventHandler {
     private UserManager userManager;
@@ -27,8 +27,7 @@ public class UserConnectionEventHandler {
             return;
         }
 
-        PlaceholderReplacer replacer = new PlaceholderReplacer();
-        String message = replacer.replace(languageConfig.getJoinMessage(), joinedUserName);
+        String message = StringUtil.replace(languageConfig.getJoinMessage(), joinedUserName);
         GlobalMessage.send(message);
 
         userManager.registerUser(joinedUserName, validUser -> {
@@ -41,8 +40,7 @@ public class UserConnectionEventHandler {
         // TODO: get quited user's name
         String quitedUserName = "mockUser12345";
 
-        PlaceholderReplacer replacer = new PlaceholderReplacer();
-        String message = replacer.replace(languageConfig.getQuitMessage(), quitedUserName);
+        String message = StringUtil.replace(languageConfig.getQuitMessage(), quitedUserName);
         GlobalMessage.send(message);
 
         userManager.unregisterUser(quitedUserName);

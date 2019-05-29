@@ -91,6 +91,7 @@
         <value>msg</value>
         <value>m</value>
     </util:list>
+
     <bean id="socialSpy" class="hu.martinmarkus.basichytools.models.FunctionParameter">
         <constructor-arg index="0" value="socialSpy"/> <!-- name -->
         <constructor-arg index="1" value="/socialSpy"/> <!-- command -->
@@ -104,5 +105,20 @@
         <constructor-arg index="9" value="true"/> <!-- doLogging -->
     </bean>
     <util:list id="socialSpyAliases" value-type="java.lang.String">
+    </util:list>
+
+    <bean id="ignore" class="hu.martinmarkus.basichytools.models.FunctionParameter">
+        <constructor-arg index="0" value="ignore"/> <!-- name -->
+        <constructor-arg index="1" value="/ignore"/> <!-- command -->
+        <constructor-arg index="2" ref="socialSpyAliases"/> <!-- aliases -->
+        <constructor-arg index="3" value="hytools.basic.ignore"/> <!-- permission -->
+        <constructor-arg index="4" value="0"/> <!-- usagePrice -->
+        <constructor-arg index="5" value="This is a description."/> <!-- description -->
+        <constructor-arg index="6" value="2"/> <!-- requiredParameterCount -->
+        <constructor-arg index="7" value="true"/> <!-- concreteParameterCount -->
+        <constructor-arg index="8" value="3"/> <!-- cooldown -->
+        <constructor-arg index="9" value="true"/> <!-- doLogging -->
+    </bean>
+    <util:list id="ignoreAliases" value-type="java.lang.String">
     </util:list>
 </beans>

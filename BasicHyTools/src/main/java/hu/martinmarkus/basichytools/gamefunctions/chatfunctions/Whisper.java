@@ -4,11 +4,11 @@ import hu.martinmarkus.basichytools.configmanagement.FunctionParameterManager;
 import hu.martinmarkus.basichytools.configmanagement.GroupManager;
 import hu.martinmarkus.basichytools.configmanagement.UserManager;
 import hu.martinmarkus.basichytools.gamefunctions.GameFunction;
+import hu.martinmarkus.basichytools.gamefunctions.chatfunctions.miscenallious.IgnoreHelper;
 import hu.martinmarkus.basichytools.models.FunctionParameter;
 import hu.martinmarkus.basichytools.models.Group;
 import hu.martinmarkus.basichytools.models.User;
 import hu.martinmarkus.basichytools.utils.ChatMessageBuilder;
-import hu.martinmarkus.basichytools.utils.PlaceholderReplacer;
 import hu.martinmarkus.basichytools.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -55,15 +55,22 @@ public class Whisper extends GameFunction {
                 executor.sendMessage(languageConfig.getNotEnoughPermission());
             } else if (!addressee.hasPermission(permission)) {
                 addressee.sendMessage(languageConfig.getNotEnoughPermission());
-                PlaceholderReplacer replacer = new PlaceholderReplacer();
-                String executorMessage = replacer.replace(languageConfig.getNotEnoughPermissionForWhisper(), addresseeName);
+                String executorMessage = StringUtil.replace(
+                        languageConfig.getNotEnoughPermissionForWhisper(), addresseeName);
                 executor.sendMessage(executorMessage);
             } else {
-                executor.sendMessage(buildWhisperToMessage(message));
-                addressee.sendMessage(buildWhisperFromMessage(message));
-                notifySocialSpies(message, addressee);
+                boolean ignoring = IgnoreHelper.areIgnoringEachOther(executor, addressee);
+                if (!ignoring) {
+                    executeMessageSending(addressee, message);
+                }
             }
         });
+    }
+
+    private void executeMessageSending(User addressee, String message) {
+        executor.sendMessage(buildWhisperToMessage(message));
+        addressee.sendMessage(buildWhisperFromMessage(message));
+        notifySocialSpies(message, addressee);
     }
 
     private String buildWhisperToMessage(String message) {

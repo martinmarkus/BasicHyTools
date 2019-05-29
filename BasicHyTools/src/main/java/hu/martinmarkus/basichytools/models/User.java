@@ -5,7 +5,6 @@ import hu.martinmarkus.basichytools.configmanagement.DefaultConfigManager;
 import hu.martinmarkus.basichytools.configmanagement.GroupManager;
 import hu.martinmarkus.basichytools.configmanagement.LanguageConfigManager;
 import hu.martinmarkus.basichytools.configmanagement.UserManager;
-import hu.martinmarkus.basichytools.utils.PlaceholderReplacer;
 import hu.martinmarkus.basichytools.utils.permissionmanagement.PermissionValidator;
 import hu.martinmarkus.basichytools.utils.permissionmanagement.UserPermissionValidator;
 import hu.martinmarkus.basichytools.utils.StringUtil;
@@ -21,6 +20,9 @@ public class User {
 
     @JsonIgnore
     private Queue<String> lastSendMessages = new LinkedList<>();
+
+    @JsonIgnore
+    private List<String> ignoredUsers = new ArrayList<>();
 
     private String name;
     private String permissionGroupName;
@@ -71,11 +73,30 @@ public class User {
     }
 
     @JsonIgnore
+    public void addIgnored(String ignoredUserName) {
+        ignoredUserName = ignoredUserName.toLowerCase();
+        if (ignoredUsers != null && ignoredUsers.contains(ignoredUserName)) {
+            ignoredUsers.add(ignoredUserName);
+        }
+    }
+
+    @JsonIgnore
+    public void removeIgnored(String ignoredUserName) {
+        ignoredUserName = ignoredUserName.toLowerCase();
+        ignoredUsers.remove(ignoredUserName);
+    }
+
+    @JsonIgnore
+    public boolean isIgnoring(String ignoredUserName) {
+        ignoredUserName = ignoredUserName.toLowerCase();
+        return ignoredUsers.contains(ignoredUserName);
+    }
+
+    @JsonIgnore
     public void sendMotd() {
         String motd = LanguageConfigManager.getInstance().getLanguageConfig().getMotd();
         Integer onlineUserCount = UserManager.getInstance().getAllOnlineUsers().size();
-        PlaceholderReplacer replacer = new PlaceholderReplacer();
-        String fullMotd = replacer.replace(motd, name, onlineUserCount.toString());
+        String fullMotd = StringUtil.replace(motd, name, onlineUserCount.toString());
         sendMessage(fullMotd);
     }
 
@@ -88,6 +109,9 @@ public class User {
 
     @JsonIgnore
     public void sendMessage(String message) {
+        if (message == null || message.isEmpty()) {
+            return;
+        }
         String swearFilterPermisison = DefaultConfigManager.getInstance()
                 .getDefaultConfig()
                 .getGlobalMechanismPermissions()
@@ -192,8 +216,7 @@ public class User {
         }
 
         LanguageConfig languageConfig = LanguageConfigManager.getInstance().getLanguageConfig();
-        PlaceholderReplacer replacer = new PlaceholderReplacer();
-        String message = replacer.replace(languageConfig.getBalanceDecreased(), name, String.valueOf(value),
+        String message = StringUtil.replace(languageConfig.getBalanceDecreased(), name, String.valueOf(value),
                 String.valueOf(balance));
         sendMessage(message);
     }
@@ -209,8 +232,7 @@ public class User {
         }
 
         LanguageConfig languageConfig = LanguageConfigManager.getInstance().getLanguageConfig();
-        PlaceholderReplacer replacer = new PlaceholderReplacer();
-        String message = replacer.replace(languageConfig.getBalanceIncreased(), name, String.valueOf(value),
+        String message = StringUtil.replace(languageConfig.getBalanceIncreased(), name, String.valueOf(value),
                 String.valueOf(balance));
         sendMessage(message);
     }
@@ -221,8 +243,7 @@ public class User {
         balance = config.getStartingBalance();
 
         LanguageConfig languageConfig = LanguageConfigManager.getInstance().getLanguageConfig();
-        PlaceholderReplacer replacer = new PlaceholderReplacer();
-        String message = replacer.replace(languageConfig.getBalanceSet(), String.valueOf(balance));
+        String message = StringUtil.replace(languageConfig.getBalanceSet(), String.valueOf(balance));
         sendMessage(message);
     }
 
@@ -244,6 +265,16 @@ public class User {
     @JsonIgnore
     public void setLastSendMessages(Queue<String> lastSendMessages) {
         this.lastSendMessages = lastSendMessages;
+    }
+
+    @JsonIgnore
+    public List<String> getIgnoredUsers() {
+        return ignoredUsers;
+    }
+
+    @JsonIgnore
+    public void setIgnoredUsers(List<String> ignoredUsers) {
+        this.ignoredUsers = ignoredUsers;
     }
 
     // getters/setters:

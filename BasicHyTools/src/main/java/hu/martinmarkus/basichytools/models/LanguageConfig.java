@@ -52,6 +52,11 @@ public class LanguageConfig {
     private String commandSpyPrefix;
     private String socialSpyActivated;
     private String socialSpyDeactivated;
+    private String youAreIgnoring;
+    private String youAreIgnored;
+    private String ignored;
+    private String ignoreRemoved;
+
 
     public LanguageConfig() {
 
@@ -69,7 +74,8 @@ public class LanguageConfig {
                           String cantSendThisMessage, String broadcastPrefix, String helpOpPrefix, String separator,
                           String unknownUser, String notEnoughPermissionForWhisper, String whisperToYou, String whisperFromYou,
                           String whisperSeparator, String socialSpyPrefix, String commandSpyPrefix, String socialSpyActivated,
-                          String socialSpyDeactivated) {
+                          String socialSpyDeactivated, String youAreIgnoring, String youAreIgnored, String ignored,
+                          String ignoreRemoved) {
         this.motd = motd;
         this.joinMessage = joinMessage;
         this.quitMessage = quitMessage;
@@ -116,6 +122,10 @@ public class LanguageConfig {
         this.commandSpyPrefix = commandSpyPrefix;
         this.socialSpyActivated = socialSpyActivated;
         this.socialSpyDeactivated = socialSpyDeactivated;
+        this.youAreIgnoring = youAreIgnoring;
+        this.youAreIgnored = youAreIgnored;
+        this.ignored = ignored;
+        this.ignoreRemoved = ignoreRemoved;
     }
 
     public String getMotd() {
@@ -484,5 +494,37 @@ public class LanguageConfig {
 
     public void setSocialSpyDeactivated(String socialSpyDeactivated) {
         this.socialSpyDeactivated = socialSpyDeactivated;
+    }
+
+    public String getYouAreIgnoring() {
+        return youAreIgnoring;
+    }
+
+    public void setYouAreIgnoring(String youAreIgnoring) {
+        this.youAreIgnoring = youAreIgnoring;
+    }
+
+    public String getYouAreIgnored() {
+        return youAreIgnored;
+    }
+
+    public void setYouAreIgnored(String youAreIgnored) {
+        this.youAreIgnored = youAreIgnored;
+    }
+
+    public String getIgnored() {
+        return ignored;
+    }
+
+    public void setIgnored(String ignored) {
+        this.ignored = ignored;
+    }
+
+    public String getIgnoreRemoved() {
+        return ignoreRemoved;
+    }
+
+    public void setIgnoreRemoved(String ignoreRemoved) {
+        this.ignoreRemoved = ignoreRemoved;
     }
 }

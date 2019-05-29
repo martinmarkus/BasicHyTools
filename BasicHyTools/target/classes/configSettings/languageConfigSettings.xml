@@ -62,6 +62,10 @@
         <constructor-arg index="43" value="[CommandSpy]"/> <!-- commandSpyPrefix -->
         <constructor-arg index="44" value="You have activated the social spy."/> <!-- socialSpyActivated -->
         <constructor-arg index="45" value="You have deactivated the social spy."/> <!-- socialSpyDeactivated -->
+        <constructor-arg index="46" value="You are ignoring this user."/> <!-- youAreIgnoring -->
+        <constructor-arg index="47" value="This user is ignoring you."/> <!-- youAreIgnored -->
+        <constructor-arg index="48" value="You have ignored User %value%."/> <!-- ignored -->
+        <constructor-arg index="49" value="You have removed the ignore from User %value%."/> <!-- ignoreRemoved -->
 
     </bean>
 </beans>

@@ -2,6 +2,7 @@ package hu.martinmarkus.basichytools.gamefunctions.chatfunctions;
 
 import hu.martinmarkus.basichytools.gamefunctions.GameFunction;
 import hu.martinmarkus.basichytools.models.User;
+import hu.martinmarkus.basichytools.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -30,8 +31,19 @@ public class Ignore extends GameFunction {
     @Override
     public void execute() {
         super.runFunction(() -> {
-            // TODO: implement function
-            System.out.println(this.getClass().getName() + " function is not implemented");
+            String ignoredUserName = rawCommand.split(" ")[1];
+            String message;
+
+            if (executor.isIgnoring(ignoredUserName)) {
+                executor.removeIgnored(ignoredUserName);
+                message = languageConfig.getIgnoreRemoved();
+            } else {
+                executor.addIgnored(ignoredUserName);
+                message = languageConfig.getIgnored();
+            }
+
+            message = StringUtil.replace(message, ignoredUserName);
+            executor.sendMessage(message);
         });
     }
 }

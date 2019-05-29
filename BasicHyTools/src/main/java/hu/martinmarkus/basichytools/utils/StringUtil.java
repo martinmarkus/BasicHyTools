@@ -3,6 +3,7 @@ package hu.martinmarkus.basichytools.utils;
 import hu.martinmarkus.basichytools.configmanagement.DefaultConfigManager;
 import hu.martinmarkus.basichytools.models.DefaultConfig;
 import hu.martinmarkus.basichytools.models.User;
+import hu.martinmarkus.basichytools.models.placeholders.Placeholder;
 
 public class StringUtil {
 
@@ -49,5 +50,24 @@ public class StringUtil {
         }
 
         return message.toString();
+    }
+
+    public static String replace(String message, String... placeholderValues) {
+        Placeholder placeholder = new Placeholder();
+        if (message == null || message.isEmpty() || placeholderValues.length == 0) {
+            return message;
+        }
+
+        String helperMessage;
+        for (String placeholderValue : placeholderValues) {
+            helperMessage = message;
+            message = message.replaceFirst(placeholder.getValue(), placeholderValue);
+
+            if (message.equals(helperMessage)) {
+                break;      // no change has happened
+            }
+        }
+
+        return message;
     }
 }

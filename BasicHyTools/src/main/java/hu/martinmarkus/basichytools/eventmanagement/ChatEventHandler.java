@@ -5,13 +5,13 @@ import hu.martinmarkus.basichytools.configmanagement.GroupManager;
 import hu.martinmarkus.basichytools.configmanagement.LanguageConfigManager;
 import hu.martinmarkus.basichytools.configmanagement.UserManager;
 import hu.martinmarkus.basichytools.utils.GlobalMessage;
+import hu.martinmarkus.basichytools.utils.StringUtil;
 import hu.martinmarkus.basichytools.utils.repeatingfunctions.ChatCooldown;
 import hu.martinmarkus.basichytools.models.DefaultConfig;
 import hu.martinmarkus.basichytools.models.Group;
 import hu.martinmarkus.basichytools.models.LanguageConfig;
 import hu.martinmarkus.basichytools.models.User;
 import hu.martinmarkus.basichytools.utils.ChatMessageBuilder;
-import hu.martinmarkus.basichytools.utils.PlaceholderReplacer;
 
 public class ChatEventHandler {
 
@@ -75,7 +75,7 @@ public class ChatEventHandler {
         String separator = LanguageConfigManager.getInstance().getLanguageConfig().getSeparator();
         String fullMessage = builder.buildMessage(prefix, suffix, user.getName(), separator, message);
 
-        GlobalMessage.sendWithCensor(user, fullMessage);  // execute msg sending
+        GlobalMessage.send(user, fullMessage);  // execute msg sending
         ChatCooldown.getInstance().addChatCooldown(user.getName());
     }
 
@@ -100,8 +100,7 @@ public class ChatEventHandler {
             messageValue = String.format("%02d " + secondString, cooldown);
         }
 
-        PlaceholderReplacer replacer = new PlaceholderReplacer();
-        message = replacer.replace(message, messageValue);
+        message = StringUtil.replace(message, messageValue);
 
         user.sendMessage(message);
     }

@@ -1,13 +1,13 @@
 package hu.martinmarkus.basichytools.gamefunctions;
 
 import hu.martinmarkus.basichytools.configmanagement.DefaultConfigManager;
+import hu.martinmarkus.basichytools.utils.StringUtil;
 import hu.martinmarkus.basichytools.utils.repeatingfunctions.FunctionCooldown;
 import hu.martinmarkus.basichytools.models.DefaultConfig;
 import hu.martinmarkus.basichytools.models.FunctionParameter;
 import hu.martinmarkus.basichytools.models.LanguageConfig;
 import hu.martinmarkus.basichytools.models.User;
 import hu.martinmarkus.basichytools.models.containers.CooldownContainer;
-import hu.martinmarkus.basichytools.utils.PlaceholderReplacer;
 
 public class GameFunctionValidator {
 
@@ -66,8 +66,7 @@ public class GameFunctionValidator {
     private void sendInvalidParameterCountMessage() {
         String command = functionParameter.getCommand();
         String message = languageConfig.getInvalidCommandUsagePleaseTry();
-        PlaceholderReplacer replacer = new PlaceholderReplacer();
-        message = replacer.replace(message, command);
+        message = StringUtil.replace(message, command);
         executor.sendMessage(message);
     }
 
@@ -108,10 +107,9 @@ public class GameFunctionValidator {
 
     private void sendCooldownMessage() {
         String message = languageConfig.getFunctionStillOnCooldown();
-        PlaceholderReplacer replacer = new PlaceholderReplacer();
 
         String cooldownValue = createCooldownMessage();
-        message = replacer.replace(message, functionParameter.getName(), cooldownValue);
+        message = StringUtil.replace(message, functionParameter.getName(), cooldownValue);
         executor.sendMessage(message);
     }
 
