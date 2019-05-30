@@ -51,7 +51,7 @@ public class UserSaver extends ConfigSaver {
         saveAllUsers();
     }
 
-    private void saveAllUsers() {
+    private synchronized void saveAllUsers() {
 
         List<User> onlineUsers = UserManager.getInstance().getAllOnlineUsers();
         List<String> valueIds = new ArrayList<>();

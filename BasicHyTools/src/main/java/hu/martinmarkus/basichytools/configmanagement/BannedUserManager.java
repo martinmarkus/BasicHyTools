@@ -59,12 +59,22 @@ public class BannedUserManager {
         bannedUserRepository.add(BANNED_USER_CONFIG, aBannedUserContainer);
     }
 
-    public List<BannedUser> getBannedUsers() {
+    public synchronized List<BannedUser> getBannedUsers() {
         return bannedUserContainer.getBannedUsers();
     }
 
-    public BannedUserContainer getBannedUserContainer() {
+    public synchronized BannedUserContainer getBannedUserContainer() {
         return bannedUserContainer;
+    }
+
+    public synchronized void addBannedUser(BannedUser bannedUser) {
+        if (!bannedUserContainer.getBannedUsers().contains(bannedUser)) {
+            bannedUserContainer.getBannedUsers().add(bannedUser);
+        }
+    }
+
+    public void removeBannedUser(BannedUser bannedUser) {
+        bannedUserContainer.getBannedUsers().remove(bannedUser);
     }
 
     private BannedUserContainer generateDefaultGroupContainer() {

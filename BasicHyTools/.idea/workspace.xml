@@ -22,36 +22,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagement/BannedUserManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="66" column="35" selection-start-line="66" selection-start-column="35" selection-end-line="66" selection-end-column="35" />
+            <state relative-caret-position="310">
+              <caret line="65" column="25" selection-start-line="65" selection-start-column="25" selection-end-line="65" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2397#2398#0" expanded="true" />
                 <element signature="e#2456#2457#0" expanded="true" />
                 <element signature="e#2449#2450#0" expanded="true" />
                 <element signature="e#2491#2492#0" expanded="true" />
+                <element signature="e#2758#2759#0" expanded="true" />
+                <element signature="e#2826#2827#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/initializers/ModuleInitializer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="35" column="19" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/utils/Informer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
@@ -59,47 +43,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagement/configsavers/BannedUserSaver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="59" column="13" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
+            <state relative-caret-position="208">
+              <caret line="51" column="24" selection-start-line="51" selection-start-column="12" selection-end-line="51" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagement/configsavers/ConfigSaver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="35" column="66" selection-start-line="35" selection-start-column="66" selection-end-line="35" selection-end-column="66" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagement/configsavers/GroupSaver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagement/configsavers/UserSaver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="14" selection-start-line="14" selection-end-line="64" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagement/GroupManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="91" column="45" selection-start-line="81" selection-start-column="8" selection-end-line="91" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -136,8 +84,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/gamefunctions/whitelistfunctions/WhiteListAdder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/gamefunctions/miscenalliousfunctions/Marry.java" />
         <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/gamefunctions/regionfunctions/RegionProtector.java" />
         <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/utils/PlaceholderReplacer.java" />
         <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/eventmanagement/UserMoveEventHandler.java" />
@@ -162,7 +108,6 @@
         <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/utils/GlobalMessage.java" />
         <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/gamefunctions/chatfunctions/Broadcast.java" />
         <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/gamefunctions/chatfunctions/Warn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/models/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/gamefunctions/chatfunctions/miscenallious/IgnoreHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/models/LanguageConfig.java" />
         <option value="$PROJECT_DIR$/src/main/resources/configSettings/languageConfigSettings.xml" />
@@ -183,10 +128,13 @@
         <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/persistence/daos/IBannedUserDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/persistence/repositories/BannedUserRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/persistence/daos/BannedUserDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagement/BannedUserManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagement/configsavers/BannedUserSaver.java" />
         <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/initializers/ModuleInitializer.java" />
         <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/utils/Informer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/models/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagement/BannedUserManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagement/configsavers/BannedUserSaver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagement/configsavers/GroupSaver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagement/configsavers/UserSaver.java" />
       </list>
     </option>
   </component>
@@ -290,27 +238,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="basichytools" type="462c0819:PsiDirectoryNode" />
-              <item name="persistence" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BasicHyTools" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BasicHyTools" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="basichytools" type="462c0819:PsiDirectoryNode" />
-              <item name="persistence" type="462c0819:PsiDirectoryNode" />
-              <item name="daos" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BasicHyTools" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BasicHyTools" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="basichytools" type="462c0819:PsiDirectoryNode" />
-              <item name="persistence" type="462c0819:PsiDirectoryNode" />
-              <item name="repositories" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BasicHyTools" type="b2602c69:ProjectViewProjectNode" />
@@ -340,7 +268,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559227830756" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559228517125" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -425,7 +353,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49714285" visible="true" weight="0.23071104" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49714285" visible="true" weight="0.21406959" />
       <window_info id="Structure" order="1" sideWeight="0.50285715" side_tool="true" weight="0.24054463" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -434,7 +362,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32991454" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49016643" visible="true" weight="0.3453355" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49016643" visible="true" weight="0.21931261" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49319214" weight="0.41734862" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -499,16 +427,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/utils/StringUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="59" selection-start-line="59" selection-end-line="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BasicHyTools/language.yml" />
     <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/eventmanagement/UserConnectionEventHandler.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -735,16 +653,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/models/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="21" column="37" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/configSettings/functionParameterSettings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="428">
@@ -898,39 +806,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagement/configsavers/ConfigSaver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="35" column="66" selection-start-line="35" selection-start-column="66" selection-end-line="35" selection-end-column="66" />
+        <state relative-caret-position="578">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagement/configsavers/UserSaver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="14" selection-start-line="14" selection-end-line="64" selection-end-column="5" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/BasicHyTools/bannedUsers.yml">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagement/BannedUserManager.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/utils/Informer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="66" column="35" selection-start-line="66" selection-start-column="35" selection-end-line="66" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2397#2398#0" expanded="true" />
-            <element signature="e#2456#2457#0" expanded="true" />
-            <element signature="e#2449#2450#0" expanded="true" />
-            <element signature="e#2491#2492#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagement/configsavers/BannedUserSaver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="59" column="13" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="102">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
@@ -941,17 +828,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/utils/Informer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/models/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="2737">
+          <caret line="185" column="5" selection-start-line="185" selection-start-column="5" selection-end-line="185" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagement/configsavers/UserSaver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="53" column="25" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagement/configsavers/GroupSaver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
+        <state relative-caret-position="208">
+          <caret line="51" column="24" selection-start-line="51" selection-start-column="24" selection-end-line="51" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagement/configsavers/BannedUserSaver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="51" column="24" selection-start-line="51" selection-start-column="12" selection-end-line="51" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/martinmarkus/basichytools/configmanagement/BannedUserManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="65" column="25" selection-start-line="65" selection-start-column="25" selection-end-line="65" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2397#2398#0" expanded="true" />
+            <element signature="e#2456#2457#0" expanded="true" />
+            <element signature="e#2449#2450#0" expanded="true" />
+            <element signature="e#2491#2492#0" expanded="true" />
+            <element signature="e#2758#2759#0" expanded="true" />
+            <element signature="e#2826#2827#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

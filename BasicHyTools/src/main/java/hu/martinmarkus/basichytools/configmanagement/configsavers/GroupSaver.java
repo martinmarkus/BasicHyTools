@@ -49,7 +49,7 @@ public class GroupSaver extends ConfigSaver {
         saveAllGroups();
     }
 
-    private void saveAllGroups() {
+    private synchronized void saveAllGroups() {
         GroupContainer groupContainer = GroupManager.getInstance().getGroupContainer();
         groupContainerRepository.set(GroupManager.GROUPS_CONFIG, groupContainer);
 

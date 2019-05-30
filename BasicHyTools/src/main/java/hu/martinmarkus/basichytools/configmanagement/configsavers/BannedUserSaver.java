@@ -1,17 +1,11 @@
 package hu.martinmarkus.basichytools.configmanagement.configsavers;
 
-
 import hu.martinmarkus.basichytools.configmanagement.BannedUserManager;
-import hu.martinmarkus.basichytools.configmanagement.GroupManager;
 import hu.martinmarkus.basichytools.initializers.ModuleInitializer;
-import hu.martinmarkus.basichytools.models.BannedUser;
 import hu.martinmarkus.basichytools.models.containers.BannedUserContainer;
-import hu.martinmarkus.basichytools.models.containers.GroupContainer;
 import hu.martinmarkus.basichytools.persistence.repositories.BannedUserRepository;
 import hu.martinmarkus.basichytools.utils.Informer;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
@@ -55,7 +49,7 @@ public class BannedUserSaver extends ConfigSaver {
         saveBannedUsers();
     }
 
-    private void saveBannedUsers() {
+    private synchronized void saveBannedUsers() {
         BannedUserContainer bannedUserContainer = BannedUserManager.getInstance().getBannedUserContainer();
         bannedUserRepository.set(BannedUserManager.BANNED_USER_CONFIG, bannedUserContainer);
 

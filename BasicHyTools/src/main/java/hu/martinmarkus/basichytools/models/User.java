@@ -1,10 +1,7 @@
 package hu.martinmarkus.basichytools.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import hu.martinmarkus.basichytools.configmanagement.DefaultConfigManager;
-import hu.martinmarkus.basichytools.configmanagement.GroupManager;
-import hu.martinmarkus.basichytools.configmanagement.LanguageConfigManager;
-import hu.martinmarkus.basichytools.configmanagement.UserManager;
+import hu.martinmarkus.basichytools.configmanagement.*;
 import hu.martinmarkus.basichytools.utils.permissionmanagement.PermissionValidator;
 import hu.martinmarkus.basichytools.utils.permissionmanagement.UserPermissionValidator;
 import hu.martinmarkus.basichytools.utils.StringUtil;
