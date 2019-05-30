@@ -30,8 +30,19 @@ public class CommandSpy extends GameFunction {
     @Override
     public void execute() {
         super.runFunction(() -> {
-            // TODO: implement function
-            System.out.println(this.getClass().getName() + " function is not implemented.");
+            boolean commandSpyState;
+            String message;
+
+            if (executor.isCommandSpyActive()) {
+                commandSpyState = false;
+                message = languageConfig.getCommandSpyDeactivated();
+            } else {
+                commandSpyState = true;
+                message = languageConfig.getCommandSpyActivated();
+            }
+
+            executor.setCommandSpyActive(commandSpyState);
+            executor.sendMessage(message);
         });
     }
 }

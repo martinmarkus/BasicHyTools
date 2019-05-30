@@ -60,7 +60,8 @@ public class LanguageConfig {
     private String infoPrefix;
     private String errorPrefix;
     private String basicHyToolsPrefix;
-
+    private String commandSpyActivated;
+    private String commandSpyDeactivated;
 
     public LanguageConfig() {
 
@@ -80,7 +81,7 @@ public class LanguageConfig {
                           String whisperSeparator, String socialSpyPrefix, String commandSpyPrefix, String socialSpyActivated,
                           String socialSpyDeactivated, String youAreIgnoring, String youAreIgnored, String ignored,
                           String ignoreRemoved, String warnPrefix, String infoPrefix, String errorPrefix,
-                          String basicHyToolsPrefix) {
+                          String basicHyToolsPrefix, String commandSpyActivated, String commandSpyDeactivated) {
         this.motd = motd;
         this.joinMessage = joinMessage;
         this.quitMessage = quitMessage;
@@ -135,6 +136,8 @@ public class LanguageConfig {
         this.infoPrefix = infoPrefix;
         this.errorPrefix = errorPrefix;
         this.basicHyToolsPrefix = basicHyToolsPrefix;
+        this.commandSpyActivated = commandSpyActivated;
+        this.commandSpyDeactivated = commandSpyDeactivated;
     }
 
     public String getMotd() {
@@ -567,5 +570,21 @@ public class LanguageConfig {
 
     public void setBasicHyToolsPrefix(String basicHyToolsPrefix) {
         this.basicHyToolsPrefix = basicHyToolsPrefix;
+    }
+
+    public String getCommandSpyActivated() {
+        return commandSpyActivated;
+    }
+
+    public void setCommandSpyActivated(String commandSpyActivated) {
+        this.commandSpyActivated = commandSpyActivated;
+    }
+
+    public String getCommandSpyDeactivated() {
+        return commandSpyDeactivated;
+    }
+
+    public void setCommandSpyDeactivated(String commandSpyDeactivated) {
+        this.commandSpyDeactivated = commandSpyDeactivated;
     }
 }

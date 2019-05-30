@@ -22,8 +22,7 @@ public class Main {
                 e.printStackTrace();
             }
             CommandEventHandler commandEventHandler = new CommandEventHandler();
-            commandEventHandler.onUserExecuteCommand("socialspy");
-
+            commandEventHandler.onUserExecuteCommand("me hello");
             ModuleInitializer.unload();
         });
         thread.start();

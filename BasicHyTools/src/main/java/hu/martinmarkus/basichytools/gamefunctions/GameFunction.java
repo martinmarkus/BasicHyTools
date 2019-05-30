@@ -2,6 +2,7 @@ package hu.martinmarkus.basichytools.gamefunctions;
 
 import hu.martinmarkus.basichytools.configmanagement.FunctionParameterManager;
 import hu.martinmarkus.basichytools.configmanagement.LanguageConfigManager;
+import hu.martinmarkus.basichytools.configmanagement.UserManager;
 import hu.martinmarkus.basichytools.utils.StringUtil;
 import hu.martinmarkus.basichytools.utils.repeatingfunctions.FunctionCooldown;
 import hu.martinmarkus.basichytools.utils.Informer;
@@ -127,7 +128,18 @@ public abstract class GameFunction {
             message = StringUtil.replace(message, userName, rawCommand);
 
             Informer.logInfo(message);
+            notifyCommandSpies(message);
         }
+    }
+
+    private void notifyCommandSpies(String message) {
+        List<User> onlineUsers = UserManager.getInstance().getAllOnlineUsers();
+        String commandSpyPrefix = languageConfig.getCommandSpyPrefix();
+        onlineUsers.forEach(onlineUser -> {
+            if (onlineUser != executor && onlineUser.isCommandSpyActive()) {
+                onlineUser.sendMessage(commandSpyPrefix.concat(message));
+            }
+        });
     }
 
     public FunctionParameter getFunctionParameter() {

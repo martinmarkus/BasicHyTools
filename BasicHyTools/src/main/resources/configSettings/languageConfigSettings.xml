@@ -70,6 +70,8 @@
         <constructor-arg index="51" value="[Info]"/> <!-- infoPrefix -->
         <constructor-arg index="52" value="[Error]"/> <!-- errorPrefix -->
         <constructor-arg index="53" value="[BasicHyTools]"/> <!-- basicHyToolsPrefix -->
+        <constructor-arg index="54" value="You have activated the social spy."/> <!-- commandSpyActivated -->
+        <constructor-arg index="55" value="You have deactivated the social spy."/> <!-- commandSpyDeactivated -->
 
     </bean>
 </beans>
