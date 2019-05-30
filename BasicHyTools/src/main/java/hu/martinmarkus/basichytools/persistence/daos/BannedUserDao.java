@@ -11,7 +11,7 @@ import java.util.List;
 public class BannedUserDao extends Dao<BannedUserContainer> implements IBannedUserDao {
 
     public BannedUserDao(String path) {
-        super(BannedUserContainer.class, path, PersistenceMode.YAML_FILE);
+        super(BannedUserContainer.class, path, PersistenceMode.JSON_FILE);
     }
 
 

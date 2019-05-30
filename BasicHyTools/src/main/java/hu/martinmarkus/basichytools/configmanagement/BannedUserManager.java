@@ -2,11 +2,13 @@ package hu.martinmarkus.basichytools.configmanagement;
 
 import hu.martinmarkus.basichytools.initializers.ModuleInitializer;
 import hu.martinmarkus.basichytools.models.BannedUser;
+import hu.martinmarkus.basichytools.models.User;
 import hu.martinmarkus.basichytools.models.containers.BannedUserContainer;
 import hu.martinmarkus.basichytools.persistence.repositories.BannedUserRepository;
 import hu.martinmarkus.basichytools.persistence.repositories.IBannedUserRepository;
 import hu.martinmarkus.basichytools.utils.synchronization.ISynchronizer;
 import hu.martinmarkus.basichytools.utils.synchronization.Synchronizer;
+import hu.martinmarkus.configmanagerlibrary.threading.ResultListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,10 +73,50 @@ public class BannedUserManager {
         if (!bannedUserContainer.getBannedUsers().contains(bannedUser)) {
             bannedUserContainer.getBannedUsers().add(bannedUser);
         }
+
+        User onlineUser = UserManager.getInstance().getOnlineUser(bannedUser.getName());
+        if (onlineUser != null) {
+            onlineUser.setBanned(true);
+            return;
+        }
+
+        UserManager.getInstance().getUser(bannedUser.getName(), user -> {
+            if (user != null) {
+                user.setBanned(true);
+                if (user.isOnline()) {
+                    user.setBanned(true);
+                }
+            }
+        });
     }
 
-    public void removeBannedUser(BannedUser bannedUser) {
+    public synchronized void removeBannedUser(BannedUser bannedUser) {
         bannedUserContainer.getBannedUsers().remove(bannedUser);
+
+        User onlineUser = UserManager.getInstance().getOnlineUser(bannedUser.getName());
+        if (onlineUser != null) {
+            onlineUser.setBanned(false);
+            return;
+        }
+
+        UserManager.getInstance().getUser(bannedUser.getName(), user -> {
+            if (user != null) {
+                user.setBanned(false);
+                if (user.isOnline()) {
+                    user.setBanned(false);
+                }
+            }
+        });
+    }
+
+    public synchronized boolean isBanned(String userName) {
+        for (BannedUser bannedUser : bannedUserContainer.getBannedUsers()) {
+            if (bannedUser.getName().equalsIgnoreCase(userName)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private BannedUserContainer generateDefaultGroupContainer() {

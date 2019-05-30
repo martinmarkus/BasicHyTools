@@ -1,5 +1,6 @@
 package hu.martinmarkus.basichytools.eventmanagement;
 
+import hu.martinmarkus.basichytools.configmanagement.BannedUserManager;
 import hu.martinmarkus.basichytools.configmanagement.LanguageConfigManager;
 import hu.martinmarkus.basichytools.configmanagement.UserManager;
 import hu.martinmarkus.basichytools.models.LanguageConfig;
@@ -21,9 +22,14 @@ public class UserConnectionEventHandler {
 
         String joinedUserName = "mockUser12345";
 
+        boolean isBanned = BannedUserManager.getInstance().isBanned(joinedUserName);
+        if (isBanned) {
+            kick(joinedUserName);
+        }
+
         User checkUser = userManager.getOnlineUser(joinedUserName);
         if (checkUser != null) {
-            // TODO: kick, because user is already online
+            kick(joinedUserName);
             return;
         }
 
@@ -44,5 +50,9 @@ public class UserConnectionEventHandler {
         GlobalMessage.send(message);
 
         userManager.unregisterUser(quitedUserName);
+    }
+
+    private void kick(String userName) {
+        // TODO: kick user
     }
 }

@@ -24,7 +24,7 @@ public class BannedUserSaver extends ConfigSaver {
     }
 
     private BannedUserSaver() {
-        String path = ModuleInitializer.getUsersPath();
+        String path = ModuleInitializer.getRootPath();
         bannedUserRepository = new BannedUserRepository(path);
     }
 
