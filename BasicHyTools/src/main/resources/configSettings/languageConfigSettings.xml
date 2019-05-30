@@ -67,9 +67,9 @@
         <constructor-arg index="48" value="[BasicHyTools]"/> <!-- basicHyToolsPrefix -->
         <constructor-arg index="49" value="You have activated the social spy."/> <!-- commandSpyActivated -->
         <constructor-arg index="50" value="You have deactivated the social spy."/> <!-- commandSpyDeactivated -->
-        <constructor-arg index="51" value="You are banned.%newline%Ban date: %value%%newline%Ban reason: %value%%newline%Ban executor: %value"/> <!-- youAreBanned -->
-        <constructor-arg index="52" value="You are ip-banned.%newline%Ban date: %value%%newline%Ban reason: %value%%newline%Ban executor: %value"/> <!-- youAreIpBanned -->
-        <constructor-arg index="53" value="You are temp-banned for %value%.%newline%Ban date: %value%%newline%Ban reason: %value%%newline%Ban executor: %value"/> <!-- youAreTempBanned -->
+        <constructor-arg index="51" value="You are banned.%newline%Ban date: %value%. Ban reason: %value% Ban executor: %value%"/> <!-- youAreBanned -->
+        <constructor-arg index="52" value="You are ip-banned.%newline%Ban date: %value%. Ban reason: %value%. Ban executor: %value%"/> <!-- youAreIpBanned -->
+        <constructor-arg index="53" value="You are temp-banned for %value%. Ban date: %value%. Ban reason: %value%. Ban executor: %value%"/> <!-- youAreTempBanned -->
         <constructor-arg index="54" value="There is already an online player user with this name."/> <!-- alreadyOnline -->
 
     </bean>

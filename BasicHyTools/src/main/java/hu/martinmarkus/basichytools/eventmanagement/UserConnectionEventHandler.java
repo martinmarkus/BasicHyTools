@@ -3,6 +3,7 @@ package hu.martinmarkus.basichytools.eventmanagement;
 import hu.martinmarkus.basichytools.configmanagement.BannedUserManager;
 import hu.martinmarkus.basichytools.configmanagement.LanguageConfigManager;
 import hu.martinmarkus.basichytools.configmanagement.UserManager;
+import hu.martinmarkus.basichytools.models.BannedUser;
 import hu.martinmarkus.basichytools.models.LanguageConfig;
 import hu.martinmarkus.basichytools.models.User;
 import hu.martinmarkus.basichytools.utils.GlobalMessage;
@@ -54,21 +55,32 @@ public class UserConnectionEventHandler {
     }
 
     private boolean isBanned(String joinedUserName) {
+        BannedUser bannedUser = BannedUserManager.getInstance().getBannedUser(joinedUserName);
+        if (bannedUser == null) {
+            return false;
+        }
+
         boolean isTempBanned = BannedUserManager.getInstance().isTempBanned(joinedUserName);
         if (isTempBanned) {
-            kick(joinedUserName, languageConfig.getYouAreTempBanned());
+            String message = StringUtil.replacePlaceholder(languageConfig.getYouAreTempBanned(),
+                    bannedUser.getBanTimer() + " " + languageConfig.getSecond(),
+                    bannedUser.getDate(),bannedUser.getReason(), bannedUser.getBannerName());
+            kick(joinedUserName, message);
             return true;
         }
 
+        String message = StringUtil.replacePlaceholder(languageConfig.getYouAreIpBanned(),
+                bannedUser.getDate(),bannedUser.getReason(), bannedUser.getBannerName());
+
         boolean isIpBanned = BannedUserManager.getInstance().isIpBanned(joinedUserName);
         if (isIpBanned) {
-            kick(joinedUserName, languageConfig.getYouAreIpBanned());
+            kick(joinedUserName, message);
             return true;
         }
-        
+
         boolean isBanned = BannedUserManager.getInstance().isBanned(joinedUserName);
         if (isBanned) {
-            kick(joinedUserName, languageConfig.getYouAreBanned());
+            kick(joinedUserName, message);
             return true;
         }
 
@@ -77,7 +89,7 @@ public class UserConnectionEventHandler {
 
     private void kick(String userName, String kickMessage) {
         // TODO: send ban message:
-        System.out.println(kickMessage);
+        System.out.println("ban message to " + userName + ": " + kickMessage);
         // TODO: kick user
     }
 }

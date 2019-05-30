@@ -26,12 +26,9 @@ public class Main {
             }
 
             CommandEventHandler commandEventHandler = new CommandEventHandler();
-            commandEventHandler.onUserExecuteCommand("balancetoplist");
+            commandEventHandler.onUserExecuteCommand("me hello");
 
             BannedUser bannedUser = new BannedUser("mockUser12345", "123.123.123.123", DateTimeUtil.getActualDate(), 60, "banned hahahaa", "birdemic", true);
-            BannedUserManager.getInstance().addBannedUser(bannedUser);
-            BannedUserManager.getInstance().addBannedUser(bannedUser);
-            BannedUserManager.getInstance().addBannedUser(bannedUser);
             BannedUserManager.getInstance().addBannedUser(bannedUser);
 
             ModuleInitializer.unload();

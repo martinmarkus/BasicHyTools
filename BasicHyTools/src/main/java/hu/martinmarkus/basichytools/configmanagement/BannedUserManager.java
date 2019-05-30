@@ -69,6 +69,15 @@ public class BannedUserManager {
         return bannedUserContainer;
     }
 
+    public synchronized  BannedUser getBannedUser(String userName) {
+        for (BannedUser bannedUser : bannedUserContainer.getBannedUsers()) {
+            if (bannedUser.getName().equalsIgnoreCase(userName)) {
+                return bannedUser;
+            }
+        }
+        return null;
+    }
+
     public synchronized void addBannedUser(BannedUser bannedUser) {
         for (BannedUser aBannedUser : bannedUserContainer.getBannedUsers()) {
             if (aBannedUser.getName().equalsIgnoreCase(bannedUser.getName())) {
