@@ -4,13 +4,13 @@ public class BannedUser {
     private String name;
     private String ip;
     private String date;
-    private String banTimer;
+    private int banTimer;
     private String reason;
     private String bannerName;
     private boolean ipBanned;
 
     public BannedUser(String name, String ip, String date,
-                      String banTimer, String reason,
+                      int banTimer, String reason,
                       String bannerName, boolean ipBanned) {
         this.name = name;
         this.ip = ip;
@@ -45,11 +45,11 @@ public class BannedUser {
         this.date = date;
     }
 
-    public String getBanTimer() {
+    public int getBanTimer() {
         return banTimer;
     }
 
-    public void setBanTimer(String banTimer) {
+    public void setBanTimer(int banTimer) {
         this.banTimer = banTimer;
     }
 

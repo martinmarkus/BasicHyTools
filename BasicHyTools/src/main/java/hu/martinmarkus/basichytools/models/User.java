@@ -99,7 +99,7 @@ public class User {
     public void sendMotd() {
         String motd = LanguageConfigManager.getInstance().getLanguageConfig().getMotd();
         Integer onlineUserCount = UserManager.getInstance().getAllOnlineUsers().size();
-        String fullMotd = StringUtil.replace(motd, name, onlineUserCount.toString());
+        String fullMotd = StringUtil.replacePlaceholder(motd, name, onlineUserCount.toString());
         sendMessage(fullMotd);
     }
 
@@ -219,7 +219,7 @@ public class User {
         }
 
         LanguageConfig languageConfig = LanguageConfigManager.getInstance().getLanguageConfig();
-        String message = StringUtil.replace(languageConfig.getBalanceDecreased(), name, String.valueOf(value),
+        String message = StringUtil.replacePlaceholder(languageConfig.getBalanceDecreased(), name, String.valueOf(value),
                 String.valueOf(balance));
         sendMessage(message);
     }
@@ -235,7 +235,7 @@ public class User {
         }
 
         LanguageConfig languageConfig = LanguageConfigManager.getInstance().getLanguageConfig();
-        String message = StringUtil.replace(languageConfig.getBalanceIncreased(), name, String.valueOf(value),
+        String message = StringUtil.replacePlaceholder(languageConfig.getBalanceIncreased(), name, String.valueOf(value),
                 String.valueOf(balance));
         sendMessage(message);
     }
@@ -246,7 +246,7 @@ public class User {
         balance = config.getStartingBalance();
 
         LanguageConfig languageConfig = LanguageConfigManager.getInstance().getLanguageConfig();
-        String message = StringUtil.replace(languageConfig.getBalanceSet(), String.valueOf(balance));
+        String message = StringUtil.replacePlaceholder(languageConfig.getBalanceSet(), String.valueOf(balance));
         sendMessage(message);
     }
 

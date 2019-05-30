@@ -24,10 +24,11 @@ public class Main {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+
             CommandEventHandler commandEventHandler = new CommandEventHandler();
             commandEventHandler.onUserExecuteCommand("balancetoplist");
 
-            BannedUser bannedUser = new BannedUser("mockUser12345", "123.123.123.123", DateTimeUtil.getActualDate(), "60", "banned hahahaa", "birdemic", true);
+            BannedUser bannedUser = new BannedUser("mockUser12345", "123.123.123.123", DateTimeUtil.getActualDate(), 60, "banned hahahaa", "birdemic", true);
             BannedUserManager.getInstance().addBannedUser(bannedUser);
             BannedUserManager.getInstance().addBannedUser(bannedUser);
             BannedUserManager.getInstance().addBannedUser(bannedUser);

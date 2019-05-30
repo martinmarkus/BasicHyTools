@@ -11,6 +11,7 @@ import hu.martinmarkus.basichytools.utils.synchronization.Synchronizer;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 
 public class BannedUserManager {
     public static final String BANNED_USER_CONFIG = "bannedUsers";
@@ -69,9 +70,13 @@ public class BannedUserManager {
     }
 
     public synchronized void addBannedUser(BannedUser bannedUser) {
-        if (!bannedUserContainer.getBannedUsers().contains(bannedUser)) {
-            bannedUserContainer.getBannedUsers().add(bannedUser);
+        for (BannedUser aBannedUser : bannedUserContainer.getBannedUsers()) {
+            if (aBannedUser.getName().equalsIgnoreCase(bannedUser.getName())) {
+                return;
+            }
         }
+
+        bannedUserContainer.getBannedUsers().add(bannedUser);
 
         User onlineUser = UserManager.getInstance().getOnlineUser(bannedUser.getName());
         if (onlineUser != null) {
@@ -89,16 +94,23 @@ public class BannedUserManager {
         });
     }
 
-    public synchronized void removeBannedUser(BannedUser bannedUse) {
-        bannedUserContainer.getBannedUsers().remove(bannedUse);
+    public synchronized void removeBannedUser(String bannedUserName) {
+        for (ListIterator<BannedUser> iter = bannedUserContainer.getBannedUsers().listIterator(); iter.hasNext(); ) {
+            BannedUser bannedUser = iter.next();
+            String name = bannedUser.getName();
 
-        User onlineUser = UserManager.getInstance().getOnlineUser(bannedUse.getName());
+            if (name.equalsIgnoreCase(bannedUserName)) {
+                iter.remove();
+            }
+        }
+
+        User onlineUser = UserManager.getInstance().getOnlineUser(bannedUserName);
         if (onlineUser != null) {
             onlineUser.setBanned(false);
             return;
         }
 
-        UserManager.getInstance().getUser(bannedUse.getName(), user -> {
+        UserManager.getInstance().getUser(bannedUserName, user -> {
             if (user != null) {
                 user.setBanned(false);
                 if (user.isOnline()) {
@@ -112,6 +124,34 @@ public class BannedUserManager {
         for (BannedUser bannedUser : bannedUserContainer.getBannedUsers()) {
             if (bannedUser.getName().equalsIgnoreCase(userName)) {
                 return true;
+            }
+        }
+
+        return false;
+    }
+
+    public synchronized boolean isIpBanned(String userName) {
+        for (BannedUser bannedUser : bannedUserContainer.getBannedUsers()) {
+            if (bannedUser.getName().equalsIgnoreCase(userName)) {
+                if (bannedUser.isIpBanned()) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    public synchronized boolean isTempBanned(String userName) {
+        for (BannedUser bannedUser : bannedUserContainer.getBannedUsers()) {
+            if (bannedUser.getName().equalsIgnoreCase(userName)) {
+                if (bannedUser.getBanTimer() > 0) {
+                    return true;
+                } else {
+                    return false;
+                }
             }
         }
 

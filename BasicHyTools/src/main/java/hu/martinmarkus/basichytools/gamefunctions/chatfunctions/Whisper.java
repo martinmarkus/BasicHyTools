@@ -55,7 +55,7 @@ public class Whisper extends GameFunction {
                 executor.sendMessage(languageConfig.getNotEnoughPermission());
             } else if (!addressee.hasPermission(permission)) {
                 addressee.sendMessage(languageConfig.getNotEnoughPermission());
-                String executorMessage = StringUtil.replace(
+                String executorMessage = StringUtil.replacePlaceholder(
                         languageConfig.getNotEnoughPermissionForWhisper(), addresseeName);
                 executor.sendMessage(executorMessage);
             } else {

@@ -8,11 +8,6 @@ public class LanguageConfig {
     private String quitMessage;
     private String afkOn;
     private String afkOff;
-    private String banned;
-    private String tempBanned;
-    private String ipBanned;
-    private String tempIpBanned;
-    private String unbanned;
     private String kicked;
     private String allKicked;
     private String muted;
@@ -62,13 +57,16 @@ public class LanguageConfig {
     private String basicHyToolsPrefix;
     private String commandSpyActivated;
     private String commandSpyDeactivated;
+    private String youAreBanned;
+    private String youAreIpBanned;
+    private String youAreTempBanned;
+    private String alreadyOnline;
 
     public LanguageConfig() {
 
     }
 
     public LanguageConfig(String motd, String joinMessage, String quitMessage, String afkOn, String afkOff,
-                          String banned, String tempBanned, String ipBanned, String tempIpBanned, String unbanned,
                           String kicked, String allKicked, String muted, String tempMuted, String unmuted,
                           String notEnoughPermission, String notEnoughMoney, String errorHasOccurred,
                           String commandExecuted, String userIsStillConnecting, String unknownCommand,
@@ -81,17 +79,13 @@ public class LanguageConfig {
                           String whisperSeparator, String socialSpyPrefix, String commandSpyPrefix, String socialSpyActivated,
                           String socialSpyDeactivated, String youAreIgnoring, String youAreIgnored, String ignored,
                           String ignoreRemoved, String warnPrefix, String infoPrefix, String errorPrefix,
-                          String basicHyToolsPrefix, String commandSpyActivated, String commandSpyDeactivated) {
+                          String basicHyToolsPrefix, String commandSpyActivated, String commandSpyDeactivated,
+                          String youAreBanned, String youAreIpBanned, String youAreTempBanned, String alreadyOnline) {
         this.motd = motd;
         this.joinMessage = joinMessage;
         this.quitMessage = quitMessage;
         this.afkOn = afkOn;
         this.afkOff = afkOff;
-        this.banned = banned;
-        this.tempBanned = tempBanned;
-        this.ipBanned = ipBanned;
-        this.tempIpBanned = tempIpBanned;
-        this.unbanned = unbanned;
         this.kicked = kicked;
         this.allKicked = allKicked;
         this.muted = muted;
@@ -138,6 +132,10 @@ public class LanguageConfig {
         this.basicHyToolsPrefix = basicHyToolsPrefix;
         this.commandSpyActivated = commandSpyActivated;
         this.commandSpyDeactivated = commandSpyDeactivated;
+        this.youAreBanned = youAreBanned;
+        this.youAreIpBanned = youAreIpBanned;
+        this.youAreTempBanned = youAreTempBanned;
+        this.alreadyOnline = alreadyOnline;
     }
 
     public String getMotd() {
@@ -178,46 +176,6 @@ public class LanguageConfig {
 
     public void setAfkOff(String afkOff) {
         this.afkOff = afkOff;
-    }
-
-    public String getBanned() {
-        return banned;
-    }
-
-    public void setBanned(String banned) {
-        this.banned = banned;
-    }
-
-    public String getTempBanned() {
-        return tempBanned;
-    }
-
-    public void setTempBanned(String tempBanned) {
-        this.tempBanned = tempBanned;
-    }
-
-    public String getIpBanned() {
-        return ipBanned;
-    }
-
-    public void setIpBanned(String ipBanned) {
-        this.ipBanned = ipBanned;
-    }
-
-    public String getTempIpBanned() {
-        return tempIpBanned;
-    }
-
-    public void setTempIpBanned(String tempIpBanned) {
-        this.tempIpBanned = tempIpBanned;
-    }
-
-    public String getUnbanned() {
-        return unbanned;
-    }
-
-    public void setUnbanned(String unbanned) {
-        this.unbanned = unbanned;
     }
 
     public String getKicked() {
@@ -586,5 +544,37 @@ public class LanguageConfig {
 
     public void setCommandSpyDeactivated(String commandSpyDeactivated) {
         this.commandSpyDeactivated = commandSpyDeactivated;
+    }
+
+    public String getYouAreBanned() {
+        return youAreBanned;
+    }
+
+    public void setYouAreBanned(String youAreBanned) {
+        this.youAreBanned = youAreBanned;
+    }
+
+    public String getYouAreIpBanned() {
+        return youAreIpBanned;
+    }
+
+    public void setYouAreIpBanned(String youAreIpBanned) {
+        this.youAreIpBanned = youAreIpBanned;
+    }
+
+    public String getYouAreTempBanned() {
+        return youAreTempBanned;
+    }
+
+    public void setYouAreTempBanned(String youAreTempBanned) {
+        this.youAreTempBanned = youAreTempBanned;
+    }
+
+    public String getAlreadyOnline() {
+        return alreadyOnline;
+    }
+
+    public void setAlreadyOnline(String alreadyOnline) {
+        this.alreadyOnline = alreadyOnline;
     }
 }

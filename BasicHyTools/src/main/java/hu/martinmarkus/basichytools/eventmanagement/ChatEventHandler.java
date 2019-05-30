@@ -100,7 +100,7 @@ public class ChatEventHandler {
             messageValue = String.format("%02d " + secondString, cooldown);
         }
 
-        message = StringUtil.replace(message, messageValue);
+        message = StringUtil.replacePlaceholder(message, messageValue);
 
         user.sendMessage(message);
     }

@@ -52,7 +52,7 @@ public class StringUtil {
         return message.toString();
     }
 
-    public static String replace(String message, String... placeholderValues) {
+    public static String replacePlaceholder(String message, String... placeholderValues) {
         Placeholder placeholder = new Placeholder();
         if (message == null || message.isEmpty() || placeholderValues.length == 0) {
             return message;

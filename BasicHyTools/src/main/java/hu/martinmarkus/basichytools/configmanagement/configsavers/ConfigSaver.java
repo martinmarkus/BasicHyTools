@@ -35,6 +35,6 @@ public abstract class ConfigSaver implements IConfigSaver {
         LanguageConfig languageConfig = LanguageConfigManager.getInstance().getLanguageConfig();
         String message = languageConfig.getConfigSaveSuccessful();
 
-        return StringUtil.replace(message, configName);
+        return StringUtil.replacePlaceholder(message, configName);
     }
 }

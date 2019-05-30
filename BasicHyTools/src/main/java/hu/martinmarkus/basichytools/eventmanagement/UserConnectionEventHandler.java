@@ -22,23 +22,24 @@ public class UserConnectionEventHandler {
 
         String joinedUserName = "mockUser12345";
 
-        boolean isBanned = BannedUserManager.getInstance().isBanned(joinedUserName);
+        boolean isBanned = isBanned(joinedUserName);
         if (isBanned) {
-            kick(joinedUserName);
+            return;
         }
 
         User checkUser = userManager.getOnlineUser(joinedUserName);
         if (checkUser != null) {
-            kick(joinedUserName);
+            kick(joinedUserName, languageConfig.getAlreadyOnline());
             return;
         }
 
-        String message = StringUtil.replace(languageConfig.getJoinMessage(), joinedUserName);
+        String message = StringUtil.replacePlaceholder(languageConfig.getJoinMessage(), joinedUserName);
         GlobalMessage.send(message);
 
         userManager.registerUser(joinedUserName, validUser -> {
             validUser.sendMotd();
             validUser.teleportToSpawnOnFirstJoin();
+
         });
     }
 
@@ -46,13 +47,37 @@ public class UserConnectionEventHandler {
         // TODO: get quited user's name
         String quitedUserName = "mockUser12345";
 
-        String message = StringUtil.replace(languageConfig.getQuitMessage(), quitedUserName);
+        String message = StringUtil.replacePlaceholder(languageConfig.getQuitMessage(), quitedUserName);
         GlobalMessage.send(message);
 
         userManager.unregisterUser(quitedUserName);
     }
 
-    private void kick(String userName) {
+    private boolean isBanned(String joinedUserName) {
+        boolean isTempBanned = BannedUserManager.getInstance().isTempBanned(joinedUserName);
+        if (isTempBanned) {
+            kick(joinedUserName, languageConfig.getYouAreTempBanned());
+            return true;
+        }
+
+        boolean isIpBanned = BannedUserManager.getInstance().isIpBanned(joinedUserName);
+        if (isIpBanned) {
+            kick(joinedUserName, languageConfig.getYouAreIpBanned());
+            return true;
+        }
+        
+        boolean isBanned = BannedUserManager.getInstance().isBanned(joinedUserName);
+        if (isBanned) {
+            kick(joinedUserName, languageConfig.getYouAreBanned());
+            return true;
+        }
+
+        return false;
+    }
+
+    private void kick(String userName, String kickMessage) {
+        // TODO: send ban message:
+        System.out.println(kickMessage);
         // TODO: kick user
     }
 }

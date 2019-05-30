@@ -66,7 +66,7 @@ public class GameFunctionValidator {
     private void sendInvalidParameterCountMessage() {
         String command = functionParameter.getCommand();
         String message = languageConfig.getInvalidCommandUsagePleaseTry();
-        message = StringUtil.replace(message, command);
+        message = StringUtil.replacePlaceholder(message, command);
         executor.sendMessage(message);
     }
 
@@ -109,7 +109,7 @@ public class GameFunctionValidator {
         String message = languageConfig.getFunctionStillOnCooldown();
 
         String cooldownValue = createCooldownMessage();
-        message = StringUtil.replace(message, functionParameter.getName(), cooldownValue);
+        message = StringUtil.replacePlaceholder(message, functionParameter.getName(), cooldownValue);
         executor.sendMessage(message);
     }
 

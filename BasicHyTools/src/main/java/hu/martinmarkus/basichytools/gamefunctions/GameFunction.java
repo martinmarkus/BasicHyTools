@@ -125,7 +125,7 @@ public abstract class GameFunction {
             String message = languageConfig.getCommandExecuted();
             String userName = executor.getName();
 
-            message = StringUtil.replace(message, userName, rawCommand);
+            message = StringUtil.replacePlaceholder(message, userName, rawCommand);
 
             Informer.logInfo(message);
             notifyCommandSpies(message);
