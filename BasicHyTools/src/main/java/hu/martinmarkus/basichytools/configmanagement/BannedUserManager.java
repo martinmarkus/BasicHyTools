@@ -8,7 +8,6 @@ import hu.martinmarkus.basichytools.persistence.repositories.BannedUserRepositor
 import hu.martinmarkus.basichytools.persistence.repositories.IBannedUserRepository;
 import hu.martinmarkus.basichytools.utils.synchronization.ISynchronizer;
 import hu.martinmarkus.basichytools.utils.synchronization.Synchronizer;
-import hu.martinmarkus.configmanagerlibrary.threading.ResultListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -90,16 +89,16 @@ public class BannedUserManager {
         });
     }
 
-    public synchronized void removeBannedUser(BannedUser bannedUser) {
-        bannedUserContainer.getBannedUsers().remove(bannedUser);
+    public synchronized void removeBannedUser(BannedUser bannedUse) {
+        bannedUserContainer.getBannedUsers().remove(bannedUse);
 
-        User onlineUser = UserManager.getInstance().getOnlineUser(bannedUser.getName());
+        User onlineUser = UserManager.getInstance().getOnlineUser(bannedUse.getName());
         if (onlineUser != null) {
             onlineUser.setBanned(false);
             return;
         }
 
-        UserManager.getInstance().getUser(bannedUser.getName(), user -> {
+        UserManager.getInstance().getUser(bannedUse.getName(), user -> {
             if (user != null) {
                 user.setBanned(false);
                 if (user.isOnline()) {
