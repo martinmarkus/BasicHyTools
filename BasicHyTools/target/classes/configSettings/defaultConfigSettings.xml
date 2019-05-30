@@ -20,11 +20,11 @@
     </util:list>
 
     <util:map id="globalMechanismPermissions" map-class="java.util.HashMap">
-        <entry key="chatCooldownBypass" value="hytools.global.bypass.chatCooldown"/>
-        <entry key="functionCooldownBypass" value="hytools.global.bypass.functionCooldown"/>
-        <entry key="swearFilterBypass" value="hytools.global.bypass.swearFilter"/>
-        <entry key="blockedCommandBypass" value="hytools.global.bypass.blockedCommand"/>
-        <entry key="readHelpOp" value="hytools.global.readhelpop"/>
+        <entry key="chatCooldownBypass" value="hytools.moderator.bypass.chatCooldown"/>
+        <entry key="functionCooldownBypass" value="hytools.moderator.bypass.functionCooldown"/>
+        <entry key="swearFilterBypass" value="hytools.admin.bypass.swearFilter"/>
+        <entry key="blockedCommandBypass" value="hytools.admin.bypass.blockedCommand"/>
+        <entry key="readHelpOp" value="hytools.moderator.readhelpop"/>
     </util:map>
 
     <bean id="spawnLocation" class="hu.martinmarkus.basichytools.models.BasicHyToolsLocation">
@@ -46,7 +46,7 @@
         <constructor-arg index="8" value="30"/> <!-- tpAcceptCancellation -->
         <constructor-arg index="9" value="1000"/> <!-- startingBalance -->
         <constructor-arg index="10" value="0"/> <!-- minMoney -->
-        <constructor-arg index="11" value="10 000 000"/> <!-- maxMoney -->
+        <constructor-arg index="11" value="10000000"/> <!-- maxMoney -->
         <constructor-arg index="12" value="1"/> <!-- minPayAmount -->
         <constructor-arg index="13" value="15"/> <!-- payCooldown -->
         <constructor-arg index="14" value="3"/> <!-- chatCooldown -->

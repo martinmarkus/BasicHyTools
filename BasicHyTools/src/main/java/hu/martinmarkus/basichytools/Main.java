@@ -22,7 +22,7 @@ public class Main {
                 e.printStackTrace();
             }
             CommandEventHandler commandEventHandler = new CommandEventHandler();
-            commandEventHandler.onUserExecuteCommand("me hello");
+            commandEventHandler.onUserExecuteCommand("balancetoplist");
             ModuleInitializer.unload();
         });
         thread.start();
