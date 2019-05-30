@@ -1,6 +1,7 @@
 package hu.martinmarkus.basichytools.initializers;
 
 import hu.martinmarkus.basichytools.configmanagement.*;
+import hu.martinmarkus.basichytools.configmanagement.configsavers.BannedUserSaver;
 import hu.martinmarkus.basichytools.initializers.iocfactories.concretefactories.GameFunctionFactory;
 import hu.martinmarkus.basichytools.utils.repeatingfunctions.Announcer;
 import hu.martinmarkus.basichytools.utils.repeatingfunctions.ChatCooldown;
@@ -23,6 +24,8 @@ public class ModuleInitializer {
         UserSaver.getInstance().saveNow();
         GroupSaver.getInstance().stopAutoSave();
         GroupSaver.getInstance().saveNow();
+        BannedUserSaver.getInstance().saveNow();
+        BannedUserSaver.getInstance().stopAutoSave();
 
         Announcer.getInstance().stopAnnouncing();
         FunctionCooldown.getInstance().stopCooldownCheck();
@@ -41,6 +44,7 @@ public class ModuleInitializer {
         FunctionParameterManager.getInstance();
         GroupManager.getInstance();
         UserManager.getInstance();
+        BannedUserManager.getInstance();
 
         initializeSaverModules();
         initializeAnnouncerModule();
@@ -60,6 +64,7 @@ public class ModuleInitializer {
     private static void initializeSaverModules() {
         UserSaver.getInstance().startAutoSave();
         GroupSaver.getInstance().startAutoSave();
+        BannedUserSaver.getInstance().startAutoSave();
     }
 
     private static void initializeAnnouncerModule() {

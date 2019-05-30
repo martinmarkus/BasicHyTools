@@ -6,7 +6,7 @@ public class Informer {
     private static final String SEPARATOR = LanguageConfigManager.getInstance().getLanguageConfig().getSeparator();
 
     public static void logInfo(String message) {
-        String prefix = LanguageConfigManager.getInstance().getLanguageConfig().getBasicHyToolsPrefix();
+        String prefix = LanguageConfigManager.getInstance().getLanguageConfig().getInfoPrefix();
         log(prefix + SEPARATOR + message);
     }
 
@@ -21,7 +21,7 @@ public class Informer {
     }
 
     private static void log(String message) {
-        String prefix = LanguageConfigManager.getInstance().getLanguageConfig().getBasicHyToolsPrefix();
+        String prefix = LanguageConfigManager.getInstance().getLanguageConfig().getBasicHyToolsPrefix().concat(" ");
         String date = DateTimeUtil.getActualDate();
         System.out.println("[" + date + "] " + prefix + message);
     }
