@@ -6,6 +6,9 @@ import hu.martinmarkus.basichytools.models.containers.BannedUserContainer;
 import hu.martinmarkus.basichytools.persistence.repositories.BannedUserRepository;
 import hu.martinmarkus.basichytools.utils.Informer;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
@@ -51,8 +54,20 @@ public class BannedUserSaver extends ConfigSaver {
 
     private synchronized void saveBannedUsers() {
         BannedUserContainer bannedUserContainer = BannedUserManager.getInstance().getBannedUserContainer();
-        bannedUserRepository.set(BannedUserManager.BANNED_USER_CONFIG, bannedUserContainer);
+        String bannedUserConfig = BannedUserManager.BANNED_USER_CONFIG;
 
-        Informer.logInfo(createLogMessage(BannedUserManager.BANNED_USER_CONFIG));
+        // BUG: if the generated file is empty, it doesnt serialize correctly
+        if (bannedUserContainer.getBannedUsers().size() == 0) {
+            String rootPath = ModuleInitializer.getRootPath().concat("\\").concat(bannedUserConfig).concat(".yml");
+            try {
+                Files.deleteIfExists(Paths.get(rootPath));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        bannedUserRepository.set(bannedUserConfig, bannedUserContainer);
+
+
+        Informer.logInfo(createLogMessage(bannedUserConfig));
     }
 }

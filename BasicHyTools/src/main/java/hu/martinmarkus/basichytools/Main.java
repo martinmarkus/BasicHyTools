@@ -29,8 +29,19 @@ public class Main {
             commandEventHandler.onUserExecuteCommand("me hello");
 
             BannedUser bannedUser = new BannedUser("mockUser12345", "123.123.123.123", DateTimeUtil.getActualDate(), 60, "banned hahahaa", "birdemic", true);
+            BannedUser bannedUser2 = new BannedUser("mockUser123456", "123.123.123.123", DateTimeUtil.getActualDate(), 60, "banned hahahaa", "birdemic", true);
+
+
+            BannedUserManager.getInstance().addBannedUser(bannedUser);
+            BannedUserManager.getInstance().removeBannedUser(bannedUser.getName());
             BannedUserManager.getInstance().addBannedUser(bannedUser);
 
+
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             ModuleInitializer.unload();
         });
         thread.start();

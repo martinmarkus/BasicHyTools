@@ -43,7 +43,7 @@ public class BannedUserManager {
             if (bannedUserContainer == null) {
                 initGroupContainer();
             } else {
-                this.bannedUserContainer.setBannedUsers(bannedUserContainer.getBannedUsers());
+                this.bannedUserContainer = bannedUserContainer;
             }
             synchronizer.continueRun();
         });
