@@ -4,6 +4,7 @@ import hu.martinmarkus.basichytools.configmanagement.*;
 import hu.martinmarkus.basichytools.configmanagement.configsavers.BannedUserSaver;
 import hu.martinmarkus.basichytools.initializers.iocfactories.concretefactories.GameFunctionFactory;
 import hu.martinmarkus.basichytools.utils.repeatingfunctions.Announcer;
+import hu.martinmarkus.basichytools.utils.repeatingfunctions.BanChecker;
 import hu.martinmarkus.basichytools.utils.repeatingfunctions.ChatCooldown;
 import hu.martinmarkus.basichytools.utils.repeatingfunctions.FunctionCooldown;
 import hu.martinmarkus.basichytools.utils.Informer;
@@ -30,6 +31,7 @@ public class ModuleInitializer {
         Announcer.getInstance().stopAnnouncing();
         FunctionCooldown.getInstance().stopCooldownCheck();
         ChatCooldown.getInstance().stopCooldownCheck();
+        BanChecker.getInstance().stopCheck();
 
         GameFunctionFactory.getInstance().clear();
         
@@ -44,11 +46,11 @@ public class ModuleInitializer {
         FunctionParameterManager.getInstance();
         GroupManager.getInstance();
         UserManager.getInstance();
-        BannedUserManager.getInstance();
 
         initializeSaverModules();
-        initializeAnnouncerModule();
         initializeCooldownModules();
+        initializeBanCheckModule();
+        initializeAnnouncerModule();
 
         Informer.logInfo(getProjectProperties());
     }
@@ -69,6 +71,10 @@ public class ModuleInitializer {
 
     private static void initializeAnnouncerModule() {
         Announcer.getInstance().startAnnouncing();
+    }
+
+    private static void initializeBanCheckModule() {
+        BanChecker.getInstance().startCheck();
     }
 
     private static void initializeCooldownModules() {

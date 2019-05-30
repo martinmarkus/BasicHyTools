@@ -36,7 +36,6 @@ public class Main {
             BannedUserManager.getInstance().removeBannedUser(bannedUser.getName());
             BannedUserManager.getInstance().addBannedUser(bannedUser);
 
-
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
