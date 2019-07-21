@@ -1,4 +1,4 @@
-package hu.martinmarkus.basichytools.gamefunctions.chatfunctions;
+package hu.martinmarkus.basichytools.gamefunctions.permissionfunctions;
 
 import hu.martinmarkus.basichytools.gamefunctions.GameFunction;
 import hu.martinmarkus.basichytools.models.User;
@@ -7,10 +7,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-public class BalanceTopList extends GameFunction {
+public class GroupResetter extends GameFunction {
 
     @Autowired
-    public BalanceTopList(@Value("balanceTopList") String functionName) {
+    public GroupResetter(@Value("groupResetter") String functionName) {
         super(functionName);
     }
 
@@ -31,7 +31,7 @@ public class BalanceTopList extends GameFunction {
     public void execute() {
         super.runFunction(() -> {
             // TODO: implement function
-            System.out.println(this.getClass().getName() + " function is not implemented.");
+            System.out.println(this.getClass().getName() + " function is not implemented");
         });
     }
 }

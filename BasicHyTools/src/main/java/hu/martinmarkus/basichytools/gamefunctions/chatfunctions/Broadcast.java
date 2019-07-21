@@ -1,15 +1,17 @@
 package hu.martinmarkus.basichytools.gamefunctions.chatfunctions;
 
+import com.sun.corba.se.impl.protocol.giopmsgheaders.MessageBase;
 import hu.martinmarkus.basichytools.gamefunctions.GameFunction;
-import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.GlobalMessage;
+import hu.martinmarkus.basichytools.utils.ChatMessageBuilder;
+import hu.martinmarkus.basichytools.utils.GlobalMessage;
 import hu.martinmarkus.basichytools.models.User;
+import hu.martinmarkus.basichytools.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Broadcast extends GameFunction {
-    private String broadcastPrefix = languageConfig.getBroadcastPrefix();
 
     @Autowired
     public Broadcast(@Value("broadcast") String functionName) {
@@ -32,18 +34,10 @@ public class Broadcast extends GameFunction {
     @Override
     public void execute() {
         super.runFunction(() -> {
-            String[] commandArgs = rawCommand.split(" ");
-            StringBuilder message = new StringBuilder();
+            String message =  StringUtil.concatCommandToMessage(rawCommand, 1);
 
-            for (int i = 1; i < commandArgs.length; i++) {
-                message.append(commandArgs[i]);
-                if (i != commandArgs.length - 1) {
-                    message.append(" ");
-                }
-            }
-
-            String separator = languageConfig.getSeparator();
-            String fulMessage = broadcastPrefix.concat(separator).concat(message.toString());
+            String broadcastPrefix = languageConfig.getBroadcastPrefix();
+            String fulMessage = broadcastPrefix.concat(message);
             GlobalMessage.send(executor, fulMessage);
         });
     }

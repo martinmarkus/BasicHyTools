@@ -4,14 +4,14 @@ import hu.martinmarkus.basichytools.configmanagement.DefaultConfigManager;
 import hu.martinmarkus.basichytools.configmanagement.GroupManager;
 import hu.martinmarkus.basichytools.configmanagement.LanguageConfigManager;
 import hu.martinmarkus.basichytools.configmanagement.UserManager;
-import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.ChatCooldown;
+import hu.martinmarkus.basichytools.utils.GlobalMessage;
+import hu.martinmarkus.basichytools.utils.StringUtil;
+import hu.martinmarkus.basichytools.utils.repeatingfunctions.ChatCooldown;
 import hu.martinmarkus.basichytools.models.DefaultConfig;
 import hu.martinmarkus.basichytools.models.Group;
 import hu.martinmarkus.basichytools.models.LanguageConfig;
 import hu.martinmarkus.basichytools.models.User;
 import hu.martinmarkus.basichytools.utils.ChatMessageBuilder;
-import hu.martinmarkus.basichytools.utils.PlaceholderReplacer;
-import hu.martinmarkus.basichytools.utils.StringUtil;
 
 public class ChatEventHandler {
 
@@ -19,7 +19,7 @@ public class ChatEventHandler {
 
     public void onMessageSent(String message) {
         User user = UserManager.getInstance().getOnlineUser("mockUser12345"); // TODO: get the sender
-        //String message = "message send by user"; // TODO: get the message
+        //String message = "message sendWithCensor by user"; // TODO: get the message
 
         if (user == null || message == null || message.isEmpty()) {
             ignoreMessageEvent();
@@ -75,8 +75,7 @@ public class ChatEventHandler {
         String separator = LanguageConfigManager.getInstance().getLanguageConfig().getSeparator();
         String fullMessage = builder.buildMessage(prefix, suffix, user.getName(), separator, message);
 
-        System.out.println(fullMessage);    // TODO: send message by user to everyone
-
+        GlobalMessage.send(user, fullMessage);  // execute msg sending
         ChatCooldown.getInstance().addChatCooldown(user.getName());
     }
 
@@ -86,7 +85,7 @@ public class ChatEventHandler {
     }
 
     private void ignoreMessageEvent() {
-        // TODO: ignore message send event
+        // TODO: ignore message sendWithCensor event
     }
 
     private void sendStillOnCooldown(User user, int cooldown) {
@@ -101,9 +100,8 @@ public class ChatEventHandler {
             messageValue = String.format("%02d " + secondString, cooldown);
         }
 
-        PlaceholderReplacer replacer = new PlaceholderReplacer();
-        message = replacer.replace(message, messageValue);
+        message = StringUtil.replacePlaceholder(message, messageValue);
 
-        user.sendMessage(message, false);
+        user.sendMessage(message);
     }
 }

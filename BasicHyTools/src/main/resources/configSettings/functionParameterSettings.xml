@@ -11,10 +11,10 @@
     </util:list>
 
     <bean id="me" class="hu.martinmarkus.basichytools.models.FunctionParameter">
-        <constructor-arg index="0" value="Me"/> <!-- name -->
+        <constructor-arg index="0" value="me"/> <!-- name -->
         <constructor-arg index="1" value="/me &lt;message&gt;"/> <!-- command -->
         <constructor-arg index="2" ref="emptyList"/> <!-- aliases -->
-        <constructor-arg index="3" value="hytools.basic.me"/> <!-- permission -->
+        <constructor-arg index="3" value="hytools.default.me"/> <!-- permission -->
         <constructor-arg index="4" value="10"/> <!-- usagePrice -->
         <constructor-arg index="5" value="This is a description."/> <!-- description -->
         <constructor-arg index="6" value="2"/> <!-- requiredParameterCount -->
@@ -24,10 +24,10 @@
     </bean>
 
     <bean id="broadcast" class="hu.martinmarkus.basichytools.models.FunctionParameter">
-        <constructor-arg index="0" value="Broadcast"/> <!-- name -->
+        <constructor-arg index="0" value="broadcast"/> <!-- name -->
         <constructor-arg index="1" value="/broadcast &lt;message&gt;"/> <!-- command -->
         <constructor-arg index="2" ref="broadcastAliases"/> <!-- aliases -->
-        <constructor-arg index="3" value="hytools.broadcast"/> <!-- permission -->
+        <constructor-arg index="3" value="hytools.moderator.broadcast"/> <!-- permission -->
         <constructor-arg index="4" value="0"/> <!-- usagePrice -->
         <constructor-arg index="5" value="This is a description."/> <!-- description -->
         <constructor-arg index="6" value="2"/> <!-- requiredParameterCount -->
@@ -39,27 +39,11 @@
         <value>bc</value>
     </util:list>
 
-    <bean id="balanceTopList" class="hu.martinmarkus.basichytools.models.FunctionParameter">
-        <constructor-arg index="0" value="BalanceTopList"/> <!-- name -->
-        <constructor-arg index="1" value="/balancetoplist"/> <!-- command -->
-        <constructor-arg index="2" ref="balanceTopListAliases"/> <!-- aliases -->
-        <constructor-arg index="3" value="hytools.basic.balancetoplist"/> <!-- permission -->
-        <constructor-arg index="4" value="0"/> <!-- usagePrice -->
-        <constructor-arg index="5" value="This is a description."/> <!-- description -->
-        <constructor-arg index="6" value="1"/> <!-- requiredParameterCount -->
-        <constructor-arg index="7" value="true"/> <!-- concreteParameterCount -->
-        <constructor-arg index="8" value="3"/> <!-- cooldown -->
-        <constructor-arg index="9" value="true"/> <!-- doLogging -->
-    </bean>
-    <util:list id="balanceTopListAliases" value-type="java.lang.String">
-        <value>baltop</value>
-    </util:list>
-
     <bean id="helpOp" class="hu.martinmarkus.basichytools.models.FunctionParameter">
-        <constructor-arg index="0" value="HelpOp"/> <!-- name -->
+        <constructor-arg index="0" value="helpOp"/> <!-- name -->
         <constructor-arg index="1" value="/helpop &lt;message&gt;"/> <!-- command -->
         <constructor-arg index="2" ref="helpOpAliases"/> <!-- aliases -->
-        <constructor-arg index="3" value="hytools.basic.helpop"/> <!-- permission -->
+        <constructor-arg index="3" value="hytools.default.helpop"/> <!-- permission -->
         <constructor-arg index="4" value="0"/> <!-- usagePrice -->
         <constructor-arg index="5" value="This is a description."/> <!-- description -->
         <constructor-arg index="6" value="2"/> <!-- requiredParameterCount -->
@@ -69,6 +53,87 @@
     </bean>
     <util:list id="helpOpAliases" value-type="java.lang.String">
         <value>helpme</value>
+    </util:list>
+
+    <bean id="whisper" class="hu.martinmarkus.basichytools.models.FunctionParameter">
+        <constructor-arg index="0" value="whisper"/> <!-- name -->
+        <constructor-arg index="1" value="/whisper &lt;addressee&gt; &lt;message&gt;"/> <!-- command -->
+        <constructor-arg index="2" ref="whisperAliases"/> <!-- aliases -->
+        <constructor-arg index="3" value="hytools.default.whisper"/> <!-- permission -->
+        <constructor-arg index="4" value="0"/> <!-- usagePrice -->
+        <constructor-arg index="5" value="This is a description."/> <!-- description -->
+        <constructor-arg index="6" value="3"/> <!-- requiredParameterCount -->
+        <constructor-arg index="7" value="false"/> <!-- concreteParameterCount -->
+        <constructor-arg index="8" value="3"/> <!-- cooldown -->
+        <constructor-arg index="9" value="true"/> <!-- doLogging -->
+    </bean>
+    <util:list id="whisperAliases" value-type="java.lang.String">
+        <value>w</value>
+        <value>tell</value>
+        <value>t</value>
+        <value>message</value>
+        <value>msg</value>
+        <value>m</value>
+    </util:list>
+
+    <bean id="socialSpy" class="hu.martinmarkus.basichytools.models.FunctionParameter">
+        <constructor-arg index="0" value="socialSpy"/> <!-- name -->
+        <constructor-arg index="1" value="/socialSpy"/> <!-- command -->
+        <constructor-arg index="2" ref="socialSpyAliases"/> <!-- aliases -->
+        <constructor-arg index="3" value="hytools.moderator.socialspy"/> <!-- permission -->
+        <constructor-arg index="4" value="0"/> <!-- usagePrice -->
+        <constructor-arg index="5" value="This is a description."/> <!-- description -->
+        <constructor-arg index="6" value="1"/> <!-- requiredParameterCount -->
+        <constructor-arg index="7" value="true"/> <!-- concreteParameterCount -->
+        <constructor-arg index="8" value="3"/> <!-- cooldown -->
+        <constructor-arg index="9" value="true"/> <!-- doLogging -->
+    </bean>
+    <util:list id="socialSpyAliases" value-type="java.lang.String">
+    </util:list>
+
+    <bean id="ignore" class="hu.martinmarkus.basichytools.models.FunctionParameter">
+        <constructor-arg index="0" value="ignore"/> <!-- name -->
+        <constructor-arg index="1" value="/ignore"/> <!-- command -->
+        <constructor-arg index="2" ref="socialSpyAliases"/> <!-- aliases -->
+        <constructor-arg index="3" value="hytools.default.ignore"/> <!-- permission -->
+        <constructor-arg index="4" value="0"/> <!-- usagePrice -->
+        <constructor-arg index="5" value="This is a description."/> <!-- description -->
+        <constructor-arg index="6" value="2"/> <!-- requiredParameterCount -->
+        <constructor-arg index="7" value="true"/> <!-- concreteParameterCount -->
+        <constructor-arg index="8" value="3"/> <!-- cooldown -->
+        <constructor-arg index="9" value="true"/> <!-- doLogging -->
+    </bean>
+    <util:list id="ignoreAliases" value-type="java.lang.String">
+    </util:list>
+
+    <bean id="warn" class="hu.martinmarkus.basichytools.models.FunctionParameter">
+        <constructor-arg index="0" value="warn"/> <!-- name -->
+        <constructor-arg index="1" value="/warn"/> <!-- command -->
+        <constructor-arg index="2" ref="warnAliases"/> <!-- aliases -->
+        <constructor-arg index="3" value="hytools.admin.warn"/> <!-- permission -->
+        <constructor-arg index="4" value="0"/> <!-- usagePrice -->
+        <constructor-arg index="5" value="This is a description."/> <!-- description -->
+        <constructor-arg index="6" value="2"/> <!-- requiredParameterCount -->
+        <constructor-arg index="7" value="false"/> <!-- concreteParameterCount -->
+        <constructor-arg index="8" value="3"/> <!-- cooldown -->
+        <constructor-arg index="9" value="true"/> <!-- doLogging -->
+    </bean>
+    <util:list id="warnAliases" value-type="java.lang.String">
+    </util:list>
+
+    <bean id="commandSpy" class="hu.martinmarkus.basichytools.models.FunctionParameter">
+        <constructor-arg index="0" value="commandSpy"/> <!-- name -->
+        <constructor-arg index="1" value="/commandSpy"/> <!-- command -->
+        <constructor-arg index="2" ref="commandSpyAliases"/> <!-- aliases -->
+        <constructor-arg index="3" value="hytools.admin.commandspy"/> <!-- permission -->
+        <constructor-arg index="4" value="0"/> <!-- usagePrice -->
+        <constructor-arg index="5" value="This is a description."/> <!-- description -->
+        <constructor-arg index="6" value="1"/> <!-- requiredParameterCount -->
+        <constructor-arg index="7" value="true"/> <!-- concreteParameterCount -->
+        <constructor-arg index="8" value="3"/> <!-- cooldown -->
+        <constructor-arg index="9" value="true"/> <!-- doLogging -->
+    </bean>
+    <util:list id="commandSpyAliases" value-type="java.lang.String">
     </util:list>
 
 </beans>

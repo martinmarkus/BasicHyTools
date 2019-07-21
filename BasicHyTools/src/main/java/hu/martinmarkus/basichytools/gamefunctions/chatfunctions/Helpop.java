@@ -16,10 +16,10 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class Helpop extends GameFunction {
+public class HelpOp extends GameFunction {
 
     @Autowired
-    public Helpop(@Value("helpOp") String functionName) {
+    public HelpOp(@Value("helpOp") String functionName) {
         super(functionName);
     }
 
@@ -41,21 +41,21 @@ public class Helpop extends GameFunction {
         super.runFunction(() -> {
             DefaultConfig defaultConfig = DefaultConfigManager.getInstance().getDefaultConfig();
             String readHelpOpPermission = defaultConfig.getGlobalMechanismPermissions().get("readHelpOp");
-            String helpOpMessage = StringUtil.concatCommandToMessage(rawCommand);
+            String helpOpMessage = StringUtil.concatCommandToMessage(rawCommand, 1);
 
             List<User> onlineUsers = UserManager.getInstance().getAllOnlineUsers();
             for (User onlineUser : onlineUsers) {
                 if (onlineUser.hasPermission(readHelpOpPermission)) {
-                    sendHelpOpMessage(onlineUser, helpOpMessage, false);
+                    sendHelpOpMessage(onlineUser, helpOpMessage);
                 }
             }
             if (!executor.hasPermission(readHelpOpPermission)) {
-                sendHelpOpMessage(executor, helpOpMessage, true);
+                sendHelpOpMessage(executor, helpOpMessage);
             }
         });
     }
 
-    private void sendHelpOpMessage(User receiver, String helpOpMessage, boolean doSpamFiltering) {
+    private void sendHelpOpMessage(User receiver, String helpOpMessage) {
         ChatMessageBuilder builder = new ChatMessageBuilder();
         Group group = GroupManager.getInstance().getPermissionGroup(executor.getPermissionGroupName());
 
@@ -71,7 +71,7 @@ public class Helpop extends GameFunction {
                 languageConfig.getSeparator(), helpOpMessage);
         String helpOpPrefix = languageConfig.getHelpOpPrefix().concat(" ");
 
-        receiver.sendMessage(helpOpPrefix.concat(messageWithoutHelpOpPrefix), doSpamFiltering);
+        receiver.sendMessage(helpOpPrefix.concat(messageWithoutHelpOpPrefix));
 
     }
 }

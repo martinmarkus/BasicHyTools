@@ -1,4 +1,4 @@
-package hu.martinmarkus.basichytools.gamefunctions.permissionfunctions;
+package hu.martinmarkus.basichytools.gamefunctions.regionfunctions;
 
 import hu.martinmarkus.basichytools.gamefunctions.GameFunction;
 import hu.martinmarkus.basichytools.models.User;
@@ -7,10 +7,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-public class PermRemover extends GameFunction {
+public class RegionProtector extends GameFunction {
 
     @Autowired
-    public PermRemover(@Value("permRemover") String functionName) {
+    public RegionProtector(@Value("regionProtector") String functionName) {
         super(functionName);
     }
 

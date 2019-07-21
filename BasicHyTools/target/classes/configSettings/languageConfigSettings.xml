@@ -16,43 +16,61 @@
 
     <!-- language config -->
     <bean id="languageConfig" class="hu.martinmarkus.basichytools.models.LanguageConfig">
-        <constructor-arg index="0" value="Example motd message\nNew line"/> <!-- motd -->
+        <constructor-arg index="0" value="Welcome, %value%!%newline%Online players: %value%%newline%Have Fun!"/> <!-- motd -->
         <constructor-arg index="1" value="[%value%] has joined."/> <!-- joinMessage -->
         <constructor-arg index="2" value="[%value%] has quited."/> <!-- quitMessage -->
         <constructor-arg index="3" value="[%value%] is AFK."/> <!-- afkOn -->
         <constructor-arg index="4" value="[%value%] is no longer AFK."/> <!-- afkOff -->
-        <constructor-arg index="5" value="[%value%] has been banned by [%value%]"/> <!-- banned -->
-        <constructor-arg index="6" value="[%value%] has been temp-banned by [%value%] for %value%."/> <!-- tempBanned -->
-        <constructor-arg index="7" value="[%value%] has been ipbanned by [%value%]."/> <!-- ipBanned -->
-        <constructor-arg index="8" value="[%value%] has been temp-ipbanned by [%value%] for %value%."/> <!-- tempIpBanned -->
-        <constructor-arg index="9" value="[%value%] has been unbanned by [%value%]."/> <!-- unbanned -->
-        <constructor-arg index="10" value="[%value%] has been kicked by [%value%]."/> <!-- kicked -->
-        <constructor-arg index="11" value="Everyone has been kicked by [%value%]."/> <!-- allKicked -->
-        <constructor-arg index="12" value="[%value%] has been muted by [%value%]."/> <!-- muted -->
-        <constructor-arg index="13" value="[%value%] has been temp-muted by [%value%] for %value%."/> <!-- tempMuted -->
-        <constructor-arg index="14" value="[%value%] has been unmuted by [%value%]."/> <!-- unmuted -->
-        <constructor-arg index="15" value="You don't have permission to execute this function."/> <!-- notEnoughPermission -->
-        <constructor-arg index="16" value="You don't have enough money to execute this function."/> <!-- notEnoughMoney -->
-        <constructor-arg index="17" value="An error has occurred while trying to execute a function. Please contact an administrator."/> <!-- errorHasOccurred -->
-        <constructor-arg index="18" value="User %value% has executed: %value%"/> <!-- commandExecuted -->
-        <constructor-arg index="19" value="The user is still not available (still connecting?)"/> <!-- userIsStillConnecting -->
-        <constructor-arg index="20" value="Unknown command."/> <!-- unknownCommand -->
-        <constructor-arg index="21" value="Invalid command usage."/> <!-- invalidCommandUsage -->
-        <constructor-arg index="22" value="Invalid command usage. Please try '%value%'"/> <!-- invalidCommandUsagePleaseTry -->
-        <constructor-arg index="23" value="The auto-saving of [%value%] config was successful."/> <!-- configSaveSuccessful -->
-        <constructor-arg index="24" value="You can't use the chat for %value%. Please don't spam!"/> <!-- chatStillOnCooldown -->
-        <constructor-arg index="25" value="You can't use the function [%value%] for %value%."/> <!-- functionStillOnCooldown -->
-        <constructor-arg index="26" value="one more second"/> <!-- forOneMoreSecond -->
-        <constructor-arg index="27" value="minute(s)"/> <!-- minute -->
-        <constructor-arg index="28" value="second(s)"/> <!-- second -->
-        <constructor-arg index="29" value="The balance of [%value%] has been increased by %value%. New Balance: %value%"/> <!-- balanceIncreased -->
-        <constructor-arg index="30" value="The balance of [%value%] has been decreased by %value%. New Balance: %value%"/> <!-- balanceDecreased -->
-        <constructor-arg index="31" value="The balance of[%value%] has been set to [%value%]."/> <!-- balanceSet -->
-        <constructor-arg index="32" ref="censoredWords"/> <!-- censoredWords -->
-        <constructor-arg index="33" value="You can't send this message, because one of your last messages was the same."/> <!-- cantSendThisMessage -->
-        <constructor-arg index="34" value="[Broadcast]"/> <!-- broadcastPrefix -->
-        <constructor-arg index="35" value="[HelpOp]"/> <!-- helpOp -->
-        <constructor-arg index="36" value=": "/> <!-- separator -->
+        <constructor-arg index="5" value="[%value%] has been kicked by [%value%]."/> <!-- kicked -->
+        <constructor-arg index="6" value="Everyone has been kicked by [%value%]."/> <!-- allKicked -->
+        <constructor-arg index="7" value="[%value%] has been muted by [%value%]."/> <!-- muted -->
+        <constructor-arg index="8" value="[%value%] has been temp-muted by [%value%] for %value%."/> <!-- tempMuted -->
+        <constructor-arg index="9" value="[%value%] has been unmuted by [%value%]."/> <!-- unmuted -->
+        <constructor-arg index="10" value="You don't have permission to execute this function."/> <!-- notEnoughPermission -->
+        <constructor-arg index="11" value="You don't have enough money to execute this function."/> <!-- notEnoughMoney -->
+        <constructor-arg index="12" value="An error has occurred while trying to execute a function. Please contact an administrator."/> <!-- errorHasOccurred -->
+        <constructor-arg index="13" value="User %value% has executed: %value%"/> <!-- commandExecuted -->
+        <constructor-arg index="14" value="The user is still not available (still connecting?)"/> <!-- userIsStillConnecting -->
+        <constructor-arg index="15" value="Unknown command."/> <!-- unknownCommand -->
+        <constructor-arg index="16" value="Invalid command usage."/> <!-- invalidCommandUsage -->
+        <constructor-arg index="17" value="Invalid command usage. Please try '%value%'"/> <!-- invalidCommandUsagePleaseTry -->
+        <constructor-arg index="18" value="The auto-saving of [%value%] config was successful."/> <!-- configSaveSuccessful -->
+        <constructor-arg index="19" value="You can't use the chat for %value%. Please don't spam!"/> <!-- chatStillOnCooldown -->
+        <constructor-arg index="20" value="You can't use the function [%value%] for %value%."/> <!-- functionStillOnCooldown -->
+        <constructor-arg index="21" value="one more second"/> <!-- forOneMoreSecond -->
+        <constructor-arg index="22" value="minute(s)"/> <!-- minute -->
+        <constructor-arg index="23" value="second(s)"/> <!-- second -->
+        <constructor-arg index="24" value="The balance of [%value%] has been increased by %value%. New Balance: %value%"/> <!-- balanceIncreased -->
+        <constructor-arg index="25" value="The balance of [%value%] has been decreased by %value%. New Balance: %value%"/> <!-- balanceDecreased -->
+        <constructor-arg index="26" value="The balance of[%value%] has been set to [%value%]."/> <!-- balanceSet -->
+        <constructor-arg index="27" ref="censoredWords"/> <!-- censoredWords -->
+        <constructor-arg index="28" value="You can't send this message, because one of your last messages was the same."/> <!-- cantSendThisMessage -->
+        <constructor-arg index="29" value="[Broadcast]"/> <!-- broadcastPrefix -->
+        <constructor-arg index="30" value="[HelpOp]"/> <!-- helpOp -->
+        <constructor-arg index="31" value=": "/> <!-- separator -->
+        <constructor-arg index="32" value="%value% is not a valid user."/> <!-- unknownUser -->
+        <constructor-arg index="33" value="%value% does not have enough permission to receive private message."/> <!-- notEnoughPermissionForWhisper -->
+        <constructor-arg index="34" value=" -> [You]"/> <!-- whisperToYou -->
+        <constructor-arg index="35" value="[You] -> "/> <!-- whisperFromYou -->
+        <constructor-arg index="36" value=" -> "/> <!-- whisperSeparator -->
+        <constructor-arg index="37" value="[SocialSpy]"/> <!-- socialSpyPrefix -->
+        <constructor-arg index="38" value="[CommandSpy]"/> <!-- commandSpyPrefix -->
+        <constructor-arg index="39" value="You have activated the social spy."/> <!-- socialSpyActivated -->
+        <constructor-arg index="40" value="You have deactivated the social spy."/> <!-- socialSpyDeactivated -->
+        <constructor-arg index="41" value="You are ignoring this user."/> <!-- youAreIgnoring -->
+        <constructor-arg index="42" value="This user is ignoring you."/> <!-- youAreIgnored -->
+        <constructor-arg index="43" value="You have ignored User %value%."/> <!-- ignored -->
+        <constructor-arg index="44" value="You have removed the ignore from User %value%."/> <!-- ignoreRemoved -->
+        <constructor-arg index="45" value="[Warn]"/> <!-- warnPrefix -->
+        <constructor-arg index="46" value="[Info]"/> <!-- infoPrefix -->
+        <constructor-arg index="47" value="[Error]"/> <!-- errorPrefix -->
+        <constructor-arg index="48" value="[BasicHyTools]"/> <!-- basicHyToolsPrefix -->
+        <constructor-arg index="49" value="You have activated the social spy."/> <!-- commandSpyActivated -->
+        <constructor-arg index="50" value="You have deactivated the social spy."/> <!-- commandSpyDeactivated -->
+        <constructor-arg index="51" value="You are banned.%newline%Ban date: %value%. Ban reason: %value% Ban executor: %value%"/> <!-- youAreBanned -->
+        <constructor-arg index="52" value="You are ip-banned.%newline%Ban date: %value%. Ban reason: %value%. Ban executor: %value%"/> <!-- youAreIpBanned -->
+        <constructor-arg index="53" value="You are temp-banned for %value%. Ban date: %value%. Ban reason: %value%. Ban executor: %value%"/> <!-- youAreTempBanned -->
+        <constructor-arg index="54" value="There is already an online player user with this name."/> <!-- alreadyOnline -->
 
     </bean>
 </beans>

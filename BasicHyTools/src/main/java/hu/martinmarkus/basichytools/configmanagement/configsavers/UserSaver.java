@@ -1,8 +1,8 @@
-package hu.martinmarkus.basichytools.globalmechanisms.savemechanisms;
+package hu.martinmarkus.basichytools.configmanagement.configsavers;
 
 import hu.martinmarkus.basichytools.initializers.ModuleInitializer;
 import hu.martinmarkus.basichytools.configmanagement.UserManager;
-import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.Informer;
+import hu.martinmarkus.basichytools.utils.Informer;
 
 import hu.martinmarkus.basichytools.models.User;
 import hu.martinmarkus.basichytools.persistence.repositories.UserRepository;
@@ -51,7 +51,7 @@ public class UserSaver extends ConfigSaver {
         saveAllUsers();
     }
 
-    private void saveAllUsers() {
+    private synchronized void saveAllUsers() {
 
         List<User> onlineUsers = UserManager.getInstance().getAllOnlineUsers();
         List<String> valueIds = new ArrayList<>();

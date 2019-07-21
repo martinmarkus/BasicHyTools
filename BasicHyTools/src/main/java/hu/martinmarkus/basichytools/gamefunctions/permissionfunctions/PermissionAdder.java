@@ -1,17 +1,16 @@
-package hu.martinmarkus.basichytools.gamefunctions.chatfunctions;
+package hu.martinmarkus.basichytools.gamefunctions.permissionfunctions;
 
 import hu.martinmarkus.basichytools.gamefunctions.GameFunction;
 import hu.martinmarkus.basichytools.models.User;
-import hu.martinmarkus.basichytools.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Ignore extends GameFunction {
+public class PermissionAdder extends GameFunction {
 
     @Autowired
-    public Ignore(@Value("ignore") String functionName) {
+    public PermissionAdder(@Value("permissionAdder") String functionName) {
         super(functionName);
     }
 
@@ -31,19 +30,8 @@ public class Ignore extends GameFunction {
     @Override
     public void execute() {
         super.runFunction(() -> {
-            String ignoredUserName = rawCommand.split(" ")[1];
-            String message;
-
-            if (executor.isIgnoring(ignoredUserName)) {
-                executor.removeIgnored(ignoredUserName);
-                message = languageConfig.getIgnoreRemoved();
-            } else {
-                executor.addIgnored(ignoredUserName);
-                message = languageConfig.getIgnored();
-            }
-
-            message = StringUtil.replacePlaceholder(message, ignoredUserName);
-            executor.sendMessage(message);
+            // TODO: implement function
+            System.out.println(this.getClass().getName() + " function is not implemented");
         });
     }
 }

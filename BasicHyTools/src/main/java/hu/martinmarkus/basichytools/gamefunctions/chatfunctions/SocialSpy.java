@@ -30,8 +30,19 @@ public class SocialSpy extends GameFunction {
     @Override
     public void execute() {
         super.runFunction(() -> {
-            // TODO: implement function
-            System.out.println(this.getClass().getName() + " function is not implemented");
+            boolean socialSpyState;
+            String message;
+
+            if (executor.isSocialSpyActive()) {
+                socialSpyState = false;
+                message = languageConfig.getSocialSpyDeactivated();
+            } else {
+                socialSpyState = true;
+                message = languageConfig.getSocialSpyActivated();
+            }
+
+            executor.setSocialSpyActive(socialSpyState);
+            executor.sendMessage(message);
         });
     }
 }

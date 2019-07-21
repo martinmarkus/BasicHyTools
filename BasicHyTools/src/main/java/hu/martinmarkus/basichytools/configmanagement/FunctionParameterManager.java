@@ -85,8 +85,12 @@ public class FunctionParameterManager {
 
         functionParameters.add(functionParameterFactory.getBean("me"));
         functionParameters.add(functionParameterFactory.getBean("broadcast"));
-        functionParameters.add(functionParameterFactory.getBean("balanceTopList"));
         functionParameters.add(functionParameterFactory.getBean("helpOp"));
+        functionParameters.add(functionParameterFactory.getBean("whisper"));
+        functionParameters.add(functionParameterFactory.getBean("socialSpy"));
+        functionParameters.add(functionParameterFactory.getBean("ignore"));
+        functionParameters.add(functionParameterFactory.getBean("warn"));
+        functionParameters.add(functionParameterFactory.getBean("commandSpy"));
 
         return new FunctionParameterContainer(functionParameters);
     }

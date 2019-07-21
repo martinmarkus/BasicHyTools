@@ -1,4 +1,4 @@
-package hu.martinmarkus.basichytools.globalmechanisms.savemechanisms;
+package hu.martinmarkus.basichytools.configmanagement.configsavers;
 
 public interface IConfigSaver {
     void startAutoSave();

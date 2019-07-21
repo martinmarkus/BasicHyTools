@@ -6,7 +6,6 @@ import hu.martinmarkus.basichytools.models.User;
 public class UserValidationEventHandler {
     private UserManager userManager;
 
-    // TODO: implement game event handling
     public UserValidationEventHandler() {
         this.userManager = UserManager.getInstance();
     }

@@ -60,7 +60,7 @@ public class CommandEventHandler {
         for (String blockedCommand : blockedCommands) {
             if (command.equalsIgnoreCase(blockedCommand)) {
                 String message = languageConfig.getUnknownCommand();
-                user.sendMessage(message, false);
+                user.sendMessage(message);
                 return true;
             }
         }
@@ -90,7 +90,7 @@ public class CommandEventHandler {
             isAlias = isAlias(command, functionParameter.getAliases());
 
             if (isCommand || isAlias) {
-                String name = functionParameter.getName().toLowerCase();
+                String name = functionParameter.getName();
                 return GameFunctionFactory.getInstance().getBean(name);
             }
         }

@@ -11,11 +11,7 @@ public class UserMoveEventHandler {
 
         User user = UserManager.getInstance().getOnlineUser(moverName);
         if (user == null) {
-            ignoreMoveEvent();
+            // TODO: ignore move event
         }
-    }
-
-    private void ignoreMoveEvent() {
-        // TODO: ignore move event
     }
 }

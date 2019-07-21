@@ -1,7 +1,8 @@
-package hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms;
+package hu.martinmarkus.basichytools.utils.repeatingfunctions;
 
 import hu.martinmarkus.basichytools.configmanagement.DefaultConfigManager;
 import hu.martinmarkus.basichytools.models.DefaultConfig;
+import hu.martinmarkus.basichytools.utils.GlobalMessage;
 
 import java.util.List;
 import java.util.Random;
@@ -56,9 +57,8 @@ public class Announcer {
     private void announceRandom() {
         Random rand = new Random();
         int random = rand.nextInt(messages.size());
-
         String messageToAnnounce = messages.get(random);
-        // TODO: announce message
-        System.out.println("announcement test: " + messageToAnnounce);
+
+        GlobalMessage.send(messageToAnnounce);
     }
 }

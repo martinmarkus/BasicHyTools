@@ -1,13 +1,15 @@
 package hu.martinmarkus.basichytools.initializers;
 
 import hu.martinmarkus.basichytools.configmanagement.*;
+import hu.martinmarkus.basichytools.configmanagement.configsavers.BannedUserSaver;
 import hu.martinmarkus.basichytools.initializers.iocfactories.concretefactories.GameFunctionFactory;
-import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.Announcer;
-import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.ChatCooldown;
-import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.FunctionCooldown;
-import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.Informer;
-import hu.martinmarkus.basichytools.globalmechanisms.savemechanisms.GroupSaver;
-import hu.martinmarkus.basichytools.globalmechanisms.savemechanisms.UserSaver;
+import hu.martinmarkus.basichytools.utils.repeatingfunctions.Announcer;
+import hu.martinmarkus.basichytools.utils.repeatingfunctions.BanChecker;
+import hu.martinmarkus.basichytools.utils.repeatingfunctions.ChatCooldown;
+import hu.martinmarkus.basichytools.utils.repeatingfunctions.FunctionCooldown;
+import hu.martinmarkus.basichytools.utils.Informer;
+import hu.martinmarkus.basichytools.configmanagement.configsavers.GroupSaver;
+import hu.martinmarkus.basichytools.configmanagement.configsavers.UserSaver;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -23,10 +25,13 @@ public class ModuleInitializer {
         UserSaver.getInstance().saveNow();
         GroupSaver.getInstance().stopAutoSave();
         GroupSaver.getInstance().saveNow();
+        BannedUserSaver.getInstance().saveNow();
+        BannedUserSaver.getInstance().stopAutoSave();
 
         Announcer.getInstance().stopAnnouncing();
         FunctionCooldown.getInstance().stopCooldownCheck();
         ChatCooldown.getInstance().stopCooldownCheck();
+        BanChecker.getInstance().stopCheck();
 
         GameFunctionFactory.getInstance().clear();
         
@@ -43,8 +48,9 @@ public class ModuleInitializer {
         UserManager.getInstance();
 
         initializeSaverModules();
-        initializeAnnouncerModule();
         initializeCooldownModules();
+        initializeBanCheckModule();
+        initializeAnnouncerModule();
 
         Informer.logInfo(getProjectProperties());
     }
@@ -60,10 +66,15 @@ public class ModuleInitializer {
     private static void initializeSaverModules() {
         UserSaver.getInstance().startAutoSave();
         GroupSaver.getInstance().startAutoSave();
+        BannedUserSaver.getInstance().startAutoSave();
     }
 
     private static void initializeAnnouncerModule() {
         Announcer.getInstance().startAnnouncing();
+    }
+
+    private static void initializeBanCheckModule() {
+        BanChecker.getInstance().startCheck();
     }
 
     private static void initializeCooldownModules() {

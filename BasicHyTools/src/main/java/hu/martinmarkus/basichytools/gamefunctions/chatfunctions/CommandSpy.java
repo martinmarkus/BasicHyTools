@@ -1,4 +1,4 @@
-package hu.martinmarkus.basichytools.gamefunctions.permissionfunctions;
+package hu.martinmarkus.basichytools.gamefunctions.chatfunctions;
 
 import hu.martinmarkus.basichytools.gamefunctions.GameFunction;
 import hu.martinmarkus.basichytools.models.User;
@@ -7,10 +7,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-public class RankRemover extends GameFunction {
+public class CommandSpy extends GameFunction {
 
     @Autowired
-    public RankRemover(@Value("rankRemover") String functionName) {
+    public CommandSpy(@Value("commandSpy") String functionName) {
         super(functionName);
     }
 
@@ -30,8 +30,19 @@ public class RankRemover extends GameFunction {
     @Override
     public void execute() {
         super.runFunction(() -> {
-            // TODO: implement function
-            System.out.println(this.getClass().getName() + " function is not implemented");
+            boolean commandSpyState;
+            String message;
+
+            if (executor.isCommandSpyActive()) {
+                commandSpyState = false;
+                message = languageConfig.getCommandSpyDeactivated();
+            } else {
+                commandSpyState = true;
+                message = languageConfig.getCommandSpyActivated();
+            }
+
+            executor.setCommandSpyActive(commandSpyState);
+            executor.sendMessage(message);
         });
     }
 }

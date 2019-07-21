@@ -1,9 +1,9 @@
-package hu.martinmarkus.basichytools.globalmechanisms.savemechanisms;
+package hu.martinmarkus.basichytools.configmanagement.configsavers;
 
 import hu.martinmarkus.basichytools.configmanagement.DefaultConfigManager;
 import hu.martinmarkus.basichytools.configmanagement.LanguageConfigManager;
 import hu.martinmarkus.basichytools.models.LanguageConfig;
-import hu.martinmarkus.basichytools.utils.PlaceholderReplacer;
+import hu.martinmarkus.basichytools.utils.StringUtil;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -34,8 +34,7 @@ public abstract class ConfigSaver implements IConfigSaver {
     protected String createLogMessage(String configName) {
         LanguageConfig languageConfig = LanguageConfigManager.getInstance().getLanguageConfig();
         String message = languageConfig.getConfigSaveSuccessful();
-        PlaceholderReplacer replacer = new PlaceholderReplacer();
 
-        return replacer.replace(message, configName);
+        return StringUtil.replacePlaceholder(message, configName);
     }
 }

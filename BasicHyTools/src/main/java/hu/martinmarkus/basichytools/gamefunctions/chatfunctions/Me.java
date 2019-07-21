@@ -2,7 +2,7 @@ package hu.martinmarkus.basichytools.gamefunctions.chatfunctions;
 
 import hu.martinmarkus.basichytools.configmanagement.GroupManager;
 import hu.martinmarkus.basichytools.gamefunctions.GameFunction;
-import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.GlobalMessage;
+import hu.martinmarkus.basichytools.utils.GlobalMessage;
 import hu.martinmarkus.basichytools.models.Group;
 import hu.martinmarkus.basichytools.models.User;
 import hu.martinmarkus.basichytools.utils.ChatMessageBuilder;

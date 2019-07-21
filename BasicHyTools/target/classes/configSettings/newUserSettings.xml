@@ -35,6 +35,8 @@
         <constructor-arg index="13" value="false"/> <!-- banned -->
         <constructor-arg index="14" value="false"/> <!-- ipBanned -->
         <constructor-arg index="15" value="true"/> <!-- whiteListed -->
+        <constructor-arg index="16" value="false"/> <!-- socialSpyActivate -->
+        <constructor-arg index="17" value="false"/> <!-- commandSpyActivate -->
     </bean>
 
 </beans>

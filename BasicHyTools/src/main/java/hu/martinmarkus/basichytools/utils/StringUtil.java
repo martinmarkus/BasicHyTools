@@ -1,9 +1,9 @@
 package hu.martinmarkus.basichytools.utils;
 
 import hu.martinmarkus.basichytools.configmanagement.DefaultConfigManager;
-import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.SwearFilter;
 import hu.martinmarkus.basichytools.models.DefaultConfig;
 import hu.martinmarkus.basichytools.models.User;
+import hu.martinmarkus.basichytools.models.placeholders.Placeholder;
 
 public class StringUtil {
 
@@ -38,11 +38,11 @@ public class StringUtil {
         return message;
     }
 
-    public static String concatCommandToMessage(String rawCommand) {
+    public static String concatCommandToMessage(String rawCommand, int startingIndex) {
         StringBuilder message = new StringBuilder();
         String[] commandArgs = rawCommand.split(" ");
 
-        for (int i = 1; i < commandArgs.length; i++) {
+        for (int i = startingIndex; i < commandArgs.length; i++) {
             message.append(commandArgs[i]);
             if (i != commandArgs.length - 1) {
                 message.append(" ");
@@ -50,5 +50,24 @@ public class StringUtil {
         }
 
         return message.toString();
+    }
+
+    public static String replacePlaceholder(String message, String... placeholderValues) {
+        Placeholder placeholder = new Placeholder();
+        if (message == null || message.isEmpty() || placeholderValues.length == 0) {
+            return message;
+        }
+
+        String helperMessage;
+        for (String placeholderValue : placeholderValues) {
+            helperMessage = message;
+            message = message.replaceFirst(placeholder.getValue(), placeholderValue);
+
+            if (message.equals(helperMessage)) {
+                break;      // no change has happened
+            }
+        }
+
+        return message;
     }
 }

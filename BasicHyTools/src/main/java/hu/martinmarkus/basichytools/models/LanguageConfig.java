@@ -8,11 +8,6 @@ public class LanguageConfig {
     private String quitMessage;
     private String afkOn;
     private String afkOff;
-    private String banned;
-    private String tempBanned;
-    private String ipBanned;
-    private String tempIpBanned;
-    private String unbanned;
     private String kicked;
     private String allKicked;
     private String muted;
@@ -43,13 +38,35 @@ public class LanguageConfig {
     private String broadcastPrefix;
     private String helpOpPrefix;
     private String separator;
+    private String unknownUser;
+    private String notEnoughPermissionForWhisper;
+    private String whisperToYou;
+    private String whisperFromYou;
+    private String whisperSeparator;
+    private String socialSpyPrefix;
+    private String commandSpyPrefix;
+    private String socialSpyActivated;
+    private String socialSpyDeactivated;
+    private String youAreIgnoring;
+    private String youAreIgnored;
+    private String ignored;
+    private String ignoreRemoved;
+    private String warnPrefix;
+    private String infoPrefix;
+    private String errorPrefix;
+    private String basicHyToolsPrefix;
+    private String commandSpyActivated;
+    private String commandSpyDeactivated;
+    private String youAreBanned;
+    private String youAreIpBanned;
+    private String youAreTempBanned;
+    private String alreadyOnline;
 
     public LanguageConfig() {
 
     }
 
     public LanguageConfig(String motd, String joinMessage, String quitMessage, String afkOn, String afkOff,
-                          String banned, String tempBanned, String ipBanned, String tempIpBanned, String unbanned,
                           String kicked, String allKicked, String muted, String tempMuted, String unmuted,
                           String notEnoughPermission, String notEnoughMoney, String errorHasOccurred,
                           String commandExecuted, String userIsStillConnecting, String unknownCommand,
@@ -57,17 +74,18 @@ public class LanguageConfig {
                           String invalidCommandUsagePleaseTry, String configSaveSuccessful, String chatStillOnCooldown,
                           String functionStillOnCooldown, String forOneMoreSecond, String minute, String second,
                           String balanceIncreased, String balanceDecreased, String balanceSet, List<String> censoredWords,
-                          String cantSendThisMessage, String broadcastPrefix, String helpOpPrefix, String separator) {
+                          String cantSendThisMessage, String broadcastPrefix, String helpOpPrefix, String separator,
+                          String unknownUser, String notEnoughPermissionForWhisper, String whisperToYou, String whisperFromYou,
+                          String whisperSeparator, String socialSpyPrefix, String commandSpyPrefix, String socialSpyActivated,
+                          String socialSpyDeactivated, String youAreIgnoring, String youAreIgnored, String ignored,
+                          String ignoreRemoved, String warnPrefix, String infoPrefix, String errorPrefix,
+                          String basicHyToolsPrefix, String commandSpyActivated, String commandSpyDeactivated,
+                          String youAreBanned, String youAreIpBanned, String youAreTempBanned, String alreadyOnline) {
         this.motd = motd;
         this.joinMessage = joinMessage;
         this.quitMessage = quitMessage;
         this.afkOn = afkOn;
         this.afkOff = afkOff;
-        this.banned = banned;
-        this.tempBanned = tempBanned;
-        this.ipBanned = ipBanned;
-        this.tempIpBanned = tempIpBanned;
-        this.unbanned = unbanned;
         this.kicked = kicked;
         this.allKicked = allKicked;
         this.muted = muted;
@@ -95,6 +113,29 @@ public class LanguageConfig {
         this.broadcastPrefix = broadcastPrefix;
         this.helpOpPrefix = helpOpPrefix;
         this.separator = separator;
+        this.unknownUser = unknownUser;
+        this.notEnoughPermissionForWhisper = notEnoughPermissionForWhisper;
+        this.whisperToYou = whisperToYou;
+        this.whisperFromYou = whisperFromYou;
+        this.whisperSeparator = whisperSeparator;
+        this.socialSpyPrefix = socialSpyPrefix;
+        this.commandSpyPrefix = commandSpyPrefix;
+        this.socialSpyActivated = socialSpyActivated;
+        this.socialSpyDeactivated = socialSpyDeactivated;
+        this.youAreIgnoring = youAreIgnoring;
+        this.youAreIgnored = youAreIgnored;
+        this.ignored = ignored;
+        this.ignoreRemoved = ignoreRemoved;
+        this.warnPrefix = warnPrefix;
+        this.infoPrefix = infoPrefix;
+        this.errorPrefix = errorPrefix;
+        this.basicHyToolsPrefix = basicHyToolsPrefix;
+        this.commandSpyActivated = commandSpyActivated;
+        this.commandSpyDeactivated = commandSpyDeactivated;
+        this.youAreBanned = youAreBanned;
+        this.youAreIpBanned = youAreIpBanned;
+        this.youAreTempBanned = youAreTempBanned;
+        this.alreadyOnline = alreadyOnline;
     }
 
     public String getMotd() {
@@ -135,46 +176,6 @@ public class LanguageConfig {
 
     public void setAfkOff(String afkOff) {
         this.afkOff = afkOff;
-    }
-
-    public String getBanned() {
-        return banned;
-    }
-
-    public void setBanned(String banned) {
-        this.banned = banned;
-    }
-
-    public String getTempBanned() {
-        return tempBanned;
-    }
-
-    public void setTempBanned(String tempBanned) {
-        this.tempBanned = tempBanned;
-    }
-
-    public String getIpBanned() {
-        return ipBanned;
-    }
-
-    public void setIpBanned(String ipBanned) {
-        this.ipBanned = ipBanned;
-    }
-
-    public String getTempIpBanned() {
-        return tempIpBanned;
-    }
-
-    public void setTempIpBanned(String tempIpBanned) {
-        this.tempIpBanned = tempIpBanned;
-    }
-
-    public String getUnbanned() {
-        return unbanned;
-    }
-
-    public void setUnbanned(String unbanned) {
-        this.unbanned = unbanned;
     }
 
     public String getKicked() {
@@ -391,5 +392,189 @@ public class LanguageConfig {
 
     public void setSeparator(String separator) {
         this.separator = separator;
+    }
+
+    public String getUnknownUser() {
+        return unknownUser;
+    }
+
+    public void setUnknownUser(String unknownUser) {
+        this.unknownUser = unknownUser;
+    }
+
+    public String getNotEnoughPermissionForWhisper() {
+        return notEnoughPermissionForWhisper;
+    }
+
+    public void setNotEnoughPermissionForWhisper(String notEnoughPermissionForWhisper) {
+        this.notEnoughPermissionForWhisper = notEnoughPermissionForWhisper;
+    }
+
+    public String getWhisperToYou() {
+        return whisperToYou;
+    }
+
+    public void setWhisperToYou(String whisperToYou) {
+        this.whisperToYou = whisperToYou;
+    }
+
+    public String getWhisperFromYou() {
+        return whisperFromYou;
+    }
+
+    public void setWhisperFromYou(String whisperFromYou) {
+        this.whisperFromYou = whisperFromYou;
+    }
+
+    public String getWhisperSeparator() {
+        return whisperSeparator;
+    }
+
+    public void setWhisperSeparator(String whisperSeparator) {
+        this.whisperSeparator = whisperSeparator;
+    }
+
+    public String getSocialSpyPrefix() {
+        return socialSpyPrefix;
+    }
+
+    public void setSocialSpyPrefix(String socialSpyPrefix) {
+        this.socialSpyPrefix = socialSpyPrefix;
+    }
+
+    public String getCommandSpyPrefix() {
+        return commandSpyPrefix;
+    }
+
+    public void setCommandSpyPrefix(String commandSpyPrefix) {
+        this.commandSpyPrefix = commandSpyPrefix;
+    }
+
+    public String getSocialSpyActivated() {
+        return socialSpyActivated;
+    }
+
+    public void setSocialSpyActivated(String socialSpyActivated) {
+        this.socialSpyActivated = socialSpyActivated;
+    }
+
+    public String getSocialSpyDeactivated() {
+        return socialSpyDeactivated;
+    }
+
+    public void setSocialSpyDeactivated(String socialSpyDeactivated) {
+        this.socialSpyDeactivated = socialSpyDeactivated;
+    }
+
+    public String getYouAreIgnoring() {
+        return youAreIgnoring;
+    }
+
+    public void setYouAreIgnoring(String youAreIgnoring) {
+        this.youAreIgnoring = youAreIgnoring;
+    }
+
+    public String getYouAreIgnored() {
+        return youAreIgnored;
+    }
+
+    public void setYouAreIgnored(String youAreIgnored) {
+        this.youAreIgnored = youAreIgnored;
+    }
+
+    public String getIgnored() {
+        return ignored;
+    }
+
+    public void setIgnored(String ignored) {
+        this.ignored = ignored;
+    }
+
+    public String getIgnoreRemoved() {
+        return ignoreRemoved;
+    }
+
+    public void setIgnoreRemoved(String ignoreRemoved) {
+        this.ignoreRemoved = ignoreRemoved;
+    }
+
+    public String getWarnPrefix() {
+        return warnPrefix;
+    }
+
+    public void setWarnPrefix(String warnPrefix) {
+        this.warnPrefix = warnPrefix;
+    }
+
+    public String getInfoPrefix() {
+        return infoPrefix;
+    }
+
+    public void setInfoPrefix(String infoPrefix) {
+        this.infoPrefix = infoPrefix;
+    }
+
+    public String getErrorPrefix() {
+        return errorPrefix;
+    }
+
+    public void setErrorPrefix(String errorPrefix) {
+        this.errorPrefix = errorPrefix;
+    }
+
+    public String getBasicHyToolsPrefix() {
+        return basicHyToolsPrefix;
+    }
+
+    public void setBasicHyToolsPrefix(String basicHyToolsPrefix) {
+        this.basicHyToolsPrefix = basicHyToolsPrefix;
+    }
+
+    public String getCommandSpyActivated() {
+        return commandSpyActivated;
+    }
+
+    public void setCommandSpyActivated(String commandSpyActivated) {
+        this.commandSpyActivated = commandSpyActivated;
+    }
+
+    public String getCommandSpyDeactivated() {
+        return commandSpyDeactivated;
+    }
+
+    public void setCommandSpyDeactivated(String commandSpyDeactivated) {
+        this.commandSpyDeactivated = commandSpyDeactivated;
+    }
+
+    public String getYouAreBanned() {
+        return youAreBanned;
+    }
+
+    public void setYouAreBanned(String youAreBanned) {
+        this.youAreBanned = youAreBanned;
+    }
+
+    public String getYouAreIpBanned() {
+        return youAreIpBanned;
+    }
+
+    public void setYouAreIpBanned(String youAreIpBanned) {
+        this.youAreIpBanned = youAreIpBanned;
+    }
+
+    public String getYouAreTempBanned() {
+        return youAreTempBanned;
+    }
+
+    public void setYouAreTempBanned(String youAreTempBanned) {
+        this.youAreTempBanned = youAreTempBanned;
+    }
+
+    public String getAlreadyOnline() {
+        return alreadyOnline;
+    }
+
+    public void setAlreadyOnline(String alreadyOnline) {
+        this.alreadyOnline = alreadyOnline;
     }
 }

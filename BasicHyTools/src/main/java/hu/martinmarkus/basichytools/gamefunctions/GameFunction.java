@@ -2,13 +2,14 @@ package hu.martinmarkus.basichytools.gamefunctions;
 
 import hu.martinmarkus.basichytools.configmanagement.FunctionParameterManager;
 import hu.martinmarkus.basichytools.configmanagement.LanguageConfigManager;
-import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.FunctionCooldown;
-import hu.martinmarkus.basichytools.globalmechanisms.chatmechanisms.Informer;
+import hu.martinmarkus.basichytools.configmanagement.UserManager;
+import hu.martinmarkus.basichytools.utils.StringUtil;
+import hu.martinmarkus.basichytools.utils.repeatingfunctions.FunctionCooldown;
+import hu.martinmarkus.basichytools.utils.Informer;
 import hu.martinmarkus.basichytools.models.FunctionParameter;
 import hu.martinmarkus.basichytools.models.LanguageConfig;
 import hu.martinmarkus.basichytools.models.User;
 import hu.martinmarkus.basichytools.models.containers.CooldownContainer;
-import hu.martinmarkus.basichytools.utils.PlaceholderReplacer;
 
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -111,7 +112,7 @@ public abstract class GameFunction {
         if (!isOperator) {
             double usagePrice = functionParameter.getUsagePrice();
             executor.decreaseBalance(usagePrice);
-            executor.sendMessage(languageConfig.getCommandExecuted(), false);
+            executor.sendMessage(languageConfig.getCommandExecuted());
         }
 
         FunctionCooldown.getInstance().addCooldown(cooldownContainer);
@@ -124,11 +125,21 @@ public abstract class GameFunction {
             String message = languageConfig.getCommandExecuted();
             String userName = executor.getName();
 
-            PlaceholderReplacer replacer = new PlaceholderReplacer();
-            message = replacer.replace(message, userName, rawCommand);
+            message = StringUtil.replacePlaceholder(message, userName, rawCommand);
 
             Informer.logInfo(message);
+            notifyCommandSpies(message);
         }
+    }
+
+    private void notifyCommandSpies(String message) {
+        List<User> onlineUsers = UserManager.getInstance().getAllOnlineUsers();
+        String commandSpyPrefix = languageConfig.getCommandSpyPrefix();
+        onlineUsers.forEach(onlineUser -> {
+            if (onlineUser != executor && onlineUser.isCommandSpyActive()) {
+                onlineUser.sendMessage(commandSpyPrefix.concat(message));
+            }
+        });
     }
 
     public FunctionParameter getFunctionParameter() {

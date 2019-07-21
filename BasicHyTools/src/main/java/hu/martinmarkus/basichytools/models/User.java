@@ -1,18 +1,12 @@
 package hu.martinmarkus.basichytools.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import hu.martinmarkus.basichytools.configmanagement.DefaultConfigManager;
-import hu.martinmarkus.basichytools.configmanagement.GroupManager;
-import hu.martinmarkus.basichytools.configmanagement.LanguageConfigManager;
-import hu.martinmarkus.basichytools.utils.PlaceholderReplacer;
+import hu.martinmarkus.basichytools.configmanagement.*;
 import hu.martinmarkus.basichytools.utils.permissionmanagement.PermissionValidator;
 import hu.martinmarkus.basichytools.utils.permissionmanagement.UserPermissionValidator;
 import hu.martinmarkus.basichytools.utils.StringUtil;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 public class User {
     @JsonIgnore
@@ -20,6 +14,9 @@ public class User {
 
     @JsonIgnore
     private Queue<String> lastSendMessages = new LinkedList<>();
+
+    @JsonIgnore
+    private List<String> ignoredUsers = new ArrayList<>();
 
     private String name;
     private String permissionGroupName;
@@ -40,13 +37,15 @@ public class User {
     private boolean banned;
     private boolean ipBanned;
     private boolean whiteListed;
+    private boolean socialSpyActive;
+    private boolean commandSpyActive;
 
     public User(String name, String permissionGroupName, String userPrefix, String userSuffix,
                 double balance, double exp,
                 boolean online, String loginIp, String loginTime,
                 BasicHyToolsLocation location, List<String> uniquePermissions,
                 boolean operator, boolean muted, boolean banned, boolean ipBanned,
-                boolean whiteListed) {
+                boolean whiteListed, boolean socialSpyActive, boolean commandSpyActive) {
         this.name = name;
         this.permissionGroupName = permissionGroupName;
         this.userPrefix = userPrefix;
@@ -63,12 +62,45 @@ public class User {
         this.banned = banned;
         this.ipBanned = ipBanned;
         this.whiteListed = whiteListed;
+        this.socialSpyActive = socialSpyActive;
+        this.commandSpyActive = commandSpyActive;
+    }
+
+    @JsonIgnore
+    public void addIgnored(String ignoredUserName) {
+        if (ignoredUsers == null) {
+            ignoredUsers = new ArrayList<>();
+        }
+        ignoredUserName = ignoredUserName.toLowerCase();
+        if (ignoredUsers.contains(ignoredUserName)) {
+            ignoredUsers.add(ignoredUserName);
+        }
+    }
+
+    @JsonIgnore
+    public void removeIgnored(String ignoredUserName) {
+        if (ignoredUsers == null) {
+            ignoredUsers = new ArrayList<>();
+        }
+        ignoredUserName = ignoredUserName.toLowerCase();
+        ignoredUsers.remove(ignoredUserName);
+    }
+
+    @JsonIgnore
+    public boolean isIgnoring(String ignoredUserName) {
+        if (ignoredUsers == null) {
+            ignoredUsers = new ArrayList<>();
+        }
+        ignoredUserName = ignoredUserName.toLowerCase();
+        return ignoredUsers.contains(ignoredUserName);
     }
 
     @JsonIgnore
     public void sendMotd() {
         String motd = LanguageConfigManager.getInstance().getLanguageConfig().getMotd();
-        sendMessage(motd, false);
+        Integer onlineUserCount = UserManager.getInstance().getAllOnlineUsers().size();
+        String fullMotd = StringUtil.replacePlaceholder(motd, name, onlineUserCount.toString());
+        sendMessage(fullMotd);
     }
 
     @JsonIgnore
@@ -79,22 +111,23 @@ public class User {
     }
 
     @JsonIgnore
-    public void sendMessage(String message, boolean doSpamFiltering) {
-        if (doSpamFiltering) {
-            boolean canSendMessage = canSendMessage(message);
-            if (!canSendMessage && !operator) {
-                sendCantSendMessage();
-                return;
-            }
-            addSentMessage(message);
+    public void sendMessage(String message) {
+        if (message == null || message.isEmpty()) {
+            return;
         }
-
-        if (!operator) {
+        String swearFilterPermisison = DefaultConfigManager.getInstance()
+                .getDefaultConfig()
+                .getGlobalMechanismPermissions()
+                .get("swearFilterBypass");
+        if (!operator && !hasPermission(swearFilterPermisison)) {
             message = StringUtil.censorMessage(this, message);
         }
 
+        String lineSeparator = System.getProperty("line.separator");
+        message = message.replace("%newline%", lineSeparator);
+
         // TODO: implement default message sending to User
-        System.out.println("(user.sendMessage) " + message);
+        System.out.println("(sendMessage() to " + name + ") " + message);
     }
 
     @JsonIgnore
@@ -109,7 +142,7 @@ public class User {
         LanguageConfig languageConfig = LanguageConfigManager.getInstance().getLanguageConfig();
         String message = languageConfig.getCantSendThisMessage();
 
-        sendMessage(message, false);
+        sendMessage(message);
     }
 
     @JsonIgnore
@@ -186,10 +219,9 @@ public class User {
         }
 
         LanguageConfig languageConfig = LanguageConfigManager.getInstance().getLanguageConfig();
-        PlaceholderReplacer replacer = new PlaceholderReplacer();
-        String message = replacer.replace(languageConfig.getBalanceDecreased(), name, String.valueOf(value),
+        String message = StringUtil.replacePlaceholder(languageConfig.getBalanceDecreased(), name, String.valueOf(value),
                 String.valueOf(balance));
-        sendMessage(message, false);
+        sendMessage(message);
     }
 
     @JsonIgnore
@@ -203,10 +235,9 @@ public class User {
         }
 
         LanguageConfig languageConfig = LanguageConfigManager.getInstance().getLanguageConfig();
-        PlaceholderReplacer replacer = new PlaceholderReplacer();
-        String message = replacer.replace(languageConfig.getBalanceIncreased(), name, String.valueOf(value),
+        String message = StringUtil.replacePlaceholder(languageConfig.getBalanceIncreased(), name, String.valueOf(value),
                 String.valueOf(balance));
-        sendMessage(message, false);
+        sendMessage(message);
     }
 
     @JsonIgnore
@@ -215,9 +246,8 @@ public class User {
         balance = config.getStartingBalance();
 
         LanguageConfig languageConfig = LanguageConfigManager.getInstance().getLanguageConfig();
-        PlaceholderReplacer replacer = new PlaceholderReplacer();
-        String message = replacer.replace(languageConfig.getBalanceSet(), String.valueOf(balance));
-        sendMessage(message, false);
+        String message = StringUtil.replacePlaceholder(languageConfig.getBalanceSet(), String.valueOf(balance));
+        sendMessage(message);
     }
 
     @JsonIgnore
@@ -238,6 +268,16 @@ public class User {
     @JsonIgnore
     public void setLastSendMessages(Queue<String> lastSendMessages) {
         this.lastSendMessages = lastSendMessages;
+    }
+
+    @JsonIgnore
+    public List<String> getIgnoredUsers() {
+        return ignoredUsers;
+    }
+
+    @JsonIgnore
+    public void setIgnoredUsers(List<String> ignoredUsers) {
+        this.ignoredUsers = ignoredUsers;
     }
 
     // getters/setters:
@@ -370,5 +410,21 @@ public class User {
 
     public void setWhiteListed(boolean whiteListed) {
         this.whiteListed = whiteListed;
+    }
+
+    public boolean isSocialSpyActive() {
+        return socialSpyActive;
+    }
+
+    public void setSocialSpyActive(boolean socialSpyActive) {
+        this.socialSpyActive = socialSpyActive;
+    }
+
+    public boolean isCommandSpyActive() {
+        return commandSpyActive;
+    }
+
+    public void setCommandSpyActive(boolean commandSpyActive) {
+        this.commandSpyActive = commandSpyActive;
     }
 }
