@@ -83,9 +83,10 @@ public class GroupManager {
 
         IObjectFactory<Group> groupFactory = new GroupFactory();
         groupList.add(groupFactory.getBean("default"));
-        groupList.add(groupFactory.getBean("builder"));
         groupList.add(groupFactory.getBean("moderator"));
         groupList.add(groupFactory.getBean("helper"));
+        groupList.add(groupFactory.getBean("builder"));
+        groupList.add(groupFactory.getBean("developer"));
         groupList.add(groupFactory.getBean("admin"));
         groupList.add(groupFactory.getBean("owner"));
 
