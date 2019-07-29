@@ -13,6 +13,10 @@
     <util:list id="moderatorInheritances" value-type="java.lang.String">
         <value>default</value>
     </util:list>
+    <util:list id="helperInheritances" value-type="java.lang.String">
+        <value>default</value>
+        <value>moderator</value>
+    </util:list>
     <util:list id="builderInheritances" value-type="java.lang.String">
         <value>default</value>
         <value>moderator</value>
@@ -33,6 +37,9 @@
     </util:list>
     <util:list id="moderatorPermissions" value-type="java.lang.String">
         <value>hytools.moderator.*</value>
+    </util:list>
+    <util:list id="helperPermissions" value-type="java.lang.String">
+        <value>hytools.helper.*</value>
     </util:list>
     <util:list id="builderPermissions" value-type="java.lang.String">
         <value>hytools.builder.*</value>
@@ -62,6 +69,13 @@
         <constructor-arg index="3" ref="moderatorPermissions"/> <!-- permissions -->
         <constructor-arg index="4" ref="moderatorInheritances"/> <!-- inheritances -->
     </bean>
+    <bean id="helper" class="hu.martinmarkus.basichytools.models.Group">
+        <constructor-arg index="0" value="helper"/> <!-- name -->
+        <constructor-arg index="1" value="[Helper]"/> <!-- prefix -->
+        <constructor-arg index="2" value=""/> <!-- suffix -->
+        <constructor-arg index="3" ref="helperPermissions"/> <!-- permissions -->
+        <constructor-arg index="4" ref="helperInheritances"/> <!-- inheritances -->
+    </bean>
     <bean id="builder" class="hu.martinmarkus.basichytools.models.Group">
         <constructor-arg index="0" value="builder"/> <!-- name -->
         <constructor-arg index="1" value="[Builder]"/> <!-- prefix -->
@@ -77,7 +91,7 @@
         <constructor-arg index="4" ref="adminInheritances"/> <!-- inheritances -->
     </bean>
     <bean id="developer" class="hu.martinmarkus.basichytools.models.Group">
-        <constructor-arg index="0" value="admin"/> <!-- name -->
+        <constructor-arg index="0" value="developer"/> <!-- name -->
         <constructor-arg index="1" value="[Developer]"/> <!-- prefix -->
         <constructor-arg index="2" value=""/> <!-- suffix -->
         <constructor-arg index="3" ref="developerPermissions"/> <!-- permissions -->
