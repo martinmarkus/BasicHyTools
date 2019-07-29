@@ -30,6 +30,8 @@ public class Ping extends GameFunction {
     @Override
     public void execute() {
         super.runFunction(() -> {
+            executor.sendMessage("Pong!");
+
             // TODO: implement function
             System.out.println(this.getClass().getName() + " function is not implemented");
         });

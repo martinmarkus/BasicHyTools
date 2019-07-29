@@ -1,13 +1,11 @@
 package hu.martinmarkus.basichytools.eventmanagement;
 
-import hu.martinmarkus.basichytools.initializers.iocfactories.concretefactories.GameFunctionFactory;
+import hu.martinmarkus.basichytools.gamefunctions.ConcreteGameFunctionFactory;
 import hu.martinmarkus.basichytools.configmanagement.DefaultConfigManager;
-import hu.martinmarkus.basichytools.configmanagement.FunctionParameterManager;
 import hu.martinmarkus.basichytools.configmanagement.LanguageConfigManager;
 import hu.martinmarkus.basichytools.configmanagement.UserManager;
 import hu.martinmarkus.basichytools.gamefunctions.GameFunction;
 import hu.martinmarkus.basichytools.models.DefaultConfig;
-import hu.martinmarkus.basichytools.models.FunctionParameter;
 import hu.martinmarkus.basichytools.models.LanguageConfig;
 import hu.martinmarkus.basichytools.models.User;
 
@@ -69,47 +67,14 @@ public class CommandEventHandler {
     }
 
     private void executeFunction(String rawCommand, User user) {
-        GameFunction gameFunction = defineGameFunction(rawCommand);
+        ConcreteGameFunctionFactory concreteGameFunctionFactory = ConcreteGameFunctionFactory.getInstance();
+        GameFunction gameFunction = concreteGameFunctionFactory.createGameFunction(rawCommand);
 
         if (gameFunction != null) {
             gameFunction.setRequiredParams(rawCommand, user);
             gameFunction.execute();
         }
-        // if the command is unknown, just don't do anything
-    }
-
-    private GameFunction defineGameFunction(String rawCommand) {
-        String command = getCommand(rawCommand);
-        List<FunctionParameter> functionParameters = getFunctionParameters();
-
-        boolean isCommand;
-        boolean isAlias;
-
-        for (FunctionParameter functionParameter : functionParameters) {
-            isCommand = command.equalsIgnoreCase(functionParameter.getName());
-            isAlias = isAlias(command, functionParameter.getAliases());
-
-            if (isCommand || isAlias) {
-                String name = functionParameter.getName();
-                return GameFunctionFactory.getInstance().getBean(name);
-            }
-        }
-
-        return null;
-    }
-
-    private boolean isAlias(String command, List<String> aliases) {
-        for (String alias : aliases) {
-            if (alias.equalsIgnoreCase(command)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private List<FunctionParameter> getFunctionParameters() {
-        FunctionParameterManager functionParameterManager = FunctionParameterManager.getInstance();
-        return functionParameterManager.getAlLFunctionParameters();
+        // if the command is unknown, do nothing
     }
 
     private String getCommand(String rawCommand) {
